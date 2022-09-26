@@ -6,29 +6,27 @@ services:
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: password
-    command: --default-authentication-plugin=mysql_native_password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: fitO2_development
     volumes:
-      - mysql-data:/var/lib/mysql
-      - /tmp/dockerdir:/etc/mysql/conf.d/
-    ports:
-      - 3306:3306
+      - db-data:/var/lib/mysql
+    networks:
+      - mbg-network
 
   api:
     build:
       context: ./backend/
       dockerfile: Dockerfile
-    command: bash -c "rm -f /myapp/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
-    image: rails:dev
+    command: bundle exec puma -C config/puma.rb
     volumes:
       - ./backend:/myapp
       - ./backend/vendor/bundle:/myapp/vendor/bundle
-    environment:
-      TZ: Asia/Tokyo
-      RAILS_ENV: development
-    ports:
-      - 3000:3000
+      - ./backend/public-data:/myapp/public
     depends_on:
       - db
+    networks:
+      - mbg-network
   
   front:
     build:
@@ -39,6 +37,25 @@ services:
     command: sh -c "cd app && yarn && yarn start"
     ports:
       - "4000:3000"
+    networks:
+      - mbg-network
+
+  web:
+    build:
+      context: ./backend/nginx_docker
+    volumes:
+      - ./backend/public-data:/myapp/public
+    ports:
+      - 80:80
+    depends_on:
+      - api
+    networks:
+      - mbg-network
 
 volumes:
-  mysql-data:
+  db-data:
+  public-data:
+
+networks:
+  mbg-network:
+    external: true
