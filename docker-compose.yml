@@ -37,24 +37,27 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./frontend:/usr/src/app
-    command: sh -c "cd app && yarn && yarn start"
     ports:
-      - "4000:3000"
-    networks:
-      - mbg-network
-
-  web:
-    build:
-      context: ./backend/nginx_docker
-    volumes:
-      - public-data:/myapp/public
-      - tmp-data:/myapp/tmp
-    ports:
-      - 80:80
-    depends_on:
+      - "3000:80"
+    volumes_from:
       - api
     networks:
       - mbg-network
+    depends_on:
+      - api
+
+  # web:
+  #   build:
+  #     context: ./backend/nginx_docker
+  #   volumes:
+  #     - public-data:/myapp/public
+  #     - tmp-data:/myapp/tmp
+  #   ports:
+  #     - 80:80
+  #   depends_on:
+  #     - api
+  #   networks:
+  #     - mbg-network
 
 volumes:
   db-data:
