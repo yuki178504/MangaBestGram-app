@@ -1,35 +1,35 @@
 version: "3"
 
 services:
-  # db:
-  #   platform: linux/x86_64
-  #   image: mysql:8.0
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: password
-  #     MYSQL_USER: user
-  #     MYSQL_PASSWORD: password
-  #     MYSQL_DATABASE: fitO2_development
-  #   volumes:
-  #     - db-data:/var/lib/mysql
-  #   networks:
-  #     - mbg-network
+  db:
+    platform: linux/x86_64
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: myapp_development
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - mbg-network
 
   api:
     build:
       context: ./backend/
       dockerfile: Dockerfile
-    # ローカルと本番切り替え
-    command: bundle exec puma -C config/puma.rb -e production
-    # command: bundle exec puma -C config/puma.rb
+    #ローカルと本番切り替え
+    command: bundle exec puma -C config/puma.rb
+    #command: bundle exec puma -C config/puma.rb
     volumes:
       - ./backend:/myapp
-      - ./backend/vendor/bundle:/myapp/vendor/bundle
-      - ./backend/public-data:/myapp/public
+      - public-data:/myapp/public
+      - tmp-data:/myapp/tmp
+      - log-data:/myapp/log
     networks:
       - mbg-network
-    #ローカルと本番切り替え
-    # depends_on:
-    #   - db
+    depends_on:
+      - db
 
   front:
     build:
@@ -47,7 +47,8 @@ services:
     build:
       context: ./backend/nginx_docker
     volumes:
-      - ./backend/public-data:/myapp/public
+      - public-data:/myapp/public
+      - tmp-data:/myapp/tmp
     ports:
       - 80:80
     depends_on:
@@ -58,6 +59,8 @@ services:
 volumes:
   db-data:
   public-data:
+  tmp-data:
+  log-data:
 
 networks:
   mbg-network:
