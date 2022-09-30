@@ -46,19 +46,6 @@ services:
     depends_on:
       - api
 
-  # web:
-  #   build:
-  #     context: ./backend/nginx_docker
-  #   volumes:
-  #     - public-data:/myapp/public
-  #     - tmp-data:/myapp/tmp
-  #   ports:
-  #     - 80:80
-  #   depends_on:
-  #     - api
-  #   networks:
-  #     - mbg-network
-
 volumes:
   db-data:
   public-data:
