@@ -1,26 +1,11 @@
 version: "3"
 
 services:
-  db:
-    platform: linux/x86_64
-    image: mysql:8.0
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-      MYSQL_DATABASE: myapp_development
-    volumes:
-      - db-data:/var/lib/mysql
-    networks:
-      - mbg-network
-
   api:
     build:
       context: ./backend/
       dockerfile: Dockerfile
-    # ローカルと本番切り替え
-    command: bundle exec puma -C config/puma.rb
-    # command: bundle exec puma -C config/puma.rb
+    command: bundle exec puma -C config/puma.rb -e production
     volumes:
       - ./backend:/myapp
       - public-data:/myapp/public
@@ -28,13 +13,13 @@ services:
       - log-data:/myapp/log
     networks:
       - mbg-network
-    depends_on:
-      - db
 
   front:
     build:
       context: ./frontend/
       dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/usr/src/app
     ports:
       - "80:80"
     volumes_from:
@@ -45,7 +30,6 @@ services:
       - api
 
 volumes:
-  db-data:
   public-data:
   tmp-data:
   log-data:
