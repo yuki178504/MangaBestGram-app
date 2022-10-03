@@ -11,45 +11,34 @@ services:
       MYSQL_DATABASE: myapp_development
     volumes:
       - db-data:/var/lib/mysql
-    networks:
-      - mbg-network
 
   api:
     build:
       context: ./backend/
       dockerfile: Dockerfile
-    # ローカルと本番切り替え
-    command: bundle exec puma -C config/puma.rb
-    # command: bundle exec puma -C config/puma.rb
+    command: bash -c "rm -f /myapp/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - ./backend:/myapp
       - public-data:/myapp/public
       - tmp-data:/myapp/tmp
       - log-data:/myapp/log
-    networks:
-      - mbg-network
+    ports:
+      - 3000:3000
     depends_on:
       - db
 
   front:
     build:
       context: ./frontend/
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     ports:
-      - "80:80"
-    volumes_from:
-      - api
-    networks:
-      - mbg-network
-    depends_on:
-      - api
+      - "4000:3000"
+    volumes:
+      - ./frontend:/usr/src/app
+    command: sh -c "cd app && yarn && yarn start"
 
 volumes:
   db-data:
   public-data:
   tmp-data:
   log-data:
-
-networks:
-  mbg-network:
-    external: true
