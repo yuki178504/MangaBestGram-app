@@ -1,0 +1,2 @@
+class ScenePost < ApplicationRecord
+end
