@@ -1,8 +1,8 @@
 class Api::V1::ScenePostsController < ApplicationController
-  before_action :set_post, only: %i[show destroy update]
+  #before_action :set_post, only: %i[show destroy update]
 
   def index
-    posts = Post.all.order(:id)
+    posts = ScenePost.all
     render json: posts
   end
 
@@ -11,7 +11,7 @@ class Api::V1::ScenePostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
+    post = ScenePost.new(post_params)
     if post.save
       render json: post
     else
@@ -38,10 +38,10 @@ class Api::V1::ScenePostsController < ApplicationController
   private
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = ScenePost.find(params[:id])
   end
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:scene_post).permit(:scene_title, :scene_date, :scene_content, :scene_image)
   end
 end
