@@ -24,6 +24,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <p>これはテストです</p>
       <p>
         { posts.map((post) => (
           <div>
