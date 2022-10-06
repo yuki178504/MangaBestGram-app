@@ -1,11 +1,13 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Home } from './Pages';
+import { Home, TermsOfService, PrivacyPolicy } from './Pages';
 
 const Routers = () => {
   return (
     <Routes>
       <Route path='/' element={ <Home /> } />
+      <Route path='/terms-of-service' element={ <TermsOfService /> } />
+      <Route path='/privacy-policy' element={ <PrivacyPolicy /> } />
     </Routes>
   )
 }
