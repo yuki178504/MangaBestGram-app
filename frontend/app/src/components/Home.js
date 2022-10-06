@@ -1,5 +1,6 @@
 import React from 'react';
 import home from '../css/home.module.css'
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -9,7 +10,7 @@ const Home = () => {
       <div className={home["top-title-text"]}>あなたのお気に入りの場面を共有しよう！</div>
       <div className={home["top-post"]}>
         <div className={home["top-post-title"]}>
-          <p to="" className={home["top-post-title-link"]}>最新の投稿</p>
+          <Link to="" className={home["top-post-title-link"]}>最新の投稿</Link>
         </div>
       </div>
     </div>
