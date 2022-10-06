@@ -8,10 +8,10 @@ const Footer = () => {
   <div className={footer["container"]}>
     <ul className={footer["container-ul"]}>
       <li>
-        <Link to="" className={footer["container-list"]}>利用規約</Link>
+        <Link to="/terms-of-service" className={footer["container-list"]}>利用規約</Link>
       </li>
       <li>
-      <Link to="" className={footer["container-list"]}>プライバシーポリシー</Link>
+      <Link to="/privacy-policy" className={footer["container-list"]}>プライバシーポリシー</Link>
       </li>
       <li>
       <Link to="" className={footer["container-list"]}>お問合せ</Link>
