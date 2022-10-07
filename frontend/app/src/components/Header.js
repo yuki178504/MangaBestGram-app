@@ -10,13 +10,13 @@ const Header = () => {
   <div className={header["nav-list"]}>
     <ul className={header["nav-ul"]}>
       <li className={header["nav-li"]}>
-        <p to="/posts" className={header["nav-li-text"]}>新規投稿</p>
+        <p to="" className={header["nav-li-text"]}>ゲストログイン</p>
       </li>
       <li className={header["nav-li"]}>
-        <p to="/" className={header["nav-li-text"]}>ホーム</p>
+        <p to="" className={header["nav-li-text"]}>新規登録</p>
       </li>
       <li className={header["nav-li"]}>
-        <p to="/lists" className={header["nav-li-text"]}>投稿一覧</p>
+        <Link to="/signin" className={header["nav-li-text"]}>ログイン</Link>
       </li>
     </ul>
   </div>
