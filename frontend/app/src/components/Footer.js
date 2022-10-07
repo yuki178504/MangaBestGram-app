@@ -14,7 +14,7 @@ const Footer = () => {
       <Link to="/privacy-policy" className={footer["container-list"]}>プライバシーポリシー</Link>
       </li>
       <li>
-      <Link to="" className={footer["container-list"]}>お問合せ</Link>
+      <Link to="contact" className={footer["container-list"]}>お問合せ</Link>
       </li>
     </ul>
     <p className={footer["copylight"]}>Copyright © 2022. YUKI</p>

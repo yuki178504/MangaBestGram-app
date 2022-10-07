@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Home, TermsOfService, PrivacyPolicy, SignIn, SignUp } from './Pages';
+import { Home, TermsOfService, PrivacyPolicy, SignIn, SignUp, Contact } from './Pages';
 
 const Routers = () => {
   return (
@@ -10,6 +10,7 @@ const Routers = () => {
       <Route path='/privacy-policy' element={ <PrivacyPolicy /> } />
       <Route path='/signin' element={ <SignIn /> } />
       <Route path='/signup' element={ <SignUp /> } />
+      <Route path='/contact' element={ <Contact /> } />
     </Routes>
   )
 }
