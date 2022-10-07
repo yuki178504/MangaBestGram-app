@@ -1,6 +1,8 @@
 .top-content {
   width: 100%;
   height: 100vh;
+  background-image: url("../../public/image/huukei.jpg");
+  background-size: cover;
 }
 
 .top-title {
@@ -45,6 +47,9 @@
 @media screen and (max-width: 540px) {
   .top-content {
     background-color: bisque;
+    background-image: url("../../public/image/huukei.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
   .top-title {
