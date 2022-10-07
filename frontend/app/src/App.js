@@ -1,39 +1,19 @@
-import './App.css';
-import React, { useEffect, useState } from 'react';
-import instance from './api/api';
+import React from 'react'
+import './css/App.css';
+import Routers from './route/Routers';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 const App = () => {
-
-  const [ posts, setPost ] = useState([])
-
-  useEffect(() => {
-    handleGetList();
-  }, []);
-
-  const handleGetList = async () => {
-    try {
-      const res = await instance.get('/api/v1/scene_posts');
-      console.log(res.data);
-      setPost(res.data)
-    } catch (e) {
-      console.log(e)
-    }
-  }
-
-
-
   return (
-    <div className="App">
-      <p>これはテストです</p>
-      <p>
-        { posts.map((post) => (
-          <div>
-            <div>APIのテスト</div>
-            <div>{ post.scene_title }</div>
-          </div>
-        )) }
-      </p>
-    </div>
+    <Router>
+      <Header />
+      <div className='main'>
+        <Routers />
+      </div>
+      <Footer />
+    </Router>
   );
 }
 

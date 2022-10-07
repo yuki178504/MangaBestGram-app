@@ -1,0 +1,27 @@
+footer {
+  position: sticky;
+  top: 100vh;
+  width: 100%;
+  background-color: #4b0082;
+}
+
+.copylight {
+  text-align: center;
+  color: white;
+}
+
+.container-ul {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.container-list {
+  margin-right: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.container-list:hover {
+  opacity: 0.5;
+}
