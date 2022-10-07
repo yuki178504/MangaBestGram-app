@@ -10,10 +10,10 @@ const Header = () => {
   <div className={header["nav-list"]}>
     <ul className={header["nav-ul"]}>
       <li className={header["nav-li"]}>
-        <p to="" className={header["nav-li-text"]}>ゲストログイン</p>
+        <Link to="/" className={header["nav-li-text"]}>ゲストログイン</Link>
       </li>
       <li className={header["nav-li"]}>
-        <p to="" className={header["nav-li-text"]}>新規登録</p>
+        <Link to="/signup" className={header["nav-li-text"]}>新規登録</Link>
       </li>
       <li className={header["nav-li"]}>
         <Link to="/signin" className={header["nav-li-text"]}>ログイン</Link>

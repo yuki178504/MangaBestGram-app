@@ -11,7 +11,7 @@ const SignIn = () => {
         <div className={signin['sign-in-up-inner-title']}>ログイン</div>
         <div className={signin['sign-in-up-outer-item']}>
           <div className={signin['sign-in-up-inner-login']}><Link to='/signin' className={signin['sign-in-up-inner-login-link']}>ログイン</Link></div>
-          <div className={signin['sign-in-up-inner-register']}><Link to='' className={signin['sign-in-up-inner-register-link']}>新規登録</Link></div>
+          <div className={signin['sign-in-up-inner-register']}><Link to='/signup' className={signin['sign-in-up-inner-register-link']}>新規登録</Link></div>
         </div>
         <div className={signin['sign-in-up-outer-list']}>
           <div className={signin['sign-in-up-outer-icon']}>
