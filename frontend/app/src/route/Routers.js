@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Home, TermsOfService, PrivacyPolicy, SignIn, SignUp, Contact } from './Pages';
+import { Home, TermsOfService, PrivacyPolicy, SignIn, SignUp, Contact, MyPage } from './Pages';
 import { getCurrentUser } from "../api/auth";
 
 export const AuthContext = createContext();
@@ -52,6 +52,7 @@ const Routers = () => {
         <Route path='/signin' element={ <SignIn /> } />
         <Route path='/signup' element={ <SignUp /> } />
         <Route path='/contact' element={ <Contact /> } />
+        <Route path='/mypage' element={ <MyPage /> } />
       </Routes>
     </AuthContext.Provider>
   )
