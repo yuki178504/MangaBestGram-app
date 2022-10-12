@@ -46,13 +46,13 @@ const Routers = () => {
   return (
     <AuthContext.Provider value={{ loading, setLoading, isSignedIn, setIsSignedIn, currentUser, setCurrentUser, }}>
       <Routes>
-        <Route path='/' element={ <Private><Home /></Private> } />
-        <Route path='/terms-of-service' element={ <Private><TermsOfService /></Private> } />
+        <Route path='/' element={ <Home /> } />
+        <Route path='/terms-of-service' element={ <TermsOfService /> } />
         <Route path='/privacy-policy' element={ <PrivacyPolicy /> } />
         <Route path='/signin' element={ <SignIn /> } />
         <Route path='/signup' element={ <SignUp /> } />
         <Route path='/contact' element={ <Contact /> } />
-        <Route path='/mypage' element={ <MyPage /> } />
+        <Route path='/mypage' element={ <Private><MyPage /></Private> } />
       </Routes>
     </AuthContext.Provider>
   )
