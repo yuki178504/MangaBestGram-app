@@ -2,19 +2,16 @@ import signup from '../css/signup.module.css';
 import { Link } from 'react-router-dom';
 import { FaUser, FaUnlock, FaEnvelope } from "react-icons/fa";
 import { IconContext } from 'react-icons';
-import Cookies from "js-cookie";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { signUp } from "../api/auth";
-import { AuthLoginContext } from "../providers/AuthLogin";
 
 const SignUp = () => {
-  const { setIsSignedIn, setCurrentUser } = useContext(AuthLoginContext);
-
+//それぞれのデータをuseStateで保持している
   const [ name, setName ] = useState("");
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
   const [ passwordConfirmation, setPasswordConfirmation ] = useState("");
-  const confirmSuccessUrl = process.env.REACT_APP_CONFIRM_SUCCESS_URL;
+  const confirmSuccessUrl = process.env.REACT_APP_CONFIRM_SUCCESS_URL; //確認メール送信先からの推移先の記述
 
   const generateParams = () => {
     const signUpParams = {
@@ -22,20 +19,21 @@ const SignUp = () => {
       email: email,
       password: password,
       passwordConfirmation: passwordConfirmation,
-      confirmSuccessUrl: confirmSuccessUrl
+      confirmSuccessUrl: confirmSuccessUrl,
     };
     return signUpParams;
   };
-
+//新規登録ボタンを押した時の処理
   const handleSignUpSubmit = async (e) => {
     e.preventDefault();
-    const params = generateParams();
+    const params = generateParams(); //generateParamsで定義したそれぞれのパラメータをparamsに代入
     try {
       const res = await signUp(params);
       console.log(res);
       alert("確認メールを送信しました！");
     } catch (e) {
       console.log(e)
+      alert("正しく入力してください")
     }
   };
 

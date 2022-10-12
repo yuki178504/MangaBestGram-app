@@ -1,7 +1,7 @@
 import instance from "./instance";
 import Cookies from "js-cookie";
 
-export const siginUp = (params) => {
+export const signUp = (params) => {
   return instance.post("/auth", params);
 };
 
@@ -13,9 +13,9 @@ export const signOut = () => {
   return instance.delete("/auth/sign_out", {
     headers: {
       "access-token": Cookies.get("access_token"),
-      client: Cookies.get("_client"),
-      uid: Cookies.get("_uid"),
-    },
+      "client": Cookies.get("_client"),
+      "uid": Cookies.get("_uid")
+    }
   });
 };
 
@@ -30,8 +30,8 @@ export const getCurrentUser = () => {
   return instance.get("/auth/sessions", {
     headers: {
       "access-token": Cookies.get("_access_token"),
-      client: Cookies.get("_client"),
-      uid: Cookies.get("_uid"),
-    },
+      "client": Cookies.get("_client"),
+      "uid": Cookies.get("_uid"),
+    }
   });
 };

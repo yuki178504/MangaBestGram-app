@@ -35,7 +35,8 @@ const SignIn = () => {
 
         setIsSignedIn(true);
         setCurrentUser(res.data.data);
-        navigate('/');
+        navigate('/', { replace: true });
+        console.log("ログインに成功しました")
       }
     } catch (e) {
       console.log(e);
