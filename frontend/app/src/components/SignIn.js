@@ -5,10 +5,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import signin from '../css/signin.module.css'
 import { FaUnlock, FaEnvelope } from "react-icons/fa";
 import { IconContext } from 'react-icons';
-import { AuthLoginContext } from "../providers/AuthLogin";
+import { AuthContext } from "../route/Routers";
 
 const SignIn = () => {
-  const { setIsSignedIn, setCurrentUser } = useContext(AuthLoginContext);
+  const { setIsSignedIn, setCurrentUser } = useContext(AuthContext);
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
 
@@ -37,10 +37,11 @@ const SignIn = () => {
         setCurrentUser(res.data.data);
         navigate('/', { replace: true });
         console.log("ログインに成功しました")
+        alert("ログインに成功しました")
       }
     } catch (e) {
       console.log(e);
-      alert("正しく入力してください")
+      alert("メールアドレスかパスワードが間違っています")
     }
   };
 
