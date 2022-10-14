@@ -4,15 +4,15 @@ import MyPageButton from './ui/MyPageButton';
 
 const Home = () => {
   return (
-    <div className={home["top-wrapper"]}>
-  <div className={home["top-content"]}>
-    <div className={home["top-title"]}>
-      <div className={home["top-title-text"]}>あなたのお気に入りの場面を共有しよう！</div>
-      <div className={home["top-post"]}>
+    <div className={home.wrapper}>
+  <div className={home.content}>
+    <div className={home.title}>
+      <div className={home["title-text"]}>あなたのお気に入りの場面を共有しよう！</div>
+      <div className={home.post}>
         <MyPageButton />
       </div>
     </div>
-    <div className={home["top-search"]}>
+    <div className={home.search}>
       検索窓
     </div>
   </div>

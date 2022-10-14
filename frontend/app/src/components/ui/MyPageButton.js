@@ -9,14 +9,14 @@ const MyPageButton = () => {
 
   if (currentUser) {
     return (
-      <div className={home["top-post-title"]}>
-        <Link to="/mypage" className={home["top-post-title-link"]} >マイページ</Link>
+      <div className={home["post-title"]}>
+        <Link to="/mypage" className={home["post-title-link"]} >マイページ</Link>
       </div>
     )
   } else {
     return (
-      <div className={home["top-post-title"]}>
-        <Link to="" className={home["top-post-title-link"]}>最新の投稿</Link>
+      <div className={home["post-title"]}>
+        <Link to="" className={home["post-title-link"]}>最新の投稿</Link>
       </div>
     )
   }
