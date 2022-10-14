@@ -1,4 +1,5 @@
 import React from "react";
+import Profile from "./model/mypage/Profile";
 import mypage from "../css/mypage.module.css"
 import { AiFillHome, AiFillEdit, AiFillHeart, AiFillFileText, AiOutlineUser } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -29,6 +30,7 @@ const MyPage = () => {
           </ul>
         </ul>
       </div>
+      <Profile />
     </div>
   )
 }
