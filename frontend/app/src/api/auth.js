@@ -9,6 +9,10 @@ export const signIn = (params) => {
   return instance.post("/auth/sign_in", params);
 }
 
+export const editUser = (params) => {
+  return instance.put("/auth", params);
+}
+
 export const signOut = () => {
   return instance.delete("/auth/sign_out", {
     headers: {
