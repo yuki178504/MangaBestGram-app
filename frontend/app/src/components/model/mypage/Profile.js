@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../../route/Routers';
 import profile from '../../../css/model/profile.module.css';
 import { Link } from 'react-router-dom';
+import reactStringReplace from "react-string-replace";
+
 const Profile = () => {
   const { currentUser } = useContext(AuthContext);
-
+  const regExp = /(https?:\/\/\S+)/g;
 
   return (
     <div className={profile.wrapper}>
@@ -12,7 +14,11 @@ const Profile = () => {
         <div className={profile.name}>{currentUser.name}</div>
         <div className={profile.image}>プロフ画像</div>
         <div className={profile.introduction}>{currentUser.introduction}</div>
-        <div className={profile.url}>{currentUser.url}</div>
+        <div className={profile.url}>
+          {reactStringReplace(currentUser.url, regExp, (match, i) => (
+            <a className={profile.a} key={i} href={match}>{match}</a>
+          ))}
+        </div>
         <div className={profile.edit}>
           <button className={profile.button}><Link to={`/edit/${currentUser.id}`}>プロフィールを編集する</Link></button>
         </div>

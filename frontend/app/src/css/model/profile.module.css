@@ -28,6 +28,14 @@
   margin-bottom: 20px;
 }
 
+.a {
+  text-decoration-line: underline;
+}
+
+.a:hover {
+  color: blue;
+}
+
 .edit {
   text-align: center;
   margin-bottom: 20px;
