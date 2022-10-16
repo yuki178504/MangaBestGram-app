@@ -11,7 +11,8 @@ const Profile = () => {
       <div className={profile.content}>
         <div className={profile.name}>{currentUser.name}</div>
         <div className={profile.image}>プロフ画像</div>
-        <div className={profile.introduction}>自己紹介文</div>
+        <div className={profile.introduction}>{currentUser.introduction}</div>
+        <div className={profile.url}>{currentUser.url}</div>
         <div className={profile.edit}>
           <button className={profile.button}><Link to={`/edit/${currentUser.id}`}>プロフィールを編集する</Link></button>
         </div>

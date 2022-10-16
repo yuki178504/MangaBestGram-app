@@ -8,7 +8,9 @@ import ProfileForm from './ui/ProfileForm';
 const ProfileEdit = () => {
   const { currentUser } = useContext(AuthContext);
   const [ value, setValue ] = useState({
-    name: currentUser.name
+    name: currentUser.name,
+    introduction: currentUser.introduction,
+    url: currentUser.url
   });
 
   const query = useParams();
