@@ -1,22 +1,48 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { updateAccount } from '../api/auth';
 import { AuthContext } from '../route/Routers';
+import ProfileForm from './ui/ProfileForm';
 
 
 const ProfileEdit = () => {
   const { currentUser } = useContext(AuthContext);
-  const [ name, setName ] = useState(currentUser.name);
-  const [ password, setPassword ] = useState("●●●●●●●●●");
-  const [ email, setEmail ] = useState(currentUser.email);
+  const [ value, setValue ] = useState({
+    name: currentUser.name
+  });
+
+  const query = useParams();
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setValue({
+      ...value,
+      [e.target.name]: e.target.value
+    })
+  }
+
+
+  const handleSubmit = async(e) => {
+    e.preventDefault()
+    try {
+      const res = await updateAccount(query.id, value)
+      console.log(res)
+      navigate('/mypage')
+      alert("プロフィールを更新しました")
+    } catch(e) {
+      console.log(e)
+      alert("もう一度入力してください")
+    };
+  };
 
   return (
     <div>
-      <div>ユーザー名</div>
-      <input type='name' id='name' name='name' value={name} onChange={ (e) => setName(e.target.value) } />
-      <div>メールアドレス</div>
-      <input type='email' id='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
-      <div>パスワード</div>
-      <input type='password' id='password' name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
-      { email }
+      <ProfileForm
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        value={value}
+        buttonType='プロフィール更新'
+      />
     </div>
   )
 }
