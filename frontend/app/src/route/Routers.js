@@ -1,8 +1,7 @@
 import { createContext, useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Home, TermsOfService, PrivacyPolicy, SignIn, SignUp, Contact, MyPage } from './Pages';
+import { Home, TermsOfService, PrivacyPolicy, SignIn, SignUp, Contact, MyPage, ProfileEdit } from './Pages';
 import { getCurrentUser } from "../api/auth";
-import ProfileEdit from '../components/ProfileEdit';
 
 export const AuthContext = createContext();
 
@@ -54,7 +53,7 @@ const Routers = () => {
         <Route path='/signup' element={ <SignUp /> } />
         <Route path='/contact' element={ <Contact /> } />
         <Route path='/mypage' element={ <Private><MyPage /></Private> } />
-        <Route path='/edit' element={ <Private><ProfileEdit /></Private> } />
+        <Route path='/edit/:id' element={ <Private><ProfileEdit /></Private> } />
       </Routes>
     </AuthContext.Provider>
   )

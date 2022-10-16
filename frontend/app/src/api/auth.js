@@ -39,3 +39,7 @@ export const getCurrentUser = () => {
     }
   });
 };
+
+export const updateAccount = (id, params) => {
+  return instance.put(`/accounts/${id}`, params);
+}

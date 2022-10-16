@@ -13,7 +13,7 @@ const Profile = () => {
         <div className={profile.image}>プロフ画像</div>
         <div className={profile.introduction}>自己紹介文</div>
         <div className={profile.edit}>
-          <button className={profile.button}><Link to='/edit'>プロフィールを編集する</Link></button>
+          <button className={profile.button}><Link to={`/edit/${currentUser.id}`}>プロフィールを編集する</Link></button>
         </div>
       <ul className={profile.list}>
         <ul className={profile.posts}>
