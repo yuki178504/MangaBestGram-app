@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { updateAccount } from '../api/auth';
+import { getDetail, updateAccount } from '../api/auth';
 import { AuthContext } from '../route/Routers';
 import ProfileForm from './ui/ProfileForm';
 
@@ -15,6 +15,24 @@ const ProfileEdit = () => {
 
   const query = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    handleGetData(query)
+  },[query])
+
+  const handleGetData = async (query) => {
+    try {
+      const res = await getDetail(query.id)
+      console.log(res.data)
+      setValue({
+        name: res.data.name,
+        introduction: res.data.introduction,
+        url: res.data.url
+      })
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
   const handleChange = (e) => {
     setValue({

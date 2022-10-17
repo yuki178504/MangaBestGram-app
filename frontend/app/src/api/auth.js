@@ -22,7 +22,7 @@ export const signOut = () => {
     }
   });
 };
-
+//認証済みのユーザーを取得
 export const getCurrentUser = () => {
   if (
     !Cookies.get("access_token") ||
@@ -43,3 +43,7 @@ export const getCurrentUser = () => {
 export const updateAccount = (id, params) => {
   return instance.put(`/accounts/${id}`, params);
 }
+
+export const getDetail = (id) => {
+  return instance.get(`/accounts/${id}`);
+};
