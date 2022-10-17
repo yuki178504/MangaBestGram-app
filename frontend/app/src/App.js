@@ -4,15 +4,18 @@ import Routers from './route/Routers';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { AuthGuardProvider } from './providers/AuthGuard';
 
 const App = () => {
   return (
     <Router>
-      <Header />
-      <div className='main'>
-        <Routers />
-      </div>
-      <Footer />
+      <AuthGuardProvider>
+        <Header />
+        <div className='main'>
+          <Routers />
+        </div>
+        <Footer />
+      </AuthGuardProvider>
     </Router>
   );
 }

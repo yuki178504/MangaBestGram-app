@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import home from '../../css/home.module.css'
 import { Link } from 'react-router-dom';
-import { AuthContext } from "../../route/Routers";
+import { AuthContext } from '../../providers/AuthGuard';
 
 const MyPageButton = () => {
 

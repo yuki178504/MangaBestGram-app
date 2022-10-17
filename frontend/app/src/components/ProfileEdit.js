@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getDetail, updateAccount } from '../api/auth';
-import { AuthContext } from '../route/Routers';
+import { AuthContext } from '../providers/AuthGuard';
 import ProfileForm from './ui/ProfileForm';
 
 

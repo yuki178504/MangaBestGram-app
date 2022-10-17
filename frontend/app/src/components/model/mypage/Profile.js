@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../../route/Routers';
+import { AuthContext } from '../../../providers/AuthGuard';
 import profile from '../../../css/model/profile.module.css';
 import { Link } from 'react-router-dom';
 import reactStringReplace from "react-string-replace";
