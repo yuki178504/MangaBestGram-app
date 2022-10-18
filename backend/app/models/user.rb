@@ -1,9 +1,7 @@
-# frozen_string_literal: true
+class User < ApplicationRecord
+  has_many :scene_posts, dependent: :destroy
 
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
-  include DeviseTokenAuth::Concerns::User
+  def self.from_token_payload(payload)
+    find_by(sub: payload['sub']) || create!(sub: payload['sub'])
+  end
 end
