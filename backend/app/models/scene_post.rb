@@ -1,3 +1,3 @@
 class ScenePost < ApplicationRecord
-  validates_presence_of :body, :published
+  belongs_to :user
 end

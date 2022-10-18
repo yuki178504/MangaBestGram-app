@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_18_144152) do
+ActiveRecord::Schema.define(version: 2022_10_18_183611) do
 
   create_table "scene_posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "scene_title"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2022_10_18_144152) do
     t.string "scene_image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_scene_posts_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -31,4 +33,5 @@ ActiveRecord::Schema.define(version: 2022_10_18_144152) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "scene_posts", "users"
 end
