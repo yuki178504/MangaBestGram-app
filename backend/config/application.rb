@@ -38,13 +38,13 @@ module Myapp
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    # config.middleware.insert_before 0, Rack::Cors do
-    #   allow do
-    #     origins 'http://localhost:4000', 'http://54.178.238.159'
-    #     resource "*",
-    #       headers: :any,
-    #       methods: [:get, :post, :put, :patch, :delete, :options, :head]
-    #   end
-    # end
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'http://localhost:4000', 'http://54.178.238.159'
+        resource "*",
+          headers: :any,
+          methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      end
+    end
   end
 end
