@@ -1,26 +1,47 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../providers/AuthGuard';
 import profile from '../../../css/model/profile.module.css';
 import { Link } from 'react-router-dom';
 import reactStringReplace from "react-string-replace";
+import { getList } from '../../../api/auth';
 
 const Profile = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { user, isAuthenticated } = useContext(AuthContext);
+  const [dataList, setDataList] = useState([]);
   const regExp = /(https?:\/\/\S+)/g;
+
+  useEffect(() => {
+    handleGetList();
+  }, []);
+
+  const handleGetList = async () => {
+    try {
+      const res = await getList();
+      console.log(res.data);
+      setDataList(res.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <div className={profile.wrapper}>
       <div className={profile.content}>
-        <div className={profile.name}>{currentUser.name}</div>
+        <div className={profile.name}>名前</div>
+        {
+        isAuthenticated && (
+          <div>
+            <p>{ user.email }</p>
+            <p>{ dataList.created_at }</p>
+          </div>
+        )}
         <div className={profile.image}>プロフ画像</div>
-        <div className={profile.introduction}>{currentUser.introduction}</div>
+        <div className={profile.introduction}>自己紹介</div>
         <div className={profile.url}>
-          {reactStringReplace(currentUser.url, regExp, (match, i) => (
-            <a className={profile.a} key={i} href={match}>{match}</a>
-          ))}
+          
         </div>
         <div className={profile.edit}>
-          <button className={profile.button}><Link to={`/edit/${currentUser.id}`}>プロフィールを編集する</Link></button>
+          <button className={profile.button}><Link to={`/edit/${dataList.id}`}>プロフィールを編集する</Link></button>
         </div>
       <ul className={profile.list}>
         <ul className={profile.posts}>
