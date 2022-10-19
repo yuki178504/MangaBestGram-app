@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import header from '../css/header.module.css';
 import { Link } from 'react-router-dom';
-import { useAuth0 } from "@auth0/auth0-react";
+import { AuthContext } from '../providers/AuthGuard';
 
 const Header = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, logout } = useContext(AuthContext);
 
   return <nav className={header["navbar"]}>
   <h4 className={header["navbar-logo"]}>
