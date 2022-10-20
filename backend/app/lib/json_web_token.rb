@@ -1,7 +1,7 @@
 # app/lib/json_web_token.rb
 require 'net/http'
 require 'uri'
-
+#Auth0のテナントの公開鍵を取得し、トークンの検証をするクラス
 class JsonWebToken
   def self.verify(token)
     JWT.decode(token, nil,
