@@ -78,6 +78,10 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faraday (2.6.0)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.1)
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -191,6 +195,7 @@ GEM
       rubocop (~> 0.87)
       rubocop-ast (>= 0.7.1)
     ruby-progressbar (1.11.0)
+    ruby2_keywords (0.0.5)
     spring (4.0.0)
     sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
@@ -216,6 +221,8 @@ DEPENDENCIES
   byebug
   dotenv-rails
   factory_bot_rails
+  faraday
+  faraday-net_http
   jwt
   listen (~> 3.3)
   mysql2 (~> 0.5)
