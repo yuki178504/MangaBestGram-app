@@ -3,26 +3,26 @@ import { AuthContext } from '../../../providers/AuthGuard';
 import profile from '../../../css/model/profile.module.css';
 import { Link } from 'react-router-dom';
 import reactStringReplace from "react-string-replace";
-import { getList } from '../../../api/auth';
+//import { getList } from '../../../api/auth';
 
 const Profile = () => {
   const { user, isAuthenticated } = useContext(AuthContext);
   const [dataList, setDataList] = useState([]);
   const regExp = /(https?:\/\/\S+)/g;
 
-  useEffect(() => {
-    handleGetList();
-  }, []);
+  // useEffect(() => {
+  //   handleGetList();
+  // }, []);
 
-  const handleGetList = async () => {
-    try {
-      const res = await getList();
-      console.log(res.data);
-      setDataList(res.data);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  // const handleGetList = async () => {
+  //   try {
+  //     const res = await getList();
+  //     console.log(res.data);
+  //     setDataList(res.data);
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
 
   return (
     <div className={profile.wrapper}>
