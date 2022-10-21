@@ -23,6 +23,7 @@ module Myapp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    config.autoload_paths += Dir.glob("#{config.root}/app/lib")
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -37,16 +38,11 @@ module Myapp
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.session_store :cookie_store, key: '_interslice_session'
-    config.middleware.use ActionDispatch::Cookies # Required for all session management
-    config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
-    config.middleware.use ActionDispatch::Flash
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins 'http://localhost:4000', 'http://54.178.238.159'
         resource "*",
           headers: :any,
-          expose: ["access-token", "expiry", "token-type", "uid", "client"],
           methods: [:get, :post, :put, :patch, :delete, :options, :head]
       end
     end

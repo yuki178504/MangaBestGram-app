@@ -1,0 +1,41 @@
+.title {
+  font-size: 17px;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.home {
+  align-items: center;
+}
+
+.home-link {
+  vertical-align: middle;
+  color: rgba(92,102,111,0.6);
+}
+
+.home-link:hover {
+  opacity: 0.5;
+}
+
+.menu {
+  padding: 40px 120px ;
+}
+
+.menu-list {
+  display: flex;
+  justify-content: center;
+  border: 0.3px solid blue;
+}
+
+.menu-list-in {
+  margin-right: 200px;
+  text-align: center;
+}
+
+.menu-list-in-end {
+  text-align: center;
+}
+
+.menu-icon {
+  font-size: 40px;
+}
