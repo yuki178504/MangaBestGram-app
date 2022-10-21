@@ -28,14 +28,7 @@ const Profile = () => {
     <div className={profile.wrapper}>
       <div className={profile.content}>
         <div className={profile.name}>名前</div>
-        {
-        isAuthenticated && (
-          <div>
-            <p>{ user.email }</p>
-            <p>{ dataList.created_at }</p>
-          </div>
-        )}
-        <div className={profile.image}>プロフ画像</div>
+        <div className={profile.image}><img src={user.picture} /></div>
         <div className={profile.introduction}>自己紹介</div>
         <div className={profile.url}>
           

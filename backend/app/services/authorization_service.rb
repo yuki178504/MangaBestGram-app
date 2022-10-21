@@ -9,12 +9,7 @@ class AuthorizationService
     #@auth_payloadにverify_tokenを代入している。@auth_headerはnilになる。
     @auth_payload, @auth_header = verify_token
     #@userに
-    @user = User.current_user_from_token_payload(@auth_payload)
-  end
-  #ユーザーモデルを実行し、ユーザーを作成するメソッド
-  def create_user(name, introduction, image, url)
-    @auth_payload, @auth_header = verify_token
-    @user = User.create_user_from_token_payload(@auth_payload, name, introduction, image, url)
+    @user = User.from_token_payload(@auth_payload)
   end
 
   private

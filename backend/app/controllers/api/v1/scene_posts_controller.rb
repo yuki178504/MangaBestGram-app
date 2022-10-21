@@ -12,7 +12,7 @@ class Api::V1::ScenePostsController < SecuredController
   end
 
   def create
-    post = current_user.posts.build(post_params)
+    post = @current_user.scene_posts.build(post_params)
     if post.save
       render json: post
     else
