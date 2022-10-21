@@ -10,9 +10,9 @@ const Profile = () => {
   const [dataList, setDataList] = useState([]);
   const regExp = /(https?:\/\/\S+)/g;
 
-  // useEffect(() => {
-  //   handleGetList();
-  // }, []);
+  useEffect(() => {
+    console.log(user)
+  }, []);
 
   // const handleGetList = async () => {
   //   try {
@@ -27,14 +27,14 @@ const Profile = () => {
   return (
     <div className={profile.wrapper}>
       <div className={profile.content}>
-        <div className={profile.name}>名前</div>
+        <div className={profile.name}>{ user.name }</div>
         <div className={profile.image}><img src={user.picture} /></div>
         <div className={profile.introduction}>自己紹介</div>
         <div className={profile.url}>
           
         </div>
         <div className={profile.edit}>
-          <button className={profile.button}><Link to={`/edit/${dataList.id}`}>プロフィールを編集する</Link></button>
+          <button className={profile.button}><Link to={`/`}>プロフィールを編集する</Link></button>
         </div>
       <ul className={profile.list}>
         <ul className={profile.posts}>
