@@ -14,7 +14,7 @@ class AuthorizationService
   #ユーザーモデルを実行し、ユーザーを作成するメソッド
   def create_user(name, introduction, image, url)
     @auth_payload, @auth_header = verify_token
-    @user = User.from_token_payload(@auth_payload, name, introduction, image, url)
+    @user = User.create_user_from_token_payload(@auth_payload, name, introduction, image, url)
   end
 
   private

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :test, only: %i[index]
       resources :scene_posts
-      resources :accounts, only: %i[update show]
+      resources :users
     end
   end
 end
