@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import mypage from "../css/mypage.module.css"
 import { AiFillHome, AiFillEdit, AiFillHeart, AiFillFileText, AiOutlineUser } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ComicPost from "./model/mypage/ComicPost";
 import Profile from "./model/mypage/Profile";
+import ComicNew from "./model/mypage/ComicNew";
 
 const MyPage = () => {
+  const [tabIndex, setTabIndex] = useState(2);
+
   return (
     <div className={mypage.wrapper}>
       <div className={mypage.content}>
         <div className={mypage.title}><span className={mypage.home}><Link to='/' className={mypage["home-link"]}><span className={mypage["react-icons"]}><AiFillHome /></span>ホーム</Link></span> / マイページ</div>
       </div>
       <div className={mypage.menu}>
-        <Tabs>
+        <Tabs selectedIndex={tabIndex} onSelect={ (index) => setTabIndex(index) }>
           <TabList>
             <ul className={mypage["menu-list"]}>
               <Tab>
@@ -44,7 +47,7 @@ const MyPage = () => {
           </TabList>
 
           <TabPanel>
-            <div>新規投稿です</div>
+            <ComicNew />
           </TabPanel>
           <TabPanel>
             <div>お気に入りです</div>
