@@ -1,9 +1,10 @@
 import React from "react";
-import Profile from "./model/mypage/Profile";
 import mypage from "../css/mypage.module.css"
 import { AiFillHome, AiFillEdit, AiFillHeart, AiFillFileText, AiOutlineUser } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import ComicPost from "./model/mypage/ComicPost";
+import Profile from "./model/mypage/Profile";
 
 const MyPage = () => {
   return (
@@ -49,7 +50,7 @@ const MyPage = () => {
             <div>お気に入りです</div>
           </TabPanel>
           <TabPanel>
-            <div>投稿一覧です</div>
+            <ComicPost />
           </TabPanel>
           <TabPanel>
             <Profile />

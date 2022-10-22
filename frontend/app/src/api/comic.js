@@ -1,21 +1,21 @@
-import instance from "./instance";
+import axios from "axios";
 
-export const getComic = () => {
-  return instance.get('/user/comics');
+export const getComic = (header) => {
+  return axios.get(`${process.env.REACT_APP_DEV_API_URL}/user/comics`, header);
 };
 
-export const showComic = (id) => {
-  return instance.get(`/user/comics/${id}`);
+export const showComic = (id, header) => {
+  return axios.get(`${process.env.REACT_APP_DEV_API_URL}/user/comics/${id}`, header);
 };
 
-export const createComic = (params) => {
-  return instance.post('/user/comics', params);
+export const createComic = (params, header) => {
+  return axios.post(`${process.env.REACT_APP_DEV_API_URL}/user/comics`, params, header);
 };
 
-export const updateComic = (id, params) => {
-  return instance.patch(`/user/comics/${id}`, params);
+export const updateComic = (id, params, header) => {
+  return axios.patch(`${process.env.REACT_APP_DEV_API_URL}/user/comics/${id}`, params, header);
 };
 
-export const deleteComic = (id) => {
-  return instance.delete(`/user/comics/${id}`);
+export const deleteComic = (id, header) => {
+  return axios.delete(`${process.env.REACT_APP_DEV_API_URL}/user/comics/${id}`, header);
 };
