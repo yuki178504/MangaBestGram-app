@@ -1,0 +1,51 @@
+.wrapper {
+  padding: 40px 90px;
+  width: 100%;
+}
+
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content {
+  padding: 0px 20px;
+}
+
+.innner-content {
+  border: 2px solid #a9a9a9;
+  background: white;
+  margin-bottom: 10px;
+}
+
+.outer-image {
+  height: 180px;
+  width: 100%;
+}
+
+.image {
+  height: 180px;
+  background-color: aqua;
+}
+
+.list {
+  padding: 15px;
+  width: 100%;
+}
+
+.list-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.list-genre {
+  text-align: center;
+}
+
+.link-list {
+  padding: 20px;
+}
+
+.link-show {
+  margin-right: 15px;
+}
