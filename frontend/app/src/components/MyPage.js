@@ -10,6 +10,8 @@ import ComicNew from "./model/mypage/ComicNew";
 const MyPage = () => {
   const [tabIndex, setTabIndex] = useState(2);
 
+  const color = { color: 'red' }
+
   return (
     <div className={mypage.wrapper}>
       <div className={mypage.content}>
@@ -17,33 +19,23 @@ const MyPage = () => {
       </div>
       <div className={mypage.menu}>
         <Tabs selectedIndex={tabIndex} onSelect={ (index) => setTabIndex(index) }>
-          <TabList>
-            <ul className={mypage["menu-list"]}>
-              <Tab>
-                <ul className={mypage["menu-list-in"]}>
-                  <li>新規投稿</li>
-                  <li className={mypage["menu-icon"]}><AiFillEdit /></li>
-                </ul>
-              </Tab>
-              <Tab>
-                <ul className={mypage["menu-list-in"]}>
-                  <li>お気に入り</li>
-                  <li className={mypage["menu-icon"]}><AiFillHeart /></li>
-                </ul>
-              </Tab>
-              <Tab>
-                <ul className={mypage["menu-list-in"]}>
-                  <li>投稿一覧</li>
-                  <li className={mypage["menu-icon"]}><AiFillFileText /></li>
-                </ul>
-              </Tab>
-              <Tab>
-                <ul className={mypage["menu-list-in-end"]}>
-                  <li>プロフィール</li>
-                  <li className={mypage["menu-icon"]}><AiOutlineUser /></li>
-                </ul>
-              </Tab>
-            </ul>
+          <TabList className={mypage["menu-list"]}>
+            <Tab style={ tabIndex === 0 ? color : null } className={mypage["menu-list-in"]}>
+              <div>新規投稿</div>
+              <div className={mypage["menu-icon"]}><AiFillEdit /></div>
+            </Tab>
+            <Tab style={ tabIndex === 1 ? color : null } className={mypage["menu-list-in"]}>
+              <div>お気に入り</div>
+              <div className={mypage["menu-icon"]}><AiFillHeart /></div>
+            </Tab>
+            <Tab style={ tabIndex === 2 ? color : null } className={mypage["menu-list-in"]}>
+              <div>投稿一覧</div>
+              <div className={mypage["menu-icon"]}><AiFillFileText /></div>
+            </Tab>
+            <Tab style={ tabIndex === 3 ? color : null } className={mypage["menu-list-in"]}>
+              <div>プロフィール</div>
+              <li className={mypage["menu-icon"]}><AiOutlineUser /></li>
+            </Tab>
           </TabList>
 
           <TabPanel>
@@ -61,7 +53,7 @@ const MyPage = () => {
         </Tabs>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default MyPage;
