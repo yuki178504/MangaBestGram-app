@@ -30,6 +30,7 @@ const ComicNew = () => {
       alert("登録されました！")
     } catch (e) {
       console.log(e)
+      alert("正しく入力してください")
     };
   };
 
@@ -43,7 +44,7 @@ const ComicNew = () => {
     buttonType='この内容で登録する'
     />
     </div>
-  )
-}
+  );
+};
 
 export default ComicNew;

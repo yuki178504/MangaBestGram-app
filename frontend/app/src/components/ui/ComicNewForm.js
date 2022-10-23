@@ -1,3 +1,4 @@
+import comicNewGenreJson from "../../json/comicNewGenre.json"
 
 const ComicNewForm = (props) => {
   const { handleChange, handleSubmit, value, buttonType } = props
@@ -11,7 +12,12 @@ const ComicNewForm = (props) => {
         </div>
         <div>
           <label htmlFor="genre">登録する漫画のジャンル</label>
-          <input type="text" name="genre" id="genre" onChange={(e) => handleChange(e)} value={value.genre}/>
+          <select name="genre" id="genre" onChange={(e) => handleChange(e)}>
+            <option>ジャンルを選択してください</option>
+            {comicNewGenreJson.map((genre, index) =>
+              <option key={index} value={genre.genre}>{ genre.genre }</option>
+            )};
+          </select>
         </div>
         <input type="submit" value={buttonType} onClick={(e) => handleSubmit(e)}/>
       </form>
