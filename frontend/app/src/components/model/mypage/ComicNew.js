@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { createComic } from "../../../api/comic";
 import { AuthContext } from "../../../providers/AuthGuard";
 import ComicNewForm from "../../ui/ComicNewForm";
+import newComicForm from "../../../css/ui/newComicForm.module.css"
 
 const ComicNew = () => {
   const { token } = useContext(AuthContext);
@@ -35,14 +36,16 @@ const ComicNew = () => {
   };
 
   return (
-    <div>
-    <div>コミックの新規投稿画面</div>
-    <ComicNewForm
-    handleChange={ handleChange }
-    handleSubmit={ handleSubmit }
-    value={ value }
-    buttonType='この内容で登録する'
-    />
+    <div className={newComicForm.wrapper}>
+      <div className={newComicForm.content}>
+        <div className={newComicForm.title}>漫画の新規登録</div>
+          <ComicNewForm
+          handleChange={ handleChange }
+          handleSubmit={ handleSubmit }
+          value={ value }
+          buttonType='この内容で登録する'
+          />
+      </div>
     </div>
   );
 };

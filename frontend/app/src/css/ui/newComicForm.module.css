@@ -1,0 +1,44 @@
+.wrapper {
+  padding: 50px;
+}
+
+.title {
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.form-text {
+  margin-left: 50px;
+  text-align: center;
+}
+
+.form-label {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.form-input {
+  border: 2px solid #a9a9a9;
+  padding: 12px 0px;
+  width: 500px;
+  font: inherit;
+}
+
+.form-submit {
+  border: 2px solid #a9a9a9;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 15px 0 20px;
+  padding: 18px 8px;
+  background-color: white;
+}
+
+.form-submit:hover {
+  background-color: aqua;
+  transition: 0.5s;
+}
