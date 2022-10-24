@@ -1,7 +1,7 @@
 class Api::V1::User::ComicsController < SecuredController
 
   def index
-    comics = Comic.all
+    comics = @current_user.comics.all
     render json: comics
   end
 
