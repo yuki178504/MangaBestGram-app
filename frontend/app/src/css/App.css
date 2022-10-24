@@ -16,3 +16,7 @@ a {
 .main {
   background-color: #f2f1dd;
 }
+
+button {
+  cursor: pointer;
+}

@@ -13,6 +13,7 @@
   font-size: 30px;
   color: white;
   text-align: center;
+  font-weight: bold;
 }
 
 .search {
@@ -28,20 +29,24 @@
 }
 
 .post-title {
-  padding: 16px;
-  border-radius: 24px;
-  background-color: green;
   margin: 0 auto;
-  width: 200px;
-}
-
-.post-title:hover {
-  filter: brightness(1.2);
 }
 
 .post-title-link {
-  text-decoration: none;
-  color: white;
+  background-color: greenyellow;
+  padding: 16px 40px;
+  border-radius: 24px;
+  border: none;
+  font-size: 20px;
+}
+
+.post-title-link:hover {
+  filter: brightness(1.2);
+}
+
+.secction {
+  padding: 40px 90px;
+  width: 100%;
 }
 
 @media screen and (max-width: 540px) {
