@@ -1,8 +1,7 @@
-class Api::V1::ScenePostsController < SecuredController
-  skip_before_action :authorize_request, only: [:index,:show]
+class Api::V1::User::ScenePostsController < SecuredController
 
   def index
-    posts = ScenePost.all
+    posts = @current_user.posts.all
     render json: posts
   end
 
