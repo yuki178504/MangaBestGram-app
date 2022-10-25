@@ -1,7 +1,7 @@
 class Api::V1::User::ScenePostsController < SecuredController
 
   def index
-    posts = @current_user.posts.all
+    posts = @current_user.comics.find_by!(id: params[:comic_id]).posts.all
     render json: posts
   end
 
@@ -11,8 +11,8 @@ class Api::V1::User::ScenePostsController < SecuredController
   end
 
   def create
-    post = @current_user.scene_posts.build(post_params)
-    if post.save
+    post = @current_user.comics.find_by!(id: params[:comic_id]).scene_posts.build(scene_post_params)
+    if post.save!
       render json: post
     else
       render json: post.errors, status: :unprocessable_entity
@@ -35,7 +35,7 @@ class Api::V1::User::ScenePostsController < SecuredController
 
   private
 
-  def post_params
-    params.permit(:scene_title, :scene_date, :scene_content, :scene_image)
+  def scene_post_params
+    params.permit(:scene_title, :scene_date, :scene_content, :scene_image).merge(user_id: @current_user.id)
   end
 end
