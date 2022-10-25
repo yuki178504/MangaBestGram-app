@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const ComicPost = () => {
   const { token, getToken } = useContext(AuthContext);
-  const [ comic, setComic ] = useState([]);
+  const [ comics, setComics ] = useState([]);
 
   useEffect(() => {
     handleGetComic();
@@ -25,7 +25,7 @@ const ComicPost = () => {
         },
       });
       console.log(res.data);
-      setComic(res.data);
+      setComics(res.data);
     } catch (e) {
       console.log(e);
     };
@@ -34,18 +34,18 @@ const ComicPost = () => {
   return (
     <div className={comicPost.wrapper}>
       <div className={comicPost["main-content"]}>
-        { comic.map((item) => (
+        { comics.map((comic) => (
           <div className={comicPost.content}>
             <div className={comicPost["innner-content"]}>
               <div className={comicPost["outer-image"]}>
                 <img className={comicPost.image} src='' alt='画像' />
               </div>
               <div className={comicPost.list}>
-                <p className={comicPost["list-title"]}>{ item.title }</p>
-                <p className={comicPost["list-genre"]}>{ item.genre }</p>
+                <p className={comicPost["list-title"]}>{ comic.title }</p>
+                <p className={comicPost["list-genre"]}>{ comic.genre }</p>
               </div>
               <div className={comicPost["link-list"]}>
-              <Link to="/" className={comicPost["link-show"]} >シーンを見る 追加する</Link>
+              <Link to={`/comic/${comic.id}`} className={comicPost["link-show"]} >シーンを見る 追加する</Link>
               <Link to="/" className={comicPost["link-edit"]} >編集する</Link>
               </div>
             </div>

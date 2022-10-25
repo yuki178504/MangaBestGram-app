@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { Home, TermsOfService, PrivacyPolicy, Contact, MyPage, ProfileEdit } from './Pages';
+import { Home, TermsOfService, PrivacyPolicy, Contact, MyPage, ProfileEdit, ScenePost } from './Pages';
 
 const Routers = () => {
 
@@ -11,6 +11,7 @@ const Routers = () => {
         <Route path='/contact' element={ <Contact /> } />
         <Route path='/mypage' element={ <MyPage /> } />
         <Route path='/edit/:id' element={ <ProfileEdit /> } />
+        <Route path='/comic/:id' element={ <ScenePost /> } />
       </Routes>
   )
 }
