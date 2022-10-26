@@ -52,7 +52,7 @@ const Home = () => {
       <div className={home.secction}>
         <div className={comicPost["main-content"]}>
           {comics.map((comic) => (
-            <div className={comicPost.content}>
+            <div key={comic.id} className={comicPost.content}>
               <div className={comicPost["innner-content"]}>
                 <div className={comicPost["outer-image"]}>
                   <img className={comicPost.image} src='' alt='画像' />
