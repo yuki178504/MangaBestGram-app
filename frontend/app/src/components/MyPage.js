@@ -34,7 +34,7 @@ const MyPage = () => {
             </Tab>
             <Tab style={ tabIndex === 3 ? color : null } className={mypage["menu-list-in"]}>
               <div>プロフィール</div>
-              <li className={mypage["menu-icon"]}><AiOutlineUser /></li>
+              <div className={mypage["menu-icon"]}><AiOutlineUser /></div>
             </Tab>
           </TabList>
 

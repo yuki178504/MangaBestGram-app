@@ -9,12 +9,9 @@ const ComicPost = () => {
   const [ comics, setComics ] = useState([]);
 
   useEffect(() => {
+    getToken();
     handleGetComic();
   }, [getToken]);
-
-  useEffect(() => {
-    getToken();
-  }, []);
 
   const handleGetComic = async () => {
     try {
@@ -35,7 +32,7 @@ const ComicPost = () => {
     <div className={comicPost.wrapper}>
       <div className={comicPost["main-content"]}>
         { comics.map((comic) => (
-          <div className={comicPost.content}>
+          <div key={comic.id} className={comicPost.content}>
             <div className={comicPost["innner-content"]}>
               <div className={comicPost["outer-image"]}>
                 <img className={comicPost.image} src='' alt='画像' />
