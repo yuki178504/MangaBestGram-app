@@ -1,27 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import home from '../css/home.module.css'
 import { AuthContext } from '../providers/AuthGuard';
 import { Link } from 'react-router-dom';
-import { getUserComic } from '../api/comic';
 import comicPost from '../css/model/comicPost.module.css';
+import { useGeneralComic } from '../hooks/userGeneralComic';
+import ReactLoading from "react-loading";
 
 const Home = () => {
+  const { useGetGeneralComic } = useGeneralComic();
+  const { data, isLoading } = useGetGeneralComic();
   const { isAuthenticated, loginWithRedirect } = useContext(AuthContext);
-  const [ comics, setComics ] = useState([]);
 
-  useEffect(() => {
-    handleGetComic();
-  }, []);
-
-  const handleGetComic = async () => {
-    try {
-      const res = await getUserComic();
-      console.log(res.data);
-      setComics(res.data);
-    } catch (e) {
-      console.log(e);
-    };
-  };
+  if(isLoading) return <ReactLoading type="spin" />
 
   return (
     <div className={home.wrapper}>
@@ -51,7 +41,7 @@ const Home = () => {
       </div>
       <div className={home.secction}>
         <div className={comicPost["main-content"]}>
-          {comics.map((comic) => (
+          {!!data && data.map((comic) => (
             <div key={comic.id} className={comicPost.content}>
               <div className={comicPost["innner-content"]}>
                 <div className={comicPost["outer-image"]}>
