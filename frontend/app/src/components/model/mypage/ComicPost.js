@@ -1,37 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { getComic } from '../../../api/comic';
-import { AuthContext } from '../../../providers/AuthGuard';
-import comicPost from '../../../css/model/comicPost.module.css'
+import comicPost from '../../../css/model/comicPost.module.css';
 import { Link } from 'react-router-dom';
+import { useComicApi } from '../../../hooks/useComicApi';
+import ReactLoading from "react-loading";
 
 const ComicPost = () => {
-  const { token, getToken } = useContext(AuthContext);
-  const [ comics, setComics ] = useState([]);
+  const { useGetComic } = useComicApi();
+  const { data, isLoading } = useGetComic();
 
-  useEffect(() => {
-    getToken();
-    handleGetComic();
-  }, [getToken]);
-
-  const handleGetComic = async () => {
-    try {
-      const res = await getComic({
-        headers: {
-          Authorization: token,
-          'Content-Type': 'application/json',
-        },
-      });
-      console.log(res.data);
-      setComics(res.data);
-    } catch (e) {
-      console.log(e);
-    };
-  };
+  if(isLoading) return <ReactLoading type="spin" />
 
   return (
     <div className={comicPost.wrapper}>
       <div className={comicPost["main-content"]}>
-        { comics.map((comic) => (
+        {!!data && data.map((comic) => (
           <div key={comic.id} className={comicPost.content}>
             <div className={comicPost["innner-content"]}>
               <div className={comicPost["outer-image"]}>
@@ -47,7 +28,7 @@ const ComicPost = () => {
               </div>
             </div>
           </div>
-          )) }
+          ))}
       </div>
     </div>
   );

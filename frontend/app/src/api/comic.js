@@ -1,9 +1,4 @@
 import axios from "axios";
-import instance from "./instance";
-
-export const getComic = (header) => {
-  return axios.get(`${process.env.REACT_APP_DEV_API_URL}/user/comics`, header);
-};
 
 export const showComic = (id, header) => {
   return axios.get(`${process.env.REACT_APP_DEV_API_URL}/user/comics/${id}`, header);
@@ -19,8 +14,4 @@ export const updateComic = (id, params, header) => {
 
 export const deleteComic = (id, header) => {
   return axios.delete(`${process.env.REACT_APP_DEV_API_URL}/user/comics/${id}`, header);
-};
-
-export const getUserComic = () => {
-  return instance.get('/comics/latest');
 };
