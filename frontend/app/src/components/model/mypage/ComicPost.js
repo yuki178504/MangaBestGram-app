@@ -5,14 +5,15 @@ import ReactLoading from "react-loading";
 
 const ComicPost = () => {
   const { useGetComic } = useComicApi();
-  const { data, isLoading } = useGetComic();
+  const { data: comics, isLoading } = useGetComic();
 
   if(isLoading) return <ReactLoading type="spin" />
+  console.log(comics)
 
   return (
     <div className={comicPost.wrapper}>
       <div className={comicPost["main-content"]}>
-        {!!data && data.map((comic) => (
+        {comics?.map((comic) => (
           <div key={comic.id} className={comicPost.content}>
             <div className={comicPost["innner-content"]}>
               <div className={comicPost["outer-image"]}>
