@@ -1,7 +1,7 @@
 class Api::V1::User::ScenePostsController < SecuredController
 
   def index
-    posts = @current_user.comics.find_by!(id: params[:comic_id]).posts.all
+    posts = @current_user.comics.find_by!(id: params[:comic_id]).scene_posts.all
     render json: posts
   end
 
