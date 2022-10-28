@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const comicApi = {
+  //ユーザーの投稿一覧を取得するapi
   getComic: async (token) => {
     const res = await axios
     .get(`${process.env.REACT_APP_DEV_API_URL}/user/comics`, {
@@ -14,6 +15,7 @@ export const comicApi = {
     });
     return res.data;
   },
+  //新規投稿をするapi
   createComic: async (params, token) => {
     const res = await axios
     .post(`${process.env.REACT_APP_DEV_API_URL}/user/comics`, params, {
