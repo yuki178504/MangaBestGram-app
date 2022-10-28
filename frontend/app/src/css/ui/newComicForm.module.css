@@ -26,6 +26,12 @@
   font: inherit;
 }
 
+.errors {
+  color: red;
+  font-weight: bold;
+  margin: 10px 0px;
+}
+
 .form-submit {
   border: 2px solid #a9a9a9;
   border-radius: 5px;

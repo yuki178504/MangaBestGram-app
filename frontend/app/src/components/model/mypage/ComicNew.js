@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { createComic } from "../../../api/comic";
 import newComicForm from "../../../css/ui/newComicForm.module.css"
 import { useForm } from 'react-hook-form';
 import { useComicApi } from "../../../hooks/useComicApi";
@@ -10,7 +9,9 @@ const ComicNew = () => {
   const { useCreateComic } = useComicApi();
   const createComic = useCreateComic();
 
-  const { handleSubmit, register } = useForm();
+  const { handleSubmit, register, formState: { errors } } = useForm({
+    criteriaMode: "all"
+  });
 
   const onSubmit = (data) => {
     try {
@@ -20,6 +21,7 @@ const ComicNew = () => {
       console.log(e)
     }
     navigate('/mypage');
+    alert("登録されました！")
   };
 
   return (
@@ -27,15 +29,32 @@ const ComicNew = () => {
       <form onSubmit={handleSubmit(onSubmit)} className={newComicForm.form}>
         <div className={newComicForm["form-text"]}>
           <div className={newComicForm["form-label"]}>漫画のタイトル</div>
-          <input className={newComicForm["form-input"]} id="title" {...register('title')} placeholder="漫画のタイトルを入力してください"/>
+          { errors.title &&
+            <div className={newComicForm.errors}>【！漫画のタイトルが空欄です】</div> 
+          }
+          <input
+            className={newComicForm["form-input"]}
+            placeholder="漫画のタイトルを入力してください"
+            {...register('title', {
+              required: true
+            })}
+          />
         </div>
         <div className={newComicForm["form-text"]}>
           <div className={newComicForm["form-label"]}>漫画のジャンル</div>
-          <select className={newComicForm["form-input"]} id="genre" {...register('genre')}>
-            <option>ジャンルを選択してください</option>
+          { errors.genre &&
+            <div className={newComicForm.errors}>【！漫画のジャンルを選択してください】</div> 
+          }
+          <select
+            className={newComicForm["form-input"]}
+            {...register('genre', {
+              required: true
+            })}
+          >
+            <option></option>
             {comicNewGenreJson.map((genre, index) =>
               <option key={index} >{ genre.genre }</option>
-            )};
+            )}
           </select>
         </div>
         <div className={newComicForm["form-text"]}>
@@ -47,51 +66,7 @@ const ComicNew = () => {
         </div>
       </form>
     </>
-  )
-
-
-  // const { token } = useContext(AuthContext);
-  // const [ value, setValue ] = useState({});
-  // const navigate = useNavigate();
-
-  // const handleChange = (e) => {
-  //   setValue({
-  //     ...value,
-  //     [e.target.name]: e.target.value
-  //   });
-  // };
-
-  // const handleSubmit = async(e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const res = await createComic(value, {
-  //       headers: {
-  //         Authorization: token,
-  //         'Content-Type': 'application/json',
-  //       },
-  //     });
-  //     console.log(res)
-  //     navigate('/mypage')
-  //     alert("登録されました！")
-  //   } catch (e) {
-  //     console.log(e)
-  //     alert("正しく入力してください")
-  //   };
-  // };
-
-  // return (
-  //   <div className={newComicForm.wrapper}>
-  //     <div className={newComicForm.content}>
-  //       <div className={newComicForm.title}>漫画の新規登録</div>
-  //         <ComicNewForm
-  //         handleChange={ handleChange }
-  //         handleSubmit={ handleSubmit }
-  //         value={ value }
-  //         buttonType='この内容で登録する'
-  //         />
-  //     </div>
-  //   </div>
-  // );
+  );
 };
 
 export default ComicNew;
