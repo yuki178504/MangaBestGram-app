@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       namespace :user do
-        resources :comics
-        resources :scene_posts
+        resources :comics, shallow: true do
+          resources :scene_posts
+        end
       end
       resources :users
       resources :comics, only: [:index] do
