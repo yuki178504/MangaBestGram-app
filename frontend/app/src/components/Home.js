@@ -8,11 +8,11 @@ import ReactLoading from "react-loading";
 
 const Home = () => {
   const { useGetGeneralComic } = useGeneralComic();
-  const { data: comics, isLoading } = useGetGeneralComic();
+  const { data, isLoading } = useGetGeneralComic();
   const { isAuthenticated, loginWithRedirect } = useContext(AuthContext);
 
   if(isLoading) return <ReactLoading type="spin" />
-  console.log(comics)
+  console.log(data)
 
   return (
     <div className={home.wrapper}>
@@ -42,7 +42,7 @@ const Home = () => {
       </div>
       <div className={home.secction}>
         <div className={comicPost["main-content"]}>
-          {comics?.map((comic) => (
+          {data.map((comic) => (
             <div key={comic.id} className={comicPost.content}>
               <div className={comicPost["innner-content"]}>
                 <div className={comicPost["outer-image"]}>
