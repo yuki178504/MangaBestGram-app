@@ -3,7 +3,7 @@ import home from '../css/home.module.css'
 import { AuthContext } from '../providers/AuthGuard';
 import { Link } from 'react-router-dom';
 import comicPost from '../css/model/comicPost.module.css';
-import { useGeneralComic } from '../hooks/userGeneralComic';
+import { useGeneralComic } from '../hooks/useGeneralComic';
 import ReactLoading from "react-loading";
 
 const Home = () => {
