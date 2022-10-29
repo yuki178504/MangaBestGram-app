@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { scenePost } from "../api/scenePost";
 import { AuthContext } from "../providers/AuthGuard"
-import { useQuery } from 'react-query';
+import { useQuery, useQueryClient, useMutation } from 'react-query';
 
 
 export const useScenePost = () => {

@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import ScenePostNewForm from '../components/model/comic/ScenePostNewForm';
 import { Home, TermsOfService, PrivacyPolicy, Contact, MyPage, ProfileEdit, ScenePost } from './Pages';
 
 const Routers = () => {
@@ -11,6 +12,7 @@ const Routers = () => {
       <Route path='/mypage/' element={ <MyPage /> } />
       <Route path='/edit/:id' element={ <ProfileEdit /> } />
       <Route path='/comic/:comic_id' element={ <ScenePost /> } />
+      <Route path='/comic/:comic_id/scene_post_new' element={ <ScenePostNewForm /> } />
     </Routes>
   )
 }
