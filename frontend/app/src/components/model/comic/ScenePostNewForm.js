@@ -19,7 +19,7 @@ const ScenePostNewForm = () => {
     } catch (e) {
       console.log(e);
     }
-    navigate('/comic/:comic_id');
+    navigate('/mypage');
     alert("登録されました！")
   };
 

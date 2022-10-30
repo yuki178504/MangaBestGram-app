@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext } from "react";
 import { scenePost } from "../api/scenePost";
 import { AuthContext } from "../providers/AuthGuard"
 import { useQuery, useQueryClient, useMutation } from 'react-query';
@@ -32,13 +32,6 @@ export const useScenePost = () => {
       { comicId: comicId },
     ];
 
-    const updater = (previousData, data) => {
-      previousData.data.unshift({
-        attributes: data.scene_posts,
-      });
-      return previousData;
-    };
-
     return useMutation(
       async (params) => {
         return await scenePost.createScenePost(
@@ -48,16 +41,15 @@ export const useScenePost = () => {
         );
       },
       {
-        onMutate: async (params) => {
-          await queryClient.cancelQueries(queryKey);
+        onSuccess: async (params) => {
           const previousData = await queryClient.getQueryData(queryKey);
 
           if (previousData) {
-            queryClient.setQueryData(queryKey, () => {
-              return updater(previousData, params);
-            });
+            queryClient.setQueryData(queryKey, [
+              ...previousData,
+              params.data,
+            ])
           }
-          return previousData;
         },
         onError: (err, _, context) => {
           queryClient.setQueryData(queryKey, context);
