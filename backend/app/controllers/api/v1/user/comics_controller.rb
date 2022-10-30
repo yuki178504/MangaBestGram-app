@@ -7,7 +7,7 @@ class Api::V1::User::ComicsController < SecuredController
   end
 
   def show
-    comic = Comic.find(params[:id])
+    @comic
     render json: comic
   end
 
@@ -21,12 +21,7 @@ class Api::V1::User::ComicsController < SecuredController
   end
 
   def update
-    comic = Comic.find(params[:id])
-    if comic.update(comic_params)
-      render json: comic
-    else
-      render json: comic.errors
-    end
+    @comic.update!(comic_params)
   end
 
   def destroy
