@@ -1,4 +1,5 @@
 class Api::V1::User::ComicsController < SecuredController
+  before_action :set_comic, only: %i[update destroy show]
 
   def index
     comics = @current_user.comics.all
@@ -29,13 +30,16 @@ class Api::V1::User::ComicsController < SecuredController
   end
 
   def destroy
-    comic = Comic.find(params[:id])
-    comic.delete
+    @comic.destroy!
   end
 
   private
 
   def comic_params
     params.permit(:title, :genre, :image)
+  end
+
+  def set_comic
+    @comic = @current_user.comics.find_by!(id: params[:id])
   end
 end

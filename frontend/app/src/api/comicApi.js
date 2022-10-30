@@ -29,4 +29,16 @@ export const comicApi = {
     });
     return res.data;
   },
+
+  deleteComic: async (comicId, token) => {
+    await axios.delete(`${process.env.REACT_APP_DEV_API_URL}/user/comics/${comicId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    })
+    .catch((error) => {
+      console.error(error.res.data);
+    });
+  }
 };
