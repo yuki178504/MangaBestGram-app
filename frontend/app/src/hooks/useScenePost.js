@@ -34,7 +34,7 @@ export const useScenePost = () => {
 
     const updater = (previousData, data) => {
       previousData.data.unshift({
-        attributes: data.comic,
+        attributes: data.scene_posts,
       });
       return previousData;
     };
@@ -44,12 +44,12 @@ export const useScenePost = () => {
         return await scenePost.createScenePost(
           params,
           comicId,
-          token
+          token || ''
         );
       },
       {
         onMutate: async (params) => {
-          await queryClient.cancelQueryData(queryKey);
+          await queryClient.cancelQueries(queryKey);
           const previousData = await queryClient.getQueryData(queryKey);
 
           if (previousData) {
@@ -64,8 +64,12 @@ export const useScenePost = () => {
 
           console.warn(err);
         },
+        onSettled: () => {
+          queryClient.invalidateQueries(queryKey);
+        },
       }
     );
   };
-  return { useGetScenePost, useCreateScenePost }
+
+  return { useGetScenePost, useCreateScenePost };
 };
