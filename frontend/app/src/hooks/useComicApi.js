@@ -57,5 +57,45 @@ export const useComicApi = () => {
     );
   };
 
-  return { useGetComic, useCreateComic };
+  const useDeleteComic = (comicId) => {
+    const queryClient = useQueryClient();
+    const queryKey = 'comic';
+
+    const updater = (previousData) => {
+      previousData.data = previousData.data.filter(
+        (member) => member.id !== comicId
+      );
+      return previousData;
+    };
+
+    return useMutation(
+      async () => {
+        return await comicApi.deleteComic(
+          comicId,
+          token || ''
+        );
+      },
+      {
+        onMutate: async () => {
+          await queryClient.cancelQueries(queryKey);
+          const previousData = await queryClient.getQueryData(queryKey);
+          if (previousData) {
+            queryClient.setQueryData(queryKey, () => {
+              return updater(previousData);
+            });
+          }
+          return previousData;
+        },
+        onError: (err, _, context) => {
+          queryClient.setQueryData(queryKey, context);
+          console.warn(err);
+        },
+        onSettled: () => {
+          queryClient.invalidateQueries(queryKey);
+        },
+      }
+    );
+  };
+
+  return { useGetComic, useCreateComic, useDeleteComic };
 };
