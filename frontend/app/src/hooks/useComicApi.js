@@ -21,7 +21,7 @@ export const useComicApi = () => {
 
     const updater = (previousData, data) => {
       previousData.data.unshift({
-        attributes: data.comic,
+        attributes: data.comics,
       });
       return previousData;
     };
@@ -30,7 +30,7 @@ export const useComicApi = () => {
       async (params) => {
         return await comicApi.createComic(
           params,
-          token
+          token || ''
         );
       },
       {
@@ -49,6 +49,9 @@ export const useComicApi = () => {
           queryClient.setQueryData(queryKey, context);
 
           console.warn(err);
+        },
+        onSettled: () => {
+          queryClient.invalidateQueries(queryKey);
         },
       }
     );

@@ -20,7 +20,7 @@ const ComicNew = () => {
     } catch (e) {
       console.log(e)
     }
-    navigate('/mypage');
+    navigate('/');
     alert("登録されました！")
   };
 
