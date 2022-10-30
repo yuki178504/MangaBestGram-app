@@ -24,7 +24,7 @@ const ComicPost = () => {
                 <p className={comicPost["list-genre"]}>{ comic.genre }</p>
               </div>
               <div className={comicPost["link-list"]}>
-              <Link to={`/comic/${comic.id}`} className={comicPost["link-show"]} >シーンを見る 追加する</Link>
+              <Link to={`/comic/${comic.id}/${comic.title}`} className={comicPost["link-show"]} >シーンを見る 追加する</Link>
               <Link to="/" className={comicPost["link-edit"]} >編集する</Link>
               </div>
             </div>

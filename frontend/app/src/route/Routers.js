@@ -11,7 +11,7 @@ const Routers = () => {
       <Route path='/contact' element={ <Contact /> } />
       <Route path='/mypage/' element={ <MyPage /> } />
       <Route path='/edit/:id' element={ <ProfileEdit /> } />
-      <Route path='/comic/:comic_id' element={ <ScenePost /> } />
+      <Route path='/comic/:comic_id/:comic_title' element={ <ScenePost /> } />
       <Route path='/comic/:comic_id/scene_post_new' element={ <ScenePostNewForm /> } />
     </Routes>
   )

@@ -2,9 +2,11 @@ import React from 'react';
 import { useScenePost } from '../../../hooks/useScenePost';
 import ReactLoading from "react-loading";
 import { Link, useParams } from 'react-router-dom';
+import scenePost from '../../../css/model/comic/scenePost.module.css';
+import { AiFillHome } from "react-icons/ai";
 
 const ScenePost = () => {
-  const { comic_id } = useParams();
+  const { comic_id, comic_title } = useParams();
   const { useGetScenePost } = useScenePost();
 
   const { data: scene_posts, isLoading } = useGetScenePost(comic_id);
@@ -13,13 +15,39 @@ const ScenePost = () => {
   console.log(scene_posts)
 
   return (
-    <>
-      <div>シーンの画面一覧</div>
+    <div className={scenePost.wrapper}>
+      <div className={scenePost["top-list"]}>
+        <div className={scenePost.title}>
+          <span className={scenePost.home}>
+            <Link to='/' className={scenePost["home-link"]}><span className={scenePost["react-icons"]}><AiFillHome /></span>ホーム</Link>
+          </span>
+          <span>
+            <Link to='/mypage' className={scenePost["home-link"]}><span>/ マイページ</span></Link>
+          </span>
+          <span className={scenePost["comic-title"]}>
+            / { comic_title }のシーン一覧
+          </span>
+        </div>
+      </div>
+      <button className={scenePost.link}>
+        <Link to={`/comic/${comic_id}/scene_post_new`} >新規のシーンを投稿する</Link>
+      </button>
+      <div className={scenePost["main-content"]}>
         {scene_posts?.map((scene_post) => (
-            <div>{ scene_post.scene_title }</div>
-            ))}
-      <Link to={`/comic/${comic_id}/scene_post_new`} >新規のシーンを投稿する</Link>
-    </>
+          <div key={scene_post.id} className={scenePost.content}>
+            <div className={scenePost["innner-content"]}>
+              <div className={scenePost["outer-image"]}>
+                <img className={scenePost.image} src='' alt='画像' />
+              </div>
+              <div className={scenePost.list}>
+                <p className={scenePost["list-title"]}>{ scene_post.scene_title }</p>
+                <p className={scenePost["list-genre"]}>{ scene_post.scene_content }</p>
+              </div>
+            </div>
+          </div>
+          ))}
+      </div>
+    </div>
   )
 }
 
