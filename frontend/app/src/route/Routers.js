@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import ScenePostNewForm from '../components/model/comic/ScenePostNewForm';
-import { Home, TermsOfService, PrivacyPolicy, Contact, MyPage, ProfileEdit, ScenePost } from './Pages';
+import { Home, TermsOfService, PrivacyPolicy, Contact, MyPage, ProfileEdit, ScenePost, ScenePostNewForm } from './Pages';
 
 const Routers = () => {
   return (
