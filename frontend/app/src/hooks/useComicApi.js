@@ -5,7 +5,7 @@ import { useQuery, useQueryClient, useMutation } from 'react-query';
 
 export const useComicApi = () => {
   const { token } = useContext(AuthContext);
-
+  //取得用の関数
   const useGetComic = () => {
     return useQuery({
       queryKey: 'comic',
@@ -15,6 +15,7 @@ export const useComicApi = () => {
     });
   };
 
+  //新規投稿用の関数
   const useCreateComic = () => {
     const queryClient = useQueryClient();
     const queryKey = 'comic';
@@ -39,6 +40,33 @@ export const useComicApi = () => {
     );
   };
 
+  //更新用の関数
+  const usePutComic = (comicId) => {
+    const queryClient = useQueryClient();
+    const queryKey = 'comic';
+
+    return useMutation(
+      async (params) => {
+        return await comicApi.putComic(
+          params,
+          comicId,
+          token || ''
+        );
+      },
+      {
+        onError: (err, _, context) => {
+          queryClient.setQueryData(queryKey, context);
+
+          console.warn(err);
+        },
+        onSettled: () => {
+          queryClient.invalidateQueries(queryKey);
+        },
+      }
+    );
+  };
+
+  //削除用の関数
   const useDeleteComic = (comicId) => {
     const queryClient = useQueryClient();
     const queryKey = 'comic';
@@ -79,5 +107,5 @@ export const useComicApi = () => {
     );
   };
 
-  return { useGetComic, useCreateComic, useDeleteComic };
+  return { useGetComic, useCreateComic, useDeleteComic, usePutComic };
 };
