@@ -29,7 +29,20 @@ export const comicApi = {
     });
     return res.data;
   },
-
+  //編集用api
+  putComic: async (params, comicId, token) => {
+    await axios
+    .put(`${process.env.REACT_APP_DEV_API_URL}/user/comics/${comicId}`, params, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    })
+    .catch((error) => {
+      console.error(error.res.data);
+    });
+  },
+  //削除api
   deleteComic: async (comicId, token) => {
     await axios.delete(`${process.env.REACT_APP_DEV_API_URL}/user/comics/${comicId}`, {
       headers: {
