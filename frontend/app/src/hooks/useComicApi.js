@@ -34,17 +34,6 @@ export const useComicApi = () => {
         );
       },
       {
-        onMutate: async (data) => {
-          await queryClient.cancelQueries(queryKey);
-          const previousData = await queryClient.getQueryData(queryKey);
-
-          if (previousData) {
-            queryClient.setQueryData(queryKey, () => {
-              return updater(previousData, data);
-            });
-          }
-          return previousData;
-        },
         onError: (err, _, context) => {
           queryClient.setQueryData(queryKey, context);
 
