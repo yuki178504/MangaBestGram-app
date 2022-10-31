@@ -19,13 +19,6 @@ export const useComicApi = () => {
     const queryClient = useQueryClient();
     const queryKey = 'comic';
 
-    const updater = (previousData, data) => {
-      previousData.data.unshift({
-        attributes: data.comics,
-      });
-      return previousData;
-    };
-
     return useMutation(
       async (params) => {
         return await comicApi.createComic(
