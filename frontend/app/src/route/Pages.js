@@ -6,3 +6,4 @@ export { default as MyPage } from '../components/MyPage';
 export { default as ProfileEdit } from '../components/ProfileEdit';
 export { default as ScenePost } from '../components/model/comic/ScenePost';
 export { default as ScenePostNewForm } from '../components/model/comic/ScenePostNewForm';
+export { default as ComicEdit } from '../components/model/mypage/ComicEdit';
