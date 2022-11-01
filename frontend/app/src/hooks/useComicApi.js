@@ -66,6 +66,23 @@ export const useComicApi = () => {
     );
   };
 
+  //詳細用の関数
+  const useShowComic = (comicId) => {
+    return useQuery({
+      queryKey: [
+        'comic_show',
+        { comicId: comicId }
+      ],
+      queryFn: () => comicApi.showComic(
+        comicId,
+        token || ''
+      ),
+      enabled: !!comicId,
+      staleTime: 30000000,
+      cacheTime: 0,
+    });
+  };
+
   //削除用の関数
   const useDeleteComic = (comicId) => {
     const queryClient = useQueryClient();
@@ -90,5 +107,5 @@ export const useComicApi = () => {
     );
   };
 
-  return { useGetComic, useCreateComic, useDeleteComic, usePutComic };
+  return { useGetComic, useCreateComic, useDeleteComic, usePutComic, useShowComic };
 };
