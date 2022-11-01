@@ -11,17 +11,32 @@ const ComicEdit = () => {
   const { useGetComic } = useComicApi();
   const { data: comics, isLoading } = useGetComic();
 
+  const { usePutComic } = useComicApi();
+  const putComic = usePutComic(comic_id);
+
   const { useDeleteComic } = useComicApi();
   const deleteComic = useDeleteComic(comic_id);
 
+  //削除用関数
   const handleDeleteComic = () => {
     if (
       window.confirm("削除しますか？")
     ) {
       deleteComic.mutate();
-      alert("削除しました!")
-      navigate('/mypage')
+      alert("削除しました!");
+      navigate('/mypage');
     }
+  };
+
+  //更新用関数
+  const onSubmit = (data) => {
+    try {
+      putComic.mutate(data);
+    } catch (error) {
+      console.error(error.res.data);
+    }
+    alert("編集されました");
+    navigate('/mypage');
   };
 
   const { handleSubmit, register, formState: { errors } } = useForm({
@@ -33,7 +48,7 @@ const ComicEdit = () => {
 
   return(
     <>
-      <form className={newComicForm.form}>
+      <form onSubmit={handleSubmit(onSubmit)} className={newComicForm.form}>
         <div className={newComicForm["form-text"]}>
           <div className={newComicForm["form-label"]}>漫画のタイトル</div>
           { errors.title &&
