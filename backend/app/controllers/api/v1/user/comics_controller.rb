@@ -8,7 +8,7 @@ class Api::V1::User::ComicsController < SecuredController
 
   def show
     @comic
-    render json: comic
+    render json: @comic
   end
 
   def create
