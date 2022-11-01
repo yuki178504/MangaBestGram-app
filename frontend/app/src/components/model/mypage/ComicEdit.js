@@ -8,8 +8,9 @@ import comicNewGenreJson from "../../../json/comicNewGenre.json";
 const ComicEdit = () => {
   const navigate = useNavigate();
   const { comic_id, comic_title } = useParams();
-  const { useGetComic } = useComicApi();
-  const { data: comics, isLoading } = useGetComic();
+  
+  const { useShowComic } = useComicApi();
+  const { data: comics, isLoading } = useShowComic(comic_id);
 
   const { usePutComic } = useComicApi();
   const putComic = usePutComic(comic_id);
@@ -56,7 +57,7 @@ const ComicEdit = () => {
           }
           <input
             className={newComicForm["form-input"]}
-            defaultValue={ comic_title }
+            defaultValue={ comics.title }
             {...register('title', {
               required: true
             })}
