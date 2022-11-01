@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { useComicApi } from "../../../hooks/useComicApi";
 import newComicForm from "../../../css/ui/newComicForm.module.css";
+import comicEdit from "../../../css/ui/comicEdit.module.css";
 import ReactLoading from "react-loading";
 import comicNewGenreJson from "../../../json/comicNewGenre.json";
 
@@ -74,7 +75,7 @@ const ComicEdit = () => {
               required: true
             })}
           >
-            <option></option>
+            <option>{ comics.genre }</option>
             {comicNewGenreJson.map((genre, index) =>
               <option key={index} >{ genre.genre }</option>
             )}
@@ -85,9 +86,11 @@ const ComicEdit = () => {
           <input className={newComicForm["form-input"]} placeholder="画像を選択してください"/>
         </div>
         <div className={newComicForm["form-text"]}>
-          <button className={newComicForm["form-submit"]} type="submit"/>
+          <button className={newComicForm["form-submit"]} type="submit">この内容で登録する</button>
         </div>
-        <button onClick={handleDeleteComic}>削除</button>
+        <div className={newComicForm["form-text"]}>
+          <button className={comicEdit["form-delete"]} onClick={handleDeleteComic}>削除</button>
+        </div>
       </form>
     </>
   );

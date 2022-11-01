@@ -12,11 +12,11 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <Router>
         <AuthGuardProvider>
+        <div className='main'>
           <Header />
-          <div className='main'>
             <Routers />
-          </div>
           <Footer />
+        </div>
         </AuthGuardProvider>
       </Router>
     </QueryClientProvider>
