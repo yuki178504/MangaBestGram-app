@@ -42,6 +42,19 @@ export const comicApi = {
       console.error(error.res.data);
     });
   },
+  //詳細api
+  showComic: async (comicId, token) => {
+    const res = await axios.get(`${process.env.REACT_APP_DEV_API_URL}/user/comics/${comicId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    })
+    .catch((error) => {
+      console.error(error.res.data);
+    });
+    return res.data;
+  },
   //削除api
   deleteComic: async (comicId, token) => {
     await axios.delete(`${process.env.REACT_APP_DEV_API_URL}/user/comics/${comicId}`, {
