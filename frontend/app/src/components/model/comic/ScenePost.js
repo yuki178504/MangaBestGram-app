@@ -43,6 +43,10 @@ const ScenePost = () => {
                 <p className={scenePost["list-title"]}>{ scene_post.scene_title }</p>
                 <p className={scenePost["list-genre"]}>{ scene_post.scene_content }</p>
               </div>
+              <div className={scenePost["link-list"]}>
+                <Link to={`/`} className={scenePost["link-show"]} >シーンを見る 追加する</Link>
+                <Link to={`/`} className={scenePost["link-edit"]} >編集する</Link>
+              </div>
             </div>
           </div>
           ))}
