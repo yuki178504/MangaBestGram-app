@@ -1,4 +1,5 @@
 class Api::V1::User::ScenePostsController < SecuredController
+  before_action :set_scene_post, only: %i[show update destroy]
 
   def index
     posts = @current_user.comics.find_by!(id: params[:comic_id]).scene_posts.all
@@ -6,8 +7,8 @@ class Api::V1::User::ScenePostsController < SecuredController
   end
 
   def show
-    post = ScenePost.find(params[:id])
-    render json: post
+    @scene_post
+    render json: @post
   end
 
   def create
@@ -20,22 +21,24 @@ class Api::V1::User::ScenePostsController < SecuredController
   end
 
   def update
-    post = ScenePost.find(params[:id])
-    if post.update(post_params)
-      render json: post
-    else
-      render json: post.errors
-    end
+    @scene_post.update!(scene_post_update_params)
   end
 
   def destroy
-    post = ScenePost.find(params[:id])
-    post.delete
+    @scene_post.destroy!
   end
 
   private
 
+  def set_scene_post
+    @scene_post = @current_user.scene_posts.find_by!(id: params[:id])
+  end
+
   def scene_post_params
-    params.permit(:scene_title, :scene_date, :scene_content, :scene_image).merge(user_id: @current_user.id)
+    params.permit(:scene_title, :scene_date, :scene_content, :scene_image, :scene_number).merge(user_id: @current_user.id)
+  end
+
+  def scene_post_update_params
+    params.permit(:scene_title, :scene_date, :scene_content, :scene_image, :scene_number)
   end
 end
