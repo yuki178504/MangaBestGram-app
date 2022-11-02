@@ -63,5 +63,23 @@ export const useScenePost = () => {
     );
   };
 
-  return { useGetScenePost, useCreateScenePost };
+  //シーンの詳細
+  const useShowScenePost = (scenePostId) => {
+    return useQuery({
+      queryKey: [
+        'scene_post_show',
+        { scenePostId: scenePostId },
+      ],
+      queryFn: () =>
+      scenePost.showScenePost(
+        scenePostId,
+        token || '',
+      ),
+      enabled: !!scenePostId,
+      staleTime: 30000000,
+      cacheTime: 0,
+    });
+  };
+
+  return { useGetScenePost, useCreateScenePost, useShowScenePost };
 };
