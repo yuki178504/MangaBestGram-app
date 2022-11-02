@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { useComicApi } from "../../../hooks/useComicApi";
 import newComicForm from "../../../css/ui/newComicForm.module.css";
 import comicEdit from "../../../css/ui/comicEdit.module.css";
 import ReactLoading from "react-loading";
 import comicNewGenreJson from "../../../json/comicNewGenre.json";
+import { AiFillHome } from "react-icons/ai";
 
 const ComicEdit = () => {
   const navigate = useNavigate();
@@ -50,6 +51,19 @@ const ComicEdit = () => {
 
   return(
     <>
+    <div className={comicEdit["top-list"]}>
+        <div className={comicEdit.title}>
+          <span className={comicEdit.home}>
+            <Link to='/' className={comicEdit["home-link"]}><span className={comicEdit["react-icons"]}><AiFillHome /></span>ホーム</Link>
+          </span>
+          <span>
+            <Link to='/mypage' className={comicEdit["home-link"]}><span>/ マイページ</span></Link>
+          </span>
+          <span className={comicEdit["comic-title"]}>
+            / { comic_title }を編集中です
+          </span>
+        </div>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)} className={newComicForm.form}>
         <div className={newComicForm["form-text"]}>
           <div className={newComicForm["form-label"]}>漫画のタイトル</div>
