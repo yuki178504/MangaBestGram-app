@@ -8,7 +8,7 @@ class Api::V1::User::ScenePostsController < SecuredController
 
   def show
     @scene_post
-    render json: @post
+    render json: @scene_post
   end
 
   def create
