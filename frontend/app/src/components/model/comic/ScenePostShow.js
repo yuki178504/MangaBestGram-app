@@ -7,7 +7,7 @@ import { BsBookFill, BsFillReplyFill, BsFillPencilFill, BsCalendar3, BsNewspaper
 
 const ScenePostShow = () => {
   const navigate = useNavigate();
-  const { scene_post_id } = useParams();
+  const { scene_post_id, comic_title } = useParams();
 
   const { useShowScenePost } = useScenePost();
   const { data: scene_post, isLoading } = useShowScenePost(scene_post_id);
@@ -35,7 +35,7 @@ const ScenePostShow = () => {
             画像
           </div>
           <div className={scenePostShow.article}>
-            <p className={scenePostShow["comic-title"]}><span className={scenePostShow["bs-book-fill"]}><BsBookFill /></span>漫画のタイトル</p>
+            <p className={scenePostShow["comic-title"]}><span className={scenePostShow["bs-book-fill"]}><BsBookFill /></span>{ comic_title }</p>
             <div className={scenePostShow["detail-area"]}>
               <p className={scenePostShow.detail}><span className={scenePostShow["bs-fill-pencil-fill"]}><BsFillPencilFill /></span>【シーンのタイトル】</p>
               <div>{ scene_post.scene_title }</div>
