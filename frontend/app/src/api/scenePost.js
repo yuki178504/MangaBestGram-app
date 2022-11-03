@@ -43,5 +43,19 @@ export const scenePost = {
       console.error(error.res.data);
     });
     return res.data
+  },
+
+  //更新用オブジェクト
+  putScenePost: async (params, scenePostId, token) => {
+    await axios
+    .put(`${process.env.REACT_APP_DEV_API_URL}/user/scene_posts/${scenePostId}`, params, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    })
+    .catch((error) => {
+      console.error(error.res.data);
+    });
   }
 };
