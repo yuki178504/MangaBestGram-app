@@ -81,5 +81,34 @@ export const useScenePost = () => {
     });
   };
 
-  return { useGetScenePost, useCreateScenePost, useShowScenePost };
+  //シーンの更新用関数
+  const usePutScenePost = (comicId, scenePostId) => {
+    const queryClient = useQueryClient();
+    const queryKey = [
+      'scene_post',
+      { comicId: comicId },
+    ];
+
+    return useMutation(
+      async (params) => {
+        return await scenePost.putScenePost(
+          params,
+          scenePostId,
+          token || ''
+        );
+      },
+      {
+        onError: (err, _, context) => {
+          queryClient.setQueryData(queryKey, context);
+
+          console.warn(err);
+        },
+        onSettled: () => {
+          queryClient.invalidateQueries(queryKey);
+        },
+      }
+    );
+  };
+
+  return { useGetScenePost, useCreateScenePost, useShowScenePost, usePutScenePost };
 };
