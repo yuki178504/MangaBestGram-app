@@ -3,18 +3,14 @@ import { useScenePost } from "../../../hooks/useScenePost";
 import { useForm } from 'react-hook-form';
 import scenePostNew from '../../../css/model/comic/scenePostNew.module.css';
 import { AiFillHome } from "react-icons/ai";
-import DatePicker from "../../ui/DatePicker";
-import { registerLocale } from  "react-datepicker";
-import ja from 'date-fns/locale/ja';
 
 const ScenePostNewForm = () => {
-  registerLocale("ja", ja);
   const { comic_id, comic_title } = useParams();
   const navigate = useNavigate();
   const { useCreateScenePost } = useScenePost();
   const createScenePost = useCreateScenePost(comic_id);
 
-  const { handleSubmit, register, control, formState: { errors } } = useForm({
+  const { handleSubmit, register, formState: { errors } } = useForm({
     criteriaMode: "all"
   });
 
