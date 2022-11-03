@@ -3,14 +3,18 @@ import { useScenePost } from "../../../hooks/useScenePost";
 import { useForm } from 'react-hook-form';
 import scenePostNew from '../../../css/model/comic/scenePostNew.module.css';
 import { AiFillHome } from "react-icons/ai";
+import DatePicker from "../../ui/DatePicker";
+import { registerLocale } from  "react-datepicker";
+import ja from 'date-fns/locale/ja';
 
 const ScenePostNewForm = () => {
+  registerLocale("ja", ja);
   const { comic_id, comic_title } = useParams();
   const navigate = useNavigate();
   const { useCreateScenePost } = useScenePost();
   const createScenePost = useCreateScenePost(comic_id);
 
-  const { handleSubmit, register, formState: { errors } } = useForm({
+  const { handleSubmit, register, control, formState: { errors } } = useForm({
     criteriaMode: "all"
   });
 
@@ -83,6 +87,14 @@ const ScenePostNewForm = () => {
           </select>
         </div>
         <div className={scenePostNew["form-text"]}>
+          <div className={scenePostNew["form-label"]}>好きなシーンを見た日付</div>
+          <DatePicker
+            locale="ja"
+            name="scene_date"
+            control={control}
+          />
+        </div>
+        <div className={scenePostNew["form-text"]}>
           <div className={scenePostNew["form-label"]}>好きなシーンの内容</div>
           { errors.scene_title &&
             <div className={scenePostNew.errors}>【！好きなシーンの内容が空欄です】</div> 
@@ -105,7 +117,7 @@ const ScenePostNewForm = () => {
           <button className={scenePostNew["form-submit"]} type="submit">この内容で登録する</button>
         </div>
         <div className={scenePostNew["form-text"]}>
-          <button onClick={() => navigate('/mypage')} className={scenePostNew["form-mypage"]}>マイページに戻る</button>
+          <button onClick={() => navigate(-1)} className={scenePostNew["form-mypage"]}>{ comic_title }のシーン一覧に戻る</button>
         </div>
       </form>
     </div>
