@@ -88,10 +88,13 @@ const ScenePostNewForm = () => {
         </div>
         <div className={scenePostNew["form-text"]}>
           <div className={scenePostNew["form-label"]}>好きなシーンを見た日付</div>
-          <DatePicker
-            locale="ja"
-            name="scene_date"
-            control={control}
+          <input
+            type='date'
+            className={scenePostNew["form-input"]}
+            placeholder="好きなシーン名を入力してください"
+            {...register('scene_date', {
+              required: true
+            })}
           />
         </div>
         <div className={scenePostNew["form-text"]}>
