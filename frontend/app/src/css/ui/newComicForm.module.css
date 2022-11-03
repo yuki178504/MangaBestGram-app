@@ -11,6 +11,7 @@
 
 .form-text {
   margin-left: 50px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
@@ -40,10 +41,10 @@
   font-weight: 700;
   margin: 15px 0 20px;
   padding: 18px 8px;
-  background-color: white;
+  background-color: #4682b4;
+  color: white;
 }
 
 .form-submit:hover {
-  background-color: aqua;
-  transition: 0.5s;
+  opacity: 0.5;
 }

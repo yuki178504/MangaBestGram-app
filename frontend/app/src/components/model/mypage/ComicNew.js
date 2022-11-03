@@ -25,7 +25,7 @@ const ComicNew = () => {
   };
 
   return (
-    <>
+    <div className={newComicForm.wrapper}>
       <form onSubmit={handleSubmit(onSubmit)} className={newComicForm.form}>
         <div className={newComicForm["form-text"]}>
           <div className={newComicForm["form-label"]}>漫画のタイトル</div>
@@ -62,10 +62,10 @@ const ComicNew = () => {
           <input className={newComicForm["form-input"]} placeholder="画像を選択してください"/>
         </div>
         <div className={newComicForm["form-text"]}>
-          <button className={newComicForm["form-submit"]} type="submit"/>
+          <button className={newComicForm["form-submit"]} type="submit">この内容で登録する</button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 
