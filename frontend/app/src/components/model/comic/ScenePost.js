@@ -30,7 +30,7 @@ const ScenePost = () => {
         </div>
       </div>
       <button className={scenePost.link}>
-        <Link to={`/comic/${comic_id}/scene_post_new`} >新規のシーンを投稿する</Link>
+        <Link to={`/comic/${comic_id}/${comic_title}/scene_post_new`} >新規のシーンを投稿する</Link>
       </button>
       <div className={scenePost["main-content"]}>
         {scene_posts?.map((scene_post) => (

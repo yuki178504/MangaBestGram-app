@@ -5,7 +5,7 @@ import scenePostNew from '../../../css/model/comic/scenePostNew.module.css';
 import { AiFillHome } from "react-icons/ai";
 
 const ScenePostNewForm = () => {
-  const { comic_id } = useParams();
+  const { comic_id, comic_title } = useParams();
   const navigate = useNavigate();
   const { useCreateScenePost } = useScenePost();
   const createScenePost = useCreateScenePost(comic_id);
@@ -47,7 +47,7 @@ const ScenePostNewForm = () => {
             <Link to='/mypage' className={scenePostNew["home-link"]}><span>/ マイページ</span></Link>
           </span>
           <span className={scenePostNew["comic-title"]}>
-            / 仮のシーン一覧
+            / { comic_title }のシーン投稿画面
           </span>
         </div>
       </div>
