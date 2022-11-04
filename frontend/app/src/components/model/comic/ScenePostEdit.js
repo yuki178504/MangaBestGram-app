@@ -7,7 +7,7 @@ import newComicForm from "../../../css/ui/newComicForm.module.css";
 import scenePostShow from "../../../css/model/comic/scenePostShow.module.css";
 import { AiFillHome } from "react-icons/ai";
 import { BsFillReplyFill } from "react-icons/bs";
-import { DeleteButton } from "../../ui/Parts";
+import { ScenePostDeleteButton } from "../../ui/Parts";
 
 const ScenePostEdit = () => {
   const navigate = useNavigate();
@@ -139,7 +139,7 @@ const ScenePostEdit = () => {
           <button className={newComicForm["form-submit"]} type="submit">この内容で登録する</button>
         </div>
         <div className={newComicForm["form-text"]}>
-          <DeleteButton handleDeleteScenePost={handleDeleteScenePost} />
+          <ScenePostDeleteButton handleDeleteScenePost={handleDeleteScenePost} />
         </div>
         <div className={newComicForm["form-text"]}>
         <button onClick={() => navigate(-1)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>シーン一覧へ戻る</button>

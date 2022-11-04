@@ -22,19 +22,3 @@
   align-items: center;
   margin-left: 5px;
 }
-
-.form-delete {
-  text-decoration: none;
-  background-color: red;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 15px;
-  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
-}
-
-.form-delete:hover {
-  opacity: 0.5;
-}

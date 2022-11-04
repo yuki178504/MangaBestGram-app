@@ -6,6 +6,7 @@ import comicEdit from "../../../css/ui/comicEdit.module.css";
 import ReactLoading from "react-loading";
 import comicNewGenreJson from "../../../json/comicNewGenre.json";
 import { AiFillHome } from "react-icons/ai";
+import { ComicDeleteButton } from "../../ui/Parts";
 
 const ComicEdit = () => {
   const navigate = useNavigate();
@@ -103,7 +104,7 @@ const ComicEdit = () => {
           <button className={newComicForm["form-submit"]} type="submit">この内容で登録する</button>
         </div>
         <div className={newComicForm["form-text"]}>
-          <button className={comicEdit["form-delete"]} onClick={handleDeleteComic}>削除</button>
+          <ComicDeleteButton handleDeleteComic={handleDeleteComic} />
         </div>
       </form>
     </>
