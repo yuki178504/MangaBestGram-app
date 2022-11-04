@@ -110,5 +110,32 @@ export const useScenePost = () => {
     );
   };
 
-  return { useGetScenePost, useCreateScenePost, useShowScenePost, usePutScenePost };
+  //削除用関数を定義
+  const useDeleteScenePost = (comicId, scenePostId) => {
+    const queryClient = useQueryClient();
+    const queryKey = [
+      'scene_post',
+      { comicId: comicId },
+    ];
+
+    return useMutation(
+      async () => {
+        return await scenePost.deleteScenePost(
+          scenePostId,
+          token || ''
+        );
+      },
+      {
+        onError: (err, _, context) => {
+          queryClient.setQueryData(queryKey, context);
+          console.warn(err);
+        },
+        onSettled: () => {
+          queryClient.invalidateQueries(queryKey);
+        },
+      }
+    );
+  };
+
+  return { useGetScenePost, useCreateScenePost, useShowScenePost, usePutScenePost, useDeleteScenePost };
 };
