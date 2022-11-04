@@ -18,6 +18,20 @@ const ScenePostEdit = () => {
   const { usePutScenePost } = useScenePost();
   const putScenePost = usePutScenePost(comic_id, scene_post_id);
 
+  const { useDeleteScenePost } =useScenePost();
+  const deketeScenePost = useDeleteScenePost(comic_id, scene_post_id);
+
+  //削除用関数
+  const handleDeleteScenePost = () => {
+    if (
+      window.confirm(`${scene_post.scene_title}のシーンを削除しますか？`)
+    ) {
+      deketeScenePost.mutate();
+      alert(`${scene_post.scene_title}を削除しました！`);
+      navigate(-1)
+    }
+  }
+
   //更新用関数
   const onSubmit = (data) => {
     try {
@@ -124,7 +138,7 @@ const ScenePostEdit = () => {
           <button className={newComicForm["form-submit"]} type="submit">この内容で登録する</button>
         </div>
         <div className={newComicForm["form-text"]}>
-          <button className={comicEdit["form-delete"]} >削除</button>
+          <button onClick={handleDeleteScenePost} className={comicEdit["form-delete"]} >削除</button>
         </div>
         <div className={newComicForm["form-text"]}>
         <button onClick={() => navigate(-1)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>シーン一覧へ戻る</button>
