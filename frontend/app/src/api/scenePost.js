@@ -55,7 +55,7 @@ export const scenePost = {
       },
     })
     .catch((error) => {
-      console.error(error.res.data);
+      console.error(error.response.data);
     });
   }
 };
