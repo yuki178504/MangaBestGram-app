@@ -22,6 +22,11 @@
   opacity: 0.5;
 }
 
+.react-icons {
+  vertical-align: -3px;
+  margin-right: 3px;
+}
+
 .comic-title {
   align-items: center;
   margin-left: 5px;

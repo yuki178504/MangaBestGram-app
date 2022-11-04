@@ -17,6 +17,11 @@
   opacity: 0.5;
 }
 
+.react-icons {
+  vertical-align: -3px;
+  margin-right: 3px;
+}
+
 .menu {
   padding: 40px 120px ;
 }
