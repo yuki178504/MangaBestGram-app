@@ -17,23 +17,33 @@
   opacity: 0.5;
 }
 
+.react-icons {
+  vertical-align: -3px;
+  margin-right: 3px;
+}
+
 .menu {
   padding: 40px 120px ;
 }
 
 .menu-list {
   display: flex;
-  justify-content: center;
-  border: 0.3px solid blue;
+  justify-content: space-evenly;
+  border: 2px solid #a9a9a9;
+  border-radius: 8px;
+  background-color: aliceblue;
 }
 
 .menu-list-in {
-  margin-right: 200px;
+  padding: 5px 0px;
   text-align: center;
+  border: none;
+  cursor: pointer;
 }
 
-.menu-list-in-end {
-  text-align: center;
+.menu-list-in:active {
+  background-color: pink;
+  transition: 0.5s;
 }
 
 .menu-icon {

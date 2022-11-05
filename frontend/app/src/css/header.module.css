@@ -5,32 +5,31 @@
   background-color: #4b0082;
 }
 
-.navbar-logo {
+.logo {
   color: white;
   font-size: 30px;
   font-family: 'Henny Penny', cursive;
-}
-
-.nav-title {
   letter-spacing: 0.05em;
-  font-size: 25px;
-  text-decoration: none;
-  color: white
 }
 
-.nav-ul {
+.ul {
   display: flex;
   padding-top: 8px;
 }
 
-.nav-li {
+.li {
   margin-right: 10px;
   border-radius: 30px;
 }
 
 .nav-li-text {
   text-decoration: none;
-  color: white;
+  background-color: aqua;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 20px;
+  font-size: 15px;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
 }
 
 .nav-li-text:hover {

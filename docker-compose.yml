@@ -9,6 +9,7 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: password
       MYSQL_DATABASE: myapp_development
+      TZ: Asia/Tokyo
     volumes:
       - db-data:/var/lib/mysql
 

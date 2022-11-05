@@ -1,6 +1,6 @@
 footer {
-  position: sticky;
-  top: 100vh;
+  position: absolute;
+  bottom: 0px;
   width: 100%;
   background-color: #4b0082;
 }
