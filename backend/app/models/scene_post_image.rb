@@ -1,0 +1,2 @@
+class ScenePostImage < ApplicationRecord
+end

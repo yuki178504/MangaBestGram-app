@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_02_183050) do
+ActiveRecord::Schema.define(version: 2022_11_05_174952) do
 
   create_table "comics", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 2022_11_02_183050) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_comics_on_user_id"
+  end
+
+  create_table "scene_post_images", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "scene_post_id", null: false
+    t.string "scene_post_image_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["scene_post_id"], name: "index_scene_post_images_on_scene_post_id"
   end
 
   create_table "scene_posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -47,5 +55,6 @@ ActiveRecord::Schema.define(version: 2022_11_02_183050) do
   end
 
   add_foreign_key "comics", "users"
+  add_foreign_key "scene_post_images", "scene_posts"
   add_foreign_key "scene_posts", "users"
 end
