@@ -14,16 +14,22 @@
   color: white;
   text-align: center;
   font-weight: bold;
+  margin-bottom: 30px;
 }
 
-.search {
-  margin-top: 30px;
+.desc {
+  margin-top: 50px;
   text-align: center;
   color: white;
+  font-size: 25px;
+}
+
+.desc-text {
+  margin: 10px 0px;
 }
 
 .post {
-  margin-top: 20px;
+  margin-top: 30px;
   text-align: center;
   font-size: 20px;
 }
@@ -44,9 +50,23 @@
   filter: brightness(1.2);
 }
 
-.secction {
-  padding: 40px 90px;
+.section {
+  padding: 40px 121px;
   width: 100%;
+}
+
+.section-outer-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title {
+  display: inline;
+  background-color: #b0c4de;
+  padding: 16px 40px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 540px) {
