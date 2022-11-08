@@ -46,7 +46,9 @@ const ComicNew = () => {
             className={newComicForm["form-input"]}
             placeholder="漫画のタイトルを入力してください"
             name="title"
-            {...register("title")}
+            {...register("title", {
+              required: true,
+            })}
           />
         </div>
         <div className={newComicForm["form-text"]}>
@@ -57,7 +59,9 @@ const ComicNew = () => {
           <select
             className={newComicForm["form-input"]}
             name="genre"
-            {...register("genre")}
+            {...register("genre", {
+              required: true,
+            })}
           >
             <option></option>
             {comicNewGenreJson.map((genre, index) =>
