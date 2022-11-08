@@ -6,6 +6,8 @@ import comicPost from '../css/model/comicPost.module.css';
 import { useGeneralComic } from '../hooks/useGeneralComic';
 import ReactLoading from "react-loading";
 import noimage from "../image/default.png"
+import { Link as Scroll } from 'react-scroll';
+import { BsChevronDoubleDown } from "react-icons/bs";
 
 const Home = () => {
   const { useGetGeneralComic } = useGeneralComic();
@@ -33,14 +35,18 @@ const Home = () => {
           }
           </div>
         </div>
-        <div className={ home.desc }>
+        <div className={home.desc}>
           <h4>MangaBestGramとは？</h4>
           <p className={home["desc-text"]}>自分が気に入った！感銘を受けた！などのマンガの名場面を記録できるサービスです！</p>
           <h4>あの場面を心だけでなく、記録としても残してみませんか？</h4>
         </div>
+        <div className={home.scroll}>
+          <Scroll className={home["scroll-text"]} to="scroll" smooth={true} duration={600}><span className={home["bs-chevron-double-down"]}><BsChevronDoubleDown /></span>最新の投稿を見てみる</Scroll>
+        </div>
       </div>
       <div className={home.section}>
         <div className={home["section-outer-title"]}>
+          <span id='scroll'></span>
           <h3 className={home["section-title"]}>最新の投稿</h3>
         </div>
         <div className={comicPost["main-content"]}>

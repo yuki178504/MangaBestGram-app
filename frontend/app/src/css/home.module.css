@@ -28,6 +28,29 @@
   margin: 10px 0px;
 }
 
+.scroll {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.bs-chevron-double-down {
+  font-size: 20px;
+  vertical-align: -5px;
+  margin-right: 10px;
+}
+
+.scroll-text {
+  font-size: 20px;
+  color: white;
+  border-bottom: 2px solid white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.scroll-text:hover {
+  filter: brightness(1.2);
+}
+
 .post {
   margin-top: 30px;
   text-align: center;
