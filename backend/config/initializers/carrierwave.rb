@@ -1,6 +1,12 @@
-require 'carrierwave/storage/abstract'
-require 'carrierwave/storage/file'
-require 'carrierwave/storage/fog'
+# require 'carrierwave/storage/abstract'
+# require 'carrierwave/storage/file'
+# require 'carrierwave/storage/fog'
+
+CarrierWave.configure do |config|
+  config.asset_host = "http://localhost:3000"
+  config.storage = :file
+  config.cache_storage = :file
+end
 
 CarrierWave.configure do |config|
     config.storage :fog
