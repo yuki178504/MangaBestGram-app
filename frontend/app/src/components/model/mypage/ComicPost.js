@@ -2,6 +2,7 @@ import comicPost from '../../../css/model/comicPost.module.css';
 import { Link } from 'react-router-dom';
 import { useComicApi } from '../../../hooks/useComicApi';
 import ReactLoading from "react-loading";
+import noimage from "../../../image/default.png"
 
 const ComicPost = () => {
   const { useGetComic } = useComicApi();
@@ -17,7 +18,7 @@ const ComicPost = () => {
           <div key={comic.id} className={comicPost.content}>
             <div className={comicPost["innner-content"]}>
               <div className={comicPost["outer-image"]}>
-                <img className={comicPost.image} src={ comic.image.url } alt='画像' />
+                <img className={comicPost.image} src={ comic.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
               </div>
               <div className={comicPost.list}>
                 <p className={comicPost["list-title"]}>【{ comic.title }】</p>
