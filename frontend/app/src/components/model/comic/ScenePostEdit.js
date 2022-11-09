@@ -8,16 +8,17 @@ import scenePostShow from "../../../css/model/comic/scenePostShow.module.css";
 import { AiFillHome } from "react-icons/ai";
 import { BsFillReplyFill } from "react-icons/bs";
 import { ScenePostDeleteButton } from "../../ui/Parts";
+import { AuthContext } from "../../../providers/AuthGuard";
+import { useContext } from "react";
+import axios from "axios";
 
 const ScenePostEdit = () => {
   const navigate = useNavigate();
   const { scene_post_id, comic_id  } = useParams();
+  const { token } = useContext(AuthContext);
 
   const { useShowScenePost } = useScenePost();
   const { data: scene_post, isLoading } = useShowScenePost(scene_post_id);
-
-  const { usePutScenePost } = useScenePost();
-  const putScenePost = usePutScenePost(comic_id, scene_post_id);
 
   const { useDeleteScenePost } =useScenePost();
   const deketeScenePost = useDeleteScenePost(comic_id, scene_post_id);
@@ -34,21 +35,33 @@ const ScenePostEdit = () => {
   }
 
   //更新用関数
-  const onSubmit = (data) => {
-    try {
-      putScenePost.mutate(data);
-    } catch (error) {
-      console.error(error.response.data);
-    }
-    alert("編集されました");
-    navigate(-1)
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append("scene_title", data.title);
+    formData.append("scene_number", data.scene_number);
+    formData.append("scene_date", data.scene_date);
+    formData.append("scene_content", data.scene_content);
+    formData.append("scene_image", data.scene_image[0]);
+
+    await axios.put(`${process.env.REACT_APP_DEV_API_URL}/user/scene_posts/${scene_post_id}`, formData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    .catch((error) => {
+      console.error(error.res.data);
+    });
+    alert(`${scene_post.scene_title}を編集しました！`);
+    navigate(-1);
+    console.log(data)
   };
 
   const { handleSubmit, register, formState: { errors } } = useForm({
     criteriaMode: "all"
   });
 
-  if(isLoading) return <ReactLoading type="spin" />
+  if(isLoading) return <ReactLoading type="spin" color="blue" height={200} width={200} className={comicEdit.loading} />
   console.log(scene_post)
 
   const setNumber = () => {
@@ -101,7 +114,7 @@ const ScenePostEdit = () => {
               required: true
             })}
           >
-            <option></option>
+            <option>{ scene_post.scene_number }話</option>
             {number.map((numbers, index) =>
               <option key={index} >{ numbers }話</option>
             )}
@@ -132,8 +145,13 @@ const ScenePostEdit = () => {
           />
         </div>
         <div className={newComicForm["form-text"]}>
-          <div className={newComicForm["form-label"]}>漫画の画像</div>
-          <input className={newComicForm["form-input"]} placeholder="画像を選択してください"/>
+          <div className={newComicForm["form-label"]}>シーンの画像</div>
+          <input
+            className={newComicForm["form-input"]}
+            type="file"
+            accept="image/*"
+            {...register("scene_image")}
+          />
         </div>
         <div className={newComicForm["form-text"]}>
           <button className={newComicForm["form-submit"]} type="submit">この内容で登録する</button>
