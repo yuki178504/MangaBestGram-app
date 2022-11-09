@@ -7,16 +7,17 @@ import ReactLoading from "react-loading";
 import comicNewGenreJson from "../../../json/comicNewGenre.json";
 import { AiFillHome } from "react-icons/ai";
 import { ComicDeleteButton } from "../../ui/Parts";
+import axios from "axios";
+import { AuthContext } from "../../../providers/AuthGuard";
+import { useContext } from "react";
 
 const ComicEdit = () => {
   const navigate = useNavigate();
   const { comic_id, comic_title } = useParams();
+  const { token } = useContext(AuthContext);
   
   const { useShowComic } = useComicApi();
   const { data: comics, isLoading } = useShowComic(comic_id);
-
-  const { usePutComic } = useComicApi();
-  const putComic = usePutComic(comic_id);
 
   const { useDeleteComic } = useComicApi();
   const deleteComic = useDeleteComic(comic_id);
@@ -33,21 +34,31 @@ const ComicEdit = () => {
   };
 
   //更新用関数
-  const onSubmit = (data) => {
-    try {
-      putComic.mutate(data);
-    } catch (error) {
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append("title", data.title);
+    formData.append("genre", data.genre);
+    formData.append("image", data.image[0]);
+
+    await axios.put(`${process.env.REACT_APP_DEV_API_URL}/user/comics/${comic_id}`, formData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    .catch((error) => {
       console.error(error.res.data);
-    }
-    alert("編集されました");
-    navigate('/mypage');
+    });
+    alert(`${comic_title}を編集しました！`);
+    navigate("/mypage");
+    console.log(data)
   };
 
   const { handleSubmit, register, formState: { errors } } = useForm({
     criteriaMode: "all"
   });
 
-  if(isLoading) return <ReactLoading type="spin" />
+  if(isLoading) return <ReactLoading type="spin" color="blue" />
   console.log(comics)
 
   return(
@@ -98,7 +109,12 @@ const ComicEdit = () => {
         </div>
         <div className={newComicForm["form-text"]}>
           <div className={newComicForm["form-label"]}>漫画の画像</div>
-          <input className={newComicForm["form-input"]} placeholder="画像を選択してください"/>
+          <input
+            className={newComicForm["form-input"]}
+            type="file"
+            accept="image/*"
+            {...register("image")}
+          />
         </div>
         <div className={newComicForm["form-text"]}>
           <button className={newComicForm["form-submit"]} type="submit">この内容で登録する</button>
