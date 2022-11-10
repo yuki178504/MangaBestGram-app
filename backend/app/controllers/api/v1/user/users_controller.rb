@@ -5,6 +5,11 @@ class Api::V1::User::UsersController < SecuredController
     render json: users
   end
 
+  def show
+    @current_user
+    render json: @current_user
+  end
+
   def update
     @current_user.update!(user_params)
   end
