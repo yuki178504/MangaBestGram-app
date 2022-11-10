@@ -20,7 +20,7 @@ export const useScenePost = () => {
           token || ''
         ),
       staleTime: 30000000,
-      cacheTime: 30000000,
+      cacheTime: 0,
     });
   };
 

@@ -2,12 +2,13 @@ import comicPost from '../../../css/model/comicPost.module.css';
 import { Link } from 'react-router-dom';
 import { useComicApi } from '../../../hooks/useComicApi';
 import ReactLoading from "react-loading";
+import noimage from "../../../image/default.png"
 
 const ComicPost = () => {
   const { useGetComic } = useComicApi();
   const { data: comics, isLoading } = useGetComic();
 
-  if(isLoading) return <ReactLoading type="spin" />
+  if(isLoading) return <ReactLoading type="spin" color='blue' />
   console.log(comics)
 
   return (
@@ -17,11 +18,11 @@ const ComicPost = () => {
           <div key={comic.id} className={comicPost.content}>
             <div className={comicPost["innner-content"]}>
               <div className={comicPost["outer-image"]}>
-                <img className={comicPost.image} src='' alt='画像' />
+                <img className={comicPost.image} src={ comic.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
               </div>
               <div className={comicPost.list}>
-                <p className={comicPost["list-title"]}>{ comic.title }</p>
-                <p className={comicPost["list-genre"]}>{ comic.genre }</p>
+                <p className={comicPost["list-title"]}>【{ comic.title }】</p>
+                <p className={comicPost["list-genre"]}>【{ comic.genre }】</p>
               </div>
               <div className={comicPost["link-list"]}>
               <Link to={`/comic/${comic.id}/${comic.title}`} className={comicPost["link-show"]} >シーンを見る 追加する</Link>

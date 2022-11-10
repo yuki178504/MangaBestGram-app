@@ -1,28 +1,41 @@
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { useScenePost } from "../../../hooks/useScenePost";
 import { useForm } from 'react-hook-form';
 import scenePostNew from '../../../css/model/comic/scenePostNew.module.css';
 import { AiFillHome } from "react-icons/ai";
+import { AuthContext } from "../../../providers/AuthGuard";
+import { useContext } from "react";
+import axios from "axios";
 
 const ScenePostNewForm = () => {
   const { comic_id, comic_title } = useParams();
   const navigate = useNavigate();
-  const { useCreateScenePost } = useScenePost();
-  const createScenePost = useCreateScenePost(comic_id);
+  const { token } = useContext(AuthContext);
 
   const { handleSubmit, register, formState: { errors } } = useForm({
     criteriaMode: "all"
   });
 
-  const onSubmit = (data) => {
-    try {
-      createScenePost.mutate(data);
-      console.log(data)
-    } catch (e) {
-      console.log(e);
-    }
-    navigate('/mypage');
-    alert("登録されました！")
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append("scene_title", data.scene_title);
+    formData.append("scene_number", data.scene_number);
+    formData.append("scene_date", data.scene_date);
+    formData.append("scene_content", data.scene_content);
+    formData.append("scene_date", data.scene_date);
+    formData.append("scene_image", data.scene_image[0]);
+
+    await axios.post(`${process.env.REACT_APP_DEV_API_URL}/user/comics/${comic_id}/scene_posts`, formData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    .catch((error) => {
+      console.error(error.res.data);
+    });
+    alert("新規登録が完了しました！");
+    navigate("/mypage");
+    console.log(data)
   };
 
   //プルダウンリスト
@@ -110,7 +123,12 @@ const ScenePostNewForm = () => {
         </div>
         <div className={scenePostNew["form-text"]}>
           <div className={scenePostNew["form-label"]}>シーンの画像</div>
-          <input className={scenePostNew["form-input"]} placeholder="画像を選択してください"/>
+          <input
+            className={scenePostNew["form-input"]}
+            type="file"
+            accept="image/*"
+            {...register("scene_image")}
+          />
         </div>
         <div className={scenePostNew["form-text"]}>
           <button className={scenePostNew["form-submit"]} type="submit">この内容で登録する</button>

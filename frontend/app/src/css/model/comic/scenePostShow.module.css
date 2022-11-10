@@ -44,12 +44,16 @@
   border-radius: 6px;
 }
 
-.img {
+.outer-image {
   margin: 0 auto;
   height: 300px;
   width: 400px;
-  border: 0.2px solid gold;
-  background-color: aqua;
+}
+
+.image {
+  height: 300px;
+  width: 400px;
+  object-fit: cover;
 }
 
 .article {

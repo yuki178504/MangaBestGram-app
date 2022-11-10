@@ -22,3 +22,7 @@
   align-items: center;
   margin-left: 5px;
 }
+
+.loading {
+  margin: 0 auto;
+}

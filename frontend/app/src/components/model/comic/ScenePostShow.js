@@ -4,6 +4,7 @@ import ReactLoading from "react-loading";
 import scenePostShow from "../../../css/model/comic/scenePostShow.module.css";
 import { AiFillHome } from "react-icons/ai";
 import { BsBookFill, BsFillReplyFill, BsFillPencilFill, BsCalendar3, BsNewspaper, BsFillJournalBookmarkFill } from "react-icons/bs";
+import noimage from "../../../image/default.png";
 
 const ScenePostShow = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const ScenePostShow = () => {
   const { useShowScenePost } = useScenePost();
   const { data: scene_post, isLoading } = useShowScenePost(scene_post_id);
 
-  if(isLoading) return <ReactLoading type="spin" />
+  if(isLoading) return <ReactLoading type="spin" color="blue" />
 
   return (
     <div className={scenePostShow.wrapper}>
@@ -31,8 +32,8 @@ const ScenePostShow = () => {
       </div>
       <div className={scenePostShow.section}>
         <div className={scenePostShow.content}>
-          <div className={scenePostShow.img}>
-            画像
+          <div className={scenePostShow["outer-image"]}>
+            <img className={scenePostShow.image} src={ scene_post.scene_image.url } alt='画像' onError={(e) => e.target.src = noimage} />
           </div>
           <div className={scenePostShow.article}>
             <p className={scenePostShow["comic-title"]}><span className={scenePostShow["bs-book-fill"]}><BsBookFill /></span>{ comic_title }</p>

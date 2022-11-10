@@ -1,15 +1,17 @@
 .wrapper {
-  padding: 40px 90px;
+  padding: 40px 0px;
   width: 100%;
 }
 
 .main-content {
+  justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
 }
 
 .content {
-  padding: 0px 20px;
+  width: 31%;
+  height: 420px;
 }
 
 .innner-content {
@@ -19,13 +21,15 @@
 }
 
 .outer-image {
-  height: 180px;
+  height: 240px;
+  width: 367px;
   width: 100%;
 }
 
 .image {
-  height: 180px;
-  background-color: aqua;
+  height: 240px;
+  width: 367px;
+  object-fit: cover;
 }
 
 .list {
@@ -44,8 +48,37 @@
 
 .link-list {
   padding: 20px;
+  margin-bottom: 20px;
 }
 
 .link-show {
-  margin-right: 15px;
+  border: 2px solid #a9a9a9;
+  border-radius: 5px;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 20px 20px;
+  padding: 14px 6px;
+  background-color: #4682b4;
+  color: white;
+}
+
+.link-show:hover {
+  opacity: 0.5;
+}
+
+.link-edit {
+  border: 2px solid #a9a9a9;
+  border-radius: 5px;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 20px 20px;
+  padding: 14px 6px;
+  background-color: #a9a9a9;
+  color: white;
+}
+
+.link-edit:hover {
+  opacity: 0.5;
 }
