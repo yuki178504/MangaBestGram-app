@@ -14,7 +14,7 @@ import axios from "axios";
 
 const ScenePostEdit = () => {
   const navigate = useNavigate();
-  const { scene_post_id, comic_id  } = useParams();
+  const { scene_post_id, comic_id, comic_title  } = useParams();
   const { token } = useContext(AuthContext);
 
   const { useShowScenePost } = useScenePost();
@@ -37,7 +37,7 @@ const ScenePostEdit = () => {
   //更新用関数
   const onSubmit = async (data) => {
     const formData = new FormData();
-    formData.append("scene_title", data.title);
+    formData.append("scene_title", data.scene_title);
     formData.append("scene_number", data.scene_number);
     formData.append("scene_date", data.scene_date);
     formData.append("scene_content", data.scene_content);
@@ -53,7 +53,7 @@ const ScenePostEdit = () => {
       console.error(error.res.data);
     });
     alert(`${scene_post.scene_title}を編集しました！`);
-    navigate(-1);
+    navigate(`/comic/${comic_id}/${comic_title}`);
     console.log(data)
   };
 
@@ -160,7 +160,7 @@ const ScenePostEdit = () => {
           <ScenePostDeleteButton handleDeleteScenePost={handleDeleteScenePost} />
         </div>
         <div className={newComicForm["form-text"]}>
-        <button onClick={() => navigate(-1)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>シーン一覧へ戻る</button>
+        <button onClick={() => navigate(`/comic/${comic_id}/${comic_title}`)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>シーン一覧へ戻る</button>
         </div>
       </form>
     </>

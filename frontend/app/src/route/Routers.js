@@ -13,7 +13,7 @@ const Routers = () => {
       <Route path='/comic/:comic_id/:comic_title' element={ <ScenePost /> } />
       <Route path='/comic/:comic_id/:comic_title/scene_post_new' element={ <ScenePostNewForm /> } />
       <Route path='/scene_post/:comic_title/:scene_post_id' element={ <ScenePostShow /> } />
-      <Route path='/scene_post/:comic_id/:scene_post_id/scene_post_edit' element={ <ScenePostEdit /> } />
+      <Route path='/scene_post/:comic_id/:comic_title/:scene_post_id/scene_post_edit' element={ <ScenePostEdit /> } />
       <Route path='/comic/:comic_id/:comic_title/comic_edit' element={ <ComicEdit /> } />
     </Routes>
   );
