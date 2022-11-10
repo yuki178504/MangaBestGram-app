@@ -23,7 +23,7 @@ const Profile = () => {
           <div className={profile.url}>
           </div>
           <div className={profile.edit}>
-            <button className={profile.button}><Link to={`/`}>プロフィールを編集する</Link></button>
+            <button className={profile.button}><Link to={`/profile_edit/${users.id}`}>プロフィールを編集する</Link></button>
           </div>
         <ul className={profile.list}>
           <ul className={profile.posts}>

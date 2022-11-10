@@ -9,7 +9,7 @@ const Routers = () => {
       <Route path='/privacy-policy' element={ <PrivacyPolicy /> } />
       <Route path='/contact' element={ <Contact /> } />
       <Route path='/mypage/' element={ <MyPage /> } />
-      <Route path='/edit/:id' element={ <ProfileEdit /> } />
+      <Route path='/profile_edit/:id' element={ <ProfileEdit /> } />
       <Route path='/comic/:comic_id/:comic_title' element={ <ScenePost /> } />
       <Route path='/comic/:comic_id/:comic_title/scene_post_new' element={ <ScenePostNewForm /> } />
       <Route path='/scene_post/:comic_title/:scene_post_id' element={ <ScenePostShow /> } />
