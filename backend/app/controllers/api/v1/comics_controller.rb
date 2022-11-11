@@ -6,8 +6,8 @@ class Api::V1::ComicsController < ApplicationController
   end
 
   def show
-    comic = Comic.find_by!(id: params[:id])
-    render json: comic
+    post = ScenePost.where(comic_id: params[:id])
+    render json: post
   end
 
   def latest

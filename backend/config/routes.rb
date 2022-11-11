@@ -8,7 +8,8 @@ Rails.application.routes.draw do
         end
       end
       resources :users
-      resources :comics, only: [:index, :show] do
+      resources :comics, only: [:index, :show], shallow: true do
+        resources :scene_posts, only: [:index, :show]
         collection do
           get 'latest'
         end
