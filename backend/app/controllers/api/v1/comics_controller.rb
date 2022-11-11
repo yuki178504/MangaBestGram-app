@@ -5,6 +5,11 @@ class Api::V1::ComicsController < ApplicationController
     render json: comics
   end
 
+  def show
+    comic = Comic.find_by!(id: params[:id])
+    render json: comic
+  end
+
   def latest
     comics = Comic.order(updated_at: :desc).limit(3)
     render json: comics
