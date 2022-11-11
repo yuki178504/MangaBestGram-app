@@ -10,3 +10,4 @@ export { default as ScenePostShow } from '../components/model/comic/ScenePostSho
 export { default as ScenePostEdit } from '../components/model/comic/ScenePostEdit';
 export { default as ComicEdit } from '../components/model/mypage/ComicEdit';
 export { default as GeneralScenePost } from '../components/model/general/GeneralScenePost';
+export { default as GeneralComic } from '../components/model/general/GeneralComic';

@@ -1,5 +1,19 @@
 import { Routes, Route } from 'react-router-dom';
-import { Home, TermsOfService, PrivacyPolicy, Contact, MyPage, ProfileEdit, ScenePost, ScenePostNewForm, ComicEdit, ScenePostShow, ScenePostEdit, GeneralScenePost } from './Pages';
+import {
+  Home,
+  TermsOfService, 
+  PrivacyPolicy, 
+  Contact, 
+  MyPage, 
+  ProfileEdit, 
+  ScenePost, 
+  ScenePostNewForm, 
+  ComicEdit, 
+  ScenePostShow, 
+  ScenePostEdit, 
+  GeneralScenePost, 
+  GeneralComic 
+} from './Pages';
 
 const Routers = () => {
   return (
@@ -16,6 +30,7 @@ const Routers = () => {
       <Route path='/scene_post/:comic_id/:comic_title/:scene_post_id/scene_post_edit' element={ <ScenePostEdit /> } />
       <Route path='/comic/:comic_id/:comic_title/comic_edit' element={ <ComicEdit /> } />
       <Route path='/scene_post/:comic_id' element={ <GeneralScenePost /> } />
+      <Route path='/comic' element={ <GeneralComic /> } />
     </Routes>
   );
 };
