@@ -11,9 +11,6 @@ const Header = () => {
       <Link to='/' className={header.logo}>MangaBestGram</Link>
       <div className={header.list}>
         <ul className={header.ul}>
-          <li className={header.li}>
-            <button onClick={() => logout()} className={header["nav-li-text"]}>投稿一覧</button>
-          </li>
           { isAuthenticated ?
           <li className={header.li}>
             <button onClick={() => logout()} className={header["nav-li-text"]}>ログアウト</button>
