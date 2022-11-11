@@ -10,8 +10,8 @@ import { Link as Scroll } from 'react-scroll';
 import { BsChevronDoubleDown } from "react-icons/bs";
 
 const Home = () => {
-  const { useGetGeneralComic } = useGeneralComic();
-  const { data, isLoading } = useGetGeneralComic();
+  const { useGetGeneralLatestComic } = useGeneralComic();
+  const { data, isLoading } = useGetGeneralLatestComic();
   const { isAuthenticated, loginWithRedirect } = useContext(AuthContext);
 
   if(isLoading) return <ReactLoading type="spin" color='blue' />

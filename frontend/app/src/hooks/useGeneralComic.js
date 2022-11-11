@@ -3,10 +3,10 @@ import { generalComic } from '../api/generalComic';
 
 export const useGeneralComic = () => {
   //全ユーザーが閲覧できる投稿一覧をuseQueryで定義
-  const useGetGeneralComic = () => {
+  const useGetGeneralLatestComic = () => {
     return useQuery({
       queryKey: 'general_comic',
-      queryFn: () => generalComic.getGeneralComic(),
+      queryFn: () => generalComic.getGeneralLatestComic(),
       staleTime: 300000,
       cacheTime: 0,
     });
@@ -27,5 +27,5 @@ export const useGeneralComic = () => {
       cacheTime: 0,
     });
   };
-  return { useGetGeneralComic, useShowGeneralComic };
+  return { useGetGeneralLatestComic, useShowGeneralComic };
 };
