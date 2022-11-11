@@ -61,7 +61,7 @@ const Home = () => {
                   <p className={comicPost["list-genre"]}>【{ comic.genre }】</p>
                 </div>
                 <div className={comicPost["link-list"]}>
-                  <Link to="/" className={comicPost["link-show"]} >シーンを見る</Link>
+                  <Link to={`/scene_post/${comic.id}`} className={comicPost["link-show"]} >シーンを見る</Link>
                 </div>
               </div>
             </div>
