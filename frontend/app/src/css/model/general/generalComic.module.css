@@ -1,0 +1,93 @@
+.wrapper {
+  width: 100%;
+}
+
+.title {
+  font-size: 17px;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.home {
+  align-items: center;
+  margin-right: 5px;
+}
+
+.home-link {
+  vertical-align: middle;
+  color: rgba(92,102,111,0.6);
+}
+
+.home-link:hover {
+  opacity: 0.5;
+}
+
+.react-icons {
+  vertical-align: -3px;
+  margin-right: 3px;
+}
+
+.main-content {
+  padding: 121px;
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content {
+  width: 31%;
+  height: 420px;
+}
+
+.innner-content {
+  border: 2px solid #a9a9a9;
+  background: white;
+  margin-bottom: 10px;
+}
+
+.outer-image {
+  height: 240px;
+  width: 367px;
+  width: 100%;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.list {
+  padding: 15px;
+  width: 100%;
+}
+
+.list-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.list-genre {
+  text-align: center;
+}
+
+.link-list {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.link-show {
+  border: 2px solid #a9a9a9;
+  border-radius: 5px;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 20px 20px;
+  padding: 14px 6px;
+  background-color: #4682b4;
+  color: white;
+}
+
+.link-show:hover {
+  opacity: 0.5;
+}
