@@ -1,12 +1,12 @@
 class Api::V1::ComicsController < ApplicationController
 
   def index
-    comics = Comic.all.to_json(include: [:user])
+    comics = Comic.all.to_json(include: { user:{only: [:name, :image]} })
     render json: comics
   end
 
   def show
-    post = ScenePost.where(comic_id: params[:id]).to_json(include: [:user])
+    post = ScenePost.where(comic_id: params[:id]).to_json(include: { user:{only: [:name, :image]} })
     render json: post
   end
 
