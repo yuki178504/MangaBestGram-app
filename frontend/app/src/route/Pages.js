@@ -11,3 +11,4 @@ export { default as ScenePostEdit } from '../components/model/comic/ScenePostEdi
 export { default as ComicEdit } from '../components/model/mypage/ComicEdit';
 export { default as GeneralScenePost } from '../components/model/general/GeneralScenePost';
 export { default as GeneralComic } from '../components/model/general/GeneralComic';
+export { default as GeneralScenePostShow } from '../components/model/general/GeneralScenePostShow';

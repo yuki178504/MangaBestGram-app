@@ -7,7 +7,7 @@ import noimage from "../../../image/default.png";
 import { BsBookFill, BsJournalBookmarkFill } from "react-icons/bs";
 
 const GeneralScenePost = () => {
-  const { comic_id } = useParams();
+  const { comic_id, comic_title } = useParams();
   const { useGetGeneralScenePost } = useGeneralScenePost();
 
   const { data: scene_posts, isLoading } = useGetGeneralScenePost(comic_id);
@@ -39,7 +39,7 @@ const GeneralScenePost = () => {
                   <div>{ scene_post.sceneDate }</div>
                 </div>
                 <div className={generalScenePostCss["detail-area-link"]}>
-                  {/* <Link to={`/scene_post/${comic.id}`} className={generalScenePost["link-show"]} >シーンを見る</Link> */}
+                  <Link to={`/general_scene_post/${comic_title}/general_scene_post_show/${scene_post.id}`} className={generalScenePostCss["link-show"]} >シーンを見る</Link>
                 </div>
               </div>
               <div className={generalScenePostCss["outer-image"]}>

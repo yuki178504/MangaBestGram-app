@@ -12,7 +12,8 @@ import {
   ScenePostShow, 
   ScenePostEdit, 
   GeneralScenePost, 
-  GeneralComic 
+  GeneralComic,
+  GeneralScenePostShow
 } from './Pages';
 
 const Routers = () => {
@@ -29,7 +30,8 @@ const Routers = () => {
       <Route path='/scene_post/:comic_title/:scene_post_id' element={ <ScenePostShow /> } />
       <Route path='/scene_post/:comic_id/:comic_title/:scene_post_id/scene_post_edit' element={ <ScenePostEdit /> } />
       <Route path='/comic/:comic_id/:comic_title/comic_edit' element={ <ComicEdit /> } />
-      <Route path='/scene_post/:comic_id' element={ <GeneralScenePost /> } />
+      <Route path='/general_scene_post/:comic_title/:comic_id' element={ <GeneralScenePost /> } />
+      <Route path='/general_scene_post/:comic_title/general_scene_post_show/:scene_post_id/' element={ <GeneralScenePostShow /> } />
       <Route path='/comic' element={ <GeneralComic /> } />
     </Routes>
   );
