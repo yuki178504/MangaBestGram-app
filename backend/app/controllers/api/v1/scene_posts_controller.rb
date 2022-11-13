@@ -6,7 +6,7 @@ class Api::V1::ScenePostsController < ApplicationController
   end
 
   def show
-    post = ScenePost.where(id: params[:id]).to_json(include: { user:{only: [:name, :image]} })
+    post = ScenePost.find(params[:id])
     render json: post
   end
 end

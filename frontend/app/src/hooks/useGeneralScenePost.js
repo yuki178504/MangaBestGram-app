@@ -21,7 +21,7 @@ export const useGeneralScenePost = () => {
     return useQuery({
       queryKey: [
         'general_scene_post_show',
-        { scenePostId: scenePostId }
+        { scenePostId: scenePostId },
       ],
       queryFn: () =>
         generalScenePost.showGeneralScenePost(
