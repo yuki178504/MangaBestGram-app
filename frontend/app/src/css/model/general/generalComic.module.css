@@ -35,19 +35,79 @@
 }
 
 .content {
-  width: 31%;
-  height: 420px;
+  width: 46%;
+  margin-top: 20px;
 }
 
 .innner-content {
+  display: flex;
   border: 2px solid #a9a9a9;
-  background: white;
+  background-color: #f0f8ff;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.user-name {
   margin-bottom: 10px;
 }
 
+.user-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 100px;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+.detail-area {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.detail {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.bs-book-fill {
+  color: blue;
+  font-size: 16px;
+  vertical-align: -4px;
+  margin-right: 3px;
+}
+
+.bs-journal-book-mark-fill {
+  color: green;
+  font-size: 16px;
+  vertical-align: -4px;
+  margin-right: 3px;
+}
+
+.detail-area-link {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.link-show {
+  border: 2px solid #a9a9a9;
+  border-radius: 5px;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 20px 20px;
+  padding: 14px 24px;
+  background-color: #4682b4;
+  color: white;
+}
+
+.link-show:hover {
+  opacity: 0.5;
+}
+
 .outer-image {
-  height: 240px;
-  width: 367px;
+  height: 318px;
   width: 100%;
 }
 
@@ -60,34 +120,4 @@
 .list {
   padding: 15px;
   width: 100%;
-}
-
-.list-title {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.list-genre {
-  text-align: center;
-}
-
-.link-list {
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.link-show {
-  border: 2px solid #a9a9a9;
-  border-radius: 5px;
-  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
-  font-size: 15px;
-  font-weight: 700;
-  margin: 20px 20px;
-  padding: 14px 6px;
-  background-color: #4682b4;
-  color: white;
-}
-
-.link-show:hover {
-  opacity: 0.5;
 }

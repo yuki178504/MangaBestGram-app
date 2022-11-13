@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import noimage from "../../../image/default.png";
 import generalComic from "../../../css/model/general/generalComic.module.css";
 import { AiFillHome } from "react-icons/ai";
+import { BsBookFill, BsJournalBookmarkFill } from "react-icons/bs";
 
 const GeneralComic = () => {
   const { useGetGeneralComic } = useGeneralComic();
@@ -25,15 +26,22 @@ const GeneralComic = () => {
         {comics?.map((comic) => (
           <div key={comic.id} className={generalComic.content}>
             <div className={generalComic["innner-content"]}>
+              <div className={generalComic.list}>
+                <div className={generalComic["user-name"]}><img className={generalComic["user-image"]} src={ comic.user.image.url } alt='画像' onError={(e) => e.target.src = noimage} />{ comic.user.name }</div>
+                <div className={generalComic["detail-area"]}>
+                  <p className={generalComic.detail}><span className={generalComic["bs-book-fill"]}><BsBookFill /></span>【漫画名】</p>
+                  <div>{ comic.title }</div>
+                </div>
+                <div className={generalComic["detail-area"]}>
+                  <p className={generalComic.detail}><span className={generalComic["bs-journal-book-mark-fill"]}><BsJournalBookmarkFill /></span>【ジャンル】</p>
+                  <div>{ comic.genre }</div>
+                </div>
+                <div className={generalComic["detail-area-link"]}>
+                  <Link to={`/scene_post/${comic.id}`} className={generalComic["link-show"]} >シーンを見る</Link>
+                </div>
+              </div>
               <div className={generalComic["outer-image"]}>
                 <img className={generalComic.image} src={ comic.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
-              </div>
-              <div className={generalComic.list}>
-                <p className={generalComic["list-title"]}>【{ comic.title }】</p>
-                <p className={generalComic["list-genre"]}>【{ comic.genre }】</p>
-              </div>
-              <div className={generalComic["link-list"]}>
-              <Link to={`/scene_post/${comic.id}`} className={generalComic["link-show"]} >シーンを見る</Link>
               </div>
             </div>
           </div>
