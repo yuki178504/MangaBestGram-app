@@ -1,31 +1,36 @@
 .wrapper {
-  padding: 150px;
+  padding-top: 100px;
+  width: 100%;
+}
+
+.section {
+  width: 100%;
 }
 
 .content {
-  border: 0.2px solid red;
+  margin: 0 auto;
+  width: 700px;
+  height: 550px;
+  border: 2px solid #a9a9a9;
+  background-color: white;
+  border-radius: 6px;
 }
 
-.name {
-  border: 0.2px solid blue;
+.detail-area {
   text-align: center;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-.image {
-  border: 0.2px solid gold;
+.detail-area-last {
   text-align: center;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
-.introduction {
-  text-align: center;
+.detail {
+  margin-top: 20px;
   margin-bottom: 20px;
-}
-
-.url {
-  text-align: center;
-  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .a {
@@ -36,16 +41,37 @@
   color: blue;
 }
 
-.edit {
-  text-align: center;
-  margin-bottom: 20px;
+.outer-image {
+  margin: 0 auto;
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+}
+
+.image {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 100px;
 }
 
 .button {
-  border: 0.2px solid tomato;
+  border: 2px solid #a9a9a9;
+  border-radius: 5px;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px 8px;
+  background-color: #a9a9a9;
+  color: white;
+}
+
+.button:hover {
+  opacity: 0.5;
 }
 
 .list {
+  margin-top: 30px;
   display: flex;
   justify-content: center;
 }

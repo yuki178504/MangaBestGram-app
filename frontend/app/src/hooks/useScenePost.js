@@ -71,10 +71,10 @@ export const useScenePost = () => {
         { scenePostId: scenePostId },
       ],
       queryFn: () =>
-      scenePost.showScenePost(
-        scenePostId,
-        token || '',
-      ),
+        scenePost.showScenePost(
+          scenePostId,
+          token || '',
+        ),
       enabled: !!scenePostId,
       staleTime: 30000000,
       cacheTime: 0,

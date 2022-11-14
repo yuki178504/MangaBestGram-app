@@ -3,15 +3,16 @@ import home from '../css/home.module.css'
 import { AuthContext } from '../providers/AuthGuard';
 import { Link } from 'react-router-dom';
 import comicPost from '../css/model/comicPost.module.css';
+import generalComic from "../css/model/general/generalComic.module.css";
 import { useGeneralComic } from '../hooks/useGeneralComic';
 import ReactLoading from "react-loading";
 import noimage from "../image/default.png"
 import { Link as Scroll } from 'react-scroll';
-import { BsChevronDoubleDown } from "react-icons/bs";
+import { BsBookFill, BsJournalBookmarkFill, BsChevronDoubleDown } from "react-icons/bs";
 
 const Home = () => {
-  const { useGetGeneralComic } = useGeneralComic();
-  const { data, isLoading } = useGetGeneralComic();
+  const { useGetGeneralLatestComic } = useGeneralComic();
+  const { data, isLoading } = useGetGeneralLatestComic();
   const { isAuthenticated, loginWithRedirect } = useContext(AuthContext);
 
   if(isLoading) return <ReactLoading type="spin" color='blue' />
@@ -51,20 +52,27 @@ const Home = () => {
         </div>
         <div className={comicPost["main-content"]}>
           {data.map((comic) => (
-            <div key={comic.id} className={comicPost.content}>
-              <div className={comicPost["innner-content"]}>
-                <div className={comicPost["outer-image"]}>
-                  <img className={comicPost.image} src={ comic.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+            <div key={comic.id} className={generalComic.content}>
+            <div className={generalComic["innner-content"]}>
+              <div className={generalComic.list}>
+                <div className={generalComic["user-name"]}><img className={generalComic["user-image"]} src={ comic.user.image.url } alt='画像' onError={(e) => e.target.src = noimage} />{ comic.user.name }</div>
+                <div className={generalComic["detail-area"]}>
+                  <p className={generalComic.detail}><span className={generalComic["bs-book-fill"]}><BsBookFill /></span>【漫画名】</p>
+                  <div>{ comic.title }</div>
                 </div>
-                <div className={comicPost.list}>
-                  <p className={comicPost["list-title"]}>【{ comic.title }】</p>
-                  <p className={comicPost["list-genre"]}>【{ comic.genre }】</p>
+                <div className={generalComic["detail-area"]}>
+                  <p className={generalComic.detail}><span className={generalComic["bs-journal-book-mark-fill"]}><BsJournalBookmarkFill /></span>【ジャンル】</p>
+                  <div>{ comic.genre }</div>
                 </div>
-                <div className={comicPost["link-list"]}>
-                  <Link to="/" className={comicPost["link-show"]} >シーンを見る</Link>
+                <div className={generalComic["detail-area-link"]}>
+                  <Link to={`/general_scene_post/${comic.title}/${comic.id}`} className={generalComic["link-show"]} >シーンを見る</Link>
                 </div>
               </div>
+              <div className={generalComic["outer-image"]}>
+                <img className={generalComic.image} src={ comic.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+              </div>
             </div>
+          </div>
           ))}
         </div>
       </div>
