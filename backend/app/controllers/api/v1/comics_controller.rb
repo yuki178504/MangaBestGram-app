@@ -11,7 +11,7 @@ class Api::V1::ComicsController < ApplicationController
   end
 
   def latest
-    comics = Comic.order(updated_at: :desc).limit(3)
+    comics = Comic.order(updated_at: :desc).limit(2).to_json(include: { user:{only: [:name, :image]} })
     render json: comics
   end
 end
