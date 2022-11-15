@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthGuard";
 
-const UnFavoriteButton = ({id}) => {
+const UnFavoriteButton = ({id, changeFavorite}) => {
   const { token } = useContext(AuthContext);
 
   const handleDelete = () => {
@@ -12,8 +12,11 @@ const UnFavoriteButton = ({id}) => {
         'Content-Type': 'application/json',
       },
     })
+    .then((response) => {
+      changeFavorite(false);
+    })
     .catch((error) => {
-      console.error(error.res.data);
+      console.error(error.response.data);
     });
   }
 

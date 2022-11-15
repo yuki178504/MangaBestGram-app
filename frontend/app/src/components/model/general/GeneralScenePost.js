@@ -5,10 +5,14 @@ import generalScenePostCss from '../../../css/model/general/generalScenePostCss.
 import { AiFillHome } from "react-icons/ai";
 import noimage from "../../../image/default.png";
 import { BsBookFill, BsJournalBookmarkFill } from "react-icons/bs";
+import { useState } from "react";
+import UnFavoriteButton from "../../ui/UnFavoriteButton";
+import FavoriteButton from "../../ui/FavoriteButton";
 
 const GeneralScenePost = () => {
   const { comic_id, comic_title } = useParams();
   const { useGetGeneralScenePost } = useGeneralScenePost();
+  const [ favoriteState, setFavoriteState ] = useState(false);
 
   const { data: scene_posts, isLoading } = useGetGeneralScenePost(comic_id);
 
@@ -30,6 +34,18 @@ const GeneralScenePost = () => {
             <div className={generalScenePostCss["innner-content"]}>
               <div className={generalScenePostCss.list}>
                 <div className={generalScenePostCss["user-name"]}><img className={generalScenePostCss["user-image"]} src={ scene_post.user.image.url } alt='画像' onError={(e) => e.target.src = noimage} />{ scene_post.user.name }</div>
+                {favoriteState ? (
+                  <UnFavoriteButton
+                    id={scene_post.id}
+                    changeFavorite={setFavoriteState}
+                  />
+                ) : (
+                  <FavoriteButton
+                    id={scene_post.id}
+                    changeFavorite={setFavoriteState}
+                  />
+                )
+              }
                 <div className={generalScenePostCss["detail-area"]}>
                   <p className={generalScenePostCss.detail}><span className={generalScenePostCss["bs-book-fill"]}><BsBookFill /></span>【シーン名】</p>
                   <div>{ scene_post.sceneTitle }</div>
