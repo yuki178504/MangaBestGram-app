@@ -6,6 +6,7 @@ Rails.application.routes.draw do
         resources :comics, shallow: true do
           resources :scene_posts
         end
+        resources :favorites, only: [:create, :destroy]
       end
       resources :users
       resources :comics, only: [:index, :show], shallow: true do
