@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :scene_posts, dependent: :destroy
   has_many :comics, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   mount_uploader :image, FileUploader
 
   def self.from_token_payload(payload)
