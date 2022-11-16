@@ -16,4 +16,8 @@ class User < ApplicationRecord
   def unfavorite(scene_post)
     favorites.find_by(scene_post_id: scene_post.id).destroy
   end
+  
+  def favorite?(scene_post)
+    scene_post.favorite_users.include?(self)
+  end
 end
