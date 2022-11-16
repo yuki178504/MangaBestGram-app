@@ -1,7 +1,7 @@
 class Api::V1::General::ScenePostsController < SecuredController
   def index
     scene_posts = ScenePost.where(comic_id: params[:comic_id])
-    render json: posts
+    render json: scene_posts
   end
 
   def show
