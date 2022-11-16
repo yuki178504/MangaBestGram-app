@@ -29,11 +29,11 @@ const GeneralScenePost = () => {
         </div>
       </div>
       <div className={generalScenePostCss["main-content"]}>
-        {scene_posts?.map((scene_post) => (
+        {scene_posts.data?.map((scene_post) => (
           <div key={scene_post.id} className={generalScenePostCss.content}>
             <div className={generalScenePostCss["innner-content"]}>
               <div className={generalScenePostCss.list}>
-                <div className={generalScenePostCss["user-name"]}><img className={generalScenePostCss["user-image"]} src={ scene_post.user.image.url } alt='画像' onError={(e) => e.target.src = noimage} />{ scene_post.user.name }</div>
+                <div className={generalScenePostCss["user-name"]}><img className={generalScenePostCss["user-image"]} src={ scene_post.attributes.scenePostUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} />{ scene_post.attributes.scenePostUserName }</div>
                 {favoriteState ? (
                   <UnFavoriteButton
                     id={scene_post.id}
@@ -48,18 +48,18 @@ const GeneralScenePost = () => {
               }
                 <div className={generalScenePostCss["detail-area"]}>
                   <p className={generalScenePostCss.detail}><span className={generalScenePostCss["bs-book-fill"]}><BsBookFill /></span>【シーン名】</p>
-                  <div>{ scene_post.sceneTitle }</div>
+                  <div>{ scene_post.attributes.sceneTitle }</div>
                 </div>
                 <div className={generalScenePostCss["detail-area"]}>
                   <p className={generalScenePostCss.detail}><span className={generalScenePostCss["bs-journal-book-mark-fill"]}><BsJournalBookmarkFill /></span>【シーンの日付】</p>
-                  <div>{ scene_post.sceneDate }</div>
+                  <div>{ scene_post.attributes.sceneDate }</div>
                 </div>
                 <div className={generalScenePostCss["detail-area-link"]}>
                   <Link to={`/general_scene_post/${comic_title}/general_scene_post_show/${scene_post.id}`} className={generalScenePostCss["link-show"]} >シーンを見る</Link>
                 </div>
               </div>
               <div className={generalScenePostCss["outer-image"]}>
-                <img className={generalScenePostCss.image} src={ scene_post.sceneImage.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                <img className={generalScenePostCss.image} src={ scene_post.attributes.sceneImage.url } alt='画像' onError={(e) => e.target.src = noimage} />
               </div>
             </div>
           </div>

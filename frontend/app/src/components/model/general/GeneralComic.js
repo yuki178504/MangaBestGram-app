@@ -37,7 +37,7 @@ const GeneralComic = () => {
                   <div>{ comic.attributes.genre }</div>
                 </div>
                 <div className={generalComic["detail-area-link"]}>
-                  <Link to={`/general_scene_post/${comic.title}/${comic.id}`} className={generalComic["link-show"]} >シーンを見る</Link>
+                  <Link to={`/general_scene_post/${comic.attributes.title}/${comic.id}`} className={generalComic["link-show"]} >シーンを見る</Link>
                 </div>
               </div>
               <div className={generalComic["outer-image"]}>
