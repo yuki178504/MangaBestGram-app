@@ -8,6 +8,9 @@ Rails.application.routes.draw do
         end
         resources :favorites, only: [:create, :destroy]
       end
+      namespace :general do
+        resources :scene_posts, only: [:index, :show]
+      end
       resources :users
       resources :comics, only: [:index, :show], shallow: true do
         resources :scene_posts, only: [:index, :show]

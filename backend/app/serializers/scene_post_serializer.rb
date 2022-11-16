@@ -9,12 +9,4 @@ class ScenePostSerializer
   attribute :scene_post_user_image do |object|
     object.user.image
   end
-
-  attribute :favorite do |scene_post|
-    if @current_user.nil?
-      'Not Login'
-    else
-      @current_user.favorite?(scene_post)
-    end
-  end
 end
