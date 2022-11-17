@@ -3,23 +3,22 @@ import { useGeneralScenePost } from "../../../hooks/useGeneralScenePost";
 import ReactLoading from "react-loading";
 import generalScenePostCss from '../../../css/model/general/generalScenePostCss.module.css';
 import { AiFillHome } from "react-icons/ai";
-import noimage from "../../../image/default.png";
-import { BsBookFill, BsJournalBookmarkFill } from "react-icons/bs";
-import { useState } from "react";
-import UnFavoriteButton from "../../ui/UnFavoriteButton";
-import FavoriteButton from "../../ui/FavoriteButton";
+import GeneralScenePostCard from "./ui/GeneralScenePostCard";
+import { AuthContext } from "../../../providers/AuthGuard";
+import { useContext } from "react";
 
 const GeneralScenePost = () => {
   const { comic_id, comic_title } = useParams();
   const { useGetGeneralScenePost, useGetLoginGeneralScenePost } = useGeneralScenePost();
-  const [ favoriteState, setFavoriteState ] = useState(false);
+  const { isAuthenticated } = useContext(AuthContext);
 
   const { data: scene_posts, isLoading } = useGetGeneralScenePost(comic_id);
-  const { data: login_general_scene_posts } = useGetLoginGeneralScenePost(comic_id);
+  const { data: general_scene_posts, isLoading: general_loading } = useGetLoginGeneralScenePost(comic_id);
 
   if(isLoading) return <ReactLoading type="spin" color='blue' />
+  if(general_loading) return <ReactLoading type="spin" color='blue' />
   console.log(scene_posts)
-  console.log(login_general_scene_posts)
+  console.log(general_scene_posts)
 
   return (
     <div className={generalScenePostCss.wrapper}>
@@ -31,44 +30,42 @@ const GeneralScenePost = () => {
         </div>
       </div>
       <div className={generalScenePostCss["main-content"]}>
-        {scene_posts.data?.map((scene_post) => (
-          <div key={scene_post.id} className={generalScenePostCss.content}>
-            <div className={generalScenePostCss["innner-content"]}>
-              <div className={generalScenePostCss.list}>
-                <div className={generalScenePostCss["user-name"]}><img className={generalScenePostCss["user-image"]} src={ scene_post.attributes.scenePostUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} />{ scene_post.attributes.scenePostUserName }</div>
-                {favoriteState ? (
-                  <UnFavoriteButton
-                    id={scene_post.id}
-                    changeFavorite={setFavoriteState}
-                  />
-                ) : (
-                  <FavoriteButton
-                    id={scene_post.id}
-                    changeFavorite={setFavoriteState}
-                  />
-                )
-              }
-                <div className={generalScenePostCss["detail-area"]}>
-                  <p className={generalScenePostCss.detail}><span className={generalScenePostCss["bs-book-fill"]}><BsBookFill /></span>【シーン名】</p>
-                  <div>{ scene_post.attributes.sceneTitle }</div>
-                </div>
-                <div className={generalScenePostCss["detail-area"]}>
-                  <p className={generalScenePostCss.detail}><span className={generalScenePostCss["bs-journal-book-mark-fill"]}><BsJournalBookmarkFill /></span>【シーンの日付】</p>
-                  <div>{ scene_post.attributes.sceneDate }</div>
-                </div>
-                <div className={generalScenePostCss["detail-area-link"]}>
-                  <Link to={`/general_scene_post/${comic_title}/general_scene_post_show/${scene_post.id}`} className={generalScenePostCss["link-show"]} >シーンを見る</Link>
-                </div>
-              </div>
-              <div className={generalScenePostCss["outer-image"]}>
-                <img className={generalScenePostCss.image} src={ scene_post.attributes.sceneImage.url } alt='画像' onError={(e) => e.target.src = noimage} />
-              </div>
-            </div>
-          </div>
-          ))}
+        {isAuthenticated ? (
+          <>
+            {general_scene_posts.data.map((scene_post, index) => (
+              <GeneralScenePostCard
+                key={index}
+                scenePostId={scene_post.id}
+                scenePostUserImage={scene_post.attributes.scene_post_user_image.url}
+                scenePostUserName={scene_post.attributes.scene_post_user_name}
+                scenePostTitle={scene_post.attributes.scene_title}
+                scenePostDate={scene_post.attributes.scene_date}
+                scenePostImage={scene_post.attributes.scene_image.url}
+                favorite={scene_post.attributes.favorite}
+                comicTitle={comic_title}
+              />
+            ))}
+          </>
+        ) : (
+          <>
+            {scene_posts.data?.map((scene_post, index) => (
+              <GeneralScenePostCard
+                key={index}
+                scenePostId={scene_post.id}
+                scenePostUserImage={scene_post.attributes.scenePostUserImage.url}
+                scenePostUserName={scene_post.attributes.scenePostUserName}
+                scenePostTitle={scene_post.attributes.sceneTitle}
+                scenePostDate={scene_post.attributes.sceneDate}
+                scenePostImage={scene_post.attributes.sceneImage.url}
+                favorite={scene_post.attributes.favorite}
+                comicTitle={comic_title}
+              />
+            ))}
+          </>
+        )}
       </div>
     </div>
-  )
+  );
 };
 
 export default GeneralScenePost;
