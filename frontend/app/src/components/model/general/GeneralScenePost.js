@@ -11,13 +11,15 @@ import FavoriteButton from "../../ui/FavoriteButton";
 
 const GeneralScenePost = () => {
   const { comic_id, comic_title } = useParams();
-  const { useGetGeneralScenePost } = useGeneralScenePost();
+  const { useGetGeneralScenePost, useGetLoginGeneralScenePost } = useGeneralScenePost();
   const [ favoriteState, setFavoriteState ] = useState(false);
 
   const { data: scene_posts, isLoading } = useGetGeneralScenePost(comic_id);
+  const { data: login_general_scene_posts } = useGetLoginGeneralScenePost(comic_id);
 
   if(isLoading) return <ReactLoading type="spin" color='blue' />
   console.log(scene_posts)
+  console.log(login_general_scene_posts)
 
   return (
     <div className={generalScenePostCss.wrapper}>
