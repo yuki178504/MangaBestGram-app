@@ -50,6 +50,7 @@ export const useGeneralScenePost = () => {
         ),
         staleTime: 30000000,
         cacheTime: 0,
+        retry: false,
     });
   };
 
