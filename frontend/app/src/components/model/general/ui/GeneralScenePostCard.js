@@ -25,29 +25,29 @@ const GeneralScenePostCard = ({
       <div className={generalScenePostCss["innner-content"]}>
         <div className={generalScenePostCss.list}>
           <div className={generalScenePostCss["user-name"]}><img className={generalScenePostCss["user-image"]} src={ scenePostUserImage } alt='画像' onError={(e) => e.target.src = noimage} />{ scenePostUserName }</div>
-            {isAuthenticated ? (
-              <>
-                {favoriteState ? (
-                  <UnFavoriteButton
-                    id={scenePostId}
-                    changeFavorite={setFavoriteState}
-                  />
-                ) : (
-                  <FavoriteButton
-                    id={scenePostId}
-                    changeFavorite={setFavoriteState}
-                  />
-                )}
-              </>
-            ) : (
-              <input
-                type='submit'
-                value={`お気に入り`}
-                onClick={() => {
-                  loginWithRedirect();
-                }}
-              />
-            )}
+          {isAuthenticated ? (
+            <>
+              {favoriteState ? (
+                <UnFavoriteButton
+                  id={scenePostId}
+                  changeFavorite={setFavoriteState}
+                />
+              ) : (
+                <FavoriteButton
+                  id={scenePostId}
+                  changeFavorite={setFavoriteState}
+                />
+              )}
+            </>
+          ) : (
+            <input
+              type='submit'
+              value={`お気に入り`}
+              onClick={() => {
+                loginWithRedirect();
+              }}
+            />
+          )}
           <div className={generalScenePostCss["detail-area"]}>
             <p className={generalScenePostCss.detail}><span className={generalScenePostCss["bs-book-fill"]}><BsBookFill /></span>【シーン名】</p>
             <div>{ scenePostTitle }</div>
