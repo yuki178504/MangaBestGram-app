@@ -32,6 +32,7 @@ const Routers = () => {
       <Route path='/comic/:comic_id/:comic_title/comic_edit' element={ <ComicEdit /> } />
       <Route path='/general_scene_post/:comic_title/:comic_id' element={ <GeneralScenePost /> } />
       <Route path='/general_scene_post/:comic_title/general_scene_post_show/:scene_post_id/' element={ <GeneralScenePostShow /> } />
+      <Route path='/general_scene_post/general_scene_post_show/:scene_post_id/' element={ <GeneralScenePostShow /> } />
       <Route path='/comic' element={ <GeneralComic /> } />
     </Routes>
   );
