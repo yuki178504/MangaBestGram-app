@@ -9,4 +9,8 @@ class ScenePostSerializer
   attribute :scene_post_user_image do |object|
     object.user.image
   end
+
+  attribute :scene_post_comic_title do |object|
+    object.comic.title.to_s
+  end
 end
