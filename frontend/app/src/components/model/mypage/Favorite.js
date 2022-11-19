@@ -17,7 +17,7 @@ const Favorite = () => {
     <div className={favorite.wrapper}>
       <div className={favorite['main-content']}>
         {favorites.data.map((favorite) => (
-          <div className={generalScenePostCss.content}>
+          <div key={favorite.id} className={generalScenePostCss.content}>
             <div className={generalScenePostCss["innner-content"]}>
               <div className={generalScenePostCss.list}>
                 <div className={generalScenePostCss["user-name"]}><img className={generalScenePostCss["user-image"]} src={ favorite.attributes.scene_post_user_image } alt='画像' onError={(e) => e.target.src = noimage} />{ favorite.attributes.scene_post_user_name }</div>

@@ -8,7 +8,7 @@ import noimage from "../../../image/default.png";
 
 const GeneralScenePostShow = () => {
   const navigate = useNavigate();
-  const { scene_post_id, comic_title } = useParams();
+  const { scene_post_id } = useParams();
 
   const { useShowGeneralScenePost } = useGeneralScenePost();
   const { data: scene_post, isLoading} = useShowGeneralScenePost(scene_post_id);
@@ -37,7 +37,7 @@ const GeneralScenePostShow = () => {
             <img className={scenePostShow.image} src={ scene_post.data.attributes.sceneImage.url } alt='画像' onError={(e) => e.target.src = noimage} />
           </div>
           <div className={scenePostShow.article}>
-            <p className={scenePostShow["comic-title"]}><span className={scenePostShow["bs-book-fill"]}><BsBookFill /></span>{ comic_title }</p>
+            <p className={scenePostShow["comic-title"]}><span className={scenePostShow["bs-book-fill"]}><BsBookFill /></span>{ scene_post.data.attributes.scenePostComicTitle }</p>
             <div className={scenePostShow["detail-area"]}>
               <p className={scenePostShow.detail}><span className={scenePostShow["bs-fill-pencil-fill"]}><BsFillPencilFill /></span>【シーンのタイトル】</p>
               <div>{ scene_post.data.attributes.sceneTitle }</div>
