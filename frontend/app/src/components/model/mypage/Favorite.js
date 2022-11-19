@@ -15,6 +15,7 @@ const Favorite = () => {
 
   return (
     <div className={favorite.wrapper}>
+      <div className={favorite.count}>【投稿数】 : {favorites.data.length}件</div>
       <div className={favorite['main-content']}>
         {favorites.data.map((favorite) => (
           <div key={favorite.id} className={generalScenePostCss.content}>
