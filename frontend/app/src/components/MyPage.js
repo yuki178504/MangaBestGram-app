@@ -1,15 +1,12 @@
-import React, { useState } from "react";
-import mypage from "../css/mypage.module.css"
+import { useState } from "react";
+import mypage from "../css/mypage.module.css";
 import { AiFillHome, AiFillEdit, AiFillHeart, AiFillFileText, AiOutlineUser } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import ComicPost from "./model/mypage/ComicPost";
-import Profile from "./model/mypage/Profile";
-import ComicNew from "./model/mypage/ComicNew";
+import { ComicNew, ComicPost, Favorite, Profile } from "../route/Pages";
 
 const MyPage = () => {
   const [tabIndex, setTabIndex] = useState(2);
-
   const color = { color: 'red' }
 
   return (
@@ -42,7 +39,7 @@ const MyPage = () => {
             <ComicNew />
           </TabPanel>
           <TabPanel>
-            <div>お気に入りです</div>
+            <Favorite />
           </TabPanel>
           <TabPanel>
             <ComicPost />
