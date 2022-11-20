@@ -1,0 +1,27 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1000px;
+  line-height: 32px;
+}
+
+.title {
+  text-align: center;
+  font-size: 20px;
+  margin: 20px 0px 30px 50px;
+  font-weight: bold;
+}
+
+.detail {
+  margin: 0 auto;
+  width: 95%;
+}
+
+ol {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.li {
+  width: 95%;
+  margin: 0 auto;
+}
