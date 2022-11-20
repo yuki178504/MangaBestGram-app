@@ -1,12 +1,14 @@
 class Api::V1::ScenePostsController < ApplicationController
 
   def index
-    posts = ScenePost.where(comic_id: params[:comic_id]).to_json(include: { user:{only: [:name, :image]} })
-    render json: posts
+    scene_posts = ScenePost.where(comic_id: params[:comic_id])
+    render_json = ScenePostSerializer.new(scene_posts).serializable_hash.to_json
+    render json: render_json
   end
 
   def show
-    post = ScenePost.find(params[:id])
-    render json: post
+    scene_post = ScenePost.find(params[:id])
+    render_json = ScenePostSerializer.new(scene_post).serializable_hash.to_json
+    render json: render_json
   end
 end

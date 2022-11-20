@@ -2,7 +2,7 @@ import comicPost from '../../../css/model/comicPost.module.css';
 import { Link } from 'react-router-dom';
 import { useComicApi } from '../../../hooks/useComicApi';
 import ReactLoading from "react-loading";
-import noimage from "../../../image/default.png"
+import noimage from "../../../image/default.png";
 
 const ComicPost = () => {
   const { useGetComic } = useComicApi();
@@ -13,6 +13,7 @@ const ComicPost = () => {
 
   return (
     <div className={comicPost.wrapper}>
+      <div className={comicPost.count}>【投稿数】 : {comics.length}件</div>
       <div className={comicPost["main-content"]}>
         {comics?.map((comic) => (
           <div key={comic.id} className={comicPost.content}>

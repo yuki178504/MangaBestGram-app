@@ -1,0 +1,16 @@
+.wrapper {
+  width: 100%;
+}
+
+.count {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.main-content {
+  padding-top: 30px;
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+}

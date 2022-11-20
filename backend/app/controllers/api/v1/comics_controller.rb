@@ -1,17 +1,14 @@
 class Api::V1::ComicsController < ApplicationController
 
   def index
-    comics = Comic.all.to_json(include: { user:{only: [:name, :image]} })
-    render json: comics
-  end
-
-  def show
-    post = ScenePost.where(comic_id: params[:id]).to_json(include: { user:{only: [:name, :image]} })
-    render json: post
+    comics = Comic.all
+    render_json = ComicSerializer.new(comics).serializable_hash.to_json
+    render json: render_json
   end
 
   def latest
-    comics = Comic.order(updated_at: :desc).limit(2).to_json(include: { user:{only: [:name, :image]} })
-    render json: comics
+    comics = Comic.order(updated_at: :desc).limit(2)
+    render_json = ComicSerializer.new(comics).serializable_hash.to_json
+    render json: render_json
   end
 end

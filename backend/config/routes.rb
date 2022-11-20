@@ -6,6 +6,12 @@ Rails.application.routes.draw do
         resources :comics, shallow: true do
           resources :scene_posts
         end
+        resources :favorites, only: [:index, :create, :destroy]
+      end
+      namespace :general do
+        resources :comics, only: [:index], shallow: true do
+          resources :scene_posts, only: [:index, :show]
+        end
       end
       resources :users
       resources :comics, only: [:index, :show], shallow: true do

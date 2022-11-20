@@ -3,6 +3,12 @@
   width: 100%;
 }
 
+.count {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .main-content {
   justify-content: space-between;
   display: flex;
@@ -16,7 +22,7 @@
 
 .innner-content {
   border: 2px solid #a9a9a9;
-  background: white;
+  background-color: #f0f8ff;
   margin-bottom: 10px;
 }
 

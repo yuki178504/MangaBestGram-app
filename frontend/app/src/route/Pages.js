@@ -12,3 +12,7 @@ export { default as ComicEdit } from '../components/model/mypage/ComicEdit';
 export { default as GeneralScenePost } from '../components/model/general/GeneralScenePost';
 export { default as GeneralComic } from '../components/model/general/GeneralComic';
 export { default as GeneralScenePostShow } from '../components/model/general/GeneralScenePostShow';
+export { default as Favorite } from '../components/model/mypage/Favorite';
+export { default as ComicNew } from '../components/model/mypage/ComicNew';
+export { default as Profile } from '../components/model/mypage/Profile';
+export { default as ComicPost } from '../components/model/mypage/ComicPost';

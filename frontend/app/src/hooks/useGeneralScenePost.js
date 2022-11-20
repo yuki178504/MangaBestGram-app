@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { useQuery } from "react-query"
 import { generalScenePost } from "../api/generalScenePost"
+import { AuthContext } from "../providers/AuthGuard";
 
 export const useGeneralScenePost = () => {
+  const { token } = useContext(AuthContext);
+
   const useGetGeneralScenePost = (comicId) => {
     return useQuery({
       queryKey: [
@@ -32,5 +36,23 @@ export const useGeneralScenePost = () => {
       cacheTime: 0,
     });
   };
-  return { useGetGeneralScenePost, useShowGeneralScenePost }
+
+  const useGetLoginGeneralScenePost = (comicId) => {
+    return useQuery({
+      queryKey: [
+        'login_general_scene_post',
+        { comicId: comicId },
+      ],
+      queryFn: () =>
+        generalScenePost.getLoginGeneralScenePost(
+          comicId,
+          token || ''
+        ),
+        staleTime: 30000000,
+        cacheTime: 0,
+        retry: false,
+    });
+  };
+
+  return { useGetGeneralScenePost, useShowGeneralScenePost, useGetLoginGeneralScenePost }
 }

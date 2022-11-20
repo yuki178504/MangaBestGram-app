@@ -107,7 +107,7 @@
 }
 
 .outer-image {
-  height: 318px;
+  height: 355px;
   width: 100%;
 }
 
@@ -120,4 +120,25 @@
 .list {
   padding: 15px;
   width: 100%;
+}
+
+.detail-area-favorite {
+  display: inline;
+}
+
+.favorite {
+  border: none;
+  background-color: #f0f8ff;
+  vertical-align: -3px;
+  margin-right: 3px;
+  font-size: 22px;
+}
+
+.unfavorite {
+  border: none;
+  background-color: #f0f8ff;
+  vertical-align: -3px;
+  margin-right: 3px;
+  color: #ffd700;
+  font-size: 22px;
 }

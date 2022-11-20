@@ -12,11 +12,11 @@ import { BsBookFill, BsJournalBookmarkFill, BsChevronDoubleDown } from "react-ic
 
 const Home = () => {
   const { useGetGeneralLatestComic } = useGeneralComic();
-  const { data, isLoading } = useGetGeneralLatestComic();
+  const { data: comics, isLoading } = useGetGeneralLatestComic();
   const { isAuthenticated, loginWithRedirect } = useContext(AuthContext);
 
   if(isLoading) return <ReactLoading type="spin" color='blue' />
-  console.log(data)
+  console.log(comics)
 
   return (
     <div className={home.wrapper}>
@@ -51,25 +51,25 @@ const Home = () => {
           <h3 className={home["section-title"]}>最新の投稿</h3>
         </div>
         <div className={comicPost["main-content"]}>
-          {data.map((comic) => (
+          {comics.data.map((comic) => (
             <div key={comic.id} className={generalComic.content}>
             <div className={generalComic["innner-content"]}>
               <div className={generalComic.list}>
-                <div className={generalComic["user-name"]}><img className={generalComic["user-image"]} src={ comic.user.image.url } alt='画像' onError={(e) => e.target.src = noimage} />{ comic.user.name }</div>
+                <div className={generalComic["user-name"]}><img className={generalComic["user-image"]} src={ comic.attributes.comicUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} />{ comic.attributes.comicUserName }</div>
                 <div className={generalComic["detail-area"]}>
                   <p className={generalComic.detail}><span className={generalComic["bs-book-fill"]}><BsBookFill /></span>【漫画名】</p>
-                  <div>{ comic.title }</div>
+                  <div>{ comic.attributes.title }</div>
                 </div>
                 <div className={generalComic["detail-area"]}>
                   <p className={generalComic.detail}><span className={generalComic["bs-journal-book-mark-fill"]}><BsJournalBookmarkFill /></span>【ジャンル】</p>
-                  <div>{ comic.genre }</div>
+                  <div>{ comic.attributes.genre }</div>
                 </div>
                 <div className={generalComic["detail-area-link"]}>
-                  <Link to={`/general_scene_post/${comic.title}/${comic.id}`} className={generalComic["link-show"]} >シーンを見る</Link>
+                  <Link to={`/general_scene_post/${comic.attributes.title}/${comic.id}`} className={generalComic["link-show"]} >シーンを見る</Link>
                 </div>
               </div>
               <div className={generalComic["outer-image"]}>
-                <img className={generalComic.image} src={ comic.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                <img className={generalComic.image} src={ comic.attributes.image } alt='画像' onError={(e) => e.target.src = noimage} />
               </div>
             </div>
           </div>

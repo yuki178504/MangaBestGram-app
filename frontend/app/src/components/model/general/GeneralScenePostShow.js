@@ -8,7 +8,7 @@ import noimage from "../../../image/default.png";
 
 const GeneralScenePostShow = () => {
   const navigate = useNavigate();
-  const { scene_post_id, comic_title } = useParams();
+  const { scene_post_id } = useParams();
 
   const { useShowGeneralScenePost } = useGeneralScenePost();
   const { data: scene_post, isLoading} = useShowGeneralScenePost(scene_post_id);
@@ -27,32 +27,32 @@ const GeneralScenePostShow = () => {
             <Link to='/mypage' className={scenePostShow["home-link"]}><span>/ マイページ</span></Link>
           </span>
           <span className={scenePostShow["scene-title"]}>
-            / { scene_post.sceneTitle }の詳細画面
+            / { scene_post.data.attributes.sceneTitle }の詳細画面
           </span>
         </div>
       </div>
       <div className={scenePostShow.section}>
         <div className={scenePostShow.content}>
           <div className={scenePostShow["outer-image"]}>
-            <img className={scenePostShow.image} src={ scene_post.sceneImage.url } alt='画像' onError={(e) => e.target.src = noimage} />
+            <img className={scenePostShow.image} src={ scene_post.data.attributes.sceneImage.url } alt='画像' onError={(e) => e.target.src = noimage} />
           </div>
           <div className={scenePostShow.article}>
-            <p className={scenePostShow["comic-title"]}><span className={scenePostShow["bs-book-fill"]}><BsBookFill /></span>{ comic_title }</p>
+            <p className={scenePostShow["comic-title"]}><span className={scenePostShow["bs-book-fill"]}><BsBookFill /></span>{ scene_post.data.attributes.scenePostComicTitle }</p>
             <div className={scenePostShow["detail-area"]}>
               <p className={scenePostShow.detail}><span className={scenePostShow["bs-fill-pencil-fill"]}><BsFillPencilFill /></span>【シーンのタイトル】</p>
-              <div>{ scene_post.sceneTitle }</div>
+              <div>{ scene_post.data.attributes.sceneTitle }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
               <p className={scenePostShow.detail}><span className={scenePostShow["bs-fill-journal-bookmark-fill"]}><BsFillJournalBookmarkFill /></span>【シーンの話数】</p>
-              <div>{ scene_post.sceneNumber }話</div>
+              <div>{ scene_post.data.attributes.sceneNumber }話</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
               <p className={scenePostShow.detail}><span className={scenePostShow["bs-calender-3"]}><BsCalendar3 /></span>【そのシーンを見た日付】</p>
-              <div>{ scene_post.sceneDate }</div>
+              <div>{ scene_post.data.attributes.sceneDate }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
               <p className={scenePostShow.detail}><span className={scenePostShow["bs-newspaper"]}><BsNewspaper /></span>【シーンの内容】</p>
-              <div>{ scene_post.sceneContent }</div>
+              <div>{ scene_post.data.attributes.sceneContent }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
               <button onClick={() => navigate(-1)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>シーン一覧へ戻る</button>
