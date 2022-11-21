@@ -1,0 +1,21 @@
+name: Rails-Rspec-Rubocop-Deploy
+
+on:
+  - pull_request
+
+jobs:
+  setup_and_test_execution:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Setup docker
+      shell: bash
+      run: |
+        docker-compose build
+        docker-compose run api rake db:create
+
+    - name: Run Rspec
+    shell: bash
+    run: |
+      docker-compose run api bundle exec rspec
