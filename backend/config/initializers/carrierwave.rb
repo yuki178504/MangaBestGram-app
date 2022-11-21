@@ -1,14 +1,13 @@
-# require 'carrierwave/storage/abstract'
-# require 'carrierwave/storage/file'
-# require 'carrierwave/storage/fog'
+require 'carrierwave/storage/abstract'
+require 'carrierwave/storage/file'
+require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
-  config.asset_host = "http://localhost:3000"
-  config.storage = :file
-  config.cache_storage = :file
-end
-
-CarrierWave.configure do |config|
+  if Rails.env.development? || Rails.env.test?
+    config.asset_host = "http://localhost:3000"
+    config.storage = :file
+    config.cache_storage = :file
+  elsif Rails.env.production?
     config.storage :fog
     config.fog_provider = 'fog/aws'
     config.fog_directory  = ENV['BUCKET']
@@ -19,4 +18,5 @@ CarrierWave.configure do |config|
       region: 'ap-northeast-1',
       path_style: true
     }
+  end
 end 
