@@ -13,7 +13,7 @@ services:
     volumes:
       - db-data:/var/lib/mysql
     healthcheck:
-      test: mysqladmin ping -h 127.0.0.1 -u root -p password
+      test: mysqladmin ping -h 127.0.0.1 -u$$MYSQL_USER -p$$MYSQL_PASSWORD
       interval: 10s
       timeout: 10s
       retries: 3
