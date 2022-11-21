@@ -1,7 +1,6 @@
 name: Rails-Rspec-Rubocop-Deploy
 
-on:
-  - pull_request
+on: [push]
 
 jobs:
   setup_and_test_execution:
@@ -9,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v2
     - name: Setup docker
       shell: bash
       run: |
