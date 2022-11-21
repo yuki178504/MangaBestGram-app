@@ -1,6 +1,7 @@
 FROM node:16.17.0-alpine as build
 WORKDIR /usr/src/app
 COPY ./app /usr/src/app
+RUN npm update -g npm
 RUN npm install
 RUN npm run build
 
