@@ -12,6 +12,12 @@ services:
       TZ: Asia/Tokyo
     volumes:
       - db-data:/var/lib/mysql
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u$$MYSQL_USER -p$$MYSQL_PASSWORD
+      interval: 10s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
 
   api:
     build:
@@ -26,7 +32,8 @@ services:
     ports:
       - 3000:3000
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   front:
     build:

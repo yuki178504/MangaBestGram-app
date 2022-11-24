@@ -40,7 +40,7 @@ module Myapp
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://localhost:4000', 'http://54.178.238.159'
+        origins 'http://localhost:4000', 'https://manga-best-gram.com'
         resource "*",
           headers: :any,
           methods: [:get, :post, :put, :patch, :delete, :options, :head]
