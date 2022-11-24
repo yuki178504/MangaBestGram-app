@@ -22,12 +22,12 @@ jobs:
       env:
         RAILS_ENV: test
 
-    # - name: Run Rubocop
-    #   shell: bash
-    #   run: |
-    #     docker-compose run api bundle exec rubocop
-    #   env:
-    #     RAILS_ENV: test
+    - name: Run Rubocop
+      shell: bash
+      run: |
+        docker-compose run api bundle exec rubocop
+      env:
+        RAILS_ENV: test
 
     - name: Aws Deploy
       env:
