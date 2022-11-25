@@ -1,5 +1,5 @@
 class Api::V1::User::ComicsController < SecuredController
-  before_action :set_comic, only: %i[update destroy show]
+  before_action :set_comic, only: %i(update destroy show)
 
   def index
     comics = @current_user.comics.all

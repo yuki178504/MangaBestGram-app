@@ -1,5 +1,5 @@
 class Api::V1::User::ScenePostsController < SecuredController
-  before_action :set_scene_post, only: %i[show update destroy]
+  before_action :set_scene_post, only: %i(show update destroy)
 
   def index
     posts = @current_user.comics.find_by!(id: params[:comic_id]).scene_posts.all
