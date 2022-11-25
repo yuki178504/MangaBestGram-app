@@ -25,3 +25,44 @@ ol {
   width: 95%;
   margin: 0 auto;
 }
+
+@media screen and (min-width: 541px) and (max-width: 1024px) {
+  .wrapper {
+    margin: 0 auto;
+    max-width: 700px;
+    line-height: 26px;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 20px;
+    margin: 20px 0px 30px 20px;
+    font-weight: bold;
+  }
+
+  ol {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .wrapper {
+    font-size: 14px;
+    margin: 0 auto;
+    max-width: 300px;
+    line-height: 23px;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 20px;
+    margin: 20px 0px 30px 20px;
+    font-weight: bold;
+  }
+
+  ol {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
