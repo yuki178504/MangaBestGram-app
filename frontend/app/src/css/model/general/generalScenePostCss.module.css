@@ -180,12 +180,17 @@
 }
 
 @media screen and (max-width: 540px) {
+  .title {
+    font-size: 13px;
+  }
+
   .react-icons {
     vertical-align: -1px;
     margin-right: 3px;
   }
 
   .main-content {
+    font-size: 13px;
     padding: 10px;
     display: block;
   }

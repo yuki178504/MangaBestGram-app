@@ -187,6 +187,14 @@
 }
 
 @media screen and (max-width: 540px) {
+  .wrapper {
+    font-size: 13px;
+  }
+
+  .title {
+    font-size: 13px;
+  }
+
   .react-icons {
     vertical-align: -1px;
   }

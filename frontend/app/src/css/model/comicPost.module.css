@@ -17,7 +17,6 @@
 
 .content {
   width: 31%;
-  height: 420px;
 }
 
 .innner-content {
@@ -28,13 +27,12 @@
 
 .outer-image {
   height: 240px;
-  width: 367px;
   width: 100%;
 }
 
 .image {
-  height: 240px;
-  width: 367px;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -43,18 +41,36 @@
   width: 100%;
 }
 
-.list-title {
+.detail-area {
+  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
-  margin-bottom: 20px;
 }
 
-.list-genre {
+.detail {
   text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.bs-book-fill {
+  color: blue;
+  font-size: 16px;
+  vertical-align: -4px;
+  margin-right: 1px;
+}
+
+.bs-journal-book-mark-fill {
+  color: green;
+  font-size: 16px;
+  vertical-align: -4px;
+  margin-right: 1px;
 }
 
 .link-list {
   padding: 20px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .link-show {
@@ -63,7 +79,6 @@
   box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
   font-size: 15px;
   font-weight: 700;
-  margin: 20px 20px;
   padding: 14px 6px;
   background-color: #4682b4;
   color: white;
@@ -79,7 +94,7 @@
   box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
   font-size: 15px;
   font-weight: 700;
-  margin: 20px 20px;
+  margin-left: 20px;
   padding: 14px 6px;
   background-color: #a9a9a9;
   color: white;
@@ -87,4 +102,47 @@
 
 .link-edit:hover {
   opacity: 0.5;
+}
+
+@media screen and (min-width: 541px) and (max-width: 1024px) {
+  .content {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .wrapper {
+    font-size: 13px;
+  }
+
+  .count {
+    font-size: 16px;
+  }
+
+  .main-content {
+    display: block;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .bs-book-fill {
+    font-size: 13px;
+  }
+
+  .bs-journal-book-mark-fill {
+    font-size: 13px;
+  }
+
+  .link-show {
+    font-size: 13px;
+    padding: 10px 6px;
+  }
+
+  .link-edit {
+    font-size: 13px;
+    margin-left: 20px;
+    padding: 10px 6px;
+  }
 }

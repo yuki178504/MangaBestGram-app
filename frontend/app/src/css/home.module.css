@@ -139,6 +139,10 @@
     margin-bottom: 20px;
   }
 
+  .desc {
+    font-size: 13px;
+  }
+
   .post {
     margin-top: 5px;
   }
@@ -163,6 +167,7 @@
   }
 
   .main-content {
+    font-size: 13px;
     display: block;
   }
 }
