@@ -14,7 +14,6 @@ const GeneralScenePostShow = () => {
   const { data: scene_post, isLoading} = useShowGeneralScenePost(scene_post_id);
 
   if(isLoading) return <ReactLoading type="spin" color="blue" />
-  console.log(scene_post)
 
   return (
     <div className={scenePostShow.wrapper}>
@@ -22,9 +21,6 @@ const GeneralScenePostShow = () => {
         <div className={scenePostShow.title}>
           <span className={scenePostShow.home}>
             <Link to='/' className={scenePostShow["home-link"]}><span className={scenePostShow["react-icons"]}><AiFillHome /></span>ホーム</Link>
-          </span>
-          <span>
-            <Link to='/mypage' className={scenePostShow["home-link"]}><span>/ マイページ</span></Link>
           </span>
           <span className={scenePostShow["scene-title"]}>
             / { scene_post.data.attributes.sceneTitle }の詳細画面

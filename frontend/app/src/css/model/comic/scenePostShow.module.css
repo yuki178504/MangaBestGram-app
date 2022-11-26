@@ -10,7 +10,6 @@
 
 .home {
   align-items: center;
-  margin-right: 5px;
 }
 
 .home-link {
@@ -32,13 +31,14 @@
 }
 
 .section {
+  padding: 50px 200px;
   width: 100%;
 }
 
 .content {
   margin: 0 auto;
-  width: 900px;
-  height: 800px;
+  width: 100%;
+  height: 100%;
   border: 2px solid #a9a9a9;
   background-color: #f0f8ff;
   border-radius: 6px;
@@ -46,13 +46,13 @@
 
 .outer-image {
   margin: 0 auto;
-  height: 300px;
-  width: 400px;
+  height: 65%;
+  width: 65%;
 }
 
 .image {
-  height: 300px;
-  width: 400px;
+  height: 100%;
+  width: 100%;
   object-fit: contain;
 }
 
@@ -92,7 +92,7 @@
 }
 
 .bs-fill-journal-bookmark-fill {
-  color: greenyellow;
+  color: green;
   font-size: 20px;
   vertical-align: -4px;
   margin-right: 7px;
@@ -106,7 +106,7 @@
 }
 
 .bs-newspaper {
-  color: yellow;
+  color: gold;
   font-size: 20px;
   vertical-align: -4px;
   margin-right: 7px;
@@ -119,7 +119,6 @@
   font-size: 15px;
   font-weight: 700;
   padding: 18px 8px;
-  margin: 15px 0 20px;
   background-color: #a9a9a9;
   color: white;
 }
@@ -132,4 +131,110 @@
   font-size: 22px;
   vertical-align: -4px;
   margin-right: 10px;
+}
+
+@media screen and (min-width: 541px) and (max-width: 1024px) {
+  .react-icons {
+    vertical-align: -1px;
+  }
+
+  .section {
+    padding: 50px 100px;
+  }
+
+  .outer-image {
+    height: 70%;
+    width: 70%;
+  }
+
+  .detail-area {
+    margin-top: 10px;
+  }
+
+  .detail {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .bs-book-fill {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .bs-fill-pencil-fill {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .bs-fill-journal-bookmark-fill {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+  
+  .bs-calender-3 {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+  
+  .bs-newspaper {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .back {
+    padding: 10px 8px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .react-icons {
+    vertical-align: -1px;
+  }
+
+  .section {
+    padding: 10px;
+  }
+
+  .outer-image {
+    height: 100%;
+    width: 100%;
+  }
+
+  .detail-area {
+    margin-top: 10px;
+  }
+
+  .detail {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .bs-book-fill {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .bs-fill-pencil-fill {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .bs-fill-journal-bookmark-fill {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+  
+  .bs-calender-3 {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+  
+  .bs-newspaper {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .back {
+    padding: 10px 8px;
+  }
 }
