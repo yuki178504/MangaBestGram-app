@@ -17,8 +17,6 @@ const GeneralScenePost = () => {
 
   if(isLoading) return <ReactLoading type="spin" color='blue' />
   if(general_loading) return <ReactLoading type="spin" color='blue' />
-  console.log(scene_posts)
-  console.log(general_scene_posts)
 
   return (
     <div className={generalScenePostCss.wrapper}>
