@@ -121,3 +121,105 @@
   padding: 15px;
   width: 100%;
 }
+
+@media screen and (min-width: 541px) and (max-width: 1024px) {
+  .main-content {
+    padding: 10px;
+  }
+
+  .content {
+    width: 49%;
+  }
+
+  .detail-area {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .detail-area-link {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  .link-show {
+    border-radius: 5px;
+    box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+    font-size: 15px;
+    margin: 10px;
+    padding: 9px 16px;
+  }
+
+  .outer-image {
+    height: 279px;
+  }
+
+  .list {
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .react-icons {
+    vertical-align: -1px;
+  }
+
+  .main-content {
+    padding: 10px 15px;
+    display: block;
+  }
+
+  .content {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .user-name {
+    margin-bottom: 8px;
+  }
+
+  .user-image {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+  }
+
+  .detail-area {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .detail {
+    margin-bottom: 4px;
+  }
+
+  .bs-book-fill {
+    font-size: 15px;
+    vertical-align: -2.5px;
+    margin-right: 2px;
+  }
+
+  .bs-journal-book-mark-fill {
+    font-size: 15px;
+    vertical-align: -2.5px;
+    margin-right: 2px;
+  }
+
+  .detail-area-link {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .link-show {
+    margin: 9px;
+    padding: 7px;
+    font-size: 13px;
+  }
+
+  .outer-image {
+    height: 205px;
+  }
+
+  .list {
+    padding: 10px;
+  }
+}

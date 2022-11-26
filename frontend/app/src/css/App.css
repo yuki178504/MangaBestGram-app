@@ -25,3 +25,9 @@ a {
 button {
   cursor: pointer;
 }
+
+@media screen and (max-width: 540px) {
+  * {
+    font-size: 13px;
+  }
+}

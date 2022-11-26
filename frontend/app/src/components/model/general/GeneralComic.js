@@ -11,7 +11,6 @@ const GeneralComic = () => {
   const { data: comics, isLoading } = useGetGeneralComic();
 
   if(isLoading) return <ReactLoading type="spin" color='blue' />
-  console.log(comics)
 
   return (
     <div className={generalComic.wrapper}>
@@ -45,7 +44,7 @@ const GeneralComic = () => {
               </div>
             </div>
           </div>
-          ))}
+        ))}
       </div>
     </div>
   );
