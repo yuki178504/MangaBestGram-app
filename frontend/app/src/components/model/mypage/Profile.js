@@ -51,7 +51,7 @@ const Profile = () => {
           <div className={profile['detail-area-count']}>
             <div className={profile.list}>
               <p className={profile['detail-list']}>【投稿数】</p>
-              <div>{ comics.l. ngth}</div>
+              <div>{ comics.length}</div>
             </div>
             <div className={profile.list}>
               <p className={profile['detail-list']}>【お気に入り数】</p>
