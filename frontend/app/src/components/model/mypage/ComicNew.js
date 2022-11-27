@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import newComicForm from "../../../css/ui/newComicForm.module.css"
+import newComicForm from "../../../css/ui/newComicForm.module.css";
 import { useForm } from 'react-hook-form';
 import comicNewGenreJson from "../../../json/comicNewGenre.json";
 import { useContext } from "react";
@@ -27,11 +27,10 @@ const ComicNew = () => {
       },
     })
     .catch((error) => {
-      console.error(error.res.data);
+      console.error(error.response.data);
     });
     alert("新規登録が完了しました！");
     navigate("/");
-    console.log(data)
   };
 
   return (
@@ -72,13 +71,13 @@ const ComicNew = () => {
         <div className={newComicForm["form-text"]}>
           <div className={newComicForm["form-label"]}>漫画の画像</div>
           <input
-            className={newComicForm["form-input"]}
+            className={newComicForm["form-input-image"]}
             type="file"
             accept="image/*"
             {...register("image")}
           />
         </div>
-        <div className={newComicForm["form-text"]}>
+        <div className={newComicForm["form-text-submit"]}>
           <button className={newComicForm["form-submit"]} type="submit">この内容で登録する</button>
         </div>
       </form>
