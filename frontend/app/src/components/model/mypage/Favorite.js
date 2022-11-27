@@ -11,7 +11,6 @@ const Favorite = () => {
   const { data: favorites, isLoading } = useGetFavorite();
 
   if(isLoading) return <ReactLoading type="spin" color='blue' />
-  console.log(favorites)
 
   return (
     <div className={favorite.wrapper}>
