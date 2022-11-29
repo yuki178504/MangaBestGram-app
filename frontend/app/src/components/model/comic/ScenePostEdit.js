@@ -75,8 +75,8 @@ const ScenePostEdit = () => {
   const number = setNumber();
 
   return (
-    <>
-    <div className={comicEdit["top-list"]}>
+    <div className={comicEdit.wrapper}>
+      <div className={comicEdit["top-list"]}>
         <div className={comicEdit.title}>
           <span className={comicEdit.home}>
             <Link to='/' className={comicEdit["home-link"]}><span className={comicEdit["react-icons"]}><AiFillHome /></span>ホーム</Link>
@@ -89,81 +89,83 @@ const ScenePostEdit = () => {
           </span>
         </div>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)} className={newComicForm.form}>
-        <div className={newComicForm["form-text"]}>
-          <div className={newComicForm["form-label"]}>シーンのタイトル</div>
-          { errors.scene_title &&
-            <div className={newComicForm.errors}>【！シーンのタイトルが空欄です】</div> 
-          }
-          <input
-            className={newComicForm["form-input"]}
-            defaultValue={ scene_post.scene_title }
-            {...register('scene_title', {
-              required: true
-            })}
-          />
-        </div>
-        <div className={newComicForm["form-text"]}>
-          <div className={newComicForm["form-label"]}>漫画の話数</div>
-          { errors.scene_number &&
-            <div className={newComicForm.errors}>【！漫画の話数を選択してください】</div> 
-          }
-          <select
-            className={newComicForm["form-input"]}
-            {...register('scene_number', {
-              required: true
-            })}
-          >
-            <option>{ scene_post.scene_number }話</option>
-            {number.map((numbers, index) =>
-              <option key={index} >{ numbers }話</option>
-            )}
-          </select>
-        </div>
-        <div className={newComicForm["form-text"]}>
-          <div className={newComicForm["form-label"]}>好きなシーンを見た日付</div>
-          <input
-            type='date'
-            defaultValue={ scene_post.scene_date }
-            className={newComicForm["form-input"]}
-            {...register('scene_date', {
-              required: true
-            })}
-          />
-        </div>
-        <div className={newComicForm["form-text"]}>
-          <div className={newComicForm["form-label"]}>シーンの内容</div>
-          { errors.scene_content &&
-            <div className={newComicForm.errors}>【！シーンの内容が空欄です】</div> 
-          }
-          <input
-            className={newComicForm["form-input"]}
-            defaultValue={ scene_post.scene_content }
-            {...register('scene_content', {
-              required: true
-            })}
-          />
-        </div>
-        <div className={newComicForm["form-text"]}>
-          <div className={newComicForm["form-label"]}>シーンの画像</div>
-          <input
-            className={newComicForm["form-input"]}
-            type="file"
-            accept="image/*"
-            {...register("scene_image")}
-          />
-        </div>
-        <div className={newComicForm["form-text"]}>
-          <button className={newComicForm["form-submit"]} type="submit">この内容で登録する</button>
-        </div>
-        <div className={newComicForm["form-text"]}>
-          <ScenePostDeleteButton handleDeleteScenePost={handleDeleteScenePost} />
-        </div>
-        <div className={newComicForm["form-text"]}>
-        <button onClick={() => navigate(`/comic/${comic_id}/${comic_title}`)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>シーン一覧へ戻る</button>
-        </div>
-      </form>
-    </>
+      <div className={comicEdit.content}>
+        <form onSubmit={handleSubmit(onSubmit)} className={newComicForm.form}>
+          <div className={newComicForm["form-text"]}>
+            <div className={newComicForm["form-label"]}>シーンのタイトル</div>
+            { errors.scene_title &&
+              <div className={newComicForm.errors}>【！シーンのタイトルが空欄です】</div> 
+            }
+            <input
+              className={newComicForm["form-input"]}
+              defaultValue={ scene_post.scene_title }
+              {...register('scene_title', {
+                required: true
+              })}
+            />
+          </div>
+          <div className={newComicForm["form-text"]}>
+            <div className={newComicForm["form-label"]}>漫画の話数</div>
+            { errors.scene_number &&
+              <div className={newComicForm.errors}>【！漫画の話数を選択してください】</div> 
+            }
+            <select
+              className={newComicForm["form-input"]}
+              {...register('scene_number', {
+                required: true
+              })}
+            >
+              <option>{ scene_post.scene_number }話</option>
+              {number.map((numbers, index) =>
+                <option key={index} >{ numbers }話</option>
+              )}
+            </select>
+          </div>
+          <div className={newComicForm["form-text"]}>
+            <div className={newComicForm["form-label"]}>好きなシーンを見た日付</div>
+            <input
+              type='date'
+              defaultValue={ scene_post.scene_date }
+              className={newComicForm["form-input"]}
+              {...register('scene_date', {
+                required: true
+              })}
+            />
+          </div>
+          <div className={newComicForm["form-text"]}>
+            <div className={newComicForm["form-label"]}>シーンの内容</div>
+            { errors.scene_content &&
+              <div className={newComicForm.errors}>【！シーンの内容が空欄です】</div> 
+            }
+            <input
+              className={newComicForm["form-input"]}
+              defaultValue={ scene_post.scene_content }
+              {...register('scene_content', {
+                required: true
+              })}
+            />
+          </div>
+          <div className={newComicForm["form-text"]}>
+            <div className={newComicForm["form-label"]}>シーンの画像</div>
+            <input
+              className={newComicForm["form-input-image"]}
+              type="file"
+              accept="image/*"
+              {...register("scene_image")}
+            />
+          </div>
+          <div className={newComicForm["form-text"]}>
+            <button className={newComicForm["form-submit"]} type="submit">この内容で登録する</button>
+          </div>
+          <div className={newComicForm["form-text-delete"]}>
+            <ScenePostDeleteButton handleDeleteScenePost={handleDeleteScenePost} />
+          </div>
+          <div className={newComicForm["form-text-back"]}>
+            <button onClick={() => navigate(`/comic/${comic_id}/${comic_title}`)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>シーン一覧へ戻る</button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 

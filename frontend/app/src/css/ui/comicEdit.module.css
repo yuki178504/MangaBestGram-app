@@ -36,9 +36,6 @@
   margin: 0 auto;
 }
 
-@media screen and (min-width: 541px) and (max-width: 1024px) {
-}
-
 @media screen and (max-width: 540px) {
   .title {
     font-size: 13px;
@@ -46,5 +43,10 @@
 
   .content {
     padding: 10px;
+  }
+
+  .react-icons {
+    vertical-align: -2px;
+    margin-right: 2px;
   }
 }

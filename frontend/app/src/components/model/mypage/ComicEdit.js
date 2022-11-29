@@ -3,6 +3,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import { useComicApi } from "../../../hooks/useComicApi";
 import newComicForm from "../../../css/ui/newComicForm.module.css";
 import comicEdit from "../../../css/ui/comicEdit.module.css";
+import scenePostShow from "../../../css/model/comic/scenePostShow.module.css";
 import ReactLoading from "react-loading";
 import comicNewGenreJson from "../../../json/comicNewGenre.json";
 import { AiFillHome } from "react-icons/ai";
@@ -10,6 +11,7 @@ import { ComicDeleteButton } from "../../ui/Parts";
 import axios from "axios";
 import { AuthContext } from "../../../providers/AuthGuard";
 import { useContext } from "react";
+import { BsFillReplyFill } from "react-icons/bs";
 
 const ComicEdit = () => {
   const navigate = useNavigate();
@@ -61,7 +63,7 @@ const ComicEdit = () => {
 
   return(
     <div className={comicEdit.wrapper}>
-    <div className={comicEdit["top-list"]}>
+      <div className={comicEdit["top-list"]}>
         <div className={comicEdit.title}>
           <span className={comicEdit.home}>
             <Link to='/' className={comicEdit["home-link"]}><span className={comicEdit["react-icons"]}><AiFillHome /></span>ホーム</Link>
@@ -120,6 +122,9 @@ const ComicEdit = () => {
           </div>
           <div className={newComicForm["form-text-delete"]}>
             <ComicDeleteButton handleDeleteComic={handleDeleteComic} />
+          </div>
+          <div className={newComicForm["form-text-back"]}>
+            <button onClick={() => navigate('/mypage')} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>マイページへ戻る</button>
           </div>
         </form>
       </div>
