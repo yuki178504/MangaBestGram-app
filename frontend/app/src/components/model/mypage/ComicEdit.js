@@ -25,10 +25,10 @@ const ComicEdit = () => {
   //削除用関数
   const handleDeleteComic = () => {
     if (
-      window.confirm("削除しますか？")
+      window.confirm(`${comic_title}を削除しますか？`)
     ) {
       deleteComic.mutate();
-      alert("削除しました!");
+      alert(`${comic_title}を削除しました!`);
       navigate('/mypage');
     }
   };
@@ -51,7 +51,6 @@ const ComicEdit = () => {
     });
     alert(`${comic_title}を編集しました！`);
     navigate("/mypage");
-    console.log(data)
   };
 
   const { handleSubmit, register, formState: { errors } } = useForm({
@@ -59,10 +58,9 @@ const ComicEdit = () => {
   });
 
   if(isLoading) return <ReactLoading type="spin" color="blue" />
-  console.log(comics)
 
   return(
-    <>
+    <div className={comicEdit.wrapper}>
     <div className={comicEdit["top-list"]}>
         <div className={comicEdit.title}>
           <span className={comicEdit.home}>
@@ -76,54 +74,56 @@ const ComicEdit = () => {
           </span>
         </div>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)} className={newComicForm.form}>
-        <div className={newComicForm["form-text"]}>
-          <div className={newComicForm["form-label"]}>漫画のタイトル</div>
-          { errors.title &&
-            <div className={newComicForm.errors}>【！漫画のタイトルが空欄です】</div> 
-          }
-          <input
-            className={newComicForm["form-input"]}
-            defaultValue={ comics.title }
-            {...register('title', {
-              required: true
-            })}
-          />
-        </div>
-        <div className={newComicForm["form-text"]}>
-          <div className={newComicForm["form-label"]}>漫画のジャンル</div>
-          { errors.genre &&
-            <div className={newComicForm.errors}>【！漫画のジャンルを選択してください】</div> 
-          }
-          <select
-            className={newComicForm["form-input"]}
-            {...register('genre', {
-              required: true
-            })}
-          >
-            <option>{ comics.genre }</option>
-            {comicNewGenreJson.map((genre, index) =>
-              <option key={index} >{ genre.genre }</option>
-            )}
-          </select>
-        </div>
-        <div className={newComicForm["form-text"]}>
-          <div className={newComicForm["form-label"]}>漫画の画像</div>
-          <input
-            className={newComicForm["form-input"]}
-            type="file"
-            accept="image/*"
-            {...register("image")}
-          />
-        </div>
-        <div className={newComicForm["form-text"]}>
-          <button className={newComicForm["form-submit"]} type="submit">この内容で登録する</button>
-        </div>
-        <div className={newComicForm["form-text"]}>
-          <ComicDeleteButton handleDeleteComic={handleDeleteComic} />
-        </div>
-      </form>
-    </>
+      <div className={comicEdit.content}>
+        <form onSubmit={handleSubmit(onSubmit)} className={newComicForm.form}>
+          <div className={newComicForm["form-text"]}>
+            <div className={newComicForm["form-label"]}>漫画のタイトル</div>
+            { errors.title &&
+              <div className={newComicForm.errors}>【！漫画のタイトルが空欄です】</div> 
+            }
+            <input
+              className={newComicForm["form-input"]}
+              defaultValue={ comics.title }
+              {...register('title', {
+                required: true
+              })}
+            />
+          </div>
+          <div className={newComicForm["form-text"]}>
+            <div className={newComicForm["form-label"]}>漫画のジャンル</div>
+            { errors.genre &&
+              <div className={newComicForm.errors}>【！漫画のジャンルを選択してください】</div> 
+            }
+            <select
+              className={newComicForm["form-input"]}
+              {...register('genre', {
+                required: true
+              })}
+            >
+              <option>{ comics.genre }</option>
+              {comicNewGenreJson.map((genre, index) =>
+                <option key={index} >{ genre.genre }</option>
+              )}
+            </select>
+          </div>
+          <div className={newComicForm["form-text"]}>
+            <div className={newComicForm["form-label"]}>漫画の画像</div>
+            <input
+              className={newComicForm["form-input-image"]}
+              type="file"
+              accept="image/*"
+              {...register("image")}
+            />
+          </div>
+          <div className={newComicForm["form-text"]}>
+            <button className={newComicForm["form-submit"]} type="submit">この内容で登録する</button>
+          </div>
+          <div className={newComicForm["form-text-delete"]}>
+            <ComicDeleteButton handleDeleteComic={handleDeleteComic} />
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 
