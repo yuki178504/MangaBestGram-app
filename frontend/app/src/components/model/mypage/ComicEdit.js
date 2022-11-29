@@ -59,7 +59,7 @@ const ComicEdit = () => {
     criteriaMode: "all"
   });
 
-  if(isLoading) return <ReactLoading type="spin" color="blue" />
+  if(isLoading) return <ReactLoading type="spin" color="blue" className='loading' />
 
   return(
     <div className={comicEdit.wrapper}>

@@ -17,9 +17,9 @@ const Profile = () => {
   const { data: user, isLoading } = useGetUser();
   const regExp = /(https?:\/\/\S+)/g;
 
-  if(isLoading) return <ReactLoading type="spin" color='blue' />
-  if(favoriteLoading) return <ReactLoading type="spin" color='blue' />
-  if(comicLoading) return <ReactLoading type="spin" color='blue' />
+  if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
+  if(favoriteLoading) return <ReactLoading type="spin" color='blue' className='loading' />
+  if(comicLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
     <div className={profile.wrapper}>

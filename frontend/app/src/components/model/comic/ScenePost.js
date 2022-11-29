@@ -12,7 +12,7 @@ const ScenePost = () => {
 
   const { data: scene_posts, isLoading } = useGetScenePost(comic_id);
 
-  if(isLoading) return <ReactLoading type="spin" color='blue' />
+  if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
     <div className={scenePost.wrapper}>

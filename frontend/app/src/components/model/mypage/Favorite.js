@@ -10,7 +10,7 @@ const Favorite = () => {
   const { useGetFavorite } = useFavorite();
   const { data: favorites, isLoading } = useGetFavorite();
 
-  if(isLoading) return <ReactLoading type="spin" color='blue' />
+  if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
     <div className={favorite.wrapper}>

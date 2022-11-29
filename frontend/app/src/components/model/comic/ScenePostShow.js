@@ -13,7 +13,7 @@ const ScenePostShow = () => {
   const { useShowScenePost } = useScenePost();
   const { data: scene_post, isLoading } = useShowScenePost(scene_post_id);
 
-  if(isLoading) return <ReactLoading type="spin" color="blue" />
+  if(isLoading) return <ReactLoading type="spin" color="blue" className='loading' />
 
   return (
     <div className={scenePostShow.wrapper}>

@@ -15,8 +15,8 @@ const GeneralScenePost = () => {
   const { data: scene_posts, isLoading } = useGetGeneralScenePost(comic_id);
   const { data: general_scene_posts, isLoading: general_loading } = useGetLoginGeneralScenePost(comic_id);
 
-  if(isLoading) return <ReactLoading type="spin" color='blue' />
-  if(general_loading) return <ReactLoading type="spin" color='blue' />
+  if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
+  if(general_loading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
     <div className={generalScenePostCss.wrapper}>

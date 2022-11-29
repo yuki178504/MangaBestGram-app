@@ -14,7 +14,7 @@ const Home = () => {
   const { data: comics, isLoading } = useGetGeneralLatestComic();
   const { isAuthenticated, loginWithRedirect } = useContext(AuthContext);
 
-  if(isLoading) return <ReactLoading type="spin" color='blue' />
+  if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
     <div className={home.wrapper}>

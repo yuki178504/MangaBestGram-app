@@ -61,7 +61,7 @@ const ScenePostEdit = () => {
     criteriaMode: "all"
   });
 
-  if(isLoading) return <ReactLoading type="spin" color="blue" height={200} width={200} className={comicEdit.loading} />
+  if(isLoading) return <ReactLoading type="spin" color="blue" className='loading' />
   console.log(scene_post)
 
   const setNumber = () => {

@@ -10,7 +10,7 @@ const GeneralComic = () => {
   const { useGetGeneralComic } = useGeneralComic();
   const { data: comics, isLoading } = useGetGeneralComic();
 
-  if(isLoading) return <ReactLoading type="spin" color='blue' />
+  if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
     <div className={generalComic.wrapper}>

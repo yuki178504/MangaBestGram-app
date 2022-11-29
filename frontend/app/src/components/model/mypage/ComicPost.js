@@ -9,7 +9,7 @@ const ComicPost = () => {
   const { useGetComic } = useComicApi();
   const { data: comics, isLoading } = useGetComic();
 
-  if(isLoading) return <ReactLoading type="spin" color='blue' />
+  if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
     <div className={comicPost.wrapper}>
