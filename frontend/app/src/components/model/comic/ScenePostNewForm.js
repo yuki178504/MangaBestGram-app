@@ -1,10 +1,13 @@
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useForm } from 'react-hook-form';
-import scenePostNew from '../../../css/model/comic/scenePostNew.module.css';
+import newComicForm from '../../../css/ui/newComicForm.module.css';
+import comicEdit from "../../../css/ui/comicEdit.module.css";
+import scenePostShow from "../../../css/model/comic/scenePostShow.module.css";
 import { AiFillHome } from "react-icons/ai";
 import { AuthContext } from "../../../providers/AuthGuard";
 import { useContext } from "react";
 import axios from "axios";
+import { BsFillReplyFill } from "react-icons/bs";
 
 const ScenePostNewForm = () => {
   const { comic_id, comic_title } = useParams();
@@ -50,93 +53,95 @@ const ScenePostNewForm = () => {
   const number = setNumber();
 
   return (
-    <div className={scenePostNew.wrapper}>
-      <div className={scenePostNew["top-list"]}>
-        <div className={scenePostNew.title}>
-          <span className={scenePostNew.home}>
-            <Link to='/' className={scenePostNew["home-link"]}><span className={scenePostNew["react-icons"]}><AiFillHome /></span>ホーム</Link>
+    <div className={comicEdit.wrapper}>
+      <div className={comicEdit["top-list"]}>
+        <div className={comicEdit.title}>
+          <span className={comicEdit.home}>
+            <Link to='/' className={comicEdit["home-link"]}><span className={comicEdit["react-icons"]}><AiFillHome /></span>ホーム</Link>
           </span>
           <span>
-            <Link to='/mypage' className={scenePostNew["home-link"]}><span>/ マイページ</span></Link>
+            <Link to='/mypage' className={comicEdit["home-link"]}><span>/ マイページ</span></Link>
           </span>
-          <span className={scenePostNew["comic-title"]}>
+          <span className={comicEdit["comic-title"]}>
             / { comic_title }のシーン投稿画面
           </span>
         </div>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)} className={scenePostNew.form}>
-        <div className={scenePostNew["form-text"]}>
-          <div className={scenePostNew["form-label"]}>好きなシーン名</div>
-          { errors.scene_title &&
-            <div className={scenePostNew.errors}>【！好きなシーン名が空欄です】</div> 
-          }
-          <input
-            className={scenePostNew["form-input"]}
-            placeholder="好きなシーン名を入力してください"
-            {...register('scene_title', {
-              required: true
-            })}
-          />
-        </div>
-        <div className={scenePostNew["form-text"]}>
-          <div className={scenePostNew["form-label"]}>漫画の話数</div>
-          { errors.scene_number &&
-            <div className={scenePostNew.errors}>【！漫画の話数を選択してください】</div> 
-          }
-          <select
-            className={scenePostNew["form-input"]}
-            {...register('scene_number', {
-              required: true
-            })}
-          >
-            <option></option>
-            {number.map((numbers, index) =>
-              <option key={index} >{ numbers }話</option>
-            )}
-          </select>
-        </div>
-        <div className={scenePostNew["form-text"]}>
-          <div className={scenePostNew["form-label"]}>好きなシーンを見た日付</div>
-          <input
-            type='date'
-            className={scenePostNew["form-input"]}
-            placeholder="好きなシーン名を入力してください"
-            {...register('scene_date', {
-              required: true
-            })}
-          />
-        </div>
-        <div className={scenePostNew["form-text"]}>
-          <div className={scenePostNew["form-label"]}>好きなシーンの内容</div>
-          { errors.scene_title &&
-            <div className={scenePostNew.errors}>【！好きなシーンの内容が空欄です】</div> 
-          }
-          <textarea
-            rows='10'
-            cols='60'
-            className={scenePostNew["form-input"]}
-            placeholder="好きなシーン内容を入力してください"
-            {...register('scene_content', {
-              required: true
-            })}
-          />
-        </div>
-        <div className={scenePostNew["form-text"]}>
-          <div className={scenePostNew["form-label"]}>シーンの画像</div>
-          <input
-            className={scenePostNew["form-input"]}
-            type="file"
-            accept="image/*"
-            {...register("scene_image")}
-          />
-        </div>
-        <div className={scenePostNew["form-text"]}>
-          <button className={scenePostNew["form-submit"]} type="submit">この内容で登録する</button>
-        </div>
-        <div className={scenePostNew["form-text"]}>
-          <button onClick={() => navigate(-1)} className={scenePostNew["form-mypage"]}>{ comic_title }のシーン一覧に戻る</button>
-        </div>
-      </form>
+      <div className={comicEdit.content}>
+        <form onSubmit={handleSubmit(onSubmit)} className={newComicForm.form}>
+          <div className={newComicForm["form-text"]}>
+            <div className={newComicForm["form-label"]}>好きなシーン名</div>
+            { errors.scene_title &&
+              <div className={newComicForm.errors}>【！好きなシーン名が空欄です】</div> 
+            }
+            <input
+              className={newComicForm["form-input"]}
+              placeholder="好きなシーン名を入力してください"
+              {...register('scene_title', {
+                required: true
+              })}
+            />
+          </div>
+          <div className={newComicForm["form-text"]}>
+            <div className={newComicForm["form-label"]}>漫画の話数</div>
+            { errors.scene_number &&
+              <div className={newComicForm.errors}>【！漫画の話数を選択してください】</div> 
+            }
+            <select
+              className={newComicForm["form-input"]}
+              {...register('scene_number', {
+                required: true
+              })}
+            >
+              <option></option>
+              {number.map((numbers, index) =>
+                <option key={index} >{ numbers }話</option>
+              )}
+            </select>
+          </div>
+          <div className={newComicForm["form-text"]}>
+            <div className={newComicForm["form-label"]}>好きなシーンを見た日付</div>
+            <input
+              type='date'
+              className={newComicForm["form-input"]}
+              placeholder="好きなシーン名を入力してください"
+              {...register('scene_date', {
+                required: true
+              })}
+            />
+          </div>
+          <div className={newComicForm["form-text"]}>
+            <div className={newComicForm["form-label"]}>好きなシーンの内容</div>
+            { errors.scene_title &&
+              <div className={newComicForm.errors}>【！好きなシーンの内容が空欄です】</div> 
+            }
+            <textarea
+              rows='10'
+              cols='60'
+              className={newComicForm["form-input"]}
+              placeholder="好きなシーン内容を入力してください"
+              {...register('scene_content', {
+                required: true
+              })}
+            />
+          </div>
+          <div className={newComicForm["form-text"]}>
+            <div className={newComicForm["form-label"]}>シーンの画像</div>
+            <input
+              className={newComicForm["form-input-image"]}
+              type="file"
+              accept="image/*"
+              {...register("scene_image")}
+            />
+          </div>
+          <div className={newComicForm["form-text"]}>
+            <button className={newComicForm["form-submit"]} type="submit">この内容で登録する</button>
+          </div>
+          <div className={newComicForm["form-text-back"]}>
+            <button onClick={() => navigate(-1)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>{ comic_title }のシーン一覧に戻る</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
