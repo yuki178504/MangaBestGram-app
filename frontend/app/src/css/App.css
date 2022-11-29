@@ -25,3 +25,7 @@ a {
 button {
   cursor: pointer;
 }
+
+.loading {
+  margin: 150px auto;
+}

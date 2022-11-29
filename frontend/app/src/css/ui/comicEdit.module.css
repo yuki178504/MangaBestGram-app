@@ -32,10 +32,6 @@
   margin-left: 5px;
 }
 
-.loading {
-  margin: 0 auto;
-}
-
 @media screen and (max-width: 540px) {
   .title {
     font-size: 13px;
