@@ -7,27 +7,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Setup docker
-      shell: bash
-      run: |
-        docker-compose build
-        docker-compose run api rails db:create
-      env:
-        RAILS_ENV: test
+    # - name: Setup docker
+    #   shell: bash
+    #   run: |
+    #     docker-compose build
+    #     docker-compose run api rails db:create
+    #   env:
+    #     RAILS_ENV: test
 
-    - name: Run Rspec
-      shell: bash
-      run: |
-        docker-compose run api bundle exec rspec
-      env:
-        RAILS_ENV: test
+    # - name: Run Rspec
+    #   shell: bash
+    #   run: |
+    #     docker-compose run api bundle exec rspec
+    #   env:
+    #     RAILS_ENV: test
 
-    - name: Run Rubocop
-      shell: bash
-      run: |
-        docker-compose run api bundle exec rubocop
-      env:
-        RAILS_ENV: test
+    # - name: Run Rubocop
+    #   shell: bash
+    #   run: |
+    #     docker-compose run api bundle exec rubocop
+    #   env:
+    #     RAILS_ENV: test
 
     - name: Aws Deploy
       env:
@@ -47,4 +47,5 @@ jobs:
         docker build -f Dockerfile . &&
         cd ../ &&
         docker-compose -f docker-compose-prod.yml up -d &&
-        docker-compose run api bundle exec rails db:create db:migrate RAILS_ENV=production'
+        docker-compose run api bundle exec rails db:create db:migrate RAILS_ENV=production' &&
+        exit
