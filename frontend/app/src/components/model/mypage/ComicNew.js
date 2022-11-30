@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import newComicForm from "../../../css/ui/newComicForm.module.css";
+import form from "../../../css/ui/form.module.css";
 import { useForm } from 'react-hook-form';
 import comicNewGenreJson from "../../../json/comicNewGenre.json";
 import { useContext } from "react";
@@ -34,15 +34,15 @@ const ComicNew = () => {
   };
 
   return (
-    <div className={newComicForm.wrapper}>
-      <form onSubmit={handleSubmit(onSubmit)} className={newComicForm.form}>
-        <div className={newComicForm["form-text"]}>
-          <div className={newComicForm["form-label"]}>漫画のタイトル</div>
+    <div className={form.wrapper}>
+      <form onSubmit={handleSubmit(onSubmit)} className={form.form}>
+        <div className={form["form-text"]}>
+          <div className={form["form-label"]}>漫画のタイトル</div>
           { errors.title &&
-            <div className={newComicForm.errors}>【！漫画のタイトルが空欄です】</div> 
+            <div className={form.errors}>【！漫画のタイトルが空欄です】</div> 
           }
           <input
-            className={newComicForm["form-input"]}
+            className={form["form-input"]}
             placeholder="漫画のタイトルを入力してください"
             name="title"
             {...register("title", {
@@ -50,13 +50,13 @@ const ComicNew = () => {
             })}
           />
         </div>
-        <div className={newComicForm["form-text"]}>
-          <div className={newComicForm["form-label"]}>漫画のジャンル</div>
+        <div className={form["form-text"]}>
+          <div className={form["form-label"]}>漫画のジャンル</div>
           { errors.genre &&
-            <div className={newComicForm.errors}>【！漫画のジャンルを選択してください】</div> 
+            <div className={form.errors}>【！漫画のジャンルを選択してください】</div> 
           }
           <select
-            className={newComicForm["form-input"]}
+            className={form["form-input"]}
             name="genre"
             {...register("genre", {
               required: true,
@@ -68,17 +68,17 @@ const ComicNew = () => {
             )}
           </select>
         </div>
-        <div className={newComicForm["form-text"]}>
-          <div className={newComicForm["form-label"]}>漫画の画像</div>
+        <div className={form["form-text"]}>
+          <div className={form["form-label"]}>漫画の画像</div>
           <input
-            className={newComicForm["form-input-image"]}
+            className={form["form-input-image"]}
             type="file"
             accept="image/*"
             {...register("image")}
           />
         </div>
-        <div className={newComicForm["form-text-submit"]}>
-          <button className={newComicForm["form-submit"]} type="submit">この内容で登録する</button>
+        <div className={form["form-text-submit"]}>
+          <button className={form["form-submit"]} type="submit">この内容で登録する</button>
         </div>
       </form>
     </div>

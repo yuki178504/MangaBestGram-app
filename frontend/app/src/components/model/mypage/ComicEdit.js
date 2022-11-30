@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useComicApi } from "../../../hooks/useComicApi";
-import newComicForm from "../../../css/ui/newComicForm.module.css";
+import form from "../../../css/ui/form.module.css";
 import comicEdit from "../../../css/ui/comicEdit.module.css";
 import scenePostShow from "../../../css/model/comic/scenePostShow.module.css";
 import ReactLoading from "react-loading";
@@ -77,27 +77,27 @@ const ComicEdit = () => {
         </div>
       </div>
       <div className={comicEdit.content}>
-        <form onSubmit={handleSubmit(onSubmit)} className={newComicForm.form}>
-          <div className={newComicForm["form-text"]}>
-            <div className={newComicForm["form-label"]}>漫画のタイトル</div>
+        <form onSubmit={handleSubmit(onSubmit)} className={form.form}>
+          <div className={form["form-text"]}>
+            <div className={form["form-label"]}>漫画のタイトル</div>
             { errors.title &&
-              <div className={newComicForm.errors}>【！漫画のタイトルが空欄です】</div> 
+              <div className={form.errors}>【！漫画のタイトルが空欄です】</div> 
             }
             <input
-              className={newComicForm["form-input"]}
+              className={form["form-input"]}
               defaultValue={ comics.title }
               {...register('title', {
                 required: true
               })}
             />
           </div>
-          <div className={newComicForm["form-text"]}>
-            <div className={newComicForm["form-label"]}>漫画のジャンル</div>
+          <div className={form["form-text"]}>
+            <div className={form["form-label"]}>漫画のジャンル</div>
             { errors.genre &&
-              <div className={newComicForm.errors}>【！漫画のジャンルを選択してください】</div> 
+              <div className={form.errors}>【！漫画のジャンルを選択してください】</div> 
             }
             <select
-              className={newComicForm["form-input"]}
+              className={form["form-input"]}
               {...register('genre', {
                 required: true
               })}
@@ -108,22 +108,22 @@ const ComicEdit = () => {
               )}
             </select>
           </div>
-          <div className={newComicForm["form-text"]}>
-            <div className={newComicForm["form-label"]}>漫画の画像</div>
+          <div className={form["form-text"]}>
+            <div className={form["form-label"]}>漫画の画像</div>
             <input
-              className={newComicForm["form-input-image"]}
+              className={form["form-input-image"]}
               type="file"
               accept="image/*"
               {...register("image")}
             />
           </div>
-          <div className={newComicForm["form-text"]}>
-            <button className={newComicForm["form-submit"]} type="submit">この内容で登録する</button>
+          <div className={form["form-text"]}>
+            <button className={form["form-submit"]} type="submit">この内容で登録する</button>
           </div>
-          <div className={newComicForm["form-text-delete"]}>
+          <div className={form["form-text-delete"]}>
             <ComicDeleteButton handleDeleteComic={handleDeleteComic} />
           </div>
-          <div className={newComicForm["form-text-back"]}>
+          <div className={form["form-text-back"]}>
             <button onClick={() => navigate('/mypage')} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>マイページへ戻る</button>
           </div>
         </form>

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useUser } from "../../../hooks/useUser";
 import { AuthContext } from "../../../providers/AuthGuard";
-import newComicForm from "../../../css/ui/newComicForm.module.css";
+import form from "../../../css/ui/form.module.css";
 import { AiFillHome } from "react-icons/ai";
 import { BsFillReplyFill } from "react-icons/bs";
 import axios from "axios";
@@ -60,49 +60,49 @@ const ProfileEdit = () => {
         </div>
       </div>
       <div className={comicEdit.content}>
-        <form onSubmit={handleSubmit(onSubmit)} className={newComicForm.form}>
-          <div className={newComicForm["form-text"]}>
-            <div className={newComicForm["form-label"]}>ユーザー名</div>
+        <form onSubmit={handleSubmit(onSubmit)} className={form.form}>
+          <div className={form["form-text"]}>
+            <div className={form["form-label"]}>ユーザー名</div>
             { errors.name &&
-              <div className={newComicForm.errors}>【！ユーザー名がありません】</div> 
+              <div className={form.errors}>【！ユーザー名がありません】</div> 
             }
             <input
-              className={newComicForm["form-input"]}
+              className={form["form-input"]}
               defaultValue={ user.name }
               {...register('name', {
                 required: true
               })}
             />
           </div>
-          <div className={newComicForm["form-text"]}>
-            <div className={newComicForm["form-label"]}>自己紹介</div>
+          <div className={form["form-text"]}>
+            <div className={form["form-label"]}>自己紹介</div>
             <input
-              className={newComicForm["form-input"]}
+              className={form["form-input"]}
               defaultValue={ user.introduction }
               {...register('introduction')}
             />
           </div>
-          <div className={newComicForm["form-text"]}>
-            <div className={newComicForm["form-label"]}>リンク</div>
+          <div className={form["form-text"]}>
+            <div className={form["form-label"]}>リンク</div>
             <input
-              className={newComicForm["form-input"]}
+              className={form["form-input"]}
               defaultValue={ user.url }
               {...register('url')}
             />
           </div>
-          <div className={newComicForm["form-text"]}>
-            <div className={newComicForm["form-label"]}>ユーザーアイコン</div>
+          <div className={form["form-text"]}>
+            <div className={form["form-label"]}>ユーザーアイコン</div>
             <input
-              className={newComicForm["form-input-image"]}
+              className={form["form-input-image"]}
               type="file"
               accept="image/*"
               {...register("image")}
             />
           </div>
-          <div className={newComicForm["form-text"]}>
-            <button className={newComicForm["form-submit"]} type="submit">この内容で登録する</button>
+          <div className={form["form-text"]}>
+            <button className={form["form-submit"]} type="submit">この内容で登録する</button>
           </div>
-          <div className={newComicForm["form-text-back"]}>
+          <div className={form["form-text-back"]}>
             <button onClick={() => navigate('/mypage')} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>マイページへ戻る</button>
           </div>
         </form>
