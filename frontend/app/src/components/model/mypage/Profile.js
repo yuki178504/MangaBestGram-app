@@ -3,13 +3,13 @@ import reactStringReplace from "react-string-replace";
 import { useUser } from '../../../hooks/useUser';
 import ReactLoading from "react-loading";
 import noimage from "../../../image/default.png";
-import { useComicApi } from '../../../hooks/useComicApi';
+import { useComic } from '../../../hooks/useComic';
 import { useFavorite } from '../../../hooks/useFavorite';
 import profile from '../../../css/model/profile.module.css';
 
 const Profile = () => {
   const { useGetUser } = useUser();
-  const { useGetComic } = useComicApi();
+  const { useGetComic } = useComic();
   const { useGetFavorite } = useFavorite();
 
   const { data: favorites, isLoading: favoriteLoading } = useGetFavorite();

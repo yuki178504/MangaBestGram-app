@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { useComicApi } from "../../../hooks/useComicApi";
+import { useComic } from "../../../hooks/useComic";
 import form from "../../../css/ui/form.module.css";
 import subMenu from "../../../css/ui/subMenu.module.css";
 import scenePostShow from "../../../css/model/comic/scenePostShow.module.css";
@@ -18,10 +18,10 @@ const ComicEdit = () => {
   const { comic_id, comic_title } = useParams();
   const { token } = useContext(AuthContext);
   
-  const { useShowComic } = useComicApi();
+  const { useShowComic } = useComic();
   const { data: comics, isLoading } = useShowComic(comic_id);
 
-  const { useDeleteComic } = useComicApi();
+  const { useDeleteComic } = useComic();
   const deleteComic = useDeleteComic(comic_id);
 
   //削除用関数

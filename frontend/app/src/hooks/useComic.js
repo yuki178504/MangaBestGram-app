@@ -1,15 +1,15 @@
 import { useContext } from "react";
-import { comicApi } from "../api/comicApi";
+import { comic } from "../api/comic";
 import { AuthContext } from "../providers/AuthGuard";
 import { useQuery, useQueryClient, useMutation } from 'react-query';
 
-export const useComicApi = () => {
+export const useComic = () => {
   const { token } = useContext(AuthContext);
   //取得用の関数
   const useGetComic = () => {
     return useQuery({
       queryKey: 'comic',
-      queryFn: () => comicApi.getComic(token),
+      queryFn: () => comic.getComic(token),
       staleTime: 300000,
       cacheTime: 300000,
     });
@@ -22,7 +22,7 @@ export const useComicApi = () => {
 
     return useMutation(
       async (params) => {
-        return await comicApi.createComic(
+        return await comic.createComic(
           params,
           token || ''
         );
@@ -47,7 +47,7 @@ export const useComicApi = () => {
 
     return useMutation(
       async (params) => {
-        return await comicApi.putComic(
+        return await comic.putComic(
           params,
           comicId,
           token || ''
@@ -73,7 +73,7 @@ export const useComicApi = () => {
         'comic_show',
         { comicId: comicId }
       ],
-      queryFn: () => comicApi.showComic(
+      queryFn: () => comic.showComic(
         comicId,
         token || ''
       ),
@@ -90,7 +90,7 @@ export const useComicApi = () => {
 
     return useMutation(
       async () => {
-        return await comicApi.deleteComic(
+        return await comic.deleteComic(
           comicId,
           token || ''
         );

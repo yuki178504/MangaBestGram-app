@@ -1,12 +1,12 @@
 import comicPost from '../../../css/model/comicPost.module.css';
 import { Link } from 'react-router-dom';
-import { useComicApi } from '../../../hooks/useComicApi';
+import { useComic } from '../../../hooks/useComic';
 import ReactLoading from "react-loading";
 import noimage from "../../../image/default.png";
 import { BsBookFill, BsJournalBookmarkFill } from "react-icons/bs";
 
 const ComicPost = () => {
-  const { useGetComic } = useComicApi();
+  const { useGetComic } = useComic();
   const { data: comics, isLoading } = useGetComic();
 
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
