@@ -7,7 +7,7 @@ import {
   MyPage, 
   ProfileEdit, 
   ScenePost, 
-  ScenePostNewForm, 
+  ScenePostNew, 
   ComicEdit, 
   ScenePostShow, 
   ScenePostEdit, 
@@ -26,7 +26,7 @@ const Routers = () => {
       <Route path='/mypage/' element={ <MyPage /> } />
       <Route path='/profile_edit/:user_id' element={ <ProfileEdit /> } />
       <Route path='/comic/:comic_id/:comic_title' element={ <ScenePost /> } />
-      <Route path='/comic/:comic_id/:comic_title/scene_post_new' element={ <ScenePostNewForm /> } />
+      <Route path='/comic/:comic_id/:comic_title/scene_post_new' element={ <ScenePostNew /> } />
       <Route path='/scene_post/:comic_title/:scene_post_id' element={ <ScenePostShow /> } />
       <Route path='/scene_post/:comic_id/:comic_title/:scene_post_id/scene_post_edit' element={ <ScenePostEdit /> } />
       <Route path='/comic/:comic_id/:comic_title/comic_edit' element={ <ComicEdit /> } />

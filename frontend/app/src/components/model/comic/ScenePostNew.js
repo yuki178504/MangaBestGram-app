@@ -9,7 +9,7 @@ import { useContext } from "react";
 import axios from "axios";
 import { BsFillReplyFill } from "react-icons/bs";
 
-const ScenePostNewForm = () => {
+const ScenePostNew = () => {
   const { comic_id, comic_title } = useParams();
   const navigate = useNavigate();
   const { token } = useContext(AuthContext);
@@ -146,4 +146,4 @@ const ScenePostNewForm = () => {
   );
 };
 
-export default ScenePostNewForm;
+export default ScenePostNew;
