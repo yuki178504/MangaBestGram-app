@@ -10,7 +10,7 @@
 
 .home {
   align-items: center;
-  margin-right: 5px;
+  margin-right: 2px;
 }
 
 .home-link {
@@ -29,6 +29,10 @@
 
 .comic-title {
   align-items: center;
+  margin-left: 5px;
+}
+
+.scene-title {
   margin-left: 5px;
 }
 

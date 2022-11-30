@@ -8,7 +8,7 @@ import { AiFillHome } from "react-icons/ai";
 import { BsFillReplyFill } from "react-icons/bs";
 import axios from "axios";
 import ReactLoading from "react-loading";
-import comicEdit from "../../../css/ui/comicEdit.module.css";
+import subMenu from "../../../css/ui/subMenu.module.css";
 import scenePostShow from "../../../css/model/comic/scenePostShow.module.css";
 
 const ProfileEdit = () => {
@@ -47,19 +47,19 @@ const ProfileEdit = () => {
   if(isLoading) return <ReactLoading type="spin" color="blue" className='loading' />
 
   return (
-    <div className={comicEdit.wrapper}>
-      <div className={comicEdit["top-list"]}>
-        <div className={comicEdit.title}>
-          <span className={comicEdit.home}>
-            <Link to='/' className={comicEdit["home-link"]}><span className={comicEdit["react-icons"]}><AiFillHome /></span>ホーム</Link>
+    <div className={subMenu.wrapper}>
+      <div className={subMenu["top-list"]}>
+        <div className={subMenu.title}>
+          <span className={subMenu.home}>
+            <Link to='/' className={subMenu["home-link"]}><span className={subMenu["react-icons"]}><AiFillHome /></span>ホーム</Link>
           </span>
           <span>
-            <Link to='/mypage' className={comicEdit["home-link"]}><span>/ マイページ</span></Link>
+            <Link to='/mypage' className={subMenu["home-link"]}><span> / マイページ</span></Link>
           </span>
-          <span>/ プロフィール編集</span>
+          <span> / プロフィール編集</span>
         </div>
       </div>
-      <div className={comicEdit.content}>
+      <div className={subMenu.content}>
         <form onSubmit={handleSubmit(onSubmit)} className={form.form}>
           <div className={form["form-text"]}>
             <div className={form["form-label"]}>ユーザー名</div>

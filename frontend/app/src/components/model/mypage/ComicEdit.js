@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useComicApi } from "../../../hooks/useComicApi";
 import form from "../../../css/ui/form.module.css";
-import comicEdit from "../../../css/ui/comicEdit.module.css";
+import subMenu from "../../../css/ui/subMenu.module.css";
 import scenePostShow from "../../../css/model/comic/scenePostShow.module.css";
 import ReactLoading from "react-loading";
 import comicNewGenreJson from "../../../json/comicNewGenre.json";
@@ -62,21 +62,21 @@ const ComicEdit = () => {
   if(isLoading) return <ReactLoading type="spin" color="blue" className='loading' />
 
   return(
-    <div className={comicEdit.wrapper}>
-      <div className={comicEdit["top-list"]}>
-        <div className={comicEdit.title}>
-          <span className={comicEdit.home}>
-            <Link to='/' className={comicEdit["home-link"]}><span className={comicEdit["react-icons"]}><AiFillHome /></span>ホーム</Link>
+    <div className={subMenu.wrapper}>
+      <div className={subMenu["top-list"]}>
+        <div className={subMenu.title}>
+          <span className={subMenu.home}>
+            <Link to='/' className={subMenu["home-link"]}><span className={subMenu["react-icons"]}><AiFillHome /></span>ホーム</Link>
           </span>
           <span>
-            <Link to='/mypage' className={comicEdit["home-link"]}><span>/ マイページ</span></Link>
+            <Link to='/mypage' className={subMenu["home-link"]}><span>/ マイページ</span></Link>
           </span>
-          <span className={comicEdit["comic-title"]}>
+          <span className={subMenu["comic-title"]}>
             / { comic_title }を編集中です
           </span>
         </div>
       </div>
-      <div className={comicEdit.content}>
+      <div className={subMenu.content}>
         <form onSubmit={handleSubmit(onSubmit)} className={form.form}>
           <div className={form["form-text"]}>
             <div className={form["form-label"]}>漫画のタイトル</div>

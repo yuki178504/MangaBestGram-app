@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useGeneralScenePost } from "../../../hooks/useGeneralScenePost";
 import ReactLoading from "react-loading";
 import generalScenePostCss from '../../../css/model/general/generalScenePostCss.module.css';
+import subMenu from '../../../css/ui/subMenu.module.css';
 import { AiFillHome } from "react-icons/ai";
 import GeneralScenePostCard from "./ui/GeneralScenePostCard";
 import { AuthContext } from "../../../providers/AuthGuard";
@@ -19,11 +20,14 @@ const GeneralScenePost = () => {
   if(general_loading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
-    <div className={generalScenePostCss.wrapper}>
-      <div className={generalScenePostCss["top-list"]}>
-        <div className={generalScenePostCss.title}>
-          <span className={generalScenePostCss.home}>
-            <Link to='/' className={generalScenePostCss["home-link"]}><span className={generalScenePostCss["react-icons"]}><AiFillHome /></span>ホーム</Link>
+    <div className={subMenu.wrapper}>
+      <div className={subMenu["top-list"]}>
+        <div className={subMenu.title}>
+          <span className={subMenu.home}>
+            <Link to='/' className={subMenu["home-link"]}><span className={subMenu["react-icons"]}><AiFillHome /></span>ホーム</Link>
+          </span>
+          <span className={subMenu["comic-title"]}>
+            / { comic_title }のシーン一覧
           </span>
         </div>
       </div>

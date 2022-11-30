@@ -3,6 +3,7 @@ import ReactLoading from "react-loading";
 import { Link } from 'react-router-dom';
 import noimage from "../../../image/default.png";
 import generalComic from "../../../css/model/general/generalComic.module.css";
+import subMenu from '../../../css/ui/subMenu.module.css';
 import { AiFillHome } from "react-icons/ai";
 import { BsBookFill, BsJournalBookmarkFill } from "react-icons/bs";
 
@@ -13,12 +14,13 @@ const GeneralComic = () => {
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
-    <div className={generalComic.wrapper}>
-      <div className={generalComic["top-list"]}>
-        <div className={generalComic.title}>
-          <span className={generalComic.home}>
-            <Link to='/' className={generalComic["home-link"]}><span className={generalComic["react-icons"]}><AiFillHome /></span>ホーム</Link>
+    <div className={subMenu.wrapper}>
+      <div className={subMenu["top-list"]}>
+        <div className={subMenu.title}>
+          <span className={subMenu.home}>
+            <Link to='/' className={subMenu["home-link"]}><span className={subMenu["react-icons"]}><AiFillHome /></span>ホーム</Link>
           </span>
+          <span>/ 投稿一覧</span>
         </div>
       </div>
       <div className={generalComic["main-content"]}>
