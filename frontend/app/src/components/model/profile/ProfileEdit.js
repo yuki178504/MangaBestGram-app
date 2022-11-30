@@ -9,7 +9,7 @@ import { BsFillReplyFill } from "react-icons/bs";
 import axios from "axios";
 import ReactLoading from "react-loading";
 import subMenu from "../../../css/ui/subMenu.module.css";
-import scenePostShow from "../../../css/model/comic/scenePostShow.module.css";
+import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
 
 const ProfileEdit = () => {
   const navigate = useNavigate();

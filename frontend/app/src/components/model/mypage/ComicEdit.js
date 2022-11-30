@@ -3,7 +3,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import { useComic } from "../../../hooks/useComic";
 import form from "../../../css/ui/form.module.css";
 import subMenu from "../../../css/ui/subMenu.module.css";
-import scenePostShow from "../../../css/model/comic/scenePostShow.module.css";
+import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
 import ReactLoading from "react-loading";
 import comicNewGenreJson from "../../../json/comicNewGenre.json";
 import { AiFillHome } from "react-icons/ai";

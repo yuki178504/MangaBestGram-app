@@ -2,7 +2,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import form from '../../../css/ui/form.module.css';
 import subMenu from "../../../css/ui/subMenu.module.css";
-import scenePostShow from "../../../css/model/comic/scenePostShow.module.css";
+import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
 import { AiFillHome } from "react-icons/ai";
 import { AuthContext } from "../../../providers/AuthGuard";
 import { useContext } from "react";

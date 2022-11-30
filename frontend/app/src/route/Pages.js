@@ -1,13 +1,12 @@
 export { default as Home } from '../components/Home';
 export { default as TermsOfService } from '../components/TermsOfService';
 export { default as PrivacyPolicy } from '../components/PrivacyPolicy';
-export { default as Contact } from '../components/Contact';
 export { default as MyPage } from '../components/MyPage';
 export { default as ProfileEdit } from '../components/model/profile/ProfileEdit';
-export { default as ScenePost } from '../components/model/comic/ScenePost';
-export { default as ScenePostNew } from '../components/model/comic/ScenePostNew';
-export { default as ScenePostShow } from '../components/model/comic/ScenePostShow';
-export { default as ScenePostEdit } from '../components/model/comic/ScenePostEdit';
+export { default as ScenePost } from '../components/model/scene_post/ScenePost';
+export { default as ScenePostNew } from '../components/model/scene_post/ScenePostNew';
+export { default as ScenePostShow } from '../components/model/scene_post/ScenePostShow';
+export { default as ScenePostEdit } from '../components/model/scene_post/ScenePostEdit';
 export { default as ComicEdit } from '../components/model/mypage/ComicEdit';
 export { default as GeneralScenePost } from '../components/model/general/GeneralScenePost';
 export { default as GeneralComic } from '../components/model/general/GeneralComic';

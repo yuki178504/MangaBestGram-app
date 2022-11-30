@@ -7,7 +7,7 @@ import { AuthGuardProvider } from './providers/AuthGuard';
 import { QueryClientProvider } from 'react-query';
 import { queryClient } from './lib/queryClient';
 import { ErrorBoundary } from 'react-error-boundary';
-import  ErrorFallback from './components/ErrorBoundary';
+import  ErrorFallback from './components/error/ErrorBoundary';
 
 const App = () => {
   return (

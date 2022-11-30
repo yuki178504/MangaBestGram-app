@@ -1,7 +1,7 @@
 import { useScenePost } from '../../../hooks/useScenePost';
 import ReactLoading from "react-loading";
 import { Link, useParams } from 'react-router-dom';
-import scenePost from '../../../css/model/comic/scenePost.module.css';
+import scenePost from '../../../css/model/scene_post/scenePost.module.css';
 import { AiFillHome } from "react-icons/ai";
 import noimage from "../../../image/default.png";
 import { BsBookFill, BsJournalBookmarkFill } from "react-icons/bs";

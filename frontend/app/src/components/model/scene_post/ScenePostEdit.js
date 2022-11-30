@@ -4,7 +4,7 @@ import ReactLoading from "react-loading";
 import subMenu from "../../../css/ui/subMenu.module.css";
 import { useForm } from "react-hook-form";
 import form from "../../../css/ui/form.module.css";
-import scenePostShow from "../../../css/model/comic/scenePostShow.module.css";
+import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
 import { AiFillHome } from "react-icons/ai";
 import { BsFillReplyFill } from "react-icons/bs";
 import { ScenePostDeleteButton } from "../../ui/Parts";

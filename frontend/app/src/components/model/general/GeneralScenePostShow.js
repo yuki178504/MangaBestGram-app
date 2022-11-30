@@ -1,7 +1,7 @@
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useGeneralScenePost } from "../../../hooks/useGeneralScenePost";
 import ReactLoading from "react-loading";
-import scenePostShow from "../../../css/model/comic/scenePostShow.module.css";
+import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
 import subMenu from '../../../css/ui/subMenu.module.css';
 import { AiFillHome } from "react-icons/ai";
 import { BsBookFill, BsFillReplyFill, BsFillPencilFill, BsCalendar3, BsNewspaper, BsFillJournalBookmarkFill } from "react-icons/bs";
