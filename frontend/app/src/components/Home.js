@@ -29,7 +29,7 @@ const Home = () => {
             </div>
             :
             <div className={home["post-title"]}>
-              <button onClick={() => loginWithRedirect()} className={home["post-title-link"]}>ログイン/新規登録</button>
+              <button onClick={() => loginWithRedirect({ redirect_url: window.location.origin })} className={home["post-title-link"]}>ログイン/新規登録</button>
             </div>
           }
           </div>
@@ -67,7 +67,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className={generalComic["outer-image"]}>
-                  <img className={generalComic.image} src={ comic.attributes.image } alt='画像' onError={(e) => e.target.src = noimage} />
+                  <img className={generalComic.image} src={ comic.attributes.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
                 </div>
               </div>
             </div>
