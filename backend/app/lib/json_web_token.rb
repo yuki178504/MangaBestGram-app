@@ -1,11 +1,10 @@
-# app/lib/json_web_token.rb
 require 'net/http'
 require 'uri'
-#Auth0のテナントの公開鍵を取得し、トークンの検証をするクラス
+# Auth0のテナントの公開鍵を取得し、トークンの検証をするクラス
 class JsonWebToken
   def self.verify(token)
     JWT.decode(token, nil,
-              true, # Verify the signature of this token
+              true,
               algorithm: 'RS256',
               iss: ENV['AUTH0_DOMAIN'],
               verify_iss: true,
@@ -19,13 +18,12 @@ class JsonWebToken
     jwks_raw = Net::HTTP.get URI("#{ENV['AUTH0_DOMAIN']}.well-known/jwks.json")
     jwks_keys = Array(JSON.parse(jwks_raw)['keys'])
     Hash[
-      jwks_keys
-      .map do |k|
+      jwks_keys.map do |k|
         [
           k['kid'],
           OpenSSL::X509::Certificate.new(
             Base64.decode64(k['x5c'].first)
-          ).public_key
+          ).public_key,
         ]
       end
     ]

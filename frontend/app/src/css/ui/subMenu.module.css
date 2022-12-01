@@ -1,0 +1,52 @@
+.content {
+  padding: 50px 130px;
+}
+
+.title {
+  font-size: 17px;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.home {
+  align-items: center;
+  margin-right: 2px;
+}
+
+.home-link {
+  vertical-align: middle;
+  color: rgba(92,102,111,0.6);
+}
+
+.home-link:hover {
+  opacity: 0.5;
+}
+
+.react-icons {
+  vertical-align: -3px;
+  margin-right: 3px;
+}
+
+.comic-title {
+  align-items: center;
+  margin-left: 5px;
+}
+
+.scene-title {
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 540px) {
+  .title {
+    font-size: 13px;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .react-icons {
+    vertical-align: -2px;
+    margin-right: 2px;
+  }
+}

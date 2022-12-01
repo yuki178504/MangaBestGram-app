@@ -19,7 +19,6 @@
 
 .li {
   margin-right: 10px;
-  border-radius: 30px;
 }
 
 .nav-li-text {
@@ -34,4 +33,39 @@
 
 .nav-li-text:hover {
   opacity: 0.5;
+}
+
+@media screen and (max-width: 540px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #4b0082;
+  }
+  
+  .logo {
+    color: white;
+    font-size: 15px;
+    font-family: 'Henny Penny', cursive;
+    letter-spacing: 0.05em;
+  }
+  
+  .ul {
+    display: flex;
+    padding-top: 8px;
+  }
+  
+  .li {
+    margin-right: 7px;
+  }
+  
+  .nav-li-text {
+    text-decoration: none;
+    background-color: aqua;
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    font-size: 10px;
+    box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+  }
 }

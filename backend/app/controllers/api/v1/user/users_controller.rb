@@ -1,5 +1,4 @@
 class Api::V1::User::UsersController < SecuredController
-
   def index
     users = @current_user
     render json: users

@@ -1,7 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useScenePost } from "../../../hooks/useScenePost";
 import ReactLoading from "react-loading";
-import scenePostShow from "../../../css/model/comic/scenePostShow.module.css";
+import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
 import { AiFillHome } from "react-icons/ai";
 import { BsBookFill, BsFillReplyFill, BsFillPencilFill, BsCalendar3, BsNewspaper, BsFillJournalBookmarkFill } from "react-icons/bs";
 import noimage from "../../../image/default.png";
@@ -13,7 +13,7 @@ const ScenePostShow = () => {
   const { useShowScenePost } = useScenePost();
   const { data: scene_post, isLoading } = useShowScenePost(scene_post_id);
 
-  if(isLoading) return <ReactLoading type="spin" color="blue" />
+  if(isLoading) return <ReactLoading type="spin" color="blue" className='loading' />
 
   return (
     <div className={scenePostShow.wrapper}>

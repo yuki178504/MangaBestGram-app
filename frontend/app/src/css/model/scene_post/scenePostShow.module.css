@@ -1,0 +1,248 @@
+.wrapper {
+  width: 100%;
+}
+
+.title {
+  font-size: 17px;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.home {
+  align-items: center;
+}
+
+.home-link {
+  vertical-align: middle;
+  color: rgba(92,102,111,0.6);
+}
+
+.home-link:hover {
+  opacity: 0.5;
+}
+
+.react-icons {
+  vertical-align: -3px;
+  margin-right: 3px;
+}
+
+.scene-title {
+  margin-left: 5px;
+}
+
+.section {
+  padding: 50px 200px;
+  width: 100%;
+}
+
+.content {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #a9a9a9;
+  background-color: #f0f8ff;
+  border-radius: 6px;
+}
+
+.outer-image {
+  margin: 0 auto;
+  height: 65%;
+  width: 65%;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.article {
+  padding: 20px;
+}
+
+.comic-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.detail-area {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.detail {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.bs-book-fill {
+  color: blue;
+  font-size: 22px;
+  vertical-align: -4px;
+  margin-right: 10px;
+}
+
+.bs-fill-pencil-fill {
+  color: red;
+  font-size: 20px;
+  vertical-align: -4px;
+  margin-right: 7px;
+}
+
+.bs-fill-journal-bookmark-fill {
+  color: green;
+  font-size: 20px;
+  vertical-align: -4px;
+  margin-right: 7px;
+}
+
+.bs-calender-3 {
+  color: palevioletred;
+  font-size: 20px;
+  vertical-align: -4px;
+  margin-right: 7px;
+}
+
+.bs-newspaper {
+  color: gold;
+  font-size: 20px;
+  vertical-align: -4px;
+  margin-right: 7px;
+}
+
+.back {
+  border: 2px solid #a9a9a9;
+  border-radius: 5px;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 18px 8px;
+  background-color: #a9a9a9;
+  color: white;
+}
+
+.back:hover {
+  opacity: 0.5;
+}
+
+.bs-fill-replay-fill {
+  font-size: 22px;
+  vertical-align: -4px;
+  margin-right: 10px;
+}
+
+@media screen and (min-width: 541px) and (max-width: 1024px) {
+  .react-icons {
+    vertical-align: -1px;
+  }
+
+  .section {
+    padding: 50px 100px;
+  }
+
+  .outer-image {
+    height: 70%;
+    width: 70%;
+  }
+
+  .detail-area {
+    margin-top: 10px;
+  }
+
+  .detail {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .bs-book-fill {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .bs-fill-pencil-fill {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .bs-fill-journal-bookmark-fill {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .bs-calender-3 {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .bs-newspaper {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .back {
+    padding: 10px 8px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .wrapper {
+    font-size: 13px;
+  }
+
+  .title {
+    font-size: 13px;
+  }
+
+  .react-icons {
+    vertical-align: -1px;
+  }
+
+  .section {
+    padding: 10px;
+  }
+
+  .outer-image {
+    height: 100%;
+    width: 100%;
+  }
+
+  .detail-area {
+    margin-top: 10px;
+  }
+
+  .detail {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .bs-book-fill {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .bs-fill-pencil-fill {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .bs-fill-journal-bookmark-fill {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+  
+  .bs-calender-3 {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .bs-newspaper {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .back {
+    padding: 10px 8px;
+  }
+}

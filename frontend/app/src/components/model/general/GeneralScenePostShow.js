@@ -1,7 +1,8 @@
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useGeneralScenePost } from "../../../hooks/useGeneralScenePost";
 import ReactLoading from "react-loading";
-import scenePostShow from "../../../css/model/comic/scenePostShow.module.css";
+import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
+import subMenu from '../../../css/ui/subMenu.module.css';
 import { AiFillHome } from "react-icons/ai";
 import { BsBookFill, BsFillReplyFill, BsFillPencilFill, BsCalendar3, BsNewspaper, BsFillJournalBookmarkFill } from "react-icons/bs";
 import noimage from "../../../image/default.png";
@@ -13,20 +14,19 @@ const GeneralScenePostShow = () => {
   const { useShowGeneralScenePost } = useGeneralScenePost();
   const { data: scene_post, isLoading} = useShowGeneralScenePost(scene_post_id);
 
-  if(isLoading) return <ReactLoading type="spin" color="blue" />
-  console.log(scene_post)
+  if(isLoading) return <ReactLoading type="spin" color="blue" className='loading' />
 
   return (
-    <div className={scenePostShow.wrapper}>
-      <div className={scenePostShow["top-list"]}>
-        <div className={scenePostShow.title}>
-          <span className={scenePostShow.home}>
-            <Link to='/' className={scenePostShow["home-link"]}><span className={scenePostShow["react-icons"]}><AiFillHome /></span>ホーム</Link>
+    <div className={subMenu.wrapper}>
+      <div className={subMenu["top-list"]}>
+        <div className={subMenu.title}>
+          <span className={subMenu.home}>
+            <Link to='/' className={subMenu["home-link"]}><span className={subMenu["react-icons"]}><AiFillHome /></span>ホーム</Link>
           </span>
-          <span>
-            <Link to='/mypage' className={scenePostShow["home-link"]}><span>/ マイページ</span></Link>
+          <span className={subMenu.home}>
+            <Link to={`/general_scene_post/${scene_post.data.attributes.scenePostComicTitle}/${scene_post.data.attributes.comicId}`} className={subMenu["home-link"]}><span> / { scene_post.data.attributes.scenePostComicTitle }</span></Link>
           </span>
-          <span className={scenePostShow["scene-title"]}>
+          <span className={subMenu["scene-title"]}>
             / { scene_post.data.attributes.sceneTitle }の詳細画面
           </span>
         </div>

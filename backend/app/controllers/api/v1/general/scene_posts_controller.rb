@@ -1,5 +1,4 @@
 class Api::V1::General::ScenePostsController < SecuredController
-  
   def index
     scene_posts = ScenePost.where(comic_id: params[:comic_id])
     render_json = General::ScenePostSerializer.new(scene_posts, current_user: @current_user).serializable_hash.to_json

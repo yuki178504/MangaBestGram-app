@@ -9,8 +9,13 @@
 }
 
 .main-content {
-  padding-top: 30px;
   justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 540px) {
+  .count {
+    font-size: 13px;
+  }
 }

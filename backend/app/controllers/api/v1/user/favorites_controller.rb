@@ -1,5 +1,4 @@
 class Api::V1::User::FavoritesController < SecuredController
-
   def index
     favorites = Favorite.where(user_id: @current_user.id).pluck(:scene_post_id)
     favorite_list = ScenePost.find(favorites)

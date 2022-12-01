@@ -2,10 +2,12 @@ class General::ScenePostSerializer
   include JSONAPI::Serializer
   attributes :id, :scene_title, :scene_date, :scene_content, :scene_image, :user_id, :comic_id, :scene_number
 
+  # rubocop:disable Style/ClassVars
   def initialize(resource, options = {})
     @@current_user = options[:current_user]
     super(resource)
   end
+  # rubocop:enable Style/ClassVars
 
   attribute :scene_post_user_name do |object|
     object.user.name.to_s

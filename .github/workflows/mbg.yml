@@ -37,7 +37,7 @@ jobs:
       run: |
         echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
         ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} 'cd MangaBestGram-app &&
-        git pull origin 10_ci/cd-function:10_ci/cd-function &&
+        git pull origin 11_overall-adjustment:main &&
         docker-compose down --rmi all &&
         docker rmi $(docker images -q)
         cd frontend &&
@@ -47,4 +47,5 @@ jobs:
         docker build -f Dockerfile . &&
         cd ../ &&
         docker-compose -f docker-compose-prod.yml up -d &&
-        docker-compose run api bundle exec rails db:create db:migrate RAILS_ENV=production'
+        docker-compose run api bundle exec rails db:create db:migrate RAILS_ENV=production' &&
+        exit

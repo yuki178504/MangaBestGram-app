@@ -1,5 +1,4 @@
 class Api::V1::ComicsController < ApplicationController
-
   def index
     comics = Comic.all
     render_json = ComicSerializer.new(comics).serializable_hash.to_json

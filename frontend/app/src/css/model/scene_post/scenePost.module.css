@@ -56,24 +56,22 @@
 
 .content {
   width: 31%;
-  height: 420px;
 }
 
 .innner-content {
   border: 2px solid #a9a9a9;
-  background: white;
+  background: #f0f8ff;
   margin-bottom: 10px;
 }
 
 .outer-image {
   height: 240px;
-  width: 367px;
   width: 100%;
 }
 
 .image {
-  height: 240px;
-  width: 367px;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -82,18 +80,33 @@
   width: 100%;
 }
 
-.list-title {
+.detail-area {
+  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
-  margin-bottom: 20px;
 }
 
-.list-genre {
+.detail {
   text-align: center;
+  margin-bottom: 10px;
+}
+
+.bs-book-fill {
+  color: blue;
+  font-size: 16px;
+  vertical-align: -4px;
+}
+
+.bs-journal-book-mark-fill {
+  color: green;
+  font-size: 16px;
+  vertical-align: -4px;
 }
 
 .link-list {
   padding: 20px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .link-show {
@@ -103,7 +116,7 @@
   font-size: 15px;
   font-weight: 700;
   margin: 20px 20px;
-  padding: 14px 6px;
+  padding: 11px 12px;
   background-color: #4682b4;
   color: white;
 }
@@ -119,11 +132,46 @@
   font-size: 15px;
   font-weight: 700;
   margin: 20px 20px;
-  padding: 14px 6px;
+  padding: 11px 12px;
   background-color: #a9a9a9;
   color: white;
 }
 
 .link-edit:hover {
   opacity: 0.5;
+}
+
+@media screen and (min-width: 541px) and (max-width: 1024px) {
+  .main-content {
+    padding: 10px;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .content {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .main-content {
+    padding: 10px;
+    display: block;
+  }
+
+  .title {
+    font-size: 13px;
+  }
+
+  .content {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .link-list {
+    padding: 0px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
 }
