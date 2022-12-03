@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import form from "../../../css/ui/form.module.css";
 
 const PasswordChange = () => {
   const onSubmit = async (data) => {
@@ -12,7 +13,6 @@ const PasswordChange = () => {
       console.error(error.response.data);
     });
     alert(`確認メールが送信されました！`);
-    navigate("/");
   };
 
   const { handleSubmit, register, formState: { errors } } = useForm({
@@ -20,18 +20,21 @@ const PasswordChange = () => {
   });
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <div>メールアドレス</div>
-        { errors.email &&
-          <div>【！メールアドレスを入力してください】</div> 
-        }
-        <input
-          {...register('email', {
-            required: true
-          })}
-        />
-      </div>
+    <div className={form.wrapper}>
+      <form onSubmit={handleSubmit(onSubmit)} className={form.form}>
+        <div className={form["form-text"]}>
+          <div className={form["form-label"]}>パスワード変更のリンクを受信するメールアドレス</div>
+          { errors.email &&
+            <div className={form.errors}>【！メールアドレスを入力してください】</div> 
+          }
+          <input
+            className={form["form-input"]}
+            placeholder='メールアドレスを入力してください'
+            {...register('email', {
+              required: true
+            })}
+          />
+        </div>
         <input
           type='hidden'
           defaultValue={ `${process.env.REACT_APP_AUTH0_CLIENT_ID}` }
@@ -46,10 +49,11 @@ const PasswordChange = () => {
             required: true
           })}
         />
-        <div>
-            <button type="submit">この内容で登録する</button>
-          </div>
-    </form>
+        <div className={form["form-text"]}>
+            <button className={form["form-submit"]} type="submit">送信する</button>
+        </div>
+      </form>
+    </div>
   );
 };
 
