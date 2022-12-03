@@ -16,3 +16,4 @@ export { default as ComicNew } from '../components/model/mypage/ComicNew';
 export { default as Profile } from '../components/model/mypage/Profile';
 export { default as ComicPost } from '../components/model/mypage/ComicPost';
 export { default as Page404 } from '../components/error/Page404';
+export { default as MyProfile } from '../components/model/profile/MyProfile';

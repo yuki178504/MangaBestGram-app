@@ -13,7 +13,8 @@ import {
   GeneralScenePost, 
   GeneralComic,
   GeneralScenePostShow,
-  Page404
+  Page404,
+  MyProfile
 } from './Pages';
 
 const Routers = () => {
@@ -34,6 +35,7 @@ const Routers = () => {
       <Route path='/general_scene_post/general_scene_post_show/:scene_post_id/' element={ <GeneralScenePostShow /> } />
       <Route path='/comic' element={ <GeneralComic /> } />
       <Route path='*' element={ <Page404 /> } />
+      <Route path='/my-profile' element={ <MyProfile /> } />
     </Routes>
   );
 };
