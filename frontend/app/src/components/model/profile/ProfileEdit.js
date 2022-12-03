@@ -1,10 +1,9 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../../../hooks/useUser";
 import { AuthContext } from "../../../providers/AuthGuard";
 import form from "../../../css/ui/form.module.css";
-import { AiFillHome } from "react-icons/ai";
 import { BsFillReplyFill } from "react-icons/bs";
 import axios from "axios";
 import ReactLoading from "react-loading";
@@ -48,17 +47,6 @@ const ProfileEdit = () => {
 
   return (
     <div className={subMenu.wrapper}>
-      <div className={subMenu["top-list"]}>
-        <div className={subMenu.title}>
-          <span className={subMenu.home}>
-            <Link to='/' className={subMenu["home-link"]}><span className={subMenu["react-icons"]}><AiFillHome /></span>ホーム</Link>
-          </span>
-          <span>
-            <Link to='/mypage' className={subMenu["home-link"]}><span> / マイページ</span></Link>
-          </span>
-          <span> / プロフィール編集</span>
-        </div>
-      </div>
       <div className={subMenu.content}>
         <form onSubmit={handleSubmit(onSubmit)} className={form.form}>
           <div className={form["form-text"]}>

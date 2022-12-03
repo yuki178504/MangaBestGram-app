@@ -24,7 +24,7 @@ const Routers = () => {
       <Route path='/terms-of-service' element={ <TermsOfService /> } />
       <Route path='/privacy-policy' element={ <PrivacyPolicy /> } />
       <Route path='/mypage/' element={ <MyPage /> } />
-      <Route path='/profile_edit/:user_id' element={ <ProfileEdit /> } />
+      {/* <Route path='/profile_edit/:user_id' element={ <ProfileEdit /> } /> */}
       <Route path='/comic/:comic_id/:comic_title' element={ <ScenePost /> } />
       <Route path='/comic/:comic_id/:comic_title/scene_post_new' element={ <ScenePostNew /> } />
       <Route path='/scene_post/:comic_title/:scene_post_id' element={ <ScenePostShow /> } />
@@ -35,7 +35,7 @@ const Routers = () => {
       <Route path='/general_scene_post/general_scene_post_show/:scene_post_id/' element={ <GeneralScenePostShow /> } />
       <Route path='/comic' element={ <GeneralComic /> } />
       <Route path='*' element={ <Page404 /> } />
-      <Route path='/my-profile' element={ <MyProfile /> } />
+      <Route path='/my-profile/:user_id' element={ <MyProfile /> } />
     </Routes>
   );
 };

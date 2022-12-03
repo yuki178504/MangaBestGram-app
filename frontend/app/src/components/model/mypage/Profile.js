@@ -46,7 +46,7 @@ const Profile = () => {
             ))}
           </div>
           <div className={profile['detail-area']}>
-            <Link to={`/profile_edit/${user.id}`} className={profile.button}>プロフィールを編集する</Link>
+            <Link to={`/my-profile/${user.id}`} className={profile.button}>プロフィールを編集する</Link>
           </div>
           <div className={profile['detail-area-count']}>
             <div className={profile.list}>
