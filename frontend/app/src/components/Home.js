@@ -11,9 +11,10 @@ import { BsBookFill, BsJournalBookmarkFill, BsChevronDoubleDown } from "react-ic
 
 const Home = () => {
   const { useGetGeneralLatestComic } = useGeneralComic();
-  const { data: comics, isLoading } = useGetGeneralLatestComic();
-  const { isAuthenticated, loginWithRedirect } = useContext(AuthContext);
+  const { data: comics, isLoading: Loading } = useGetGeneralLatestComic();
+  const { isAuthenticated, loginWithRedirect, isLoading } = useContext(AuthContext);
 
+  if(Loading) return <ReactLoading type="spin" color='blue' className='loading' />
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
