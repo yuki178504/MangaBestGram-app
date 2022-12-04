@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 export const AuthContext = createContext();
 
 export const AuthGuardProvider = ({children}) => {
-  const { isAuthenticated,loginWithRedirect,logout,getAccessTokenSilently, user } = useAuth0();
+  const { isAuthenticated,loginWithRedirect,logout,getAccessTokenSilently, user, isLoading } = useAuth0();
   const [ token, setToken ] = useState('');
 
     const getToken = async () => {
@@ -21,7 +21,7 @@ export const AuthGuardProvider = ({children}) => {
     }, []);
     
   return (
-    <AuthContext.Provider value={{ isAuthenticated, loginWithRedirect, logout, token, user }}>
+    <AuthContext.Provider value={{ isAuthenticated, loginWithRedirect, logout, token, user, isLoading }}>
       { children }
     </AuthContext.Provider>
   );
