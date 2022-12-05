@@ -3,7 +3,7 @@ import { useScenePost } from "../../../hooks/useScenePost";
 import ReactLoading from "react-loading";
 import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
 import { AiFillHome } from "react-icons/ai";
-import { BsBookFill, BsFillReplyFill, BsFillPencilFill, BsCalendar3, BsNewspaper, BsFillJournalBookmarkFill } from "react-icons/bs";
+import { BsBookFill, BsFillReplyFill, BsFillPencilFill, BsCalendar3, BsNewspaper, BsFillJournalBookmarkFill, BsReceipt } from "react-icons/bs";
 import noimage from "../../../image/default.png";
 
 const ScenePostShow = () => {
@@ -14,6 +14,7 @@ const ScenePostShow = () => {
   const { data: scene_post, isLoading } = useShowScenePost(scene_post_id);
 
   if(isLoading) return <ReactLoading type="spin" color="blue" className='loading' />
+  console.log(scene_post)
 
   return (
     <div className={scenePostShow.wrapper}>
@@ -26,7 +27,7 @@ const ScenePostShow = () => {
             <Link to='/mypage' className={scenePostShow["home-link"]}><span>/ マイページ</span></Link>
           </span>
           <span className={scenePostShow["scene-title"]}>
-            / { scene_post.scene_title }の詳細画面
+            / { scene_post.sub_title }の詳細画面
           </span>
         </div>
       </div>
@@ -38,7 +39,11 @@ const ScenePostShow = () => {
           <div className={scenePostShow.article}>
             <p className={scenePostShow["comic-title"]}><span className={scenePostShow["bs-book-fill"]}><BsBookFill /></span>{ comic_title }</p>
             <div className={scenePostShow["detail-area"]}>
-              <p className={scenePostShow.detail}><span className={scenePostShow["bs-fill-pencil-fill"]}><BsFillPencilFill /></span>【シーンのタイトル】</p>
+              <p className={scenePostShow.detail}><span className={scenePostShow["bs-fill-pencil-fill"]}><BsFillPencilFill /></span>【シーンのサブタイトル】</p>
+              <div>{ scene_post.sub_title }</div>
+            </div>
+            <div className={scenePostShow["detail-area"]}>
+              <p className={scenePostShow.detail}><span className={scenePostShow["bs-receipt"]}><BsReceipt /></span>【シーンの内容】</p>
               <div>{ scene_post.scene_title }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
@@ -46,11 +51,11 @@ const ScenePostShow = () => {
               <div>{ scene_post.scene_number }話</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
-              <p className={scenePostShow.detail}><span className={scenePostShow["bs-calender-3"]}><BsCalendar3 /></span>【そのシーンを見た日付】</p>
+              <p className={scenePostShow.detail}><span className={scenePostShow["bs-calender-3"]}><BsCalendar3 /></span>【シーンを見た日付】</p>
               <div>{ scene_post.scene_date }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
-              <p className={scenePostShow.detail}><span className={scenePostShow["bs-newspaper"]}><BsNewspaper /></span>【シーンの内容】</p>
+              <p className={scenePostShow.detail}><span className={scenePostShow["bs-newspaper"]}><BsNewspaper /></span>【シーンの詳細・感想】</p>
               <div>{ scene_post.scene_content }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
