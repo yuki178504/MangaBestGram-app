@@ -18,6 +18,7 @@ const GeneralScenePost = () => {
 
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
   if(general_loading) return <ReactLoading type="spin" color='blue' className='loading' />
+  console.log(scene_posts)
 
   return (
     <div className={subMenu.wrapper}>
@@ -38,10 +39,10 @@ const GeneralScenePost = () => {
               <GeneralScenePostCard
                 key={index}
                 scenePostId={scene_post.id}
+                scenePostSubTitle={scene_post.attributes.sub_title}
                 scenePostUserImage={scene_post.attributes.scene_post_user_image.url}
                 scenePostUserName={scene_post.attributes.scene_post_user_name}
-                scenePostTitle={scene_post.attributes.scene_title}
-                scenePostDate={scene_post.attributes.scene_date}
+                scenePostNumber={scene_post.attributes.scene_number}
                 scenePostImage={scene_post.attributes.scene_image.url}
                 favorite={scene_post.attributes.favorite}
                 comicTitle={comic_title}
@@ -54,10 +55,10 @@ const GeneralScenePost = () => {
               <GeneralScenePostCard
                 key={index}
                 scenePostId={scene_post.id}
+                scenePostSubTitle={scene_post.attributes.subTitle}
                 scenePostUserImage={scene_post.attributes.scenePostUserImage.url}
                 scenePostUserName={scene_post.attributes.scenePostUserName}
-                scenePostTitle={scene_post.attributes.sceneTitle}
-                scenePostDate={scene_post.attributes.sceneDate}
+                scenePostNumber={scene_post.attributes.sceneNumber}
                 scenePostImage={scene_post.attributes.sceneImage.url}
                 favorite={scene_post.attributes.favorite}
                 comicTitle={comic_title}
