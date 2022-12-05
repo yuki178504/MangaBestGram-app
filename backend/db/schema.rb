@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_15_030120) do
+ActiveRecord::Schema.define(version: 2022_12_05_075750) do
 
   create_table "comics", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2022_11_15_030120) do
     t.bigint "user_id", null: false
     t.bigint "comic_id", null: false
     t.integer "scene_number"
+    t.string "sub_title"
     t.index ["comic_id"], name: "index_scene_posts_on_comic_id"
     t.index ["user_id"], name: "index_scene_posts_on_user_id"
   end
