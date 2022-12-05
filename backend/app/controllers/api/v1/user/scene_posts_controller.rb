@@ -35,10 +35,10 @@ class Api::V1::User::ScenePostsController < SecuredController
   end
 
   def scene_post_params
-    params.permit(:scene_title, :scene_date, :scene_content, :scene_image, :scene_number).merge(user_id: @current_user.id)
+    params.permit(:scene_title, :scene_date, :scene_content, :scene_image, :scene_number, :sub_title).merge(user_id: @current_user.id)
   end
 
   def scene_post_update_params
-    params.permit(:scene_title, :scene_date, :scene_content, :scene_image, :scene_number)
+    params.permit(:scene_title, :scene_date, :scene_content, :scene_image, :scene_number, :sub_title)
   end
 end
