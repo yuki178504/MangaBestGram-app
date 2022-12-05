@@ -4,7 +4,7 @@ import ReactLoading from "react-loading";
 import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
 import subMenu from '../../../css/ui/subMenu.module.css';
 import { AiFillHome } from "react-icons/ai";
-import { BsBookFill, BsFillReplyFill, BsFillPencilFill, BsCalendar3, BsNewspaper, BsFillJournalBookmarkFill } from "react-icons/bs";
+import { BsBookFill, BsFillReplyFill, BsFillPencilFill, BsCalendar3, BsNewspaper, BsFillJournalBookmarkFill, BsReceipt } from "react-icons/bs";
 import noimage from "../../../image/default.png";
 
 const GeneralScenePostShow = () => {
@@ -39,7 +39,11 @@ const GeneralScenePostShow = () => {
           <div className={scenePostShow.article}>
             <p className={scenePostShow["comic-title"]}><span className={scenePostShow["bs-book-fill"]}><BsBookFill /></span>{ scene_post.data.attributes.scenePostComicTitle }</p>
             <div className={scenePostShow["detail-area"]}>
-              <p className={scenePostShow.detail}><span className={scenePostShow["bs-fill-pencil-fill"]}><BsFillPencilFill /></span>【シーンのタイトル】</p>
+              <p className={scenePostShow.detail}><span className={scenePostShow["bs-fill-pencil-fill"]}><BsFillPencilFill /></span>【シーンのサブタイトル】</p>
+              <div>{ scene_post.data.attributes.subTitle }</div>
+            </div>
+            <div className={scenePostShow["detail-area"]}>
+              <p className={scenePostShow.detail}><span className={scenePostShow["bs-receipt"]}><BsReceipt /></span>【シーンの内容】</p>
               <div>{ scene_post.data.attributes.sceneTitle }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
@@ -51,7 +55,7 @@ const GeneralScenePostShow = () => {
               <div>{ scene_post.data.attributes.sceneDate }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
-              <p className={scenePostShow.detail}><span className={scenePostShow["bs-newspaper"]}><BsNewspaper /></span>【シーンの内容】</p>
+              <p className={scenePostShow.detail}><span className={scenePostShow["bs-newspaper"]}><BsNewspaper /></span>【シーンの詳細・感想】</p>
               <div>{ scene_post.data.attributes.sceneContent }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>

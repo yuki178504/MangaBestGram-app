@@ -18,7 +18,6 @@ const GeneralScenePost = () => {
 
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
   if(general_loading) return <ReactLoading type="spin" color='blue' className='loading' />
-  console.log(scene_posts)
 
   return (
     <div className={subMenu.wrapper}>
