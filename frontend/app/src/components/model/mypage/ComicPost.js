@@ -3,19 +3,46 @@ import { Link } from 'react-router-dom';
 import { useComic } from '../../../hooks/useComic';
 import ReactLoading from "react-loading";
 import noimage from "../../../image/default.png";
-import { BsBookFill, BsJournalBookmarkFill } from "react-icons/bs";
+import { BsBookFill, BsJournalBookmarkFill, BsSearch } from "react-icons/bs";
+import { useState } from 'react';
 
 const ComicPost = () => {
   const { useGetComic } = useComic();
   const { data: comics, isLoading } = useGetComic();
 
+  let data = comics === undefined ? [{ length: 0 }] : comics;
+
+  const [searchText, setSearchText] = useState('');
+
+  const searchKeywords = searchText.trim().match(/[^\s]+/g);
+  if (searchKeywords !== null) {
+    data = comics.filter((comic) =>
+      searchKeywords.every(
+        (kw) => comic.title.indexOf(kw) !== -1
+      )
+    );
+  }
+
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
+  console.log(comics)
 
   return (
     <div className={comicPost.wrapper}>
       <div className={comicPost.count}>【投稿数】 : {comics.length}件</div>
+      <div className={comicPost.search}>
+        <span className={comicPost["bs-search"]}><BsSearch /></span>
+        <input
+          className={comicPost["search-text"]}
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          placeholder={'漫画のタイトルを検索'}
+        />
+      </div>
+      { data.length === 0 && (
+        <div className={comicPost["detail-result"]}>検索結果がありません</div>
+      ) }
       <div className={comicPost["main-content"]}>
-        {comics?.map((comic) => (
+        {data.map((comic) => (
           <div key={comic.id} className={comicPost.content}>
             <div className={comicPost["innner-content"]}>
               <div className={comicPost["outer-image"]}>
