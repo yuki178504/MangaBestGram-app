@@ -42,7 +42,7 @@ const ScenePost = () => {
               <div className={scenePost.list}>
                 <div className={scenePost["detail-area"]}>
                     <p className={scenePost.detail}><span className={scenePost["bs-book-fill"]}><BsBookFill /></span>【サブタイトル】</p>
-                    <div>{ scene_post.scene_title }</div>
+                    <div>{ scene_post.sub_title }</div>
                 </div>
                 <div className={scenePost["detail-area"]}>
                   <p className={scenePost.detail}><span className={scenePost["bs-journal-book-mark-fill"]}><BsJournalBookmarkFill /></span>【話数】</p>

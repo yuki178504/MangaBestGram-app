@@ -9,10 +9,10 @@ import { AuthContext } from "../../../../providers/AuthGuard";
 
 const GeneralScenePostCard = ({
   scenePostId,
+  scenePostSubTitle,
   scenePostUserImage,
   scenePostUserName,
-  scenePostTitle,
-  scenePostDate,
+  scenePostNumber,
   scenePostImage,
   favorite,
   comicTitle
@@ -49,12 +49,12 @@ const GeneralScenePostCard = ({
             />
           )}
           <div className={generalScenePostCss["detail-area"]}>
-            <p className={generalScenePostCss.detail}><span className={generalScenePostCss["bs-book-fill"]}><BsBookFill /></span>【シーン名】</p>
-            <div>{ scenePostTitle }</div>
+            <p className={generalScenePostCss.detail}><span className={generalScenePostCss["bs-book-fill"]}><BsBookFill /></span>【サブタイトル】</p>
+            <div>{ scenePostSubTitle }</div>
           </div>
           <div className={generalScenePostCss["detail-area"]}>
-            <p className={generalScenePostCss.detail}><span className={generalScenePostCss["bs-journal-book-mark-fill"]}><BsJournalBookmarkFill /></span>【シーンの日付】</p>
-            <div>{ scenePostDate }</div>
+            <p className={generalScenePostCss.detail}><span className={generalScenePostCss["bs-journal-book-mark-fill"]}><BsJournalBookmarkFill /></span>【シーンの話数】話</p>
+            <div>{ scenePostNumber }話</div>
           </div>
           <div className={generalScenePostCss["detail-area-link"]}>
             <Link to={`/general_scene_post/${comicTitle}/general_scene_post_show/${scenePostId}`} className={generalScenePostCss["link-show"]} >シーンを見る</Link>

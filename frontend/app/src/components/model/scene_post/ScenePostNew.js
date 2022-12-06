@@ -26,6 +26,7 @@ const ScenePostNew = () => {
     formData.append("scene_content", data.scene_content);
     formData.append("scene_date", data.scene_date);
     formData.append("scene_image", data.scene_image[0]);
+    formData.append("sub_title", data.sub_title);
 
     await axios.post(`${process.env.REACT_APP_DEV_API_URL}/user/comics/${comic_id}/scene_posts`, formData, {
       headers: {
@@ -69,6 +70,19 @@ const ScenePostNew = () => {
       </div>
       <div className={subMenu.content}>
         <form onSubmit={handleSubmit(onSubmit)} className={form.form}>
+          <div className={form["form-text"]}>
+            <div className={form["form-label"]}>サブタイトル</div>
+            { errors.sub_title &&
+              <div className={form.errors}>【！サブタイトルが空欄です】</div> 
+            }
+            <input
+              className={form["form-input"]}
+              placeholder="サブタイトルを入力してください"
+              {...register('sub_title', {
+                required: true
+              })}
+            />
+          </div>
           <div className={form["form-text"]}>
             <div className={form["form-label"]}>好きなシーン名</div>
             { errors.scene_title &&
