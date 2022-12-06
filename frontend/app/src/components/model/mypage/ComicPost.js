@@ -24,7 +24,6 @@ const ComicPost = () => {
   }
 
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
-  console.log(comics)
 
   return (
     <div className={comicPost.wrapper}>

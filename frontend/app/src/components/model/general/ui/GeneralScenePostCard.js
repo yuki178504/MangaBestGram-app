@@ -53,7 +53,7 @@ const GeneralScenePostCard = ({
             <div>{ scenePostSubTitle }</div>
           </div>
           <div className={generalScenePostCss["detail-area"]}>
-            <p className={generalScenePostCss.detail}><span className={generalScenePostCss["bs-journal-book-mark-fill"]}><BsJournalBookmarkFill /></span>【シーンの話数】話</p>
+            <p className={generalScenePostCss.detail}><span className={generalScenePostCss["bs-journal-book-mark-fill"]}><BsJournalBookmarkFill /></span>【シーンの話数】</p>
             <div>{ scenePostNumber }話</div>
           </div>
           <div className={generalScenePostCss["detail-area-link"]}>
