@@ -5,11 +5,25 @@ import noimage from "../../../image/default.png";
 import generalComic from "../../../css/model/general/generalComic.module.css";
 import subMenu from '../../../css/ui/subMenu.module.css';
 import { AiFillHome } from "react-icons/ai";
-import { BsBookFill, BsJournalBookmarkFill } from "react-icons/bs";
+import { BsBookFill, BsJournalBookmarkFill, BsSearch } from "react-icons/bs";
+import { useState } from "react";
 
 const GeneralComic = () => {
   const { useGetGeneralComic } = useGeneralComic();
   const { data: comics, isLoading } = useGetGeneralComic();
+
+  let data = comics === undefined ? [{ length: 0 }] : comics.data;
+
+  const [searchText, setSearchText] = useState('');
+
+  const searchKeywords = searchText.trim().match(/[^\s]+/g);
+  if (searchKeywords !== null) {
+    data = comics.data.filter((comic) =>
+      searchKeywords.every(
+        (kw) => comic.attributes.title.indexOf(kw) !== -1
+      )
+    );
+  }
 
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
@@ -23,8 +37,21 @@ const GeneralComic = () => {
           <span>/ 投稿一覧</span>
         </div>
       </div>
+      <div className={generalComic.count}>【投稿数】 {comics.data.length}件</div>
+      <div className={generalComic.search}>
+        <span className={generalComic["bs-search"]}><BsSearch /></span>
+        <input
+          className={generalComic["search-text"]}
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          placeholder={'漫画のタイトルを検索'}
+        />
+      </div>
+      { data.length === 0 && (
+        <div className={generalComic["detail-result"]}>検索結果がありません</div>
+      ) }
       <div className={generalComic["main-content"]}>
-        {comics.data.map((comic) => (
+        {data.map((comic) => (
           <div key={comic.id} className={generalComic.content}>
             <div className={generalComic["innner-content"]}>
               <div className={generalComic.list}>
