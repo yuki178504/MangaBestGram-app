@@ -29,7 +29,7 @@ const Favorite = () => {
 
   return (
     <div className={favorite.wrapper}>
-      <div className={favorite.count}>【投稿数】 : {favorites.data.length}件</div>
+      <div className={favorite.count}>【投稿数】 {favorites.data.length}件</div>
       <div className={favorite.search}>
         <span className={favorite["bs-search"]}><BsSearch /></span>
         <input

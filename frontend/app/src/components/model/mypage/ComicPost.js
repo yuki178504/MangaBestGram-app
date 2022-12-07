@@ -27,7 +27,7 @@ const ComicPost = () => {
 
   return (
     <div className={comicPost.wrapper}>
-      <div className={comicPost.count}>【投稿数】 : {comics.length}件</div>
+      <div className={comicPost.count}>【投稿数】 {comics.length}件</div>
       <div className={comicPost.search}>
         <span className={comicPost["bs-search"]}><BsSearch /></span>
         <input

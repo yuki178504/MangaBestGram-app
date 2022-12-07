@@ -4,13 +4,27 @@ import { Link, useParams } from 'react-router-dom';
 import scenePost from '../../../css/model/scene_post/scenePost.module.css';
 import { AiFillHome } from "react-icons/ai";
 import noimage from "../../../image/default.png";
-import { BsBookFill, BsJournalBookmarkFill } from "react-icons/bs";
+import { BsBookFill, BsJournalBookmarkFill, BsSearch } from "react-icons/bs";
+import { useState } from 'react';
 
 const ScenePost = () => {
   const { comic_id, comic_title } = useParams();
   const { useGetScenePost } = useScenePost();
 
   const { data: scene_posts, isLoading } = useGetScenePost(comic_id);
+
+  let data = scene_posts === undefined ? [{ length: 0 }] : scene_posts;
+
+  const [searchText, setSearchText] = useState('');
+
+  const searchKeywords = searchText.trim().match(/[^\s]+/g);
+  if (searchKeywords !== null) {
+    data = scene_posts.filter((scene_post) =>
+      searchKeywords.every(
+        (kw) => scene_post.sub_title.indexOf(kw) !== -1
+      )
+    );
+  }
 
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
@@ -29,11 +43,24 @@ const ScenePost = () => {
           </span>
         </div>
       </div>
+      <div className={scenePost.count}>【投稿数】 {scene_posts.length}件</div>
+      <div className={scenePost.search}>
+        <span className={scenePost["bs-search"]}><BsSearch /></span>
+        <input
+          className={scenePost["search-text"]}
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          placeholder={'サブタイトルを検索'}
+        />
+      </div>
       <button className={scenePost.link}>
         <Link to={`/comic/${comic_id}/${comic_title}/scene_post_new`}>新規のシーンを投稿する</Link>
       </button>
+      { data.length === 0 && (
+        <div className={scenePost["detail-result"]}>検索結果がありません</div>
+      ) }
       <div className={scenePost["main-content"]}>
-        {scene_posts?.map((scene_post) => (
+        {data.map((scene_post) => (
           <div key={scene_post.id} className={scenePost.content}>
             <div className={scenePost["innner-content"]}>
               <div className={scenePost["outer-image"]}>
