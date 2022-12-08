@@ -6,7 +6,8 @@ import subMenu from '../../../css/ui/subMenu.module.css';
 import { AiFillHome } from "react-icons/ai";
 import GeneralScenePostCard from "./ui/GeneralScenePostCard";
 import { AuthContext } from "../../../providers/AuthGuard";
-import { useContext } from "react";
+import { useContext, useMemo, useState } from "react";
+import { BsSearch } from "react-icons/bs";
 
 const GeneralScenePost = () => {
   const { comic_id, comic_title } = useParams();
@@ -15,6 +16,97 @@ const GeneralScenePost = () => {
 
   const { data: scene_posts, isLoading } = useGetGeneralScenePost(comic_id);
   const { data: general_scene_posts, isLoading: general_loading } = useGetLoginGeneralScenePost(comic_id);
+
+  let generalData = scene_posts === undefined ? [{ length: 0 }] : scene_posts.data;
+  let data = general_scene_posts === undefined ? [{ length: 0 }] : general_scene_posts.data;
+
+  const [searchText, setSearchText] = useState('');
+  const [searchGeneralText, setSearchGeneralText] = useState('');
+
+  const searchKeywords = searchText.trim().match(/[^\s]+/g);
+  if (searchKeywords !== null) {
+    data = general_scene_posts.data.filter((general_scene_post) =>
+      searchKeywords.every(
+        (kw) => general_scene_post.attributes.sub_title.indexOf(kw) !== -1
+      )
+    );
+  }
+
+  const searchGeneralKeywords = searchGeneralText.trim().match(/[^\s]+/g);
+  if (searchGeneralKeywords !== null) {
+    generalData = scene_posts.data.filter((scene_post) =>
+      searchGeneralKeywords.every(
+        (kw) => scene_post.attributes.subTitle.indexOf(kw) !== -1
+      )
+    );
+  }
+
+  const [ sort, setSort ] = useState({});
+  const [ generalSort, setGeneralSort ] = useState({});
+
+  const sortedData = useMemo(() => {
+    let _sortedData = data;
+    if (sort.key) {
+      _sortedData = _sortedData.sort((a, b) => {
+        a = a[sort.key];
+        b = b[sort.key];
+
+        if (a === b) {
+          return 0;
+        }
+        if (a > b) {
+          return 1 * sort.order;
+        }
+        if (a < b) {
+          return -1 * sort.order;
+        }
+      });
+    }
+    return _sortedData;
+  }, [sort, data]);
+
+  const handleSort = (key) => {
+    if (sort.key === key) {
+      setSort({...sort, order: -sort.order});
+    } else {
+      setSort({
+        key: key,
+        order: 1
+      })
+    } 
+  };
+
+  const sortedGeneralData = useMemo(() => {
+    let _sortedGeneralData = generalData;
+    if (generalSort.key) {
+      _sortedGeneralData = _sortedGeneralData.sort((a, b) => {
+        a = a[generalSort.key];
+        b = b[generalSort.key];
+
+        if (a === b) {
+          return 0;
+        }
+        if (a > b) {
+          return 1 * generalSort.order;
+        }
+        if (a < b) {
+          return -1 * generalSort.order;
+        }
+      });
+    }
+    return _sortedGeneralData;
+  }, [generalSort, generalData]);
+
+  const handleGeneralSort = (key) => {
+    if (generalSort.key === key) {
+      setGeneralSort({...generalSort, order: -generalSort.order});
+    } else {
+      setGeneralSort({
+        key: key,
+        order: 1
+      })
+    } 
+  };
 
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
   if(general_loading) return <ReactLoading type="spin" color='blue' className='loading' />
@@ -31,10 +123,26 @@ const GeneralScenePost = () => {
           </span>
         </div>
       </div>
-      <div className={generalScenePostCss["main-content"]}>
-        {isAuthenticated ? (
-          <>
-            {general_scene_posts.data.map((scene_post, index) => (
+      <div className={generalScenePostCss.count}>【投稿数】 {scene_posts.data.length}件</div>
+      {isAuthenticated ? (
+        <>
+          <div className={generalScenePostCss.sort}>
+            <button className={sort.key === 'id' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('id')}>並び替え </button>
+          </div>
+          <div className={generalScenePostCss.search}>
+            <span className={generalScenePostCss["bs-search"]}><BsSearch /></span>
+            <input
+              className={generalScenePostCss["search-text"]}
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              placeholder={'サブタイトルを検索'}
+            />
+          </div>
+          { data.length === 0 && (
+            <div className={generalScenePostCss["detail-result"]}>検索結果がありません</div>
+          ) }
+          <div className={generalScenePostCss["main-content"]}>
+            {sortedData.map((scene_post, index) => (
               <GeneralScenePostCard
                 key={index}
                 scenePostId={scene_post.id}
@@ -47,10 +155,27 @@ const GeneralScenePost = () => {
                 comicTitle={comic_title}
               />
             ))}
-          </>
-        ) : (
-          <>
-            {scene_posts.data?.map((scene_post, index) => (
+          </div>
+        </>
+      ) : (
+        <>
+          <div className={generalScenePostCss.sort}>
+            <button className={generalSort.key === 'id' ? generalSort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleGeneralSort('id')}>並び替え </button>
+          </div>
+          <div className={generalScenePostCss.search}>
+            <span className={generalScenePostCss["bs-search"]}><BsSearch /></span>
+            <input
+              className={generalScenePostCss["search-text"]}
+              value={searchGeneralText}
+              onChange={(e) => setSearchGeneralText(e.target.value)}
+              placeholder={'サブタイトルを検索'}
+            />
+          </div>
+          { generalData.length === 0 && (
+            <div className={generalScenePostCss["detail-result"]}>検索結果がありません</div>
+          ) }
+          <div className={generalScenePostCss["main-content"]}>
+            {sortedGeneralData.map((scene_post, index) => (
               <GeneralScenePostCard
                 key={index}
                 scenePostId={scene_post.id}
@@ -63,9 +188,9 @@ const GeneralScenePost = () => {
                 comicTitle={comic_title}
               />
             ))}
-          </>
-        )}
-      </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

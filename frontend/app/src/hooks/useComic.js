@@ -11,7 +11,7 @@ export const useComic = () => {
       queryKey: 'comic',
       queryFn: () => comic.getComic(token),
       staleTime: 300000,
-      cacheTime: 300000,
+      cacheTime: 0,
     });
   };
 
