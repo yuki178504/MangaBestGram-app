@@ -2,7 +2,7 @@ class Api::V1::User::ComicsController < SecuredController
   before_action :set_comic, only: %i(update destroy show)
 
   def index
-    comics = @current_user.comics.all.order(updated_at: :desc)
+    comics = @current_user.comics.all.order(id: :desc)
     render json: comics
   end
 
