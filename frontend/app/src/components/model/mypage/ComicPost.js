@@ -62,7 +62,7 @@ const ComicPost = () => {
   return (
     <div className={comicPost.wrapper}>
       <div className={comicPost.count}>【投稿数】 {comics.length}件</div>
-        <button className={sort.key === 'updated_at' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('updated_at')}>並び替え </button>
+      <button className={sort.key === 'updated_at' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('updated_at')}>並び替え </button>
       <div className={comicPost.search}>
         <span className={comicPost["bs-search"]}><BsSearch /></span>
         <input
