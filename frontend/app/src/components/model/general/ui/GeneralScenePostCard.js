@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import generalScenePostCss from '../../../../css/model/general/generalScenePostCss.module.css';
 import noimage from "../../../../image/default.png";
-import { BsBookFill, BsJournalBookmarkFill } from "react-icons/bs";
+import { BsBookFill, BsJournalBookmarkFill, BsBookmark  } from "react-icons/bs";
 import UnFavoriteButton from "../../../ui/UnFavoriteButton";
 import FavoriteButton from "../../../ui/FavoriteButton";
 import { Link } from "react-router-dom";
@@ -40,13 +40,14 @@ const GeneralScenePostCard = ({
               )}
             </>
           ) : (
-            <input
+            <button
+              className={generalScenePostCss.favorite}
               type='submit'
               value={`お気に入り`}
               onClick={() => {
                 loginWithRedirect();
               }}
-            />
+            ><BsBookmark /></button>
           )}
           <div className={generalScenePostCss["detail-area"]}>
             <p className={generalScenePostCss.detail}><span className={generalScenePostCss["bs-book-fill"]}><BsBookFill /></span>【サブタイトル】</p>
