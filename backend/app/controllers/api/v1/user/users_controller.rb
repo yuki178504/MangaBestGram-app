@@ -5,7 +5,6 @@ class Api::V1::User::UsersController < SecuredController
   end
 
   def show
-    @current_user
     render json: @current_user
   end
 
