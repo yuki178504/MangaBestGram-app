@@ -1,6 +1,6 @@
 class Api::V1::ComicsController < ApplicationController
   def index
-    comics = Comic.all
+    comics = Comic.all.order(updated_at: :desc)
     render_json = ComicSerializer.new(comics).serializable_hash.to_json
     render json: render_json
   end
