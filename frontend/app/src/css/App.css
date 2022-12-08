@@ -29,3 +29,30 @@ button {
 .loading {
   margin: 250px auto;
 }
+
+.button {
+  border: none;
+  border: 2px solid #a9a9a9;
+  font-size: 18px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  padding: 6px;
+  margin-bottom: 10px;
+  background-color: #f0f8ff;
+}
+
+  .button::after {
+    content: '(新しい順)';
+    font-weight: bold;
+  }
+
+  .active.asc::after {
+    content: '(新しい順)';
+    font-weight: bold;
+  }
+
+  .active.desc:after {
+    content: '(古い順)';
+    font-weight: bold;
+  }

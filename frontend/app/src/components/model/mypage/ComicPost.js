@@ -1,10 +1,10 @@
+import { useMemo, useState } from 'react';
 import comicPost from '../../../css/model/comicPost.module.css';
 import { Link } from 'react-router-dom';
 import { useComic } from '../../../hooks/useComic';
 import ReactLoading from "react-loading";
 import noimage from "../../../image/default.png";
 import { BsBookFill, BsJournalBookmarkFill, BsSearch } from "react-icons/bs";
-import { useState } from 'react';
 
 const ComicPost = () => {
   const { useGetComic } = useComic();
@@ -23,11 +23,46 @@ const ComicPost = () => {
     );
   }
 
+  const [ sort, setSort ] = useState({});
+
+  const sortedData = useMemo(() => {
+    let _sortedData = data;
+    if (sort.key) {
+      _sortedData = _sortedData.sort((a, b) => {
+        a = a[sort.key];
+        b = b[sort.key];
+
+        if (a === b) {
+          return 0;
+        }
+        if (a > b) {
+          return 1 * sort.order;
+        }
+        if (a < b) {
+          return -1 * sort.order;
+        }
+      });
+    }
+    return _sortedData;
+  }, [sort, data]);
+
+  const handleSort = (key) => {
+    if (sort.key === key) {
+      setSort({...sort, order: -sort.order});
+    } else {
+      setSort({
+        key: key,
+        order: 1
+      })
+    } 
+  };
+
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
     <div className={comicPost.wrapper}>
       <div className={comicPost.count}>【投稿数】 {comics.length}件</div>
+        <button className={sort.key === 'updated_at' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('updated_at')}>並び替え </button>
       <div className={comicPost.search}>
         <span className={comicPost["bs-search"]}><BsSearch /></span>
         <input
@@ -41,7 +76,7 @@ const ComicPost = () => {
         <div className={comicPost["detail-result"]}>検索結果がありません</div>
       ) }
       <div className={comicPost["main-content"]}>
-        {data.map((comic) => (
+        {sortedData.map((comic) => (
           <div key={comic.id} className={comicPost.content}>
             <div className={comicPost["innner-content"]}>
               <div className={comicPost["outer-image"]}>
