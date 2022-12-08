@@ -48,11 +48,11 @@ button {
   }
 
   .active.asc::after {
-    content: '(新しい順)';
+    content: '(古い順)';
     font-weight: bold;
   }
 
   .active.desc:after {
-    content: '(古い順)';
+    content: '(新しい順)';
     font-weight: bold;
   }
