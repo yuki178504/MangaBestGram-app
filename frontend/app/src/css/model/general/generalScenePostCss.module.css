@@ -1,32 +1,3 @@
-.wrapper {
-  width: 100%;
-}
-
-.title {
-  font-size: 17px;
-  padding: 15px;
-  font-weight: bold;
-}
-
-.home {
-  align-items: center;
-  margin-right: 5px;
-}
-
-.home-link {
-  vertical-align: middle;
-  color: rgba(92,102,111,0.6);
-}
-
-.home-link:hover {
-  opacity: 0.5;
-}
-
-.react-icons {
-  vertical-align: -3px;
-  margin-right: 3px;
-}
-
 .main-content {
   padding: 30px;
   justify-content: space-between;
@@ -36,8 +7,13 @@
 
 .count {
   margin-bottom: 20px;
+  margin-left: 20px;
   font-size: 20px;
   font-weight: bold;
+}
+
+.sort {
+  margin-left: 20px;
 }
 
 .search {
