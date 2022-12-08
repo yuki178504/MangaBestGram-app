@@ -5,7 +5,7 @@ import scenePost from '../../../css/model/scene_post/scenePost.module.css';
 import { AiFillHome } from "react-icons/ai";
 import noimage from "../../../image/default.png";
 import { BsBookFill, BsJournalBookmarkFill, BsSearch } from "react-icons/bs";
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 const ScenePost = () => {
   const { comic_id, comic_title } = useParams();
@@ -26,6 +26,40 @@ const ScenePost = () => {
     );
   }
 
+  const [ sort, setSort ] = useState({});
+
+  const sortedData = useMemo(() => {
+    let _sortedData = data;
+    if (sort.key) {
+      _sortedData = _sortedData.sort((a, b) => {
+        a = a[sort.key];
+        b = b[sort.key];
+
+        if (a === b) {
+          return 0;
+        }
+        if (a > b) {
+          return 1 * sort.order;
+        }
+        if (a < b) {
+          return -1 * sort.order;
+        }
+      });
+    }
+    return _sortedData;
+  }, [sort, data]);
+
+  const handleSort = (key) => {
+    if (sort.key === key) {
+      setSort({...sort, order: -sort.order});
+    } else {
+      setSort({
+        key: key,
+        order: 1
+      })
+    } 
+  };
+
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
@@ -44,6 +78,9 @@ const ScenePost = () => {
         </div>
       </div>
       <div className={scenePost.count}>【投稿数】 {scene_posts.length}件</div>
+      <div className={scenePost.sort}>
+        <button className={sort.key === 'id' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('id')}>並び替え </button>
+      </div>
       <div className={scenePost.search}>
         <span className={scenePost["bs-search"]}><BsSearch /></span>
         <input
@@ -60,7 +97,7 @@ const ScenePost = () => {
         <div className={scenePost["detail-result"]}>検索結果がありません</div>
       ) }
       <div className={scenePost["main-content"]}>
-        {data.map((scene_post) => (
+        {sortedData.map((scene_post) => (
           <div key={scene_post.id} className={scenePost.content}>
             <div className={scenePost["innner-content"]}>
               <div className={scenePost["outer-image"]}>

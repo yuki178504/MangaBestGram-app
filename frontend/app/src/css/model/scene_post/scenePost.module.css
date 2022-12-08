@@ -4,8 +4,13 @@
 
 .count {
   margin-bottom: 20px;
+  margin-left: 20px;
   font-size: 20px;
   font-weight: bold;
+}
+
+.sort {
+  margin-left: 20px;
 }
 
 .search {
