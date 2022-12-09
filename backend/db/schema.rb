@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_05_075750) do
+ActiveRecord::Schema.define(version: 2022_12_09_122658) do
 
   create_table "comics", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 2022_12_05_075750) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_comics_on_user_id"
+  end
+
+  create_table "comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "scene_post_id", null: false
+    t.text "body", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["scene_post_id"], name: "index_comments_on_scene_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "favorites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -57,6 +67,8 @@ ActiveRecord::Schema.define(version: 2022_12_05_075750) do
   end
 
   add_foreign_key "comics", "users"
+  add_foreign_key "comments", "scene_posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "favorites", "scene_posts"
   add_foreign_key "favorites", "users"
   add_foreign_key "scene_posts", "users"
