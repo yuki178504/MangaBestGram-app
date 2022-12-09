@@ -6,6 +6,7 @@ import subMenu from '../../../css/ui/subMenu.module.css';
 import { AiFillHome } from "react-icons/ai";
 import { BsBookFill, BsFillReplyFill, BsFillPencilFill, BsCalendar3, BsNewspaper, BsFillJournalBookmarkFill, BsReceipt } from "react-icons/bs";
 import noimage from "../../../image/default.png";
+import Comment from "../comment/Comment";
 
 const GeneralScenePostShow = () => {
   const navigate = useNavigate();
@@ -63,6 +64,7 @@ const GeneralScenePostShow = () => {
             </div>
           </div>
         </div>
+        <Comment scene_post_id={scene_post_id} />
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import axios from "axios";
 export const comments = {
   getComments: async (scenePostId) => {
     const res = await axios
-    .get(`scene_posts/${scenePostId}/comments`)
+    .get(`${process.env.REACT_APP_DEV_API_URL}/user/scene_posts/${scenePostId}/comments`)
     .catch((error) => {
       console.error(error.res.data);
     });

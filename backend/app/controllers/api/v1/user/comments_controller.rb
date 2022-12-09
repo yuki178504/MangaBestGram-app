@@ -3,7 +3,7 @@ class Api::V1::User::CommentsController < SecuredController
   before_action :set_comment, only: %i(destroy)
 
   def index
-    comments = Comment.all.order(id: :desc)
+    comments = Comment.where(scene_post_id: params[:scene_post_id]).order(id: :desc)
     render json: comments
   end
 
