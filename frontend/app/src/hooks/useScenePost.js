@@ -3,7 +3,6 @@ import { scenePost } from "../api/scenePost";
 import { AuthContext } from "../providers/AuthGuard"
 import { useQuery, useQueryClient, useMutation } from 'react-query';
 
-
 export const useScenePost = () => {
   const { token } = useContext(AuthContext);
 
