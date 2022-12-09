@@ -8,7 +8,7 @@ class Api::V1::User::CommentsController < SecuredController
   end
 
   def create
-    comment = @current_user.scene_post.find_by!(id: params[:scene_post_id]).comments.build(comment_params)
+    comment = @current_user.scene_posts.find_by!(id: params[:scene_post_id]).comments.build(comment_params)
     if comment.save!
       render json: comment
     else
@@ -27,6 +27,6 @@ class Api::V1::User::CommentsController < SecuredController
   end
 
   def comment_params
-    params.permit(:body)
+    params.permit(:body).merge(user_id: @current_user.id)
   end
 end
