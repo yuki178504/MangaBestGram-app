@@ -12,7 +12,7 @@ const Comment = ({scene_post_id}) => {
 
   return (
     <>
-      {comments.map((comment) => (
+      {comments?.map((comment) => (
         <div key={comment.id} className={commentCss["innner-content"]}>
           <div className={commentCss.list}>
             <div className={commentCss["detail-area"]}>

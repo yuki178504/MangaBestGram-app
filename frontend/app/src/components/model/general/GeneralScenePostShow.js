@@ -63,7 +63,7 @@ const GeneralScenePostShow = () => {
               <button onClick={() => navigate(-1)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>シーン一覧へ戻る</button>
             </div>
             <div className={scenePostShow["detail-area-comment"]}>
-              <Link className={scenePostShow.comment} to={`/scene_post/${scene_post_id}/comment`}>コメントを入力する</Link>
+              <Link className={scenePostShow.comment} to={`/general_scene_post/${scene_post.data.attributes.scenePostComicTitle}/${scene_post_id}/comment`}>コメントを入力する</Link>
             </div>
             <div className={scenePostShow["detail-area-comment"]}>
               <div className={scenePostShow["detail-comment"]}>【コメント一覧】</div>

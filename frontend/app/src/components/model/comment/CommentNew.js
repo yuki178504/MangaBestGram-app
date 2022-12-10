@@ -1,11 +1,12 @@
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import form from '../../../css/ui/form.module.css';
 import subMenu from "../../../css/ui/subMenu.module.css";
 import { useComment } from "../../../hooks/useComment";
 
 const CommentNew = () => {
-  const { scene_post_id } = useParams();
+  const { scene_post_id, comic_title } = useParams();
+  const navigate = useNavigate();
 
   const { useCreateComment } = useComment();
   const createComment = useCreateComment(scene_post_id);
@@ -21,6 +22,7 @@ const CommentNew = () => {
       console.error(error.response.data);
     }
     alert('コメントが投稿されました!')
+    navigate(`/general_scene_post/${comic_title}/general_scene_post_show/${scene_post_id}`)
   };
 
   return (
