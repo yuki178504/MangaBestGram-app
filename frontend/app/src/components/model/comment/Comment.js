@@ -1,5 +1,6 @@
 import { useComment } from "../../../hooks/useComment";
 import ReactLoading from "react-loading";
+import commentCss from '../../../css/model/comment/comment.module.css';
 
 const Comment = ({scene_post_id}) => {
   const { useGetComment } = useComment();
@@ -10,7 +11,17 @@ const Comment = ({scene_post_id}) => {
   console.log(comments)
 
   return (
-    <div>コメント一覧</div>
+    <>
+      {comments.map((comment) => (
+        <div key={comment.id} className={commentCss["innner-content"]}>
+          <div className={commentCss.list}>
+            <div className={commentCss["detail-area"]}>
+              <div>{ comment.body }</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </>
   )
 };
 
