@@ -7,10 +7,13 @@ import { AiFillHome } from "react-icons/ai";
 import { BsBookFill, BsFillReplyFill, BsFillPencilFill, BsCalendar3, BsNewspaper, BsFillJournalBookmarkFill, BsReceipt } from "react-icons/bs";
 import noimage from "../../../image/default.png";
 import Comment from "../comment/Comment";
+import { AuthContext } from "../../../providers/AuthGuard";
+import { useContext } from "react";
 
 const GeneralScenePostShow = () => {
   const navigate = useNavigate();
   const { scene_post_id } = useParams();
+  const { isAuthenticated, loginWithRedirect } = useContext(AuthContext);
 
   const { useShowGeneralScenePost } = useGeneralScenePost();
   const { data: scene_post, isLoading} = useShowGeneralScenePost(scene_post_id);
@@ -62,9 +65,15 @@ const GeneralScenePostShow = () => {
             <div className={scenePostShow["detail-area"]}>
               <button onClick={() => navigate(-1)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>シーン一覧へ戻る</button>
             </div>
-            <div className={scenePostShow["detail-area-comment"]}>
-              <Link className={scenePostShow.comment} to={`/general_scene_post/${scene_post.data.attributes.scenePostComicTitle}/${scene_post_id}/comment`}>コメントを入力する</Link>
-            </div>
+            {isAuthenticated ? (
+              <div className={scenePostShow["detail-area-comment"]}>
+                <Link className={scenePostShow.comment} to={`/general_scene_post/${scene_post.data.attributes.scenePostComicTitle}/${scene_post_id}/comment`}>コメントする</Link>
+              </div>
+            ) : (
+              <div className={scenePostShow["detail-area-comment"]}>
+                <button className={scenePostShow.comment} onClick={() => { loginWithRedirect(); }}>コメントする</button>
+              </div>
+            )}
             <div className={scenePostShow["detail-area-comment"]}>
               <div className={scenePostShow["detail-comment"]}>【コメント一覧】</div>
               <Comment scene_post_id={scene_post_id} />
