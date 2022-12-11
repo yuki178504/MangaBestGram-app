@@ -7,7 +7,7 @@ class Api::V1::User::CommentsController < SecuredController
   end
 
   def create
-    comment = Comment.new(comment_params)
+    comment = ScenePost.find_by!(id: params[:scene_post_id]).comments.build(comment_params)
     if comment.save!
       render json: comment
     else
