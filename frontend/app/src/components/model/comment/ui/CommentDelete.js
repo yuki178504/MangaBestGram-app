@@ -1,6 +1,6 @@
 import { useComment } from "../../../../hooks/useComment";
 import { BsFillTrashFill } from "react-icons/bs";
-import parts from "../../../../css/ui/parts.module.css";
+import commentCss from '../../../../css/model/comment/comment.module.css';
 
 const CommentDelete = ({scene_post_id, comment_id}) => {
   const { useDeleteComments } = useComment();
@@ -17,8 +17,8 @@ const CommentDelete = ({scene_post_id, comment_id}) => {
 
   return (
     <>
-      <button className={parts['delete-button']} onClick={handleDeleteComment}>
-      <span className={parts['delete-button-icon']}><BsFillTrashFill /></span>
+      <button className={commentCss['delete-button']} onClick={handleDeleteComment}>
+      <span className={commentCss['delete-button-icon']}><BsFillTrashFill /></span>
       削除
       </button>
     </>
