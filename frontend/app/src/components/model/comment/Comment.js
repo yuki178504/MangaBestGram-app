@@ -17,13 +17,13 @@ const Comment = ({scene_post_id}) => {
 
   return (
     <>
-      {comments?.map((comment) => (
+      {comments.data?.map((comment) => (
         <div key={comment.id} className={commentCss["innner-content"]}>
           <div className={commentCss.list}>
             <div className={commentCss["detail-area"]}>
-              <div>{ comment.body }</div>
+              <div>{ comment.attributes.body }</div>
             </div>
-            { user.id === comment.user_id && (
+            { user.id === comment.attributes.user_id && (
               <div className={commentCss["form-text-delete"]}>
                 <CommentDelete comment_id={comment.id} scene_post_id={scene_post_id} />
               </div>
