@@ -1,9 +1,14 @@
 import axios from "axios";
 
 export const comments = {
-  getComments: async (scenePostId) => {
+  getComments: async (scenePostId, token) => {
     const res = await axios
-    .get(`${process.env.REACT_APP_DEV_API_URL}/user/scene_posts/${scenePostId}/comments`)
+    .get(`${process.env.REACT_APP_DEV_API_URL}/user/scene_posts/${scenePostId}/comments`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    })
     .catch((error) => {
       console.error(error.res.data);
     });

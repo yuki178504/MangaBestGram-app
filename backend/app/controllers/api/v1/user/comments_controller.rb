@@ -1,9 +1,10 @@
 class Api::V1::User::CommentsController < SecuredController
-  skip_before_action :authorize_request, only: [:index]
+  # skip_before_action :authorize_request, only: [:index]
   before_action :set_comment, only: %i(destroy)
 
   def index
-    comments = Comment.where(scene_post_id: params[:scene_post_id]).order(id: :desc)
+    # comments = Comment.where(scene_post_id: params[:scene_post_id]).order(id: :desc)
+    comments = @current_user.comments.all.order(id: :desc)
     render json: comments
   end
 

@@ -14,7 +14,8 @@ export const useComment = () => {
       ],
       queryFn: () =>
       comments.getComments(
-        scenePostId
+        scenePostId,
+        token || ''
       ),
       staleTime: 30000000,
       cacheTime: 0,

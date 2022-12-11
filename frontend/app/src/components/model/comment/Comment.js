@@ -1,6 +1,7 @@
 import { useComment } from "../../../hooks/useComment";
 import ReactLoading from "react-loading";
 import commentCss from '../../../css/model/comment/comment.module.css';
+import CommentDelete from "./ui/CommentDelete";
 
 const Comment = ({scene_post_id}) => {
   const { useGetComment } = useComment();
@@ -18,6 +19,9 @@ const Comment = ({scene_post_id}) => {
             <div className={commentCss["detail-area"]}>
               <div>{ comment.body }</div>
             </div>
+            <div className={commentCss["form-text-delete"]}>
+              <CommentDelete comment_id={comment.id} scene_post_id={scene_post_id} />
+          </div>
           </div>
         </div>
       ))}
