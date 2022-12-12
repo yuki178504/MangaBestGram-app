@@ -19,6 +19,7 @@ const GeneralScenePostShow = () => {
   const { data: scene_post, isLoading} = useShowGeneralScenePost(scene_post_id);
 
   if(isLoading) return <ReactLoading type="spin" color="blue" className='loading' />
+  console.log(scene_post.data)
 
   return (
     <div className={subMenu.wrapper}>
@@ -63,7 +64,7 @@ const GeneralScenePostShow = () => {
               <div>{ scene_post.data.attributes.sceneContent }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
-              <button onClick={() => navigate(-1)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>シーン一覧へ戻る</button>
+              <button onClick={() => navigate(`/general_scene_post/${scene_post.data.attributes.scenePostComicTitle}/${scene_post.data.attributes.comicId}`)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>シーン一覧へ戻る</button>
             </div>
             {isAuthenticated ? (
               <div className={scenePostShow["detail-area-comment"]}>
