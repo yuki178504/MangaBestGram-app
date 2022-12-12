@@ -19,6 +19,7 @@ export const useComment = () => {
       ),
       staleTime: 30000000,
       cacheTime: 0,
+      retry: false,
     });
   };
 
