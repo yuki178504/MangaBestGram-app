@@ -17,7 +17,9 @@ Rails.application.routes.draw do
       end
       resources :users
       resources :comics, only: [:index, :show], shallow: true do
-        resources :scene_posts, only: [:index, :show]
+        resources :scene_posts, only: [:index, :show], shallow: true do
+          resources :comments, only: [:index]
+        end
         collection do
           get 'latest'
         end
