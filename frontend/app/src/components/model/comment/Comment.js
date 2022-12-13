@@ -23,8 +23,6 @@ const Comment = ({scene_post_id}) => {
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
   if(generalLoading) return <ReactLoading type="spin" color='blue' className='loading' />
   if(userLoading) return <ReactLoading type="spin" color='blue' className='loading' />
-  console.log(comments)
-  console.log(generalComments)
 
   return (
     <>
