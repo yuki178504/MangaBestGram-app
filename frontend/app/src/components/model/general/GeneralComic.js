@@ -108,7 +108,7 @@ const GeneralComic = () => {
               </div>
               <div className={generalComic["outer-image"]}>
                 <div className={generalComic["detail-area-image"]}>
-                  <div className={generalComic["create-at"]}><span className={generalComic["detail-text"]}><span className={generalComic["bs-calender-3"]}><BsCalendar3 /></span>{ moment(comic.attributes.createdAt).format('YYYY年MM月DD日HH:MM') }</span></div>
+                  <div className={generalComic["create-at"]}><span className={generalComic["detail-text"]}><span className={generalComic["bs-calender-3"]}><BsCalendar3 /></span>{ moment(comic.attributes.createdAt).format('YYYY年MM月DD日HH:mm') }</span></div>
                   <img className={generalComic.image} src={ comic.attributes.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
                 </div>
               </div>

@@ -73,7 +73,7 @@ const GeneralScenePostCard = ({
         </div>
         <div className={generalScenePostCss["outer-image"]}>
           <div className={generalScenePostCss["detail-area-image"]}>
-            <div className={generalScenePostCss["create-at"]}><span className={generalScenePostCss["detail-text"]}><span className={generalScenePostCss["bs-calender-3"]}><BsCalendar3 /></span>{ moment(scenePostCreatedAt).format('YYYY年MM月DD日HH:MM') }</span></div>
+            <div className={generalScenePostCss["create-at"]}><span className={generalScenePostCss["detail-text"]}><span className={generalScenePostCss["bs-calender-3"]}><BsCalendar3 /></span>{ moment(scenePostCreatedAt).format('YYYY年MM月DD日HH:mm') }</span></div>
             <img className={generalScenePostCss.image} src={ scenePostImage } alt='画像' onError={(e) => e.target.src = noimage} />
             <div className={generalScenePostCss['detail-area-count']}>
               <div className={generalScenePostCss['detail-area-list']}>

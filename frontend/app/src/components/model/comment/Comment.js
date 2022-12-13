@@ -7,6 +7,8 @@ import noimage from "../../../image/default.png";
 import { AuthContext } from "../../../providers/AuthGuard";
 import { useContext } from "react";
 import { useGeneralComment } from "../../../hooks/useGeneralComment";
+import moment from 'moment';
+import { BsCalendar3 } from "react-icons/bs";
 
 const Comment = ({scene_post_id}) => {
   const { useGetComment } = useComment();
@@ -40,6 +42,7 @@ const Comment = ({scene_post_id}) => {
                     <CommentDelete comment_id={comment.id} scene_post_id={scene_post_id} />
                   </div>
                 )}
+                <div className={commentCss["create-at"]}><span className={commentCss["detail-text"]}><span className={commentCss["bs-calender-3"]}><BsCalendar3 /></span>{ moment(comment.attributes.created_at).format('YYYY年MM月DD日HH:mm') }</span></div>
               </div>
             </div>
           ))}
@@ -53,6 +56,7 @@ const Comment = ({scene_post_id}) => {
               <div className={commentCss["detail-area"]}>
                 <div>{ general_comment.attributes.body }</div>
               </div>
+              <div className={commentCss["create-at"]}><span className={commentCss["detail-text"]}><span className={commentCss["bs-calender-3"]}><BsCalendar3 /></span>{ moment(general_comment.attributes.createdAt).format('YYYY年MM月DD日HH:mm') }</span></div>
             </div>
           </div>
           ))}

@@ -97,7 +97,7 @@ const ComicPost = () => {
                 <Link to={`/comic/${comic.id}/${comic.title}`} className={comicPost["link-show"]} >シーンを見る/追加する</Link>
                 <Link to={`/comic/${comic.id}/${comic.title}/comic_edit`} className={comicPost["link-edit"]} >編集する</Link>
               </div>
-              <div className={comicPost["create-at"]}><span className={comicPost["detail-text"]}><span className={comicPost["bs-calender-3"]}><BsCalendar3 /></span>{ moment(comic.created_at).format('YYYY年MM月DD日HH:MM') }</span></div>
+              <div className={comicPost["create-at"]}><span className={comicPost["detail-text"]}><span className={comicPost["bs-calender-3"]}><BsCalendar3 /></span>{ moment(comic.created_at).format('YYYY年MM月DD日HH:mm') }</span></div>
             </div>
           </div>
         ))}

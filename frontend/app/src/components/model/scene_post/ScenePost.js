@@ -118,7 +118,7 @@ const ScenePost = () => {
                 <Link to={`/scene_post/${comic_title}/${scene_post.id}`} className={scenePost["link-show"]} >シーンを見る</Link>
                 <Link to={`/scene_post/${comic_id}/${comic_title}/${scene_post.id}/scene_post_edit`} className={scenePost["link-edit"]} >編集する</Link>
               </div>
-              <div className={scenePost["create-at"]}><span className={scenePost["detail-text"]}><span className={scenePost["bs-calender-3"]}><BsCalendar3 /></span>{ moment(scene_post.created_at).format('YYYY年MM月DD日HH:MM') }</span></div>
+              <div className={scenePost["create-at"]}><span className={scenePost["detail-text"]}><span className={scenePost["bs-calender-3"]}><BsCalendar3 /></span>{ moment(scene_post.created_at).format('YYYY年MM月DD日HH:mm') }</span></div>
             </div>
           </div>
           ))}
