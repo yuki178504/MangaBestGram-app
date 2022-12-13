@@ -116,14 +116,19 @@
 }
 
 .outer-image {
-  height: 375px;
+  height: 250px;
   width: 100%;
 }
 
+.create-at {
+  text-align: center;
+  margin: 20px 0px;
+}
+
 .image {
-  height: 100%;
+  height: 250px;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .list {
@@ -150,6 +155,18 @@
   margin-right: 3px;
   color: #ffd700;
   font-size: 22px;
+}
+
+.detail-area-count {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-area-list {
+  width: 100%;
+  margin-right: 10px;
+  text-align: center;
 }
 
 @media screen and (min-width: 541px) and (max-width: 1024px) {
@@ -180,7 +197,11 @@
   }
 
   .outer-image {
-    height: 315px;
+    height: 200px;
+  }
+
+  .image {
+    height: 200px;
   }
 
   .list {
@@ -251,7 +272,11 @@
   }
 
   .outer-image {
-    height: 255px;
+    height: 150px;
+  }
+
+  .image {
+    height: 150px;
   }
 
   .list {

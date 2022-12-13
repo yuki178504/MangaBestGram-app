@@ -6,6 +6,8 @@ import UnFavoriteButton from "../../../ui/UnFavoriteButton";
 import FavoriteButton from "../../../ui/FavoriteButton";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../providers/AuthGuard";
+import { useGeneralComment } from "../../../../hooks/useGeneralComment";
+import ReactLoading from "react-loading";
 
 const GeneralScenePostCard = ({
   scenePostId,
@@ -19,6 +21,12 @@ const GeneralScenePostCard = ({
 }) => {
   const [ favoriteState, setFavoriteState ] = useState(favorite);
   const { isAuthenticated, loginWithRedirect } = useContext(AuthContext);
+
+  const { useGetGeneralComment } = useGeneralComment();
+
+  const { data: generalComments, isLoading } = useGetGeneralComment(scenePostId);
+  if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
+  console.log(generalComments)
 
   return (
     <div className={generalScenePostCss.content}>
@@ -62,7 +70,15 @@ const GeneralScenePostCard = ({
           </div>
         </div>
         <div className={generalScenePostCss["outer-image"]}>
-          <img className={generalScenePostCss.image} src={ scenePostImage } alt='画像' onError={(e) => e.target.src = noimage} />
+          <div className={generalScenePostCss["detail-area-image"]}>
+            <div className={generalScenePostCss["create-at"]}>投稿日時</div>
+            <img className={generalScenePostCss.image} src={ scenePostImage } alt='画像' onError={(e) => e.target.src = noimage} />
+            <div className={generalScenePostCss['detail-area-count']}>
+              <div className={generalScenePostCss['detail-area-list']}>
+                <div>コメント&nbsp;{ generalComments.data.length }件</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
