@@ -25,7 +25,6 @@ const Favorite = () => {
   }
 
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
-  console.log(favorites)
 
   return (
     <div className={favorite.wrapper}>
@@ -47,7 +46,7 @@ const Favorite = () => {
           <div key={favorite.id} className={generalScenePostCss.content}>
             <div className={generalScenePostCss["innner-content"]}>
               <div className={generalScenePostCss.list}>
-                <div className={generalScenePostCss["user-name"]}><img className={generalScenePostCss["user-image"]} src={ favorite.attributes.scene_post_user_image } alt='画像' onError={(e) => e.target.src = noimage} />{ favorite.attributes.scene_post_user_name }</div>
+                <div className={generalScenePostCss["user-name"]}><img className={generalScenePostCss["user-image"]} src={ favorite.attributes.scene_post_user_image.url } alt='画像' onError={(e) => e.target.src = noimage} />{ favorite.attributes.scene_post_user_name }</div>
                 <div className={generalScenePostCss["detail-area"]}>
                   <p className={generalScenePostCss.detail}><span className={generalScenePostCss["bs-book-fill"]}><BsBookFill /></span>【サブタイトル】</p>
                   <div>{ favorite.attributes.sub_title }</div>
