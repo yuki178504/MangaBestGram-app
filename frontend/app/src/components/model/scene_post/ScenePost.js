@@ -4,8 +4,9 @@ import { Link, useParams } from 'react-router-dom';
 import scenePost from '../../../css/model/scene_post/scenePost.module.css';
 import { AiFillHome } from "react-icons/ai";
 import noimage from "../../../image/default.png";
-import { BsBookFill, BsJournalBookmarkFill, BsSearch } from "react-icons/bs";
+import { BsBookFill, BsJournalBookmarkFill, BsSearch, BsCalendar3 } from "react-icons/bs";
 import { useMemo, useState } from 'react';
+import moment from 'moment';
 
 const ScenePost = () => {
   const { comic_id, comic_title } = useParams();
@@ -117,6 +118,7 @@ const ScenePost = () => {
                 <Link to={`/scene_post/${comic_title}/${scene_post.id}`} className={scenePost["link-show"]} >シーンを見る</Link>
                 <Link to={`/scene_post/${comic_id}/${comic_title}/${scene_post.id}/scene_post_edit`} className={scenePost["link-edit"]} >編集する</Link>
               </div>
+              <div className={scenePost["create-at"]}><span className={scenePost["detail-text"]}><span className={scenePost["bs-calender-3"]}><BsCalendar3 /></span>{ moment(scene_post.created_at).format('YYYY年MM月DD日HH:MM') }</span></div>
             </div>
           </div>
           ))}

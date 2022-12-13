@@ -103,14 +103,14 @@
 }
 
 .outer-image {
-  height: 240px;
+  height: 200px;
   width: 100%;
 }
 
 .image {
-  height: 100%;
+  height: 200px;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .list {
@@ -177,6 +177,23 @@
 
 .link-edit:hover {
   opacity: 0.5;
+}
+
+.create-at {
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.bs-calender-3 {
+  color: blue;
+  font-size: 16px;
+  vertical-align: -2px;
+  margin-right: 3px;
+}
+
+.detail-text {
+  width: fit-content;
+  border-bottom: 2px solid #a9a9a9;
 }
 
 @media screen and (min-width: 541px) and (max-width: 1024px) {
