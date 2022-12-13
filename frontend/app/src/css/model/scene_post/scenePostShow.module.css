@@ -183,6 +183,13 @@
   font-weight: bold;
 }
 
+.bs-fill-chat-right-dots-fill {
+  color: #a9a9a9;
+  font-size: 16px;
+  vertical-align: -3px;
+  margin-right: 3px;
+}
+
 @media screen and (min-width: 541px) and (max-width: 1024px) {
   .react-icons {
     vertical-align: -1px;
