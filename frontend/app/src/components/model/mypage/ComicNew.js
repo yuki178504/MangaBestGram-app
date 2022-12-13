@@ -5,6 +5,7 @@ import comicNewGenreJson from "../../../json/comicNewGenre.json";
 import { useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../../providers/AuthGuard";
+import { FiSend } from "react-icons/fi";
 
 const ComicNew = () => {
   const navigate = useNavigate();
@@ -78,7 +79,7 @@ const ComicNew = () => {
           />
         </div>
         <div className={form["form-text-submit"]}>
-          <button className={form["form-submit"]} type="submit">この内容で登録する</button>
+          <button className={form["form-submit"]} type="submit"><span className={form["fi-send"]}><FiSend /></span>この内容で登録する</button>
         </div>
       </form>
     </div>

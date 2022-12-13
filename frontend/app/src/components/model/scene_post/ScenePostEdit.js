@@ -7,6 +7,7 @@ import form from "../../../css/ui/form.module.css";
 import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
 import { AiFillHome } from "react-icons/ai";
 import { BsFillReplyFill } from "react-icons/bs";
+import { FiSend } from "react-icons/fi";
 import { ScenePostDeleteButton } from "../../ui/Parts";
 import { AuthContext } from "../../../providers/AuthGuard";
 import { useContext } from "react";
@@ -155,7 +156,7 @@ const ScenePostEdit = () => {
             />
           </div>
           <div className={form["form-text"]}>
-            <button className={form["form-submit"]} type="submit">この内容で登録する</button>
+            <button className={form["form-submit"]} type="submit"><span className={form["fi-send"]}><FiSend /></span>この内容で登録する</button>
           </div>
           <div className={form["form-text-delete"]}>
             <ScenePostDeleteButton handleDeleteScenePost={handleDeleteScenePost} />

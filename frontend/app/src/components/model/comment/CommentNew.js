@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import form from '../../../css/ui/form.module.css';
 import subMenu from "../../../css/ui/subMenu.module.css";
 import { useComment } from "../../../hooks/useComment";
+import { FiSend } from "react-icons/fi";
 
 const CommentNew = () => {
   const { scene_post_id, comic_title } = useParams();
@@ -42,7 +43,7 @@ const CommentNew = () => {
           />
         </div>
         <div className={form["form-text-submit"]}>
-          <button className={form["form-submit"]} type="submit">この内容で登録する</button>
+          <button className={form["form-submit"]} type="submit"><span className={form["fi-send"]}><FiSend /></span>この内容で登録する</button>
         </div>
       </form>
     </div>

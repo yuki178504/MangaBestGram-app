@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import form from "../../../css/ui/form.module.css";
+import { FiSend } from "react-icons/fi";
 
 const PasswordChange = () => {
   const onSubmit = async (data) => {
@@ -50,7 +51,7 @@ const PasswordChange = () => {
           })}
         />
         <div className={form["form-text"]}>
-            <button className={form["form-submit"]} type="submit">送信する</button>
+            <button className={form["form-submit"]} type="submit"><span className={form["fi-send"]}><FiSend /></span>送信する</button>
         </div>
       </form>
     </div>
