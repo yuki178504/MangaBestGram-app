@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import generalScenePostCss from '../../../../css/model/general/generalScenePostCss.module.css';
 import noimage from "../../../../image/default.png";
-import { BsBookFill, BsJournalBookmarkFill, BsBookmark, BsCalendar3 } from "react-icons/bs";
+import { BsBookFill, BsJournalBookmarkFill, BsBookmark, BsCalendar3, BsFillChatRightDotsFill } from "react-icons/bs";
 import UnFavoriteButton from "../../../ui/UnFavoriteButton";
 import FavoriteButton from "../../../ui/FavoriteButton";
 import { Link } from "react-router-dom";
@@ -28,7 +28,6 @@ const GeneralScenePostCard = ({
 
   const { data: generalComments, isLoading } = useGetGeneralComment(scenePostId);
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
-  console.log(generalComments)
 
   return (
     <div className={generalScenePostCss.content}>
@@ -77,7 +76,7 @@ const GeneralScenePostCard = ({
             <img className={generalScenePostCss.image} src={ scenePostImage } alt='画像' onError={(e) => e.target.src = noimage} />
             <div className={generalScenePostCss['detail-area-count']}>
               <div className={generalScenePostCss['detail-area-list']}>
-                <div>コメント&nbsp;{ generalComments.data.length }件</div>
+                <div><span className={generalScenePostCss["bs-fill-chat-right-dots-fill"]}><BsFillChatRightDotsFill /></span>コメント&nbsp;{ generalComments.data.length }件</div>
               </div>
             </div>
           </div>
