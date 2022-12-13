@@ -127,6 +127,7 @@
 .detail {
   text-align: center;
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .bs-book-fill {
@@ -194,6 +195,26 @@
 .detail-text {
   width: fit-content;
   border-bottom: 2px solid #a9a9a9;
+}
+
+.detail-area-count {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-area-list {
+  width: 100%;
+  margin-right: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.bs-fill-chat-right-dots-fill {
+  color: #a9a9a9;
+  font-size: 16px;
+  vertical-align: -3px;
+  margin-right: 3px;
 }
 
 @media screen and (min-width: 541px) and (max-width: 1024px) {
