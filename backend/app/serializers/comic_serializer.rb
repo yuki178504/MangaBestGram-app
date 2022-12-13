@@ -1,6 +1,6 @@
 class ComicSerializer
   include JSONAPI::Serializer
-  attributes :id, :title, :genre, :image, :user_id
+  attributes :id, :title, :genre, :image, :user_id, :created_at
 
   attribute :comic_user_name do |object|
     object.user.name.to_s
