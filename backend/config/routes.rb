@@ -15,7 +15,7 @@ Rails.application.routes.draw do
           resources :scene_posts, only: [:index, :show]
         end
       end
-      resources :users
+      resources :users, only: [:index]
       resources :comics, only: [:index, :show], shallow: true do
         resources :scene_posts, only: [:index, :show], shallow: true do
           resources :comments, only: [:index]
