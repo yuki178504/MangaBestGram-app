@@ -37,7 +37,7 @@ jobs:
       run: |
         echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
         ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} 'cd MangaBestGram-app &&
-        git pull origin 14_search-sort-function:main &&
+        git pull origin 15_comment-function:main &&
         docker-compose down --rmi all &&
         docker rmi $(docker images -q)
         cd frontend &&

@@ -3,8 +3,10 @@ import { useScenePost } from "../../../hooks/useScenePost";
 import ReactLoading from "react-loading";
 import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
 import { AiFillHome } from "react-icons/ai";
-import { BsBookFill, BsFillReplyFill, BsFillPencilFill, BsCalendar3, BsNewspaper, BsFillJournalBookmarkFill, BsReceipt } from "react-icons/bs";
+import { BsBookFill, BsFillReplyFill, BsFillPencilFill, BsCalendar3, BsNewspaper, BsFillJournalBookmarkFill, BsReceipt, BsFillChatRightDotsFill } from "react-icons/bs";
 import noimage from "../../../image/default.png";
+import moment from 'moment';
+import Comment from "../comment/Comment";
 
 const ScenePostShow = () => {
   const navigate = useNavigate();
@@ -14,7 +16,6 @@ const ScenePostShow = () => {
   const { data: scene_post, isLoading } = useShowScenePost(scene_post_id);
 
   if(isLoading) return <ReactLoading type="spin" color="blue" className='loading' />
-  console.log(scene_post)
 
   return (
     <div className={scenePostShow.wrapper}>
@@ -60,6 +61,11 @@ const ScenePostShow = () => {
             </div>
             <div className={scenePostShow["detail-area"]}>
               <button onClick={() => navigate(-1)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>シーン一覧へ戻る</button>
+            </div>
+            <div className={scenePostShow["create-at"]}><span className={scenePostShow["detail-text"]}><span className={scenePostShow["bs-calender-3"]}><BsCalendar3 /></span>{ moment(scene_post.created_at).format('YYYY年MM月DD日HH:mm') }</span></div>
+            <div className={scenePostShow["detail-area-comment"]}>
+              <div className={scenePostShow["detail-comment"]}><span className={scenePostShow["bs-fill-chat-right-dots-fill"]}><BsFillChatRightDotsFill /></span>【コメント一覧】</div>
+              <Comment scene_post_id={scene_post_id} />
             </div>
           </div>
         </div>

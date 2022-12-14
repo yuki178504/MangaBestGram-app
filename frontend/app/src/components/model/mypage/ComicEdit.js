@@ -12,6 +12,7 @@ import axios from "axios";
 import { AuthContext } from "../../../providers/AuthGuard";
 import { useContext } from "react";
 import { BsFillReplyFill } from "react-icons/bs";
+import { FiSend } from "react-icons/fi";
 
 const ComicEdit = () => {
   const navigate = useNavigate();
@@ -118,7 +119,7 @@ const ComicEdit = () => {
             />
           </div>
           <div className={form["form-text"]}>
-            <button className={form["form-submit"]} type="submit">この内容で登録する</button>
+            <button className={form["form-submit"]} type="submit"><span className={form["fi-send"]}><FiSend /></span>この内容で登録する</button>
           </div>
           <div className={form["form-text-delete"]}>
             <ComicDeleteButton handleDeleteComic={handleDeleteComic} />

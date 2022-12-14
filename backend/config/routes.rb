@@ -4,7 +4,9 @@ Rails.application.routes.draw do
       namespace :user do
         resources :users, only: [:index, :update, :show]
         resources :comics, shallow: true do
-          resources :scene_posts
+          resources :scene_posts, shallow: true do
+            resources :comments, only: [:index, :create, :destroy]
+          end
         end
         resources :favorites, only: [:index, :create, :destroy]
       end
@@ -15,7 +17,9 @@ Rails.application.routes.draw do
       end
       resources :users
       resources :comics, only: [:index, :show], shallow: true do
-        resources :scene_posts, only: [:index, :show]
+        resources :scene_posts, only: [:index, :show], shallow: true do
+          resources :comments, only: [:index]
+        end
         collection do
           get 'latest'
         end

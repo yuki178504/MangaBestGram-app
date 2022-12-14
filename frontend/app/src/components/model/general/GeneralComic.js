@@ -5,8 +5,9 @@ import noimage from "../../../image/default.png";
 import generalComic from "../../../css/model/general/generalComic.module.css";
 import subMenu from '../../../css/ui/subMenu.module.css';
 import { AiFillHome } from "react-icons/ai";
-import { BsBookFill, BsJournalBookmarkFill, BsSearch } from "react-icons/bs";
+import { BsBookFill, BsJournalBookmarkFill, BsSearch, BsCalendar3 } from "react-icons/bs";
 import { useMemo, useState } from "react";
+import moment from 'moment';
 
 const GeneralComic = () => {
   const { useGetGeneralComic } = useGeneralComic();
@@ -106,7 +107,10 @@ const GeneralComic = () => {
                 </div>
               </div>
               <div className={generalComic["outer-image"]}>
-                <img className={generalComic.image} src={ comic.attributes.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                <div className={generalComic["detail-area-image"]}>
+                  <div className={generalComic["create-at"]}><span className={generalComic["detail-text"]}><span className={generalComic["bs-calender-3"]}><BsCalendar3 /></span>{ moment(comic.attributes.createdAt).format('YYYY年MM月DD日HH:mm') }</span></div>
+                  <img className={generalComic.image} src={ comic.attributes.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                </div>
               </div>
             </div>
           </div>

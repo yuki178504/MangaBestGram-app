@@ -1,0 +1,68 @@
+.innner-content {
+  border-top: 2px solid #a9a9a9;
+  margin-bottom: 10px;
+}
+
+.detail-area {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.detail {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.user-name {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.user-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 100px;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+.delete-button {
+  text-decoration: none;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 13px;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+}
+
+.delete-button:hover {
+  opacity: 0.5;
+}
+
+.delete-button-icon {
+  font-size: 18px;
+  vertical-align: -4px;
+  margin-right: 3px;
+}
+
+.create-at {
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.bs-calender-3 {
+  color: blue;
+  font-size: 16px;
+  vertical-align: -2px;
+  margin-right: 3px;
+}
+
+.detail-text {
+  width: fit-content;
+  border-bottom: 2px solid #a9a9a9;
+}

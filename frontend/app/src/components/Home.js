@@ -7,7 +7,8 @@ import { useGeneralComic } from '../hooks/useGeneralComic';
 import ReactLoading from "react-loading";
 import noimage from "../image/default.png"
 import { Link as Scroll } from 'react-scroll';
-import { BsBookFill, BsJournalBookmarkFill, BsChevronDoubleDown } from "react-icons/bs";
+import { BsBookFill, BsJournalBookmarkFill, BsChevronDoubleDown, BsCalendar3 } from "react-icons/bs";
+import moment from 'moment';
 
 const Home = () => {
   const { useGetGeneralLatestComic } = useGeneralComic();
@@ -68,7 +69,10 @@ const Home = () => {
                   </div>
                 </div>
                 <div className={generalComic["outer-image"]}>
-                  <img className={generalComic.image} src={ comic.attributes.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                  <div className={generalComic["detail-area-image"]}>
+                    <div className={generalComic["create-at"]}><span className={generalComic["detail-text"]}><span className={generalComic["bs-calender-3"]}><BsCalendar3 /></span>{ moment(comic.attributes.createdAt).format('YYYY年MM月DD日HH:mm') }</span></div>
+                    <img className={generalComic.image} src={ comic.attributes.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                  </div>
                 </div>
               </div>
             </div>

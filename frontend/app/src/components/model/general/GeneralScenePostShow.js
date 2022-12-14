@@ -4,17 +4,23 @@ import ReactLoading from "react-loading";
 import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
 import subMenu from '../../../css/ui/subMenu.module.css';
 import { AiFillHome } from "react-icons/ai";
-import { BsBookFill, BsFillReplyFill, BsFillPencilFill, BsCalendar3, BsNewspaper, BsFillJournalBookmarkFill, BsReceipt } from "react-icons/bs";
+import { BsBookFill, BsFillReplyFill, BsFillPencilFill, BsCalendar3, BsNewspaper, BsFillJournalBookmarkFill, BsReceipt, BsFillChatRightDotsFill } from "react-icons/bs";
 import noimage from "../../../image/default.png";
+import Comment from "../comment/Comment";
+import { AuthContext } from "../../../providers/AuthGuard";
+import { useContext } from "react";
+import moment from 'moment';
 
 const GeneralScenePostShow = () => {
   const navigate = useNavigate();
   const { scene_post_id } = useParams();
+  const { isAuthenticated, loginWithRedirect } = useContext(AuthContext);
 
   const { useShowGeneralScenePost } = useGeneralScenePost();
   const { data: scene_post, isLoading} = useShowGeneralScenePost(scene_post_id);
 
   if(isLoading) return <ReactLoading type="spin" color="blue" className='loading' />
+  console.log(scene_post)
 
   return (
     <div className={subMenu.wrapper}>
@@ -59,7 +65,21 @@ const GeneralScenePostShow = () => {
               <div>{ scene_post.data.attributes.sceneContent }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
-              <button onClick={() => navigate(-1)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>シーン一覧へ戻る</button>
+              <button onClick={() => navigate(`/general_scene_post/${scene_post.data.attributes.scenePostComicTitle}/${scene_post.data.attributes.comicId}`)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>シーン一覧へ戻る</button>
+            </div>
+            <div className={scenePostShow["create-at"]}><span className={scenePostShow["detail-text"]}><span className={scenePostShow["bs-calender-3"]}><BsCalendar3 /></span>{ moment(scene_post.data.attributes.createdAt).format('YYYY年MM月DD日HH:mm') }</span></div>
+            {isAuthenticated ? (
+              <div className={scenePostShow["detail-area-comment"]}>
+                <Link className={scenePostShow.comment} to={`/general_scene_post/${scene_post.data.attributes.scenePostComicTitle}/${scene_post_id}/comment`}>コメントする</Link>
+              </div>
+            ) : (
+              <div className={scenePostShow["detail-area-comment"]}>
+                <button className={scenePostShow.comment} onClick={() => { loginWithRedirect(); }}>コメントする</button>
+              </div>
+            )}
+            <div className={scenePostShow["detail-area-comment"]}>
+              <div className={scenePostShow["detail-comment"]}><span className={scenePostShow["bs-fill-chat-right-dots-fill"]}><BsFillChatRightDotsFill /></span>【コメント一覧】</div>
+              <Comment scene_post_id={scene_post_id} />
             </div>
           </div>
         </div>

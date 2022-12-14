@@ -125,7 +125,7 @@
   box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
   font-size: 15px;
   font-weight: 700;
-  padding: 18px 8px;
+  padding: 14px 8px;
   background-color: #a9a9a9;
   color: white;
 }
@@ -134,10 +134,60 @@
   opacity: 0.5;
 }
 
+.create-at {
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.bs-calender-3 {
+  color: blue;
+  font-size: 16px;
+  vertical-align: -2px;
+  margin-right: 3px;
+}
+
+.detail-text {
+  width: fit-content;
+  border-bottom: 2px solid #a9a9a9;
+}
+
 .bs-fill-replay-fill {
   font-size: 22px;
   vertical-align: -4px;
   margin-right: 10px;
+}
+
+.detail-area-comment {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.comment {
+  border: 2px solid #a9a9a9;
+  border-radius: 5px;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 8px;
+  background-color: #4682b4;
+  color: white;
+}
+
+.comment:hover {
+  opacity: 0.5;
+}
+
+.detail-comment {
+  margin-top: 20px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.bs-fill-chat-right-dots-fill {
+  color: #a9a9a9;
+  font-size: 16px;
+  vertical-align: -3px;
+  margin-right: 3px;
 }
 
 @media screen and (min-width: 541px) and (max-width: 1024px) {

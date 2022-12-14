@@ -3,9 +3,9 @@ import ReactLoading from "react-loading";
 import { Link, useParams } from 'react-router-dom';
 import scenePost from '../../../css/model/scene_post/scenePost.module.css';
 import { AiFillHome } from "react-icons/ai";
-import noimage from "../../../image/default.png";
-import { BsBookFill, BsJournalBookmarkFill, BsSearch } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs";
 import { useMemo, useState } from 'react';
+import ScenePostCard from './ui/ScenePostCard';
 
 const ScenePost = () => {
   const { comic_id, comic_title } = useParams();
@@ -97,28 +97,17 @@ const ScenePost = () => {
         <div className={scenePost["detail-result"]}>検索結果がありません</div>
       ) }
       <div className={scenePost["main-content"]}>
-        {sortedData.map((scene_post) => (
-          <div key={scene_post.id} className={scenePost.content}>
-            <div className={scenePost["innner-content"]}>
-              <div className={scenePost["outer-image"]}>
-                <img className={scenePost.image} src={ scene_post.scene_image.url } alt='画像' onError={(e) => e.target.src = noimage} />
-              </div>
-              <div className={scenePost.list}>
-                <div className={scenePost["detail-area"]}>
-                    <p className={scenePost.detail}><span className={scenePost["bs-book-fill"]}><BsBookFill /></span>【サブタイトル】</p>
-                    <div>{ scene_post.sub_title }</div>
-                </div>
-                <div className={scenePost["detail-area"]}>
-                  <p className={scenePost.detail}><span className={scenePost["bs-journal-book-mark-fill"]}><BsJournalBookmarkFill /></span>【話数】</p>
-                  <div>{ scene_post.scene_number }話</div>
-                </div>
-              </div>
-              <div className={scenePost["link-list"]}>
-                <Link to={`/scene_post/${comic_title}/${scene_post.id}`} className={scenePost["link-show"]} >シーンを見る</Link>
-                <Link to={`/scene_post/${comic_id}/${comic_title}/${scene_post.id}/scene_post_edit`} className={scenePost["link-edit"]} >編集する</Link>
-              </div>
-            </div>
-          </div>
+        {sortedData.map((scene_post, index) => (
+          <ScenePostCard
+            key={index}
+            scenePostId={scene_post.id}
+            scenePostSubTitle={scene_post.sub_title}
+            scenePostNumber={scene_post.scene_number}
+            scenePostImage={scene_post.scene_image.url}
+            scenePostCreatedAt={scene_post.created_at}
+            comicTitle={comic_title}
+            comicId={comic_id}
+          />
           ))}
       </div>
     </div>

@@ -1,16 +1,20 @@
 import { useContext, useState } from "react";
 import generalScenePostCss from '../../../../css/model/general/generalScenePostCss.module.css';
 import noimage from "../../../../image/default.png";
-import { BsBookFill, BsJournalBookmarkFill, BsBookmark  } from "react-icons/bs";
+import { BsBookFill, BsJournalBookmarkFill, BsBookmark, BsCalendar3, BsFillChatRightDotsFill } from "react-icons/bs";
 import UnFavoriteButton from "../../../ui/UnFavoriteButton";
 import FavoriteButton from "../../../ui/FavoriteButton";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../providers/AuthGuard";
+import { useGeneralComment } from "../../../../hooks/useGeneralComment";
+import ReactLoading from "react-loading";
+import moment from 'moment';
 
 const GeneralScenePostCard = ({
   scenePostId,
   scenePostSubTitle,
   scenePostUserImage,
+  scenePostCreatedAt,
   scenePostUserName,
   scenePostNumber,
   scenePostImage,
@@ -19,6 +23,11 @@ const GeneralScenePostCard = ({
 }) => {
   const [ favoriteState, setFavoriteState ] = useState(favorite);
   const { isAuthenticated, loginWithRedirect } = useContext(AuthContext);
+
+  const { useGetGeneralComment } = useGeneralComment();
+
+  const { data: generalComments, isLoading } = useGetGeneralComment(scenePostId);
+  if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
     <div className={generalScenePostCss.content}>
@@ -62,7 +71,15 @@ const GeneralScenePostCard = ({
           </div>
         </div>
         <div className={generalScenePostCss["outer-image"]}>
-          <img className={generalScenePostCss.image} src={ scenePostImage } alt='画像' onError={(e) => e.target.src = noimage} />
+          <div className={generalScenePostCss["detail-area-image"]}>
+            <div className={generalScenePostCss["create-at"]}><span className={generalScenePostCss["detail-text"]}><span className={generalScenePostCss["bs-calender-3"]}><BsCalendar3 /></span>{ moment(scenePostCreatedAt).format('YYYY年MM月DD日HH:mm') }</span></div>
+            <img className={generalScenePostCss.image} src={ scenePostImage } alt='画像' onError={(e) => e.target.src = noimage} />
+            <div className={generalScenePostCss['detail-area-count']}>
+              <div className={generalScenePostCss['detail-area-list']}>
+                <div><span className={generalScenePostCss["bs-fill-chat-right-dots-fill"]}><BsFillChatRightDotsFill /></span>コメント&nbsp;{ generalComments.data.length }件</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

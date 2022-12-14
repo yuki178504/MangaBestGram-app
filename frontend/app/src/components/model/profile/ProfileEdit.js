@@ -5,6 +5,7 @@ import { useUser } from "../../../hooks/useUser";
 import { AuthContext } from "../../../providers/AuthGuard";
 import form from "../../../css/ui/form.module.css";
 import { BsFillReplyFill } from "react-icons/bs";
+import { FiSend } from "react-icons/fi";
 import axios from "axios";
 import ReactLoading from "react-loading";
 import subMenu from "../../../css/ui/subMenu.module.css";
@@ -88,7 +89,7 @@ const ProfileEdit = () => {
             />
           </div>
           <div className={form["form-text"]}>
-            <button className={form["form-submit"]} type="submit">この内容で登録する</button>
+            <button className={form["form-submit"]} type="submit"><span className={form["fi-send"]}><FiSend /></span>この内容で登録する</button>
           </div>
           <div className={form["form-text-back"]}>
             <button onClick={() => navigate('/mypage')} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>マイページへ戻る</button>

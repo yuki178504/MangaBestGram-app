@@ -8,6 +8,7 @@ import { AuthContext } from "../../../providers/AuthGuard";
 import { useContext } from "react";
 import axios from "axios";
 import { BsFillReplyFill } from "react-icons/bs";
+import { FiSend } from "react-icons/fi";
 
 const ScenePostNew = () => {
   const { comic_id, comic_title } = useParams();
@@ -149,7 +150,7 @@ const ScenePostNew = () => {
             />
           </div>
           <div className={form["form-text"]}>
-            <button className={form["form-submit"]} type="submit">この内容で登録する</button>
+            <button className={form["form-submit"]} type="submit"><span className={form["fi-send"]}><FiSend /></span>この内容で登録する</button>
           </div>
           <div className={form["form-text-back"]}>
             <button onClick={() => navigate(-1)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>{ comic_title }のシーン一覧に戻る</button>

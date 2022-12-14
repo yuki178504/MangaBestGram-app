@@ -151,6 +151,7 @@ const GeneralScenePost = () => {
                 scenePostUserName={scene_post.attributes.scene_post_user_name}
                 scenePostNumber={scene_post.attributes.scene_number}
                 scenePostImage={scene_post.attributes.scene_image.url}
+                scenePostCreatedAt={scene_post.attributes.created_at}
                 favorite={scene_post.attributes.favorite}
                 comicTitle={comic_title}
               />
@@ -184,6 +185,7 @@ const GeneralScenePost = () => {
                 scenePostUserName={scene_post.attributes.scenePostUserName}
                 scenePostNumber={scene_post.attributes.sceneNumber}
                 scenePostImage={scene_post.attributes.sceneImage.url}
+                scenePostCreatedAt={scene_post.attributes.createdAt}
                 favorite={scene_post.attributes.favorite}
                 comicTitle={comic_title}
               />

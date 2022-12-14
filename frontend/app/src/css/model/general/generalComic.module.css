@@ -90,6 +90,11 @@
   margin-right: 3px;
 }
 
+.detail-text {
+  width: fit-content;
+  border-bottom: 2px solid #a9a9a9;
+}
+
 .bs-journal-book-mark-fill {
   color: green;
   font-size: 16px;
@@ -120,13 +125,26 @@
 }
 
 .outer-image {
+  height: 250px;
   width: 100%;
 }
 
+.create-at {
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.bs-calender-3 {
+  color: blue;
+  font-size: 16px;
+  vertical-align: -2px;
+  margin-right: 3px;
+}
+
 .image {
-  height: 100%;
+  height: 250px;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .list {
@@ -162,7 +180,11 @@
   }
 
   .outer-image {
-    height: 279px;
+    height: 200px;
+  }
+
+  .image {
+    height: 200px;
   }
 
   .list {
@@ -225,7 +247,11 @@
   }
 
   .outer-image {
-    height: 205px;
+    height: 120px;
+  }
+
+  .image {
+    height: 120px;
   }
 
   .list {

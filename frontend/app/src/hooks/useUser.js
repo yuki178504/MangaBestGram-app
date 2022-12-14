@@ -12,6 +12,7 @@ export const useUser = () => {
       queryFn: () => user.getUser(token),
       staleTime: 30000000,
       cacheTime: 0,
+      retry: false,
     });
   };
   return { useGetUser };
