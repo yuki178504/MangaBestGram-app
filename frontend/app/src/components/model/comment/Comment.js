@@ -1,5 +1,4 @@
 import { useComment } from "../../../hooks/useComment";
-import ReactLoading from "react-loading";
 import commentCss from '../../../css/model/comment/comment.module.css';
 import CommentDelete from "./ui/CommentDelete";
 import { useUser } from "../../../hooks/useUser";
@@ -8,7 +7,7 @@ import { AuthContext } from "../../../providers/AuthGuard";
 import { useContext } from "react";
 import { useGeneralComment } from "../../../hooks/useGeneralComment";
 import moment from 'moment';
-import { BsCalendar3 } from "react-icons/bs";
+import { FcCalendar } from "react-icons/fc";
 
 const Comment = ({scene_post_id}) => {
   const { useGetComment } = useComment();
@@ -20,9 +19,9 @@ const Comment = ({scene_post_id}) => {
   const { data: generalComments, isLoading: generalLoading } = useGetGeneralComment(scene_post_id);
   const { data: user, isLoading: userLoading } = useGetUser();
 
-  if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
-  if(generalLoading) return <ReactLoading type="spin" color='blue' className='loading' />
-  if(userLoading) return <ReactLoading type="spin" color='blue' className='loading' />
+  if(isLoading) return <></>
+  if(generalLoading) return <></>
+  if(userLoading) return <></>
 
   return (
     <>
@@ -40,7 +39,7 @@ const Comment = ({scene_post_id}) => {
                     <CommentDelete comment_id={comment.id} scene_post_id={scene_post_id} />
                   </div>
                 )}
-                <div className={commentCss["create-at"]}><span className={commentCss["detail-text"]}><span className={commentCss["bs-calender-3"]}><BsCalendar3 /></span>{ moment(comment.attributes.created_at).format('YYYY年MM月DD日HH:mm') }</span></div>
+                <div className={commentCss["create-at"]}><span className={commentCss["detail-text"]}><span className={commentCss["react-icon"]}><FcCalendar /></span>{ moment(comment.attributes.created_at).format('YYYY年MM月DD日HH:mm') }</span></div>
               </div>
             </div>
           ))}
@@ -54,7 +53,7 @@ const Comment = ({scene_post_id}) => {
               <div className={commentCss["detail-area"]}>
                 <div>{ general_comment.attributes.body }</div>
               </div>
-              <div className={commentCss["create-at"]}><span className={commentCss["detail-text"]}><span className={commentCss["bs-calender-3"]}><BsCalendar3 /></span>{ moment(general_comment.attributes.createdAt).format('YYYY年MM月DD日HH:mm') }</span></div>
+              <div className={commentCss["create-at"]}><span className={commentCss["detail-text"]}><span className={commentCss["react-icon"]}><FcCalendar /></span>{ moment(general_comment.attributes.createdAt).format('YYYY年MM月DD日HH:mm') }</span></div>
             </div>
           </div>
           ))}

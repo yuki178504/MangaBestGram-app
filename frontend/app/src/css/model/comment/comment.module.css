@@ -28,6 +28,12 @@
   margin-right: 20px;
 }
 
+.react-icon {
+  font-size: 24px;
+  vertical-align: -6px;
+  margin-right: 1px;
+}
+
 .delete-button {
   text-decoration: none;
   background-color: red;
@@ -55,14 +61,14 @@
   margin: 20px 0px;
 }
 
-.bs-calender-3 {
-  color: blue;
-  font-size: 16px;
-  vertical-align: -2px;
-  margin-right: 3px;
-}
-
 .detail-text {
   width: fit-content;
   border-bottom: 2px solid #a9a9a9;
+}
+
+@media screen and (max-width: 540px) {
+  .react-icon {
+    font-size: 17px;
+    vertical-align: -4px;
+  }
 }
