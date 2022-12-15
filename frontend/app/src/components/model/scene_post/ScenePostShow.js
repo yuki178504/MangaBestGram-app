@@ -3,7 +3,7 @@ import { useScenePost } from "../../../hooks/useScenePost";
 import ReactLoading from "react-loading";
 import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
 import { AiFillHome } from "react-icons/ai";
-import { BsBookFill, BsFillReplyFill, BsFillPencilFill, BsCalendar3, BsNewspaper, BsFillJournalBookmarkFill, BsReceipt, BsFillChatRightDotsFill } from "react-icons/bs";
+import { FcReading, FcFilm, FcKindle, FcSms, FcCalendar, FcContacts, FcNews, FcUpLeft } from "react-icons/fc";
 import noimage from "../../../image/default.png";
 import moment from 'moment';
 import Comment from "../comment/Comment";
@@ -38,33 +38,33 @@ const ScenePostShow = () => {
             <img className={scenePostShow.image} src={ scene_post.scene_image.url } alt='画像' onError={(e) => e.target.src = noimage} />
           </div>
           <div className={scenePostShow.article}>
-            <p className={scenePostShow["comic-title"]}><span className={scenePostShow["bs-book-fill"]}><BsBookFill /></span>{ comic_title }</p>
+            <p className={scenePostShow["comic-title"]}><span className={scenePostShow["react-icon"]}><FcReading /></span>{ comic_title }</p>
             <div className={scenePostShow["detail-area"]}>
-              <p className={scenePostShow.detail}><span className={scenePostShow["bs-fill-pencil-fill"]}><BsFillPencilFill /></span>【シーンのサブタイトル】</p>
+              <p className={scenePostShow.detail}><span className={scenePostShow["react-icon"]}><FcFilm /></span>シーンのサブタイトル</p>
               <div>{ scene_post.sub_title }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
-              <p className={scenePostShow.detail}><span className={scenePostShow["bs-receipt"]}><BsReceipt /></span>【シーンの内容】</p>
+              <p className={scenePostShow.detail}><span className={scenePostShow["react-icon"]}><FcNews /></span>シーンの内容</p>
               <div>{ scene_post.scene_title }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
-              <p className={scenePostShow.detail}><span className={scenePostShow["bs-fill-journal-bookmark-fill"]}><BsFillJournalBookmarkFill /></span>【シーンの話数】</p>
+              <p className={scenePostShow.detail}><span className={scenePostShow["react-icon"]}><FcContacts /></span>シーンの話数</p>
               <div>{ scene_post.scene_number }話</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
-              <p className={scenePostShow.detail}><span className={scenePostShow["bs-calender-3"]}><BsCalendar3 /></span>【シーンを見た日付】</p>
+              <p className={scenePostShow.detail}><span className={scenePostShow["react-icon"]}><FcCalendar /></span>シーンを見た日付</p>
               <div>{ scene_post.scene_date }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
-              <p className={scenePostShow.detail}><span className={scenePostShow["bs-newspaper"]}><BsNewspaper /></span>【シーンの詳細・感想】</p>
+              <p className={scenePostShow.detail}><span className={scenePostShow["react-icon"]}><FcKindle /></span>シーンの詳細・感想</p>
               <div>{ scene_post.scene_content }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
-              <button onClick={() => navigate(-1)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>シーン一覧へ戻る</button>
+              <button onClick={() => navigate(-1)} className={scenePostShow.back}><span className={scenePostShow["react-icon"]}><FcUpLeft /></span>シーン一覧へ戻る</button>
             </div>
-            <div className={scenePostShow["create-at"]}><span className={scenePostShow["detail-text"]}><span className={scenePostShow["bs-calender-3"]}><BsCalendar3 /></span>{ moment(scene_post.created_at).format('YYYY年MM月DD日HH:mm') }</span></div>
+            <div className={scenePostShow["create-at"]}><span className={scenePostShow["detail-text"]}><span className={scenePostShow["react-icon"]}><FcCalendar /></span>{ moment(scene_post.created_at).format('YYYY年MM月DD日HH:mm') }</span></div>
             <div className={scenePostShow["detail-area-comment"]}>
-              <div className={scenePostShow["detail-comment"]}><span className={scenePostShow["bs-fill-chat-right-dots-fill"]}><BsFillChatRightDotsFill /></span>【コメント一覧】</div>
+              <div className={scenePostShow["detail-comment"]}><span className={scenePostShow["react-icon"]}><FcSms /></span>コメント一覧</div>
               <Comment scene_post_id={scene_post_id} />
             </div>
           </div>

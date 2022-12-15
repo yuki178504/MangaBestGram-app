@@ -41,7 +41,13 @@
   height: 100%;
   border: 2px solid #a9a9a9;
   background-color: #f0f8ff;
-  border-radius: 6px;
+  border-radius: 10px;
+}
+
+.react-icon {
+  font-size: 24px;
+  vertical-align: -6px;
+  margin-right: 1px;
 }
 
 .outer-image {
@@ -72,51 +78,10 @@
 }
 
 .detail {
+  color: #ff8c00;
   margin-top: 20px;
   margin-bottom: 20px;
   font-weight: bold;
-}
-
-.bs-book-fill {
-  color: blue;
-  font-size: 22px;
-  vertical-align: -4px;
-  margin-right: 10px;
-}
-
-.bs-fill-pencil-fill {
-  color: red;
-  font-size: 20px;
-  vertical-align: -4px;
-  margin-right: 7px;
-}
-
-.bs-receipt {
-  color: hotpink;
-  font-size: 20px;
-  vertical-align: -4px;
-  margin-right: 7px;
-}
-
-.bs-fill-journal-bookmark-fill {
-  color: green;
-  font-size: 20px;
-  vertical-align: -4px;
-  margin-right: 7px;
-}
-
-.bs-calender-3 {
-  color: palevioletred;
-  font-size: 20px;
-  vertical-align: -4px;
-  margin-right: 7px;
-}
-
-.bs-newspaper {
-  color: gold;
-  font-size: 20px;
-  vertical-align: -4px;
-  margin-right: 7px;
 }
 
 .back {
@@ -139,22 +104,9 @@
   margin: 20px 0px;
 }
 
-.bs-calender-3 {
-  color: blue;
-  font-size: 16px;
-  vertical-align: -2px;
-  margin-right: 3px;
-}
-
 .detail-text {
   width: fit-content;
   border-bottom: 2px solid #a9a9a9;
-}
-
-.bs-fill-replay-fill {
-  font-size: 22px;
-  vertical-align: -4px;
-  margin-right: 10px;
 }
 
 .detail-area-comment {
@@ -183,13 +135,6 @@
   font-weight: bold;
 }
 
-.bs-fill-chat-right-dots-fill {
-  color: #a9a9a9;
-  font-size: 16px;
-  vertical-align: -3px;
-  margin-right: 3px;
-}
-
 @media screen and (min-width: 541px) and (max-width: 1024px) {
   .react-icons {
     vertical-align: -1px;
@@ -211,31 +156,6 @@
   .detail {
     margin-top: 10px;
     margin-bottom: 10px;
-  }
-
-  .bs-book-fill {
-    vertical-align: -1px;
-    margin-right: 3px;
-  }
-
-  .bs-fill-pencil-fill {
-    vertical-align: -1px;
-    margin-right: 3px;
-  }
-
-  .bs-fill-journal-bookmark-fill {
-    vertical-align: -1px;
-    margin-right: 3px;
-  }
-
-  .bs-calender-3 {
-    vertical-align: -1px;
-    margin-right: 3px;
-  }
-
-  .bs-newspaper {
-    vertical-align: -1px;
-    margin-right: 3px;
   }
 
   .back {
@@ -260,6 +180,10 @@
     padding: 10px;
   }
 
+  .comic-title {
+    font-size: 18px;
+  }
+
   .outer-image {
     height: 100%;
     width: 100%;
@@ -274,29 +198,9 @@
     margin-bottom: 10px;
   }
 
-  .bs-book-fill {
-    vertical-align: -1px;
-    margin-right: 3px;
-  }
-
-  .bs-fill-pencil-fill {
-    vertical-align: -1px;
-    margin-right: 3px;
-  }
-
-  .bs-fill-journal-bookmark-fill {
-    vertical-align: -1px;
-    margin-right: 3px;
-  }
-  
-  .bs-calender-3 {
-    vertical-align: -1px;
-    margin-right: 3px;
-  }
-
-  .bs-newspaper {
-    vertical-align: -1px;
-    margin-right: 3px;
+  .react-icon {
+    font-size: 17px;
+    vertical-align: -4px;
   }
 
   .back {
