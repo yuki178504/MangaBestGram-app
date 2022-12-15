@@ -10,10 +10,12 @@ import noimage from "../../../image/default.png";
 
 const GeneralUserComic = () => {
   const { user_id } = useParams();
-  const { useGetGeneralUserComic } = useGeneralUser();
+  const { useGetGeneralUserComic, useShowGeneralUser } = useGeneralUser();
 
   const { data: comics, isLoading } = useGetGeneralUserComic(user_id);
+  const { data: user, isLoading: userLoading } = useShowGeneralUser(user_id);
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
+  if(userLoading) return <></>
 
   return (
     <div className={subMenu.wrapper}>
@@ -22,15 +24,19 @@ const GeneralUserComic = () => {
           <span className={subMenu.home}>
             <Link to='/' className={subMenu["home-link"]}><span className={subMenu["react-icons"]}><AiFillHome /></span>ホーム</Link>
           </span>
-          <span>/ 漫画一覧</span>
+          <span className={subMenu.home}>
+            <Link to='/users' className={subMenu["home-link"]}>/&nbsp;ユーザー一覧</Link>
+          </span>
+          <span>/&nbsp;{user.name}の漫画一覧</span>
         </div>
       </div>
+      <div className={generalComic.count}>【投稿数】 {comics.length}件</div>
       <div className={generalComic["main-content"]}>
         {comics.map((comic) => (
           <div key={comic.id} className={generalComic.content}>
             <div className={generalComic["innner-content"]}>
               <div className={generalComic.list}>
-                {/* <div className={generalComic["user-name"]}><img className={generalComic["user-image"]} src={ comic.attributes.comicUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} />{ comic.attributes.comicUserName }</div> */}
+                <div className={generalComic["user-name"]}><img className={generalComic["user-image"]} src={ user.image.url } alt='画像' onError={(e) => e.target.src = noimage} />{ user.name }</div>
                 <div className={generalComic["detail-area"]}>
                   <p className={generalComic.detail}><span className={generalComic["bs-book-fill"]}><BsBookFill /></span>【漫画名】</p>
                   <div>{ comic.title }</div>

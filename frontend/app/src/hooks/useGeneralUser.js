@@ -20,7 +20,7 @@ export const useGeneralUser = () => {
       queryFn: () => generalUser.showGeneralUser(
         userId
       ),
-      enabled: !!comicId,
+      enabled: !!userId,
       staleTime: 30000000,
       cacheTime: 0,
     });
