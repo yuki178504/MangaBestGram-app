@@ -75,9 +75,16 @@
 }
 
 .detail {
+  color: #ff8c00;
   text-align: center;
   margin-bottom: 10px;
   font-weight: bold;
+}
+
+.react-icon {
+  font-size: 24px;
+  vertical-align: -6px;
+  margin-right: 1px;
 }
 
 .bs-book-fill {
@@ -95,7 +102,7 @@
 }
 
 .link-list {
-  padding: 20px;
+  padding: 10px;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -105,7 +112,7 @@
   border-radius: 5px;
   box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: bold;
   padding: 14px 6px;
   background-color: #4682b4;
   color: white;
@@ -120,7 +127,7 @@
   border-radius: 5px;
   box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: bold;
   margin-left: 20px;
   padding: 14px 6px;
   background-color: #a9a9a9;
@@ -171,12 +178,15 @@
     width: 100%;
   }
 
-  .bs-book-fill {
-    font-size: 13px;
+  .react-icon {
+    font-size: 17px;
+    vertical-align: -4px;
   }
 
-  .bs-journal-book-mark-fill {
-    font-size: 13px;
+  .link-list {
+    padding: 7px;
+    margin-bottom: 20px;
+    text-align: center;
   }
 
   .link-show {
