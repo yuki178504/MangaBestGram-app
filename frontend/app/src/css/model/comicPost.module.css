@@ -22,13 +22,6 @@
   border-radius: 5px;
 }
 
-.bs-search {
-  color: palevioletred;
-  margin-right: 4px;
-  font-size: 29px;
-  vertical-align: -5px;
-}
-
 .detail-result {
   text-align: center;
   margin-top: 80px;
@@ -47,6 +40,7 @@
 }
 
 .innner-content {
+  border-radius: 10px;
   border: 2px solid #a9a9a9;
   background-color: #f0f8ff;
   margin-bottom: 10px;
@@ -84,20 +78,6 @@
 .react-icon {
   font-size: 24px;
   vertical-align: -6px;
-  margin-right: 1px;
-}
-
-.bs-book-fill {
-  color: blue;
-  font-size: 16px;
-  vertical-align: -4px;
-  margin-right: 1px;
-}
-
-.bs-journal-book-mark-fill {
-  color: green;
-  font-size: 16px;
-  vertical-align: -4px;
   margin-right: 1px;
 }
 
@@ -141,13 +121,6 @@
 .create-at {
   text-align: center;
   margin: 20px 0px;
-}
-
-.bs-calender-3 {
-  color: blue;
-  font-size: 16px;
-  vertical-align: -2px;
-  margin-right: 3px;
 }
 
 .detail-text {
