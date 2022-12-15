@@ -26,11 +26,10 @@
   border-radius: 5px;
 }
 
-.bs-search {
-  color: palevioletred;
+.fc-search {
   margin-right: 4px;
-  font-size: 29px;
-  vertical-align: -5px;
+  font-size: 32px;
+  vertical-align: -7px;
 }
 
 .detail-result {
@@ -41,14 +40,14 @@
 }
 
 .main-content {
-  padding: 121px;
+  padding: 30px;
   justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
 }
 
 .content {
-  width: 46%;
+  width: 49%;
   margin-top: 20px;
 }
 
