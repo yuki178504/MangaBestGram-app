@@ -70,9 +70,11 @@
 }
 
 .detail-area-count {
+  padding-bottom: 15px;
   margin: 20px 0px;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1.5px solid #a9a9a9;
 }
 
 .detail-area-list {
@@ -84,6 +86,28 @@
 .detail-list {
   color: #ff8c00;
   font-weight: bold;
+}
+
+.detail-area-link {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.link-show {
+  border: 2px solid #a9a9a9;
+  border-radius: 5px;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 20px 20px;
+  padding: 14px 24px;
+  background-color: #4682b4;
+  color: white;
+}
+
+.link-show:hover {
+  opacity: 0.5;
 }
 
 @media screen and (max-width: 540px) {

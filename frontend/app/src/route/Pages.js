@@ -19,3 +19,4 @@ export { default as Page404 } from '../components/error/Page404';
 export { default as MyProfile } from '../components/model/profile/MyProfile';
 export { default as CommentNew } from '../components/model/comment/CommentNew';
 export { default as GeneralUser } from '../components/model/user/GeneralUser';
+export { default as GeneralUserComic } from '../components/model/user/GeneralUserComic';

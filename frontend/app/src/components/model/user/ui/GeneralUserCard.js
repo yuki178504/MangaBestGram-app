@@ -2,7 +2,8 @@ import generalUser from "../../../../css/model/user/generalUser.module.css";
 import reactStringReplace from "react-string-replace";
 import noimage from "../../../../image/default.png";
 import { useGeneralUser } from '../../../../hooks/useGeneralUser';
-import { FcVoicePresentation, FcDocument, FcFilm, FcReading, FcPodiumWithSpeaker } from "react-icons/fc";
+import { FcVoicePresentation, FcDocument, FcFilm, FcReading, FcPodiumWithSpeaker, FcMms } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const GeneralUserCard = ({
   userId,
@@ -41,6 +42,9 @@ const GeneralUserCard = ({
               <p className={generalUser['detail-list']}><span className={generalUser["react-icon"]}><FcFilm /></span>シーン数</p>
               <div>数字</div>
             </div>
+          </div>
+          <div className={generalUser["detail-area-link"]}>
+            <Link to={`/users/${userId}/comics`} className={generalUser["link-show"]} ><span className={generalUser["react-icon"]}><FcMms /></span>漫画を見る</Link>
           </div>
         </div>
       </div>

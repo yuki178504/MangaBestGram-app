@@ -11,7 +11,6 @@ const GeneralUser = () => {
   const { data: users, isLoading } = useGetGeneralUser();
 
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
-  console.log(users)
 
   return (
     <div className={subMenu.wrapper}>

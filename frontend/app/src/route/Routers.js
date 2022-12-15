@@ -16,7 +16,8 @@ import {
   Page404,
   MyProfile,
   CommentNew,
-  GeneralUser
+  GeneralUser,
+  GeneralUserComic
 } from './Pages';
 
 const Routers = () => {
@@ -39,6 +40,7 @@ const Routers = () => {
       <Route path='/my-profile/:user_id' element={ <ProtectedRoute component={MyProfile}/> } />
       <Route path='/general_scene_post/:comic_title/:scene_post_id/comment' element={ <ProtectedRoute component={CommentNew}/> } />
       <Route path='/users' element={ <GeneralUser /> } />
+      <Route path='/users/:user_id/comics' element={ <GeneralUserComic /> } />
     </Routes>
   );
 };
