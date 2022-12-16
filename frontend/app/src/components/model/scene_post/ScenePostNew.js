@@ -7,8 +7,7 @@ import { AiFillHome } from "react-icons/ai";
 import { AuthContext } from "../../../providers/AuthGuard";
 import { useContext } from "react";
 import axios from "axios";
-import { BsFillReplyFill } from "react-icons/bs";
-import { FiSend } from "react-icons/fi";
+import { FcFilm, FcHighPriority, FcContacts, FcCalendar, FcKindle, FcPicture, FcFeedback, FcUpLeft, FcNews } from "react-icons/fc";
 
 const ScenePostNew = () => {
   const { comic_id, comic_title } = useParams();
@@ -72,9 +71,9 @@ const ScenePostNew = () => {
       <div className={subMenu.content}>
         <form onSubmit={handleSubmit(onSubmit)} className={form.form}>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}>サブタイトル</div>
+            <div className={form["form-label"]}><span className={form["react-icon"]}><FcFilm /></span>サブタイトル</div>
             { errors.sub_title &&
-              <div className={form.errors}>【！サブタイトルが空欄です】</div> 
+              <div className={form.errors}><span className={form["react-icon"]}><FcHighPriority /></span>サブタイトルが空欄です</div> 
             }
             <input
               className={form["form-input"]}
@@ -85,9 +84,9 @@ const ScenePostNew = () => {
             />
           </div>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}>好きなシーン名</div>
+            <div className={form["form-label"]}><span className={scenePostShow["react-icon"]}><FcNews /></span>シーンの内容</div>
             { errors.scene_title &&
-              <div className={form.errors}>【！好きなシーン名が空欄です】</div> 
+              <div className={form.errors}><span className={form["react-icon"]}><FcHighPriority /></span>好きなシーン名が空欄です</div> 
             }
             <input
               className={form["form-input"]}
@@ -98,9 +97,9 @@ const ScenePostNew = () => {
             />
           </div>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}>漫画の話数</div>
+            <div className={form["form-label"]}><span className={form["react-icon"]}><FcContacts /></span>漫画の話数</div>
             { errors.scene_number &&
-              <div className={form.errors}>【！漫画の話数を選択してください】</div> 
+              <div className={form.errors}><span className={form["react-icon"]}><FcHighPriority /></span>漫画の話数を選択してください</div> 
             }
             <select
               className={form["form-input"]}
@@ -115,33 +114,26 @@ const ScenePostNew = () => {
             </select>
           </div>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}>好きなシーンを見た日付</div>
+            <div className={form["form-label"]}><span className={form["react-icon"]}><FcCalendar /></span>シーンを見た日付</div>
             <input
               type='date'
               className={form["form-input"]}
               placeholder="好きなシーン名を入力してください"
-              {...register('scene_date', {
-                required: true
-              })}
+              {...register('scene_date')}
             />
           </div>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}>好きなシーンの内容</div>
-            { errors.scene_title &&
-              <div className={form.errors}>【！好きなシーンの内容が空欄です】</div> 
-            }
+            <div className={form["form-label"]}><span className={scenePostShow["react-icon"]}><FcKindle /></span>シーンの詳細・感想</div>
             <textarea
               rows='10'
               cols='60'
               className={form["form-input"]}
-              placeholder="好きなシーン内容を入力してください"
-              {...register('scene_content', {
-                required: true
-              })}
+              placeholder="好きなシーンの内容を入力してください"
+              {...register('scene_content')}
             />
           </div>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}>シーンの画像</div>
+            <div className={form["form-label"]}><span className={form["react-icon"]}><FcPicture /></span>シーンの画像</div>
             <input
               className={form["form-input-image"]}
               type="file"
@@ -150,10 +142,10 @@ const ScenePostNew = () => {
             />
           </div>
           <div className={form["form-text"]}>
-            <button className={form["form-submit"]} type="submit"><span className={form["fi-send"]}><FiSend /></span>この内容で登録する</button>
+            <button className={form["form-submit"]} type="submit"><span className={form["react-icon"]}><FcFeedback /></span>この内容で登録する</button>
           </div>
           <div className={form["form-text-back"]}>
-            <button onClick={() => navigate(-1)} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>{ comic_title }のシーン一覧に戻る</button>
+            <button onClick={() => navigate(-1)} className={scenePostShow.back}><span className={scenePostShow["react-icon"]}><FcUpLeft /></span>{ comic_title }のシーン一覧に戻る</button>
           </div>
         </form>
       </div>

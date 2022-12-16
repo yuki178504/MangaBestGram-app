@@ -58,11 +58,11 @@ const Home = () => {
                 <div className={generalComic.list}>
                   <div className={generalComic["user-name"]}><img className={generalComic["user-image"]} src={ comic.attributes.comicUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} />{ comic.attributes.comicUserName }</div>
                   <div className={generalComic["detail-area"]}>
-                    <p className={generalComic.detail}><span className={generalComic["react-icon"]}><FcReading /></span>【漫画名】</p>
+                    <p className={generalComic.detail}><span className={generalComic["react-icon"]}><FcReading /></span>漫画名</p>
                     <div>{ comic.attributes.title }</div>
                   </div>
                   <div className={generalComic["detail-area"]}>
-                    <p className={generalComic.detail}><span className={generalComic["react-icon"]}><FcFile /></span>【ジャンル】</p>
+                    <p className={generalComic.detail}><span className={generalComic["react-icon"]}><FcFile /></span>ジャンル</p>
                     <div>{ comic.attributes.genre }</div>
                   </div>
                   <div className={generalComic["detail-area-link"]}>
