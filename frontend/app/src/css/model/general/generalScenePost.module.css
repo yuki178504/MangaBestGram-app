@@ -276,6 +276,17 @@
     height: 150px;
   }
 
+  .favorite-outer-image {
+    height: 120px;
+    width: 100%;
+  }
+  
+  .favorite-image {
+    height: 120px;
+    width: 100%;
+    object-fit: contain;
+  }
+
   .list {
     padding: 10px;
   }

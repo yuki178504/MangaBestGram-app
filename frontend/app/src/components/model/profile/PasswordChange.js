@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import form from "../../../css/ui/form.module.css";
-import { FiSend } from "react-icons/fi";
+import { FcFeedback, FcHighPriority } from "react-icons/fc";
 
 const PasswordChange = () => {
   const onSubmit = async (data) => {
@@ -26,7 +26,7 @@ const PasswordChange = () => {
         <div className={form["form-text"]}>
           <div className={form["form-label"]}>パスワード変更のリンクを受信するメールアドレス</div>
           { errors.email &&
-            <div className={form.errors}>【！メールアドレスを入力してください】</div> 
+            <div className={form.errors}><span className={form["react-icon"]}><FcHighPriority /></span>メールアドレスを入力してください</div> 
           }
           <input
             className={form["form-input"]}
@@ -50,8 +50,8 @@ const PasswordChange = () => {
             required: true
           })}
         />
-        <div className={form["form-text"]}>
-            <button className={form["form-submit"]} type="submit"><span className={form["fi-send"]}><FiSend /></span>送信する</button>
+        <div className={form["form-text-submit"]}>
+            <button className={form["form-submit"]} type="submit"><span className={form["react-icon"]}><FcFeedback /></span>送信する</button>
         </div>
       </form>
     </div>
