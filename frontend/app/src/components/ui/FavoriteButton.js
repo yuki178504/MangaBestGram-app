@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthGuard";
 import { BsBookmark } from "react-icons/bs";
-import generalScenePostCss from '../../css/model/general/generalScenePostCss.module.css';
+import generalScenePost from '../../css/model/general/generalScenePost.module.css';
 
 const FavoriteButton = ({id, changeFavorite}) => {
   const { token } = useContext(AuthContext);
@@ -28,7 +28,7 @@ const FavoriteButton = ({id, changeFavorite}) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input {...register('scene_post_id', { value: id })} type='hidden' />
-      <button type='submit' className={generalScenePostCss.favorite}><BsBookmark /></button>
+      <button type='submit' className={generalScenePost.favorite}><BsBookmark /></button>
     </form>
   );
 };

@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useScenePost } from "../../../hooks/useScenePost";
 import ReactLoading from "react-loading";
 import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
+import subMenu from '../../../css/ui/subMenu.module.css';
 import { AiFillHome } from "react-icons/ai";
 import { FcReading, FcFilm, FcKindle, FcSms, FcCalendar, FcContacts, FcNews, FcUpLeft } from "react-icons/fc";
 import noimage from "../../../image/default.png";
@@ -18,16 +19,16 @@ const ScenePostShow = () => {
   if(isLoading) return <ReactLoading type="spin" color="blue" className='loading' />
 
   return (
-    <div className={scenePostShow.wrapper}>
-      <div className={scenePostShow["top-list"]}>
-        <div className={scenePostShow.title}>
-          <span className={scenePostShow.home}>
-            <Link to='/' className={scenePostShow["home-link"]}><span className={scenePostShow["react-icons"]}><AiFillHome /></span>ホーム</Link>
+    <div className={subMenu.wrapper}>
+      <div className={subMenu["top-list"]}>
+        <div className={subMenu.title}>
+          <span className={subMenu.home}>
+            <Link to='/' className={subMenu["home-link"]}><span className={subMenu["react-icons"]}><AiFillHome /></span>ホーム</Link>
           </span>
           <span>
-            <Link to='/mypage' className={scenePostShow["home-link"]}><span>/ マイページ</span></Link>
+            <Link to='/mypage' className={subMenu["home-link"]}><span>/ マイページ</span></Link>
           </span>
-          <span className={scenePostShow["scene-title"]}>
+          <span className={subMenu["scene-title"]}>
             / { scene_post.sub_title }の詳細画面
           </span>
         </div>

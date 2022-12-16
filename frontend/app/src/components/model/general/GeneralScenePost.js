@@ -1,13 +1,13 @@
 import { useParams, Link } from "react-router-dom";
 import { useGeneralScenePost } from "../../../hooks/useGeneralScenePost";
 import ReactLoading from "react-loading";
-import generalScenePostCss from '../../../css/model/general/generalScenePostCss.module.css';
+import generalScenePost from '../../../css/model/general/generalScenePost.module.css';
 import subMenu from '../../../css/ui/subMenu.module.css';
 import { AiFillHome } from "react-icons/ai";
 import GeneralScenePostCard from "./ui/GeneralScenePostCard";
 import { AuthContext } from "../../../providers/AuthGuard";
 import { useContext, useMemo, useState } from "react";
-import { BsSearch } from "react-icons/bs";
+import { FcSearch } from "react-icons/fc";
 
 const GeneralScenePost = () => {
   const { comic_id, comic_title } = useParams();
@@ -123,25 +123,25 @@ const GeneralScenePost = () => {
           </span>
         </div>
       </div>
-      <div className={generalScenePostCss.count}>【投稿数】 {scene_posts.data.length}件</div>
+      <div className={generalScenePost.count}>【投稿数】 {scene_posts.data.length}件</div>
       {isAuthenticated ? (
         <>
-          <div className={generalScenePostCss.sort}>
+          <div className={generalScenePost.sort}>
             <button className={sort.key === 'id' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('id')}>並び替え </button>
           </div>
-          <div className={generalScenePostCss.search}>
-            <span className={generalScenePostCss["bs-search"]}><BsSearch /></span>
+          <div className={generalScenePost.search}>
+            <span className={generalScenePost["fc-search"]}><FcSearch /></span>
             <input
-              className={generalScenePostCss["search-text"]}
+              className={generalScenePost["search-text"]}
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
               placeholder={'サブタイトルを検索'}
             />
           </div>
           { data.length === 0 && (
-            <div className={generalScenePostCss["detail-result"]}>検索結果がありません</div>
+            <div className={generalScenePost["detail-result"]}>検索結果がありません</div>
           ) }
-          <div className={generalScenePostCss["main-content"]}>
+          <div className={generalScenePost["main-content"]}>
             {sortedData.map((scene_post, index) => (
               <GeneralScenePostCard
                 key={index}
@@ -160,22 +160,22 @@ const GeneralScenePost = () => {
         </>
       ) : (
         <>
-          <div className={generalScenePostCss.sort}>
+          <div className={generalScenePost.sort}>
             <button className={generalSort.key === 'id' ? generalSort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleGeneralSort('id')}>並び替え </button>
           </div>
-          <div className={generalScenePostCss.search}>
-            <span className={generalScenePostCss["bs-search"]}><BsSearch /></span>
+          <div className={generalScenePost.search}>
+            <span className={generalScenePost["fc-search"]}><FcSearch /></span>
             <input
-              className={generalScenePostCss["search-text"]}
+              className={generalScenePost["search-text"]}
               value={searchGeneralText}
               onChange={(e) => setSearchGeneralText(e.target.value)}
               placeholder={'サブタイトルを検索'}
             />
           </div>
           { generalData.length === 0 && (
-            <div className={generalScenePostCss["detail-result"]}>検索結果がありません</div>
+            <div className={generalScenePost["detail-result"]}>検索結果がありません</div>
           ) }
-          <div className={generalScenePostCss["main-content"]}>
+          <div className={generalScenePost["main-content"]}>
             {sortedGeneralData.map((scene_post, index) => (
               <GeneralScenePostCard
                 key={index}
