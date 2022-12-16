@@ -4,8 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../../../hooks/useUser";
 import { AuthContext } from "../../../providers/AuthGuard";
 import form from "../../../css/ui/form.module.css";
-import { BsFillReplyFill } from "react-icons/bs";
-import { FiSend } from "react-icons/fi";
+import { FcPortraitMode, FcGraduationCap, FcImageFile, FcFeedback, FcButtingIn, FcUpLeft, FcHighPriority } from "react-icons/fc";
 import axios from "axios";
 import ReactLoading from "react-loading";
 import subMenu from "../../../css/ui/subMenu.module.css";
@@ -51,36 +50,39 @@ const ProfileEdit = () => {
       <div className={subMenu.content}>
         <form onSubmit={handleSubmit(onSubmit)} className={form.form}>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}>ユーザー名</div>
+            <div className={form["form-label"]}><span className={form["react-icon"]}><FcPortraitMode /></span>ユーザー名</div>
             { errors.name &&
-              <div className={form.errors}>【！ユーザー名がありません】</div> 
+              <div className={form.errors}><span className={form["react-icon"]}><FcHighPriority /></span>ユーザー名がありません</div> 
             }
             <input
               className={form["form-input"]}
               defaultValue={ user.name }
+              placeholder={"ユーザー名を入力してください"}
               {...register('name', {
                 required: true
               })}
             />
           </div>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}>自己紹介</div>
+            <div className={form["form-label"]}><span className={form["react-icon"]}><FcGraduationCap /></span>自己紹介</div>
             <input
               className={form["form-input"]}
               defaultValue={ user.introduction }
+              placeholder={"自己紹介を入力してください"}
               {...register('introduction')}
             />
           </div>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}>リンク</div>
+            <div className={form["form-label"]}><span className={form["react-icon"]}><FcImageFile /></span>リンク</div>
             <input
               className={form["form-input"]}
               defaultValue={ user.url }
+              placeholder={"WEBのリンクなどを入力してください"}
               {...register('url')}
             />
           </div>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}>ユーザーアイコン</div>
+            <div className={form["form-label"]}><span className={form["react-icon"]}><FcButtingIn /></span>ユーザーアイコン</div>
             <input
               className={form["form-input-image"]}
               type="file"
@@ -89,10 +91,10 @@ const ProfileEdit = () => {
             />
           </div>
           <div className={form["form-text"]}>
-            <button className={form["form-submit"]} type="submit"><span className={form["fi-send"]}><FiSend /></span>この内容で登録する</button>
+            <button className={form["form-submit"]} type="submit"><span className={form["react-icon"]}><FcFeedback /></span>この内容で登録する</button>
           </div>
           <div className={form["form-text-back"]}>
-            <button onClick={() => navigate('/mypage')} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>マイページへ戻る</button>
+            <button onClick={() => navigate('/mypage')} className={scenePostShow.back}><span className={scenePostShow["react-icon"]}><FcUpLeft /></span>マイページへ戻る</button>
           </div>
         </form>
       </div>

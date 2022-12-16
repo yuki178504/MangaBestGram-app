@@ -3,8 +3,15 @@
 }
 
 .form {
+  border-radius: 10px;
   border: 2px solid #a9a9a9;
   background-color: #f0f8ff;
+}
+
+.react-icon {
+  font-size: 24px;
+  vertical-align: -6px;
+  margin-right: 1px;
 }
 
 .form-text {
@@ -159,5 +166,10 @@
     border-radius: 5px;
     box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
     padding: 12px 8px;
+  }
+
+  .react-icon {
+    font-size: 20px;
+    vertical-align: -4px;
   }
 }

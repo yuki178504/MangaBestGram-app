@@ -118,4 +118,9 @@
   .content {
     width: 100%;
   }
+
+  .react-icon {
+    font-size: 20px;
+    vertical-align: -4px;
+  }
 }
