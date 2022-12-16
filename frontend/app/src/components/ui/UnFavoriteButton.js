@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthGuard";
-import { BsBookmarkFill } from "react-icons/bs";
+import { FcLike } from "react-icons/fc";
 import generalScenePost from '../../css/model/general/generalScenePost.module.css';
 
 const UnFavoriteButton = ({id, changeFavorite}) => {
@@ -23,7 +23,7 @@ const UnFavoriteButton = ({id, changeFavorite}) => {
   }
 
   return (
-    <button type='button' onClick={handleDelete} className={generalScenePost.unfavorite}><BsBookmarkFill /></button>
+    <button type='button' onClick={handleDelete} className={generalScenePost.favorite}><FcLike /></button>
   );
 };
 
