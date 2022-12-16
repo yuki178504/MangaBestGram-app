@@ -29,13 +29,6 @@
   border-radius: 5px;
 }
 
-.bs-search {
-  color: palevioletred;
-  margin-right: 4px;
-  font-size: 29px;
-  vertical-align: -5px;
-}
-
 .detail-result {
   text-align: center;
   margin-top: 80px;
@@ -53,7 +46,12 @@
   border: 2px solid #a9a9a9;
   background-color: #f0f8ff;
   margin-bottom: 10px;
-  font-weight: bold;
+}
+
+.react-icon {
+  font-size: 24px;
+  vertical-align: -6px;
+  margin-right: 1px;
 }
 
 .user-name {
@@ -75,27 +73,15 @@
 }
 
 .detail {
+  font-weight: bold;
+  color: #ff8c00;
   text-align: center;
   margin-bottom: 10px;
-}
-
-.bs-book-fill {
-  color: blue;
-  font-size: 16px;
-  vertical-align: -4px;
-  margin-right: 3px;
 }
 
 .detail-text {
   width: fit-content;
   border-bottom: 2px solid #a9a9a9;
-}
-
-.bs-journal-book-mark-fill {
-  color: green;
-  font-size: 16px;
-  vertical-align: -4px;
-  margin-right: 3px;
 }
 
 .detail-area-link {
@@ -125,16 +111,20 @@
   width: 100%;
 }
 
+.favorite-outer-image {
+  height: 220px;
+  width: 100%;
+}
+
+.favorite-image {
+  height: 220px;
+  width: 100%;
+  object-fit: contain;
+}
+
 .create-at {
   text-align: center;
   margin: 20px 0px;
-}
-
-.bs-calender-3 {
-  color: blue;
-  font-size: 16px;
-  vertical-align: -2px;
-  margin-right: 3px;
 }
 
 .image {
@@ -181,13 +171,6 @@
   text-align: center;
 }
 
-.bs-fill-chat-right-dots-fill {
-  color: #a9a9a9;
-  font-size: 16px;
-  vertical-align: -3px;
-  margin-right: 3px;
-}
-
 @media screen and (min-width: 541px) and (max-width: 1024px) {
   .main-content {
     padding: 10px;
@@ -204,15 +187,14 @@
 
   .detail-area-link {
     margin-top: 25px;
-    margin-bottom: 25px;
   }
 
   .link-show {
     border-radius: 5px;
     box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
     font-size: 15px;
-    margin: 10px;
-    padding: 9px 16px;
+    margin: 5px;
+    padding: 8px 10px;
   }
 
   .outer-image {
@@ -268,26 +250,19 @@
     margin-bottom: 4px;
   }
 
-  .bs-book-fill {
-    font-size: 15px;
-    vertical-align: -2.5px;
-    margin-right: 2px;
-  }
-
-  .bs-journal-book-mark-fill {
-    font-size: 15px;
-    vertical-align: -2.5px;
-    margin-right: 2px;
-  }
-
   .detail-area-link {
     margin-top: 20px;
   }
 
   .link-show {
     margin: 9px;
-    padding: 7px;
+    padding: 8px 3px;
     font-size: 13px;
+  }
+
+  .react-icon {
+    font-size: 17px;
+    vertical-align: -4px;
   }
 
   .outer-image {

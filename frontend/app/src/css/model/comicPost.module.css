@@ -22,6 +22,12 @@
   border-radius: 5px;
 }
 
+.fc-search {
+  margin-right: 4px;
+  font-size: 32px;
+  vertical-align: -7px;
+}
+
 .detail-result {
   text-align: center;
   margin-top: 80px;
