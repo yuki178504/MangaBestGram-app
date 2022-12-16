@@ -62,6 +62,7 @@
 }
 
 .post-title-link {
+  font-weight: bold;
   background-color: greenyellow;
   padding: 16px 40px;
   border-radius: 24px;

@@ -23,15 +23,51 @@
 
 .nav-li-text {
   text-decoration: none;
-  background-color: aqua;
+  background-color: #87cefa;
   border: none;
   border-radius: 24px;
-  padding: 10px 20px;
+  padding: 7px 10px;
   font-size: 15px;
   box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+  font-weight: bold;
 }
 
 .nav-li-text:hover {
+  opacity: 0.5;
+}
+
+.react-icon {
+  font-size: 24px;
+  vertical-align: -6px;
+  margin-right: 1px;
+}
+
+.nav-comic {
+  background-color: #ffc0cb;
+  text-decoration: none;
+  border: none;
+  border-radius: 24px;
+  padding: 7px 10px;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+}
+
+.nav-comic:hover {
+  opacity: 0.5;
+}
+
+.nav-sign-in {
+  text-decoration: none;
+  border: none;
+  border-radius: 24px;
+  padding: 7px 10px;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+}
+
+.nav-sign-in:hover {
   opacity: 0.5;
 }
 

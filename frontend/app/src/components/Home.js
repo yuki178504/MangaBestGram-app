@@ -8,7 +8,7 @@ import ReactLoading from "react-loading";
 import noimage from "../image/default.png"
 import { Link as Scroll } from 'react-scroll';
 import { BsChevronDoubleDown } from "react-icons/bs";
-import { FcReading, FcFile, FcCalendar, FcMms } from "react-icons/fc";
+import { FcReading, FcFile, FcCalendar, FcMms, FcHome } from "react-icons/fc";
 import moment from 'moment';
 
 const Home = () => {
@@ -28,11 +28,11 @@ const Home = () => {
           {
             isAuthenticated ?
             <div className={home["post-title"]}>
-              <Link to="/mypage" className={home["post-title-link"]} >マイページ</Link>
+              <Link to="/mypage" className={home["post-title-link"]} ><span className={home["react-icon"]}><FcHome /></span>マイページ</Link>
             </div>
             :
             <div className={home["post-title"]}>
-              <button onClick={() => loginWithRedirect({ redirect_url: window.location.origin })} className={home["post-title-link"]}>ログイン/新規登録</button>
+              <button onClick={() => loginWithRedirect({ redirect_url: window.location.origin })} className={home["post-title-link"]}><span className={home["react-icon"]}><FcHome /></span>ログイン/新規登録</button>
             </div>
           }
           </div>
