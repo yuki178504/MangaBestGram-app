@@ -11,8 +11,7 @@ import { ComicDeleteButton } from "../../ui/Parts";
 import axios from "axios";
 import { AuthContext } from "../../../providers/AuthGuard";
 import { useContext } from "react";
-import { BsFillReplyFill } from "react-icons/bs";
-import { FiSend } from "react-icons/fi";
+import { FcReading, FcHighPriority, FcFile, FcPicture, FcFeedback, FcUpLeft } from "react-icons/fc";
 
 const ComicEdit = () => {
   const navigate = useNavigate();
@@ -80,22 +79,23 @@ const ComicEdit = () => {
       <div className={subMenu.content}>
         <form onSubmit={handleSubmit(onSubmit)} className={form.form}>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}>漫画のタイトル</div>
+            <div className={form["form-label"]}><span className={form["react-icon"]}><FcReading /></span>漫画のタイトル</div>
             { errors.title &&
-              <div className={form.errors}>【！漫画のタイトルが空欄です】</div> 
+              <div className={form.errors}><span className={form["react-icon"]}><FcHighPriority /></span>漫画のタイトルが空欄です</div> 
             }
             <input
               className={form["form-input"]}
               defaultValue={ comics.title }
+              placeholder={"漫画のタイトルを入力してください"}
               {...register('title', {
                 required: true
               })}
             />
           </div>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}>漫画のジャンル</div>
+            <div className={form["form-label"]}><span className={form["react-icon"]}><FcFile /></span>漫画のジャンル</div>
             { errors.genre &&
-              <div className={form.errors}>【！漫画のジャンルを選択してください】</div> 
+              <div className={form.errors}><span className={form["react-icon"]}><FcHighPriority /></span>漫画のジャンルを選択してください</div> 
             }
             <select
               className={form["form-input"]}
@@ -110,7 +110,7 @@ const ComicEdit = () => {
             </select>
           </div>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}>漫画の画像</div>
+            <div className={form["form-label"]}><span className={form["react-icon"]}><FcPicture /></span>漫画の画像</div>
             <input
               className={form["form-input-image"]}
               type="file"
@@ -119,13 +119,13 @@ const ComicEdit = () => {
             />
           </div>
           <div className={form["form-text"]}>
-            <button className={form["form-submit"]} type="submit"><span className={form["fi-send"]}><FiSend /></span>この内容で登録する</button>
+            <button className={form["form-submit"]} type="submit"><span className={form["react-icon"]}><FcFeedback /></span>この内容で登録する</button>
           </div>
           <div className={form["form-text-delete"]}>
             <ComicDeleteButton handleDeleteComic={handleDeleteComic} />
           </div>
           <div className={form["form-text-back"]}>
-            <button onClick={() => navigate('/mypage')} className={scenePostShow.back}><span className={scenePostShow["bs-fill-replay-fill"]}><BsFillReplyFill /></span>マイページへ戻る</button>
+            <button onClick={() => navigate('/mypage')} className={scenePostShow.back}><span className={scenePostShow["react-icon"]}><FcUpLeft /></span>マイページへ戻る</button>
           </div>
         </form>
       </div>
