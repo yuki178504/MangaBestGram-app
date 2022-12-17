@@ -26,5 +26,14 @@ export const generalUser = {
       console.error(error.res.data);
     });
     return res.data
+  },
+
+  getGeneralUserScenePostCount: async (userId) => {
+    const res = await instance
+    .get(`/users/${userId}/user_comics/scene_post_count`)
+    .catch((error) => {
+      console.error(error.res.data);
+    });
+    return res.data
   }
 };
