@@ -6,7 +6,7 @@ export const useGeneralUser = () => {
     return useQuery({
       queryKey: 'general_user',
       queryFn: () => generalUser.getGeneralUser(),
-      staleTime: 300000,
+      staleTime: 30000000,
       cacheTime: 0,
     });
   };
@@ -40,5 +40,14 @@ export const useGeneralUser = () => {
     });
   };
 
-  return { useGetGeneralUser, useShowGeneralUser, useGetGeneralUserComic };
+  const useGetGeneralScenePostCount = () => {
+    return useQuery({
+      queryKey: 'general_scene_post_count',
+      queryFn: () => generalUser.getGeneralUserScenePostCount(),
+      staleTime: 30000000,
+      cacheTime: 0,
+    });
+  };
+
+  return { useGetGeneralUser, useShowGeneralUser, useGetGeneralUserComic, useGetGeneralScenePostCount };
 };

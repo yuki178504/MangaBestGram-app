@@ -107,5 +107,14 @@ export const useComic = () => {
     );
   };
 
-  return { useGetComic, useCreateComic, useDeleteComic, usePutComic, useShowComic };
+  const useGetScenePostCount = () => {
+    return useQuery({
+      queryKey: 'scene_post_count',
+      queryFn: () => comic.getScenePostCount(token),
+      staleTime: 300000,
+      cacheTime: 0,
+    });
+  };
+
+  return { useGetComic, useCreateComic, useDeleteComic, usePutComic, useShowComic, useGetScenePostCount };
 };
