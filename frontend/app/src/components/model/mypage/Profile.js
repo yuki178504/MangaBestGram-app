@@ -6,21 +6,23 @@ import noimage from "../../../image/default.png";
 import { useComic } from '../../../hooks/useComic';
 import { useFavorite } from '../../../hooks/useFavorite';
 import profile from '../../../css/model/profile.module.css';
-import { FcPortraitMode, FcGraduationCap, FcImageFile, FcEditImage, FcLike, FcReading } from "react-icons/fc";
+import { FcPortraitMode, FcGraduationCap, FcImageFile, FcEditImage, FcLike, FcReading, FcFilm } from "react-icons/fc";
 
 const Profile = () => {
   const { useGetUser } = useUser();
-  const { useGetComic } = useComic();
+  const { useGetComic, useGetScenePostCount } = useComic();
   const { useGetFavorite } = useFavorite();
 
   const { data: favorites, isLoading: favoriteLoading } = useGetFavorite();
   const { data: comics, isLoading: comicLoading } = useGetComic();
+  const { data: scenePostCounts, isLoading: scenePostCountsLoading } = useGetScenePostCount();
   const { data: user, isLoading } = useGetUser();
   const regExp = /(https?:\/\/\S+)/g;
 
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
   if(favoriteLoading) return <></>
   if(comicLoading) return <></>
+  if(scenePostCountsLoading) return <></>
 
   return (
     <div className={profile.wrapper}>
@@ -51,8 +53,12 @@ const Profile = () => {
           </div>
           <div className={profile['detail-area-count']}>
             <div className={profile.list}>
-              <p className={profile['detail-list']}><span className={profile["react-icon"]}><FcReading /></span>投稿数</p>
+              <p className={profile['detail-list']}><span className={profile["react-icon"]}><FcReading /></span>漫画数</p>
               <div>{ comics.length}件</div>
+            </div>
+            <div className={profile.list}>
+              <p className={profile['detail-list']}><span className={profile["react-icon"]}><FcFilm /></span>シーン数</p>
+              <div>{ scenePostCounts.length }件</div>
             </div>
             <div className={profile.list}>
               <p className={profile['detail-list']}><span className={profile["react-icon"]}><FcLike /></span>お気に入り数</p>
