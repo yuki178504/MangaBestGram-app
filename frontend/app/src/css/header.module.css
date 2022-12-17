@@ -21,6 +21,10 @@
   margin-right: 10px;
 }
 
+.side {
+  display: none;
+}
+
 .nav-li-text {
   text-decoration: none;
   background-color: #87cefa;
@@ -92,7 +96,12 @@
   }
   
   .li {
+    display: none;
     margin-right: 7px;
+  }
+
+  .side {
+    display: inline-block;
   }
   
   .nav-li-text {

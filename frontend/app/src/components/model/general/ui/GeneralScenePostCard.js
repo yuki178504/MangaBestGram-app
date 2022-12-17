@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
 import generalScenePost from '../../../../css/model/general/generalScenePost.module.css';
 import noimage from "../../../../image/default.png";
-import { FcFilm, FcContacts, FcCalendar, FcMms, FcSms } from "react-icons/fc";
-import { BsBookmark } from "react-icons/bs";
+import { FcFilm, FcContacts, FcCalendar, FcMms, FcSms, FcLikePlaceholder } from "react-icons/fc";
 import UnFavoriteButton from "../../../ui/UnFavoriteButton";
 import FavoriteButton from "../../../ui/FavoriteButton";
 import { Link } from "react-router-dom";
@@ -53,11 +52,10 @@ const GeneralScenePostCard = ({
             <button
               className={generalScenePost.favorite}
               type='submit'
-              value={`お気に入り`}
               onClick={() => {
                 loginWithRedirect();
               }}
-            ><BsBookmark /></button>
+            ><FcLikePlaceholder /></button>
           )}
           <div className={generalScenePost["detail-area"]}>
             <p className={generalScenePost.detail}><span className={generalScenePost["react-icon"]}><FcFilm /></span>サブタイトル</p>
