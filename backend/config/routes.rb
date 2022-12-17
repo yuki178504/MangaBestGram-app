@@ -16,7 +16,11 @@ Rails.application.routes.draw do
         end
       end
       resources :users, only: [:index, :show], shallow: true do
-        resources :user_comics, only: [:index]
+        resources :user_comics, only: [:index] do
+          collection do
+            get 'scene_post_count'
+          end
+        end
       end
       resources :comics, only: [:index, :show], shallow: true do
         resources :scene_posts, only: [:index, :show], shallow: true do
