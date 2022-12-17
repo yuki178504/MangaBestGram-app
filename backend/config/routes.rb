@@ -4,6 +4,9 @@ Rails.application.routes.draw do
       namespace :user do
         resources :users, only: [:index, :update, :show]
         resources :comics, shallow: true do
+          collection do
+            get 'scene_post_count'
+          end
           resources :scene_posts, shallow: true do
             resources :comments, only: [:index, :create, :destroy]
           end
