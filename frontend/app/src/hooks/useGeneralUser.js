@@ -40,10 +40,15 @@ export const useGeneralUser = () => {
     });
   };
 
-  const useGetGeneralScenePostCount = () => {
+  const useGetGeneralScenePostCount = (userId) => {
     return useQuery({
-      queryKey: 'general_scene_post_count',
-      queryFn: () => generalUser.getGeneralUserScenePostCount(),
+      queryKey: [
+        'general_scene_post_count',
+        { userId: userId }
+      ],
+      queryFn: () => generalUser.getGeneralUserScenePostCount(
+        userId
+      ),
       staleTime: 30000000,
       cacheTime: 0,
     });

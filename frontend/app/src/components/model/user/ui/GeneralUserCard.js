@@ -13,10 +13,12 @@ const GeneralUserCard = ({
   userUrl
 }) => {
   const regExp = /(https?:\/\/\S+)/g;
-  const { useGetGeneralUserComic } = useGeneralUser();
+  const { useGetGeneralUserComic, useGetGeneralScenePostCount } = useGeneralUser();
 
   const { data: comic, isLoading } = useGetGeneralUserComic(userId);
+  const { data: scenePostCount, isLoading: scenePostCountLoading } = useGetGeneralScenePostCount(userId);
   if(isLoading) return <></>
+  if(scenePostCountLoading) return <></>
 
   return (
     <div className={generalUser.content}>
@@ -40,7 +42,7 @@ const GeneralUserCard = ({
             </div>
             <div className={generalUser["detail-area-list"]}>
               <p className={generalUser['detail-list']}><span className={generalUser["react-icon"]}><FcFilm /></span>シーン数</p>
-              <div>数字</div>
+              <div>{ scenePostCount.length }</div>
             </div>
           </div>
           <div className={generalUser["detail-area-link"]}>
