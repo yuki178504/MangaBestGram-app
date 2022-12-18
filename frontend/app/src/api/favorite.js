@@ -1,4 +1,5 @@
-import axios from "axios"
+import axios from "axios";
+import instance from "./instance";
 
 export const favorite = {
   getFavorite: async (token) => {
@@ -14,4 +15,13 @@ export const favorite = {
     });
     return res.data;
   },
+
+  getFavorites_count: async (scenePostId) => {
+    const res = await instance
+    .get(`/scene_posts/${scenePostId}/comments/favorites_count`)
+    .catch((error) => {
+      console.error(error.res.data);
+    });
+    return res.data;
+  }
 };
