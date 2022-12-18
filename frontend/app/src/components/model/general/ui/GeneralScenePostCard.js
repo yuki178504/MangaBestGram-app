@@ -9,6 +9,7 @@ import { AuthContext } from "../../../../providers/AuthGuard";
 import { useGeneralComment } from "../../../../hooks/useGeneralComment";
 import ReactLoading from "react-loading";
 import moment from 'moment';
+import { useFavorite } from "../../../../hooks/useFavorite";
 
 const GeneralScenePostCard = ({
   scenePostId,
@@ -25,38 +26,44 @@ const GeneralScenePostCard = ({
   const { isAuthenticated, loginWithRedirect } = useContext(AuthContext);
 
   const { useGetGeneralComment } = useGeneralComment();
+  const { useGetFavorites_count } = useFavorite();
 
   const { data: generalComments, isLoading } = useGetGeneralComment(scenePostId);
+  const { data: favorites, favoritesLoading } = useGetFavorites_count(scenePostId);
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
+  if(favoritesLoading) return <></>
 
   return (
     <div className={generalScenePost.content}>
       <div className={generalScenePost["innner-content"]}>
         <div className={generalScenePost.list}>
           <div className={generalScenePost["user-name"]}><img className={generalScenePost["user-image"]} src={ scenePostUserImage } alt='画像' onError={(e) => e.target.src = noimage} />{ scenePostUserName }</div>
-          {isAuthenticated ? (
-            <>
-              {favoriteState ? (
-                <UnFavoriteButton
-                  id={scenePostId}
-                  changeFavorite={setFavoriteState}
-                />
-              ) : (
-                <FavoriteButton
-                  id={scenePostId}
-                  changeFavorite={setFavoriteState}
-                />
-              )}
-            </>
-          ) : (
-            <button
-              className={generalScenePost.favorite}
-              type='submit'
-              onClick={() => {
-                loginWithRedirect();
-              }}
-            ><FcLikePlaceholder /></button>
-          )}
+          <div className={generalScenePost["outer-favorite"]}>
+            {isAuthenticated ? (
+              <>
+                {favoriteState ? (
+                  <UnFavoriteButton
+                    id={scenePostId}
+                    changeFavorite={setFavoriteState}
+                  />
+                ) : (
+                  <FavoriteButton
+                    id={scenePostId}
+                    changeFavorite={setFavoriteState}
+                  />
+                )}
+              </>
+            ) : (
+              <button
+                className={generalScenePost.favorite}
+                type='submit'
+                onClick={() => {
+                  loginWithRedirect();
+                }}
+              ><FcLikePlaceholder /></button>
+            )}
+            <div className={generalScenePost["favorite-count"]}>{ favorites?.length }</div>
+          </div>
           <div className={generalScenePost["detail-area"]}>
             <p className={generalScenePost.detail}><span className={generalScenePost["react-icon"]}><FcFilm /></span>サブタイトル</p>
             <div>{ scenePostSubTitle }</div>

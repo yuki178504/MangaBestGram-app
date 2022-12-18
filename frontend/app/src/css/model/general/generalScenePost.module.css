@@ -154,6 +154,10 @@
   display: inline;
 }
 
+.favorite-count {
+  margin-left: 8px;
+}
+
 .favorite {
   border: none;
   background-color: #f0f8ff;
