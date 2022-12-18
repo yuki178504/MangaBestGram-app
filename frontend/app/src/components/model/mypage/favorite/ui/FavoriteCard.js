@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import noimage from "../../../../../image/default.png";
-import generalScenePostCss from '../../../../../css/model/general/generalScenePostCss.module.css';
-import { BsBookFill, BsJournalBookmarkFill, BsFillChatRightDotsFill } from "react-icons/bs";
+import generalScenePost from '../../../../../css/model/general/generalScenePost.module.css';
+import { FcFilm, FcContacts, FcSms, FcMms, FcCalendar } from "react-icons/fc";
 import { useGeneralComment } from "../../../../../hooks/useGeneralComment";
 import ReactLoading from "react-loading";
+import moment from 'moment';
 
 const FavoriteCard = ({
   Id,
@@ -11,7 +12,8 @@ const FavoriteCard = ({
   favoriteUserName,
   favoriteSubTitle,
   favoriteNumber,
-  favoriteImage
+  favoriteImage,
+  favoriteCreatedAt
 }) => {
   const { useGetGeneralComment } = useGeneralComment();
 
@@ -19,28 +21,29 @@ const FavoriteCard = ({
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
-    <div className={generalScenePostCss.content}>
-      <div className={generalScenePostCss["innner-content"]}>
-        <div className={generalScenePostCss.list}>
-          <div className={generalScenePostCss["user-name"]}><img className={generalScenePostCss["user-image"]} src={ favoriteUserImage } alt='画像' onError={(e) => e.target.src = noimage} />{ favoriteUserName }</div>
-          <div className={generalScenePostCss["detail-area"]}>
-            <p className={generalScenePostCss.detail}><span className={generalScenePostCss["bs-book-fill"]}><BsBookFill /></span>【サブタイトル】</p>
+    <div className={generalScenePost.content}>
+      <div className={generalScenePost["innner-content"]}>
+        <div className={generalScenePost.list}>
+          <div className={generalScenePost["user-name"]}><img className={generalScenePost["user-image"]} src={ favoriteUserImage } alt='画像' onError={(e) => e.target.src = noimage} />{ favoriteUserName }</div>
+          <div className={generalScenePost["detail-area"]}>
+            <p className={generalScenePost.detail}><span className={generalScenePost["react-icon"]}><FcFilm /></span>サブタイトル</p>
             <div>{ favoriteSubTitle }</div>
           </div>
-          <div className={generalScenePostCss["detail-area"]}>
-            <p className={generalScenePostCss.detail}><span className={generalScenePostCss["bs-journal-book-mark-fill"]}><BsJournalBookmarkFill /></span>【シーンの話数】</p>
+          <div className={generalScenePost["detail-area"]}>
+            <p className={generalScenePost.detail}><span className={generalScenePost["react-icon"]}><FcContacts /></span>シーンの話数</p>
             <div>{ favoriteNumber }話</div>
           </div>
-          <div className={generalScenePostCss["detail-area-link"]}>
-            <Link to={`/general_scene_post/general_scene_post_show/${Id}`} className={generalScenePostCss["link-show"]} >シーンを見る</Link>
+          <div className={generalScenePost["detail-area-link"]}>
+            <Link to={`/general_scene_post/general_scene_post_show/${Id}`} className={generalScenePost["link-show"]}><span className={generalScenePost["react-icon"]}><FcMms /></span>シーンを見る</Link>
           </div>
         </div>
-        <div className={generalScenePostCss["outer-image"]}>
-          <div className={generalScenePostCss["detail-area-image"]}>
-            <img className={generalScenePostCss.image} src={ favoriteImage } alt='画像' onError={(e) => e.target.src = noimage} />
-            <div className={generalScenePostCss['detail-area-count']}>
-              <div className={generalScenePostCss['detail-area-list']}>
-                <div><span className={generalScenePostCss["bs-fill-chat-right-dots-fill"]}><BsFillChatRightDotsFill /></span>コメント&nbsp;{ generalComments.data.length }件</div>
+        <div className={generalScenePost["favorite-outer-image"]}>
+          <div className={generalScenePost["detail-area-image"]}>
+          <div className={generalScenePost["create-at"]}><span className={generalScenePost["detail-text"]}><span className={generalScenePost["react-icon"]}><FcCalendar /></span>{ moment(favoriteCreatedAt).format('YYYY年MM月DD日HH:mm') }</span></div>
+            <img className={generalScenePost["favorite-image"]} src={ favoriteImage } alt='画像' onError={(e) => e.target.src = noimage} />
+            <div className={generalScenePost['detail-area-count']}>
+              <div className={generalScenePost['detail-area-list']}>
+                <div><span className={generalScenePost["react-icon"]}><FcSms /></span>コメント&nbsp;{ generalComments.data.length }件</div>
               </div>
             </div>
           </div>

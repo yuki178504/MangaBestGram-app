@@ -7,15 +7,16 @@ import { useGeneralComic } from '../hooks/useGeneralComic';
 import ReactLoading from "react-loading";
 import noimage from "../image/default.png"
 import { Link as Scroll } from 'react-scroll';
-import { BsBookFill, BsJournalBookmarkFill, BsChevronDoubleDown, BsCalendar3 } from "react-icons/bs";
+import { BsChevronDoubleDown } from "react-icons/bs";
+import { FcReading, FcFile, FcCalendar, FcMms, FcHome } from "react-icons/fc";
 import moment from 'moment';
 
 const Home = () => {
   const { useGetGeneralLatestComic } = useGeneralComic();
-  const { data: comics, isLoading: Loading } = useGetGeneralLatestComic();
+  const { data: comics, isLoading: comicLoading } = useGetGeneralLatestComic();
   const { isAuthenticated, loginWithRedirect, isLoading } = useContext(AuthContext);
 
-  if(Loading) return <ReactLoading type="spin" color='blue' className='loading' />
+  if(comicLoading) return <></>
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
@@ -27,11 +28,11 @@ const Home = () => {
           {
             isAuthenticated ?
             <div className={home["post-title"]}>
-              <Link to="/mypage" className={home["post-title-link"]} >マイページ</Link>
+              <Link to="/mypage" className={home["post-title-link"]} ><span className={home["react-icon"]}><FcHome /></span>マイページ</Link>
             </div>
             :
             <div className={home["post-title"]}>
-              <button onClick={() => loginWithRedirect({ redirect_url: window.location.origin })} className={home["post-title-link"]}>ログイン/新規登録</button>
+              <button onClick={() => loginWithRedirect({ redirect_url: window.location.origin })} className={home["post-title-link"]}><span className={home["react-icon"]}><FcHome /></span>ログイン/新規登録</button>
             </div>
           }
           </div>
@@ -57,20 +58,20 @@ const Home = () => {
                 <div className={generalComic.list}>
                   <div className={generalComic["user-name"]}><img className={generalComic["user-image"]} src={ comic.attributes.comicUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} />{ comic.attributes.comicUserName }</div>
                   <div className={generalComic["detail-area"]}>
-                    <p className={generalComic.detail}><span className={generalComic["bs-book-fill"]}><BsBookFill /></span>【漫画名】</p>
+                    <p className={generalComic.detail}><span className={generalComic["react-icon"]}><FcReading /></span>漫画名</p>
                     <div>{ comic.attributes.title }</div>
                   </div>
                   <div className={generalComic["detail-area"]}>
-                    <p className={generalComic.detail}><span className={generalComic["bs-journal-book-mark-fill"]}><BsJournalBookmarkFill /></span>【ジャンル】</p>
+                    <p className={generalComic.detail}><span className={generalComic["react-icon"]}><FcFile /></span>ジャンル</p>
                     <div>{ comic.attributes.genre }</div>
                   </div>
                   <div className={generalComic["detail-area-link"]}>
-                    <Link to={`/general_scene_post/${comic.attributes.title}/${comic.id}`} className={generalComic["link-show"]} >シーンを見る</Link>
+                    <Link to={`/general_scene_post/${comic.attributes.title}/${comic.id}`} className={generalComic["link-show"]} ><span className={generalComic["react-icon"]}><FcMms /></span>シーンを見る</Link>
                   </div>
                 </div>
                 <div className={generalComic["outer-image"]}>
                   <div className={generalComic["detail-area-image"]}>
-                    <div className={generalComic["create-at"]}><span className={generalComic["detail-text"]}><span className={generalComic["bs-calender-3"]}><BsCalendar3 /></span>{ moment(comic.attributes.createdAt).format('YYYY年MM月DD日HH:mm') }</span></div>
+                    <div className={generalComic["create-at"]}><span className={generalComic["detail-text"]}><span className={generalComic["react-icon"]}><FcCalendar /></span>{ moment(comic.attributes.createdAt).format('YYYY年MM月DD日HH:mm') }</span></div>
                     <img className={generalComic.image} src={ comic.attributes.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
                   </div>
                 </div>

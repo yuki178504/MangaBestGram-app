@@ -27,6 +27,11 @@ class Api::V1::User::ComicsController < SecuredController
     @comic.destroy!
   end
 
+  def scene_post_count
+    scene_posts = @current_user.scene_posts.all
+    render json: scene_posts
+  end
+
   private
 
   def comic_params

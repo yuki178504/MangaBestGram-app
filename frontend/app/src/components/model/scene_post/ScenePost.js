@@ -3,7 +3,7 @@ import ReactLoading from "react-loading";
 import { Link, useParams } from 'react-router-dom';
 import scenePost from '../../../css/model/scene_post/scenePost.module.css';
 import { AiFillHome } from "react-icons/ai";
-import { BsSearch } from "react-icons/bs";
+import { FcSearch, FcAddImage } from "react-icons/fc";
 import { useMemo, useState } from 'react';
 import ScenePostCard from './ui/ScenePostCard';
 
@@ -82,7 +82,7 @@ const ScenePost = () => {
         <button className={sort.key === 'id' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('id')}>並び替え </button>
       </div>
       <div className={scenePost.search}>
-        <span className={scenePost["bs-search"]}><BsSearch /></span>
+        <span className={scenePost["fc-search"]}><FcSearch /></span>
         <input
           className={scenePost["search-text"]}
           value={searchText}
@@ -91,7 +91,7 @@ const ScenePost = () => {
         />
       </div>
       <button className={scenePost.link}>
-        <Link to={`/comic/${comic_id}/${comic_title}/scene_post_new`}>新規のシーンを投稿する</Link>
+        <Link to={`/comic/${comic_id}/${comic_title}/scene_post_new`}><span className={scenePost["react-icon"]}><FcAddImage /></span>新規のシーンを投稿する</Link>
       </button>
       { data.length === 0 && (
         <div className={scenePost["detail-result"]}>検索結果がありません</div>

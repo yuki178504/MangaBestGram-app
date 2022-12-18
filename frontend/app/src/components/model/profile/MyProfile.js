@@ -5,11 +5,12 @@ import PasswordChange from './PasswordChange';
 import ProfileEdit from './ProfileEdit';
 import subMenu from "../../../css/ui/subMenu.module.css";
 import mypage from "../../../css/mypage.module.css";
-import { AiFillHome, AiOutlineUser, AiFillUnlock } from "react-icons/ai";
+import { AiFillHome } from "react-icons/ai";
+import { FcVoicePresentation, FcUnlock } from "react-icons/fc";
 
 const MyProfile = () => {
   const [tabIndex, setTabIndex] = useState(0);
-  const color = { color: 'red' }
+  const color = { background: '#ffc0cb' }
 
   return (
     <div className={mypage.wrapper}>
@@ -29,11 +30,11 @@ const MyProfile = () => {
           <TabList className={mypage["menu-list"]}>
             <Tab style={ tabIndex === 0 ? color : null } className={mypage["menu-list-in"]}>
               <div>プロフィール情報</div>
-              <div className={mypage["menu-icon"]}><AiOutlineUser /></div>
+              <div className={mypage["menu-icon"]}><FcVoicePresentation /></div>
             </Tab>
             <Tab style={ tabIndex === 1 ? color : null } className={mypage["menu-list-in"]}>
               <div>パスワード変更</div>
-              <div className={mypage["menu-icon"]}><AiFillUnlock /></div>
+              <div className={mypage["menu-icon"]}><FcUnlock /></div>
             </Tab>
           </TabList>
 

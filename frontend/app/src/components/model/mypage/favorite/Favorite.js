@@ -1,7 +1,7 @@
 import { useFavorite } from "../../../../hooks/useFavorite";
 import ReactLoading from "react-loading";
 import favorite from '../../../../css/model/mypage/favorite.module.css';
-import { BsSearch } from "react-icons/bs";
+import { FcSearch } from "react-icons/fc";
 import { useState } from "react";
 import FavoriteCard from "./ui/FavoriteCard";
 
@@ -23,12 +23,13 @@ const Favorite = () => {
   }
 
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
+  console.log(data)
 
   return (
     <div className={favorite.wrapper}>
       <div className={favorite.count}>【投稿数】 {favorites.data.length}件</div>
       <div className={favorite.search}>
-        <span className={favorite["bs-search"]}><BsSearch /></span>
+      <span className={favorite["fc-search"]}><FcSearch /></span>
         <input
           className={favorite["search-text"]}
           value={searchText}
@@ -49,6 +50,7 @@ const Favorite = () => {
             favoriteSubTitle={favorite.attributes.sub_title}
             favoriteNumber={favorite.attributes.scene_number}
             favoriteImage={favorite.attributes.scene_image.url}
+            favoriteCreatedAt={favorite.attributes.created_at}
           />
         ))}
       </div>

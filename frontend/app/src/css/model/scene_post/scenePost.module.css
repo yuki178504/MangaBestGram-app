@@ -26,11 +26,16 @@
   border-radius: 5px;
 }
 
-.bs-search {
-  color: palevioletred;
+.fc-search {
   margin-right: 4px;
-  font-size: 29px;
-  vertical-align: -5px;
+  font-size: 32px;
+  vertical-align: -7px;
+}
+
+.react-icon {
+  font-size: 24px;
+  vertical-align: -6px;
+  margin-right: 1px;
 }
 
 .detail-result {
@@ -75,6 +80,7 @@
   background-color: #f0f8ff;
   border: 2px solid black;
   border-radius: 15px;
+  font-weight: bold;
   padding: 10px 20px;
   margin: 20px;
   font-size: 15px;
@@ -86,17 +92,18 @@
 }
 
 .main-content {
-  padding: 121px;
+  padding: 30px;
   justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
 }
 
 .content {
-  width: 31%;
+  width: 32%;
 }
 
 .innner-content {
+  border-radius: 10px;
   border: 2px solid #a9a9a9;
   background: #f0f8ff;
   margin-bottom: 10px;
@@ -125,21 +132,10 @@
 }
 
 .detail {
+  color: #ff8c00;
   text-align: center;
   margin-bottom: 10px;
   font-weight: bold;
-}
-
-.bs-book-fill {
-  color: blue;
-  font-size: 16px;
-  vertical-align: -4px;
-}
-
-.bs-journal-book-mark-fill {
-  color: green;
-  font-size: 16px;
-  vertical-align: -4px;
 }
 
 .link-list {
@@ -154,8 +150,7 @@
   box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
   font-size: 15px;
   font-weight: 700;
-  margin: 20px 20px;
-  padding: 11px 12px;
+  padding: 14px 6px;
   background-color: #4682b4;
   color: white;
 }
@@ -170,8 +165,8 @@
   box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
   font-size: 15px;
   font-weight: 700;
-  margin: 20px 20px;
-  padding: 11px 12px;
+  padding: 14px 6px;
+  margin-left: 20px;
   background-color: #a9a9a9;
   color: white;
 }
@@ -183,13 +178,6 @@
 .create-at {
   text-align: center;
   margin: 20px 0px;
-}
-
-.bs-calender-3 {
-  color: blue;
-  font-size: 16px;
-  vertical-align: -2px;
-  margin-right: 3px;
 }
 
 .detail-text {
@@ -208,13 +196,6 @@
   margin-right: 10px;
   text-align: center;
   font-weight: bold;
-}
-
-.bs-fill-chat-right-dots-fill {
-  color: #a9a9a9;
-  font-size: 16px;
-  vertical-align: -3px;
-  margin-right: 3px;
 }
 
 @media screen and (min-width: 541px) and (max-width: 1024px) {
@@ -245,9 +226,25 @@
     font-size: 13px;
   }
 
+  .react-icon {
+    font-size: 17px;
+    vertical-align: -4px;
+  }
+
   .link-list {
-    padding: 0px;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    padding: 7px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .link-show {
+    font-size: 13px;
+    padding: 10px 6px;
+  }
+
+  .link-edit {
+    font-size: 13px;
+    margin-left: 20px;
+    padding: 10px 6px;
   }
 }

@@ -15,5 +15,20 @@ export const useFavorite = () => {
     });
   };
 
-  return { useGetFavorite };
+  const useGetFavorites_count = (scenePostId) => {
+    return useQuery({
+      queryKey: [
+        'favorites_count',
+      { scenePostId: scenePostId },
+      ],
+      queryFn: () =>
+        favorite.getFavorites_count(
+          scenePostId
+        ),
+      staleTime: 30000000,
+      cacheTime: 0,
+    });
+  };
+
+  return { useGetFavorite, useGetFavorites_count };
 };

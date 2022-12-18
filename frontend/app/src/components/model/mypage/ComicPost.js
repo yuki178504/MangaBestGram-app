@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useComic } from '../../../hooks/useComic';
 import ReactLoading from "react-loading";
 import noimage from "../../../image/default.png";
-import { BsBookFill, BsJournalBookmarkFill, BsSearch, BsCalendar3 } from "react-icons/bs";
+import { FcReading, FcFile, FcCalendar, FcMms, FcSearch, FcEditImage } from "react-icons/fc";
 import moment from 'moment';
 
 const ComicPost = () => {
@@ -65,7 +65,7 @@ const ComicPost = () => {
       <div className={comicPost.count}>【投稿数】 {comics.length}件</div>
       <button className={sort.key === 'updated_at' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('updated_at')}>並び替え </button>
       <div className={comicPost.search}>
-        <span className={comicPost["bs-search"]}><BsSearch /></span>
+        <span className={comicPost["fc-search"]}><FcSearch /></span>
         <input
           className={comicPost["search-text"]}
           value={searchText}
@@ -85,19 +85,19 @@ const ComicPost = () => {
               </div>
               <div className={comicPost.list}>
                 <div className={comicPost["detail-area"]}>
-                  <p className={comicPost.detail}><span className={comicPost["bs-book-fill"]}><BsBookFill /></span>【漫画名】</p>
+                  <p className={comicPost.detail}><span className={comicPost["react-icon"]}><FcReading /></span>漫画名</p>
                   <div>{ comic.title }</div>
                 </div>
                 <div className={comicPost["detail-area"]}>
-                  <p className={comicPost.detail}><span className={comicPost["bs-journal-book-mark-fill"]}><BsJournalBookmarkFill /></span>【ジャンル】</p>
+                  <p className={comicPost.detail}><span className={comicPost["react-icon"]}><FcFile /></span>ジャンル</p>
                   <div>{ comic.genre }</div>
                 </div>
               </div>
               <div className={comicPost["link-list"]}>
-                <Link to={`/comic/${comic.id}/${comic.title}`} className={comicPost["link-show"]} >シーンを見る/追加する</Link>
-                <Link to={`/comic/${comic.id}/${comic.title}/comic_edit`} className={comicPost["link-edit"]} >編集する</Link>
+                <Link to={`/comic/${comic.id}/${comic.title}`} className={comicPost["link-show"]} ><span className={comicPost["react-icon"]}><FcMms /></span>シーンを見る/追加する</Link>
+                <Link to={`/comic/${comic.id}/${comic.title}/comic_edit`} className={comicPost["link-edit"]} ><span className={comicPost["react-icon"]}><FcEditImage /></span>編集する</Link>
               </div>
-              <div className={comicPost["create-at"]}><span className={comicPost["detail-text"]}><span className={comicPost["bs-calender-3"]}><BsCalendar3 /></span>{ moment(comic.created_at).format('YYYY年MM月DD日HH:mm') }</span></div>
+              <div className={comicPost["create-at"]}><span className={comicPost["detail-text"]}><span className={comicPost["react-icon"]}><FcCalendar /></span>{ moment(comic.created_at).format('YYYY年MM月DD日HH:mm') }</span></div>
             </div>
           </div>
         ))}

@@ -15,6 +15,18 @@
   border-radius: 6px;
 }
 
+.react-icon {
+  font-size: 24px;
+  vertical-align: -6px;
+  margin-right: 1px;
+}
+
+.detail-profile {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
 .detail-area {
   text-align: center;
   margin-top: 20px;
@@ -28,6 +40,7 @@
 }
 
 .detail {
+  color: #ff8c00;
   margin-top: 20px;
   margin-bottom: 20px;
   font-weight: bold;
@@ -104,5 +117,10 @@
 
   .content {
     width: 100%;
+  }
+
+  .react-icon {
+    font-size: 20px;
+    vertical-align: -4px;
   }
 }
