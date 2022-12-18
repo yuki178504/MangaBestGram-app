@@ -27,7 +27,11 @@ Rails.application.routes.draw do
       end
       resources :comics, only: [:index, :show], shallow: true do
         resources :scene_posts, only: [:index, :show], shallow: true do
-          resources :comments, only: [:index]
+          resources :comments, only: [:index] do
+            collection do
+              get 'favorites_count'
+            end
+          end
         end
         collection do
           get 'latest'
