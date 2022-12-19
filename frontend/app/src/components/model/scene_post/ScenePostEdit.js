@@ -7,7 +7,7 @@ import form from "../../../css/ui/form.module.css";
 import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
 import { AiFillHome } from "react-icons/ai";
 import { FcFilm, FcHighPriority, FcCalendar, FcKindle, FcPicture, FcFeedback, FcUpLeft, FcContacts, FcNews } from "react-icons/fc";
-import { ScenePostDeleteButton } from "../../ui/Parts";
+import { BsFillTrashFill } from "react-icons/bs";
 import { AuthContext } from "../../../providers/AuthGuard";
 import { useContext } from "react";
 import axios from "axios";
@@ -20,21 +20,6 @@ const ScenePostEdit = () => {
   const { useShowScenePost } = useScenePost();
   const { data: scene_post, isLoading } = useShowScenePost(scene_post_id);
 
-  const { useDeleteScenePost } =useScenePost();
-  const deketeScenePost = useDeleteScenePost(comic_id, scene_post_id);
-
-  //削除用関数
-  const handleDeleteScenePost = () => {
-    if (
-      window.confirm(`${scene_post.scene_title}のシーンを削除しますか？`)
-    ) {
-      deketeScenePost.mutate();
-      alert(`${scene_post.scene_title}を削除しました！`);
-      navigate(-1)
-    }
-  }
-
-  //更新用関数
   const onSubmit = async (data) => {
     const formData = new FormData();
     formData.append("scene_title", data.scene_title);
@@ -54,7 +39,6 @@ const ScenePostEdit = () => {
     });
     alert(`${scene_post.scene_title}を編集しました！`);
     navigate(`/comic/${comic_id}/${comic_title}`);
-    console.log(data)
   };
 
   const { handleSubmit, register, formState: { errors } } = useForm({
@@ -62,7 +46,6 @@ const ScenePostEdit = () => {
   });
 
   if(isLoading) return <ReactLoading type="spin" color="blue" className='loading' />
-  console.log(scene_post)
 
   const setNumber = () => {
     const num = [];
@@ -85,7 +68,7 @@ const ScenePostEdit = () => {
             <Link to='/mypage' className={subMenu["home-link"]}><span>/ マイページ</span></Link>
           </span>
           <span className={subMenu["comic-title"]}>
-            / { scene_post.scene_title }を編集中です
+            / { scene_post.sub_title }を編集中です
           </span>
         </div>
       </div>
@@ -98,7 +81,7 @@ const ScenePostEdit = () => {
             }
             <input
               className={form["form-input"]}
-              defaultValue={ scene_post.scene_title }
+              defaultValue={ scene_post.sub_title }
               placeholder="サブタイトルを入力してください"
               {...register('sub_title', {
                 required: true
@@ -120,9 +103,9 @@ const ScenePostEdit = () => {
             />
           </div>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}><span className={form["react-icon"]}><FcContacts /></span>漫画の話数</div>
+            <div className={form["form-label"]}><span className={form["react-icon"]}><FcContacts /></span>シーンの話数</div>
             { errors.scene_number &&
-              <div className={form.errors}><span className={form["react-icon"]}><FcHighPriority /></span>漫画の話数を選択してください</div> 
+              <div className={form.errors}><span className={form["react-icon"]}><FcHighPriority /></span>シーンの話数を選択してください</div> 
             }
             <select
               className={form["form-input"]}
@@ -169,7 +152,7 @@ const ScenePostEdit = () => {
             <button className={form["form-submit"]} type="submit"><span className={form["react-icon"]}><FcFeedback /></span>この内容で登録する</button>
           </div>
           <div className={form["form-text-delete"]}>
-            <ScenePostDeleteButton handleDeleteScenePost={handleDeleteScenePost} />
+            <Link to={`/scene_post/${comic_id}/${comic_title}/${scene_post_id}/scene_post_confirm_delete`} className={form['delete-button']}><span className={form['delete-button-icon']}><BsFillTrashFill /></span>削除</Link>
           </div>
           <div className={form["form-text-back"]}>
             <button onClick={() => navigate(`/comic/${comic_id}/${comic_title}`)} className={scenePostShow.back}><span className={form["react-icon"]}><FcUpLeft /></span>シーン一覧へ戻る</button>

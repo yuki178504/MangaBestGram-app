@@ -21,3 +21,4 @@ export { default as CommentNew } from '../components/model/comment/CommentNew';
 export { default as GeneralUser } from '../components/model/user/GeneralUser';
 export { default as GeneralUserComic } from '../components/model/user/GeneralUserComic';
 export { default as ComicConfirmDelete } from '../components/model/mypage/ui/ComicConfirmDelete';
+export { default as ScenePostConfirmDelete } from '../components/model/scene_post/ui/ScenePostConfirmDelete';
