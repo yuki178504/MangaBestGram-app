@@ -1,7 +1,3 @@
-.scene-title {
-  margin-left: 5px;
-}
-
 .section {
   padding: 50px 200px;
   width: 100%;
@@ -16,6 +12,12 @@
   border-radius: 10px;
 }
 
+.confirm-title {
+  text-align: center;
+  font-size: 23px;
+  font-weight: bold;
+}
+
 .react-icon {
   font-size: 24px;
   vertical-align: -6px;
@@ -24,8 +26,8 @@
 
 .outer-image {
   margin: 0 auto;
-  height: 65%;
-  width: 65%;
+  height: 200px;
+  width: 200px;
 }
 
 .image {
@@ -50,10 +52,16 @@
 }
 
 .detail {
+  text-align: center;
   color: #ff8c00;
   margin-top: 20px;
   margin-bottom: 20px;
   font-weight: bold;
+}
+
+.detail-area-delete {
+  text-align: center;
+  margin-top: 80px;
 }
 
 .back {
@@ -71,58 +79,45 @@
   opacity: 0.5;
 }
 
-.create-at {
-  text-align: center;
-  margin: 20px 0px;
-}
-
-.detail-text {
-  width: fit-content;
-  border-bottom: 2px solid #a9a9a9;
-}
-
-.detail-area-comment {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.comment {
-  border: 2px solid #a9a9a9;
-  border-radius: 5px;
-  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
-  font-size: 15px;
-  font-weight: 700;
-  padding: 14px 8px;
-  background-color: #4682b4;
+.delete-button {
+  text-decoration: none;
+  background-color: red;
   color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 15px;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
 }
 
-.comment:hover {
+.delete-button:hover {
   opacity: 0.5;
 }
 
-.detail-comment {
-  margin-top: 20px;
-  padding-bottom: 10px;
-  font-weight: bold;
+.delete-button-icon {
+  font-size: 22px;
+  vertical-align: -5px;
+  margin-right: 10px;
 }
 
-@media screen and (min-width: 541px) and (max-width: 1024px) {
-  .react-icons {
-    vertical-align: -1px;
-  }
 
+@media screen and (min-width: 541px) and (max-width: 1024px) {
   .section {
     padding: 50px 100px;
   }
 
   .outer-image {
-    height: 70%;
-    width: 70%;
+    height: 150px;
+    width: 150px;
   }
 
   .detail-area {
     margin-top: 10px;
+  }
+
+  .detail-area-delete {
+    margin-top: 60px;
   }
 
   .detail {
@@ -140,12 +135,12 @@
     font-size: 13px;
   }
 
-  .title {
-    font-size: 13px;
+  .confirm-title {
+    font-size: 16px;
   }
 
-  .react-icons {
-    vertical-align: -1px;
+  .title {
+    font-size: 13px;
   }
 
   .section {
@@ -157,8 +152,12 @@
   }
 
   .outer-image {
-    height: 100%;
-    width: 100%;
+    height: 150px;
+    width: 150px;
+  }
+
+  .detail-area-delete {
+    margin-top: 60px;
   }
 
   .detail-area {

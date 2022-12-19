@@ -7,11 +7,12 @@ import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.cs
 import ReactLoading from "react-loading";
 import comicNewGenreJson from "../../../json/comicNewGenre.json";
 import { AiFillHome } from "react-icons/ai";
-import { ComicDeleteButton } from "../../ui/Parts";
 import axios from "axios";
 import { AuthContext } from "../../../providers/AuthGuard";
 import { useContext } from "react";
 import { FcReading, FcHighPriority, FcFile, FcPicture, FcFeedback, FcUpLeft } from "react-icons/fc";
+import { BsFillTrashFill } from "react-icons/bs";
+
 
 const ComicEdit = () => {
   const navigate = useNavigate();
@@ -21,21 +22,6 @@ const ComicEdit = () => {
   const { useShowComic } = useComic();
   const { data: comics, isLoading } = useShowComic(comic_id);
 
-  const { useDeleteComic } = useComic();
-  const deleteComic = useDeleteComic(comic_id);
-
-  //削除用関数
-  const handleDeleteComic = () => {
-    if (
-      window.confirm(`${comic_title}を削除しますか？`)
-    ) {
-      deleteComic.mutate();
-      alert(`${comic_title}を削除しました!`);
-      navigate('/mypage');
-    }
-  };
-
-  //更新用関数
   const onSubmit = async (data) => {
     const formData = new FormData();
     formData.append("title", data.title);
@@ -122,7 +108,7 @@ const ComicEdit = () => {
             <button className={form["form-submit"]} type="submit"><span className={form["react-icon"]}><FcFeedback /></span>この内容で登録する</button>
           </div>
           <div className={form["form-text-delete"]}>
-            <ComicDeleteButton handleDeleteComic={handleDeleteComic} />
+            <Link to={`/comic/${comic_id}/${comic_title}/comic_confirm_delete`} className={form['delete-button']}><span className={form['delete-button-icon']}><BsFillTrashFill /></span>削除</Link>
           </div>
           <div className={form["form-text-back"]}>
             <button onClick={() => navigate('/mypage')} className={scenePostShow.back}><span className={scenePostShow["react-icon"]}><FcUpLeft /></span>マイページへ戻る</button>
