@@ -32,7 +32,7 @@ const Home = () => {
             </div>
             :
             <div className={home["post-title"]}>
-              <button onClick={() => loginWithRedirect({ redirect_url: window.location.origin })} className={home["post-title-link"]}><span className={home["react-icon"]}><FcHome /></span>ログイン/新規登録</button>
+              <button onClick={() => loginWithRedirect({ redirect_url: `${window.location.origin}/mypage` })} className={home["post-title-link"]}><span className={home["react-icon"]}><FcHome /></span>ログイン/新規登録</button>
             </div>
           }
           </div>

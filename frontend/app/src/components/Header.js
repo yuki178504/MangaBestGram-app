@@ -28,7 +28,7 @@ const Header = () => {
             </li>
             :
             <li className={header.li}>
-              <button onClick={() => loginWithRedirect({ redirect_url: window.location.origin })} className={header["nav-sign-in"]}><span className={header["react-icon"]}><FcHome /></span>新規登録/ログイン</button>
+              <button onClick={() => loginWithRedirect({ redirect_url: `${window.location.origin}/mypage` })} className={header["nav-sign-in"]}><span className={header["react-icon"]}><FcHome /></span>新規登録/ログイン</button>
             </li>
           }
         </ul>
