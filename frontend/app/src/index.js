@@ -15,7 +15,10 @@ root.render(
     domain={domain}
     clientId={clientId}
     audience={audience}
-    redirectUri={window.location.origin}
+    redirectUri={`${window.location.origin}/mypage`}
+    onRedirectCallback={`${window.location.origin}/mypage`}
+    useRefreshTokens={true}
+    cacheLocation='localstorage'
   >
     <App />
   </Auth0Provider>

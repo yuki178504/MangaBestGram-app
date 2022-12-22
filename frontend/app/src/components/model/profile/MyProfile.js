@@ -6,7 +6,8 @@ import ProfileEdit from './ProfileEdit';
 import subMenu from "../../../css/ui/subMenu.module.css";
 import mypage from "../../../css/mypage.module.css";
 import { AiFillHome } from "react-icons/ai";
-import { FcVoicePresentation, FcUnlock } from "react-icons/fc";
+import { FcVoicePresentation, FcUnlock, FcKindle } from "react-icons/fc";
+import EmailChange from './EmailChange';
 
 const MyProfile = () => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -36,6 +37,10 @@ const MyProfile = () => {
               <div>パスワード変更</div>
               <div className={mypage["menu-icon"]}><FcUnlock /></div>
             </Tab>
+            <Tab style={ tabIndex === 2 ? color : null } className={mypage["menu-list-in"]}>
+              <div>メールアドレス変更</div>
+              <div className={mypage["menu-icon"]}><FcKindle /></div>
+            </Tab>
           </TabList>
 
           <TabPanel>
@@ -43,6 +48,9 @@ const MyProfile = () => {
           </TabPanel>
           <TabPanel>
             <PasswordChange />
+          </TabPanel>
+          <TabPanel>
+            <EmailChange />
           </TabPanel>
         </Tabs>
       </div>
