@@ -15,6 +15,6 @@ class Api::V1::User::UsersController < SecuredController
   private
 
   def user_params
-    params.permit(:name, :introduction, :image, :url)
+    params.permit(:name, :introduction, :image, :url, :e_mail)
   end
 end
