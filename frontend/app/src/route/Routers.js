@@ -11,6 +11,7 @@ import {
   ComicImageEdit,
   ScenePostShow,
   ScenePostEdit,
+  ScenePostImageEdit,
   GeneralScenePost,
   GeneralComic,
   GeneralScenePostShow,
@@ -35,6 +36,7 @@ const Routers = () => {
       <Route path='/comic/:comic_id/:comic_title/scene_post_new' element={ <ProtectedRoute component={ScenePostNew}/> } />
       <Route path='/scene_post/:comic_title/:scene_post_id' element={ <ProtectedRoute component={ScenePostShow}/> } />
       <Route path='/scene_post/:comic_id/:comic_title/:scene_post_id/scene_post_edit' element={ <ProtectedRoute component={ScenePostEdit}/> } />
+      <Route path='/scene_post/:comic_id/:comic_title/:scene_post_id/scene_post_edit/scene_post_image_edit' element={ <ProtectedRoute component={ScenePostImageEdit}/> } />
       <Route path='/scene_post/:comic_id/:comic_title/:scene_post_id/scene_post_confirm_delete' element={ <ProtectedRoute component={ScenePostConfirmDelete}/> } />
       <Route path='/comic/:comic_id/:comic_title/comic_edit' element={ <ProtectedRoute component={ComicEdit}/> } />
       <Route path='/comic/:comic_id/:comic_title/comic_edit/comic-image-edit' element={ <ProtectedRoute component={ComicImageEdit}/> } />
