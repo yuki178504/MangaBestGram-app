@@ -7,8 +7,11 @@ import { useComic } from '../../../hooks/useComic';
 import { useFavorite } from '../../../hooks/useFavorite';
 import profile from '../../../css/model/profile.module.css';
 import { FcPortraitMode, FcGraduationCap, FcImageFile, FcEditImage, FcLike, FcReading, FcFilm } from "react-icons/fc";
+import { useContext } from 'react';
+import { AuthContext } from '../../../providers/AuthGuard';
 
 const Profile = () => {
+  const { user } = useContext(AuthContext);
   const { useGetUser } = useUser();
   const { useGetComic, useGetScenePostCount } = useComic();
   const { useGetFavorite } = useFavorite();
@@ -16,13 +19,14 @@ const Profile = () => {
   const { data: favorites, isLoading: favoriteLoading } = useGetFavorite();
   const { data: comics, isLoading: comicLoading } = useGetComic();
   const { data: scenePostCounts, isLoading: scenePostCountsLoading } = useGetScenePostCount();
-  const { data: user, isLoading } = useGetUser();
+  const { data: users, isLoading } = useGetUser();
   const regExp = /(https?:\/\/\S+)/g;
 
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
   if(favoriteLoading) return <></>
   if(comicLoading) return <></>
   if(scenePostCountsLoading) return <></>
+  console.log(user)
 
   return (
     <div className={profile.wrapper}>
@@ -33,24 +37,26 @@ const Profile = () => {
           </div>
           <div className={profile['detail-area']}>
             <p className={profile.detail}><span className={profile["react-icon"]}><FcPortraitMode /></span>ユーザー名</p>
-            <div>{ user.name }</div>
+            <div>{ users.name }</div>
           </div>
           <div className={profile['outer-image']}>
-            <img className={profile.image} src={ user.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+            <img className={profile.image} src={ users.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
           </div>
           <div className={profile['detail-area']}>
             <p className={profile.detail}><span className={profile["react-icon"]}><FcGraduationCap /></span>自己紹介</p>
-            <div>{ user.introduction }</div>
+            <div>{ users.introduction }</div>
           </div>
           <div className={profile['detail-area-last']}>
             <p className={profile.detail}><span className={profile["react-icon"]}><FcImageFile /></span>webサイトリンク</p>
-            {reactStringReplace(user.url, regExp, (match, i) => (
+            {reactStringReplace(users.url, regExp, (match, i) => (
               <a className={profile.a} key={i} href={match}>{match}</a>
             ))}
           </div>
-          <div className={profile['detail-area']}>
-            <Link to={`/my-profile/${user.id}`} className={profile.button}><span className={profile["react-icon"]}><FcEditImage /></span>プロフィールを編集する</Link>
-          </div>
+          {"example@example.com" != user.email && (
+            <div className={profile['detail-area']}>
+              <Link to={`/my-profile/${users.id}`} className={profile.button}><span className={profile["react-icon"]}><FcEditImage /></span>プロフィールを編集する</Link>
+            </div>
+          ) }
           <div className={profile['detail-area-count']}>
             <div className={profile.list}>
               <p className={profile['detail-list']}><span className={profile["react-icon"]}><FcReading /></span>漫画数</p>
