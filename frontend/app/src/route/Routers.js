@@ -2,15 +2,16 @@ import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from '../providers/protectedRoute';
 import {
   Home,
-  TermsOfService, 
-  PrivacyPolicy, 
+  TermsOfService,
+  PrivacyPolicy,
   MyPage,
-  ScenePost, 
-  ScenePostNew, 
-  ComicEdit, 
-  ScenePostShow, 
-  ScenePostEdit, 
-  GeneralScenePost, 
+  ScenePost,
+  ScenePostNew,
+  ComicEdit,
+  ComicImageEdit,
+  ScenePostShow,
+  ScenePostEdit,
+  GeneralScenePost,
   GeneralComic,
   GeneralScenePostShow,
   Page404,
@@ -36,6 +37,7 @@ const Routers = () => {
       <Route path='/scene_post/:comic_id/:comic_title/:scene_post_id/scene_post_edit' element={ <ProtectedRoute component={ScenePostEdit}/> } />
       <Route path='/scene_post/:comic_id/:comic_title/:scene_post_id/scene_post_confirm_delete' element={ <ProtectedRoute component={ScenePostConfirmDelete}/> } />
       <Route path='/comic/:comic_id/:comic_title/comic_edit' element={ <ProtectedRoute component={ComicEdit}/> } />
+      <Route path='/comic/:comic_id/:comic_title/comic_edit/comic-image-edit' element={ <ProtectedRoute component={ComicImageEdit}/> } />
       <Route path='/comic/:comic_id/:comic_title/comic_confirm_delete' element={ <ProtectedRoute component={ComicConfirmDelete}/> } />
       <Route path='/general_scene_post/:comic_title/:comic_id' element={ <GeneralScenePost /> } />
       <Route path='/general_scene_post/:comic_title/general_scene_post_show/:scene_post_id/' element={ <GeneralScenePostShow /> } />
