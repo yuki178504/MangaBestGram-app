@@ -25,3 +25,4 @@ export { default as ScenePostConfirmDelete } from '../components/model/scene_pos
 export { default as EmailChangeConfirm } from '../components/model/profile/ui/EmailChangeConfirm';
 export { default as ComicImageEdit } from '../components/model/mypage/ui/ComicImageEdit';
 export { default as ScenePostImageEdit } from '../components/model/scene_post/ui/ScenePostImageEdit';
+export { default as ProfileImageEdit } from '../components/model/profile/ui/ProfileImageEdit';

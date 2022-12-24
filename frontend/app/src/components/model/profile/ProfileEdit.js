@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../../../hooks/useUser";
 import { AuthContext } from "../../../providers/AuthGuard";
 import form from "../../../css/ui/form.module.css";
@@ -82,13 +82,7 @@ const ProfileEdit = () => {
             />
           </div>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}><span className={form["react-icon"]}><FcButtingIn /></span>ユーザーアイコン</div>
-            <input
-              className={form["form-input-image"]}
-              type="file"
-              accept="image/*"
-              {...register("image")}
-            />
+            <Link to={`/my-profile/${user_id}/profile-image-edit`} className={form['image-button']}><span className={form['react-icon']}><FcButtingIn /></span>画像を変更する</Link>
           </div>
           <div className={form["form-text"]}>
             <button className={form["form-submit"]} type="submit"><span className={form["react-icon"]}><FcFeedback /></span>この内容で登録する</button>
