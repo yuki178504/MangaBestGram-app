@@ -5,7 +5,6 @@ import form from "../../../css/ui/form.module.css";
 import { FcPortraitMode, FcGraduationCap, FcImageFile, FcFeedback, FcButtingIn, FcUpLeft, FcHighPriority } from "react-icons/fc";
 import ReactLoading from "react-loading";
 import subMenu from "../../../css/ui/subMenu.module.css";
-import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
 
 const ProfileEdit = () => {
   const navigate = useNavigate();
@@ -75,7 +74,7 @@ const ProfileEdit = () => {
             <button className={form["form-submit"]} type="submit"><span className={form["react-icon"]}><FcFeedback /></span>この内容で登録する</button>
           </div>
           <div className={form["form-text-back"]}>
-            <button onClick={() => navigate('/mypage')} className={scenePostShow.back}><span className={scenePostShow["react-icon"]}><FcUpLeft /></span>マイページへ戻る</button>
+            <button onClick={() => navigate('/mypage')} className={form.back}><span className={form["react-icon"]}><FcUpLeft /></span>マイページへ戻る</button>
           </div>
         </form>
       </div>
