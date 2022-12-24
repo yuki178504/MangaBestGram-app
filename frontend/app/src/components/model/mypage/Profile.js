@@ -26,7 +26,6 @@ const Profile = () => {
   if(favoriteLoading) return <></>
   if(comicLoading) return <></>
   if(scenePostCountsLoading) return <></>
-  console.log(user)
 
   return (
     <div className={profile.wrapper}>

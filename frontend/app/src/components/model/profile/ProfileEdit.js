@@ -1,11 +1,8 @@
-import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../../../hooks/useUser";
-import { AuthContext } from "../../../providers/AuthGuard";
 import form from "../../../css/ui/form.module.css";
 import { FcPortraitMode, FcGraduationCap, FcImageFile, FcFeedback, FcButtingIn, FcUpLeft, FcHighPriority } from "react-icons/fc";
-import axios from "axios";
 import ReactLoading from "react-loading";
 import subMenu from "../../../css/ui/subMenu.module.css";
 import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
@@ -13,30 +10,20 @@ import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.cs
 const ProfileEdit = () => {
   const navigate = useNavigate();
   const { user_id } = useParams();
-  const { token } = useContext(AuthContext);
 
-  const { useGetUser } = useUser();
+  const { useGetUser, usePutUser } = useUser();
   const { data: user, isLoading } = useGetUser(user_id);
+  const putUser = usePutUser(user_id);
 
   //更新関数
   const onSubmit = async (data) => {
-    const formData = new FormData();
-    formData.append("name", data.name);
-    formData.append("introduction", data.introduction);
-    formData.append("url", data.url);
-    formData.append("image", data.image[0]);
-
-    await axios.put(`${process.env.REACT_APP_DEV_API_URL}/user/users/${user_id}`, formData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'multipart/form-data',
-      },
-    })
-    .catch((error) => {
-      console.error(error.res.data);
-    });
-    alert(`編集しました！`);
-    navigate("/mypage");
+    try {
+      putUser.mutate(data);
+    } catch (error) {
+      console.error(error.response.data);
+    }
+    alert('編集しました！')
+    navigate('/mypage')
   };
 
   const { handleSubmit, register, formState: { errors } } = useForm({
