@@ -40,5 +40,6 @@ export const useUser = () => {
       }
     );
   };
+
   return { useGetUser, usePutUser };
 };

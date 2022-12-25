@@ -22,7 +22,7 @@ const ScenePostEdit = () => {
     } catch (error) {
       console.error(error.response.data);
     }
-    alert(`${scene_post.scene_title}を編集しました！`)
+    alert(`${scene_post.sub_title}を編集しました！`)
     navigate(`/comic/${comic_id}/${comic_title}`);
   };
 
@@ -100,7 +100,7 @@ const ScenePostEdit = () => {
             >
               <option>{ scene_post.scene_number }話</option>
               {number.map((numbers, index) =>
-                <option key={index} >{ numbers }話</option>
+                <option key={index}>{ numbers }話</option>
               )}
             </select>
           </div>

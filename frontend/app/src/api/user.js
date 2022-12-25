@@ -28,4 +28,4 @@ export const user = {
       console.error(error.response.data);
     });
   }
-}
+};

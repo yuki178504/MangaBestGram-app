@@ -77,7 +77,7 @@ const ComicEdit = () => {
             >
               <option>{ comics.genre }</option>
               {comicNewGenreJson.map((genre, index) =>
-                <option key={index} >{ genre.genre }</option>
+                <option key={index}>{ genre.genre }</option>
               )}
             </select>
           </div>
