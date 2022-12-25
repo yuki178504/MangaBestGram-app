@@ -10,6 +10,7 @@ import { Link as Scroll } from 'react-scroll';
 import { BsChevronDoubleDown } from "react-icons/bs";
 import { FcReading, FcFile, FcCalendar, FcMms, FcHome } from "react-icons/fc";
 import moment from 'moment';
+import { UserInformationName } from './ui/UserInformationDisplay';
 
 const Home = () => {
   const { useGetGeneralLatestComic } = useGeneralComic();
@@ -56,7 +57,7 @@ const Home = () => {
             <div key={comic.id} className={generalComic.content}>
               <div className={generalComic["innner-content"]}>
                 <div className={generalComic.list}>
-                  <div className={generalComic["user-name"]}><img className={generalComic["user-image"]} src={ comic.attributes.comicUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} />{ comic.attributes.comicUserName }</div>
+                  <div className={generalComic["user-name"]}><img className={generalComic["user-image"]} src={ comic.attributes.comicUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} /><UserInformationName userName={comic.attributes.comicUserName} />{ comic.attributes.comicUserName }</div>
                   <div className={generalComic["detail-area"]}>
                     <p className={generalComic.detail}><span className={generalComic["react-icon"]}><FcReading /></span>漫画名</p>
                     <div>{ comic.attributes.title }</div>

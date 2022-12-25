@@ -3,10 +3,10 @@ export const UserInformationName = ({userName}) => {
   return (
     <>
       { userName == "" && (
-      <div>ユーザー名がありません</div>
+      <span>ユーザー名がありません</span>
     ) }
     { userName == null && (
-      <div>ユーザー名がありません</div>
+      <span>ユーザー名がありません</span>
     ) }
     </>
   );
