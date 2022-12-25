@@ -23,3 +23,6 @@ export { default as GeneralUserComic } from '../components/model/user/GeneralUse
 export { default as ComicConfirmDelete } from '../components/model/mypage/ui/ComicConfirmDelete';
 export { default as ScenePostConfirmDelete } from '../components/model/scene_post/ui/ScenePostConfirmDelete';
 export { default as EmailChangeConfirm } from '../components/model/profile/ui/EmailChangeConfirm';
+export { default as ComicImageEdit } from '../components/model/mypage/ui/ComicImageEdit';
+export { default as ScenePostImageEdit } from '../components/model/scene_post/ui/ScenePostImageEdit';
+export { default as ProfileImageEdit } from '../components/model/profile/ui/ProfileImageEdit';

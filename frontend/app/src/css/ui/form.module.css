@@ -42,6 +42,7 @@
   font-size: 20px;
   margin-bottom: 10px;
   margin-top: 20px;
+  font-weight: bold;
 }
 
 .form-input {
@@ -49,6 +50,10 @@
   padding: 12px 0px;
   width: 50%;
   font: inherit;
+}
+
+.form-text-image {
+  margin-top: 100px;
 }
 
 .form-input-image {
@@ -75,6 +80,37 @@
 }
 
 .form-submit:hover {
+  opacity: 0.5;
+}
+
+.back {
+  border: 2px solid #a9a9a9;
+  border-radius: 5px;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 8px;
+  background-color: #a9a9a9;
+  color: white;
+}
+
+.back:hover {
+  opacity: 0.5;
+}
+
+.image-button {
+  text-decoration: none;
+  background-color: #66cdaa;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 15px;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+}
+
+.image-button:hover {
   opacity: 0.5;
 }
 
@@ -105,6 +141,40 @@
   font-size: 16px;
   vertical-align: -3px;
   margin-right: 3px;
+}
+
+.outer-image {
+  margin: 0 auto;
+  height: 200px;
+  width: 200px;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.profile-outer-image {
+  margin: 0 auto;
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+}
+
+.profile-image {
+  margin: 0 auto;
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+}
+
+.detail {
+  text-align: center;
+  color: #ff8c00;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 @media screen and (min-width: 541px) and (max-width: 1024px) {

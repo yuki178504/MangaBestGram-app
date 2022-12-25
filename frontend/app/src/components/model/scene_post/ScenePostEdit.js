@@ -4,40 +4,25 @@ import ReactLoading from "react-loading";
 import subMenu from "../../../css/ui/subMenu.module.css";
 import { useForm } from "react-hook-form";
 import form from "../../../css/ui/form.module.css";
-import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
 import { AiFillHome } from "react-icons/ai";
 import { FcFilm, FcHighPriority, FcCalendar, FcKindle, FcPicture, FcFeedback, FcUpLeft, FcContacts, FcNews } from "react-icons/fc";
 import { BsFillTrashFill } from "react-icons/bs";
-import { AuthContext } from "../../../providers/AuthGuard";
-import { useContext } from "react";
-import axios from "axios";
 
 const ScenePostEdit = () => {
   const navigate = useNavigate();
   const { scene_post_id, comic_id, comic_title  } = useParams();
-  const { token } = useContext(AuthContext);
 
-  const { useShowScenePost } = useScenePost();
+  const { useShowScenePost, usePutScenePost } = useScenePost();
   const { data: scene_post, isLoading } = useShowScenePost(scene_post_id);
+  const putScenePost = usePutScenePost(comic_id, scene_post_id);
 
-  const onSubmit = async (data) => {
-    const formData = new FormData();
-    formData.append("scene_title", data.scene_title);
-    formData.append("scene_number", data.scene_number);
-    formData.append("scene_date", data.scene_date);
-    formData.append("scene_content", data.scene_content);
-    formData.append("scene_image", data.scene_image[0]);
-
-    await axios.put(`${process.env.REACT_APP_DEV_API_URL}/user/scene_posts/${scene_post_id}`, formData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'multipart/form-data',
-      },
-    })
-    .catch((error) => {
-      console.error(error.res.data);
-    });
-    alert(`${scene_post.scene_title}を編集しました！`);
+  const onSubmit = (data) => {
+    try {
+      putScenePost.mutate(data);
+    } catch (error) {
+      console.error(error.response.data);
+    }
+    alert(`${scene_post.sub_title}を編集しました！`)
     navigate(`/comic/${comic_id}/${comic_title}`);
   };
 
@@ -89,7 +74,7 @@ const ScenePostEdit = () => {
             />
           </div>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}><span className={scenePostShow["react-icon"]}><FcNews /></span>シーンの内容</div>
+            <div className={form["form-label"]}><span className={form["react-icon"]}><FcNews /></span>シーンの内容</div>
             { errors.scene_title &&
               <div className={form.errors}><span className={form["react-icon"]}><FcHighPriority /></span>好きなシーン名が空欄です</div> 
             }
@@ -115,7 +100,7 @@ const ScenePostEdit = () => {
             >
               <option>{ scene_post.scene_number }話</option>
               {number.map((numbers, index) =>
-                <option key={index} >{ numbers }話</option>
+                <option key={index}>{ numbers }話</option>
               )}
             </select>
           </div>
@@ -129,7 +114,7 @@ const ScenePostEdit = () => {
             />
           </div>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}><span className={scenePostShow["react-icon"]}><FcKindle /></span>シーンの詳細・感想</div>
+            <div className={form["form-label"]}><span className={form["react-icon"]}><FcKindle /></span>シーンの詳細・感想</div>
             <textarea
               rows='10'
               cols='60'
@@ -140,13 +125,7 @@ const ScenePostEdit = () => {
             />
           </div>
           <div className={form["form-text"]}>
-            <div className={form["form-label"]}><span className={form["react-icon"]}><FcPicture /></span>シーンの画像</div>
-            <input
-              className={form["form-input-image"]}
-              type="file"
-              accept="image/*"
-              {...register("scene_image")}
-            />
+            <Link to={`/scene_post/${comic_id}/${comic_title}/${scene_post_id}/scene_post_edit/scene_post_image_edit`} className={form['image-button']}><span className={form['react-icon']}><FcPicture /></span>画像を変更する</Link>
           </div>
           <div className={form["form-text"]}>
             <button className={form["form-submit"]} type="submit"><span className={form["react-icon"]}><FcFeedback /></span>この内容で登録する</button>
@@ -155,7 +134,7 @@ const ScenePostEdit = () => {
             <Link to={`/scene_post/${comic_id}/${comic_title}/${scene_post_id}/scene_post_confirm_delete`} className={form['delete-button']}><span className={form['delete-button-icon']}><BsFillTrashFill /></span>削除</Link>
           </div>
           <div className={form["form-text-back"]}>
-            <button onClick={() => navigate(`/comic/${comic_id}/${comic_title}`)} className={scenePostShow.back}><span className={form["react-icon"]}><FcUpLeft /></span>シーン一覧へ戻る</button>
+            <button onClick={() => navigate(`/comic/${comic_id}/${comic_title}`)} className={form.back}><span className={form["react-icon"]}><FcUpLeft /></span>シーン一覧へ戻る</button>
           </div>
         </form>
       </div>
