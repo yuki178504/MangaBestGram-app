@@ -9,6 +9,7 @@ import profile from '../../../css/model/profile.module.css';
 import { FcPortraitMode, FcGraduationCap, FcImageFile, FcEditImage, FcLike, FcReading, FcFilm } from "react-icons/fc";
 import { useContext } from 'react';
 import { AuthContext } from '../../../providers/AuthGuard';
+import { UserInformationIntroduction, UserInformationName, UserInformationWebLink } from '../../ui/UserInformationDisplay';
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
@@ -36,6 +37,7 @@ const Profile = () => {
           </div>
           <div className={profile['detail-area']}>
             <p className={profile.detail}><span className={profile["react-icon"]}><FcPortraitMode /></span>ユーザー名</p>
+            <UserInformationName userName={users.name} />
             <div>{ users.name }</div>
           </div>
           <div className={profile['outer-image']}>
@@ -43,10 +45,12 @@ const Profile = () => {
           </div>
           <div className={profile['detail-area']}>
             <p className={profile.detail}><span className={profile["react-icon"]}><FcGraduationCap /></span>自己紹介</p>
+            <UserInformationIntroduction userIntroduction={users.introduction} />
             <div>{ users.introduction }</div>
           </div>
           <div className={profile['detail-area-last']}>
             <p className={profile.detail}><span className={profile["react-icon"]}><FcImageFile /></span>webサイトリンク</p>
+            <UserInformationWebLink userUrl={users.url} />
             {reactStringReplace(users.url, regExp, (match, i) => (
               <a className={profile.a} key={i} href={match}>{match}</a>
             ))}
