@@ -4,6 +4,7 @@ import { FcReading, FcFile, FcUpLeft, FcPicture } from "react-icons/fc";
 import { useNavigate, useParams } from "react-router-dom";
 import ReactLoading from "react-loading";
 import confirm from "../../../../css/ui/Confirm.module.css";
+import scenery from "../../../../image/scenery.png";
 
 const ComicConfirmDelete = () => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const ComicConfirmDelete = () => {
           </div>
           <div className={confirm["outer-image"]}>
           <p className={confirm.detail}><span className={confirm["react-icon"]}><FcPicture /></span>漫画の画像</p>
-            <img className={confirm.image} src={ comic.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+            <img className={confirm.image} src={ comic.image.url } alt='画像' onError={(e) => e.target.src = scenery} />
           </div>
           <div className={confirm["detail-area-delete"]}>
             <button className={confirm['delete-button']} onClick={handleDeleteComic}><span className={confirm['delete-button-icon']}><BsFillTrashFill /></span>削除</button>

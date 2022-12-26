@@ -7,6 +7,7 @@ import subMenu from '../../../css/ui/subMenu.module.css';
 import { FcReading, FcFile, FcCalendar, FcMms } from "react-icons/fc";
 import moment from 'moment';
 import noimage from "../../../image/default.png";
+import scenery from "../../../image/scenery.png";
 
 const GeneralUserComic = () => {
   const { user_id } = useParams();
@@ -52,7 +53,7 @@ const GeneralUserComic = () => {
               <div className={generalComic["outer-image"]}>
                 <div className={generalComic["detail-area-image"]}>
                   <div className={generalComic["create-at"]}><span className={generalComic["detail-text"]}><span className={generalComic["react-icon"]}><FcCalendar /></span>{ moment(comic.createdAt).format('YYYY年MM月DD日HH:mm') }</span></div>
-                  <img className={generalComic.image} src={ comic.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                  <img className={generalComic.image} src={ comic.image.url } alt='画像' onError={(e) => e.target.src = scenery} />
                 </div>
               </div>
             </div>

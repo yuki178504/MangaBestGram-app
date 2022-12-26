@@ -2,6 +2,7 @@ import { useGeneralComic } from "../../../hooks/useGeneralComic";
 import ReactLoading from "react-loading";
 import { Link } from 'react-router-dom';
 import noimage from "../../../image/default.png";
+import scenery from "../../../image/scenery.png";
 import generalComic from "../../../css/model/general/generalComic.module.css";
 import subMenu from '../../../css/ui/subMenu.module.css';
 import { AiFillHome } from "react-icons/ai";
@@ -114,7 +115,7 @@ const GeneralComic = () => {
               <div className={generalComic["outer-image"]}>
                 <div className={generalComic["detail-area-image"]}>
                   <div className={generalComic["create-at"]}><span className={generalComic["detail-text"]}><span className={generalComic["react-icon"]}><FcCalendar /></span>{ moment(comic.attributes.createdAt).format('YYYY年MM月DD日HH:mm') }</span></div>
-                  <img className={generalComic.image} src={ comic.attributes.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                  <img className={generalComic.image} src={ comic.attributes.image.url } alt='画像' onError={(e) => e.target.src = scenery} />
                 </div>
               </div>
             </div>

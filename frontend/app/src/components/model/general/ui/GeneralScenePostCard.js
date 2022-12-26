@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import generalScenePost from '../../../../css/model/general/generalScenePost.module.css';
 import noimage from "../../../../image/default.png";
+import scenery from "../../../../image/scenery.png";
 import { FcFilm, FcContacts, FcCalendar, FcMms, FcSms, FcLikePlaceholder } from "react-icons/fc";
 import UnFavoriteButton from "../../../ui/UnFavoriteButton";
 import FavoriteButton from "../../../ui/FavoriteButton";
@@ -84,7 +85,7 @@ const GeneralScenePostCard = ({
         <div className={generalScenePost["outer-image"]}>
           <div className={generalScenePost["detail-area-image"]}>
             <div className={generalScenePost["create-at"]}><span className={generalScenePost["detail-text"]}><span className={generalScenePost["react-icon"]}><FcCalendar /></span>{ moment(scenePostCreatedAt).format('YYYY年MM月DD日HH:mm') }</span></div>
-            <img className={generalScenePost.image} src={ scenePostImage } alt='画像' onError={(e) => e.target.src = noimage} />
+            <img className={generalScenePost.image} src={ scenePostImage } alt='画像' onError={(e) => e.target.src = scenery} />
             <div className={generalScenePost['detail-area-count']}>
               <div className={generalScenePost['detail-area-list']}>
                 <div><span className={generalScenePost["react-icon"]}><FcSms /></span>コメント&nbsp;{ generalComments.data.length }件</div>

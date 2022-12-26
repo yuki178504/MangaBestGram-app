@@ -5,7 +5,8 @@ import { AuthContext } from '../providers/AuthGuard';
 import { Link } from 'react-router-dom';
 import { useGeneralComic } from '../hooks/useGeneralComic';
 import ReactLoading from "react-loading";
-import noimage from "../image/default.png"
+import noimage from "../image/default.png";
+import scenery from "../image/scenery.png";
 import { Link as Scroll } from 'react-scroll';
 import { BsChevronDoubleDown } from "react-icons/bs";
 import { FcReading, FcFile, FcCalendar, FcMms, FcHome } from "react-icons/fc";
@@ -73,7 +74,7 @@ const Home = () => {
                 <div className={generalComic["outer-image"]}>
                   <div className={generalComic["detail-area-image"]}>
                     <div className={generalComic["create-at"]}><span className={generalComic["detail-text"]}><span className={generalComic["react-icon"]}><FcCalendar /></span>{ moment(comic.attributes.createdAt).format('YYYY年MM月DD日HH:mm') }</span></div>
-                    <img className={generalComic.image} src={ comic.attributes.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                    <img className={generalComic.image} src={ comic.attributes.image.url } alt='画像' onError={(e) => e.target.src = scenery} />
                   </div>
                 </div>
               </div>
