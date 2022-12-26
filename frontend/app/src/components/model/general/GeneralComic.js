@@ -2,12 +2,14 @@ import { useGeneralComic } from "../../../hooks/useGeneralComic";
 import ReactLoading from "react-loading";
 import { Link } from 'react-router-dom';
 import noimage from "../../../image/default.png";
+import scenery from "../../../image/scenery.png";
 import generalComic from "../../../css/model/general/generalComic.module.css";
 import subMenu from '../../../css/ui/subMenu.module.css';
 import { AiFillHome } from "react-icons/ai";
 import { FcReading, FcFile, FcCalendar, FcMms, FcSearch } from "react-icons/fc";
 import { useMemo, useState } from "react";
 import moment from 'moment';
+import { UserInformationName } from "../../ui/UserInformationDisplay";
 
 const GeneralComic = () => {
   const { useGetGeneralComic } = useGeneralComic();
@@ -24,7 +26,7 @@ const GeneralComic = () => {
         (kw) => comic.attributes.title.indexOf(kw) !== -1
       )
     );
-  }
+  };
 
   const [ sort, setSort ] = useState({});
 
@@ -72,7 +74,7 @@ const GeneralComic = () => {
           <span>/ 漫画一覧</span>
         </div>
       </div>
-      <div className={generalComic.count}>【投稿数】 {comics.data.length}件</div>
+      <div className={generalComic.count}>【投稿数】&nbsp;{comics.data.length}件</div>
       <div className={generalComic.sort}>
         <button className={sort.key === 'id' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('id')}>並び替え </button>
       </div>
@@ -93,7 +95,11 @@ const GeneralComic = () => {
           <div key={comic.id} className={generalComic.content}>
             <div className={generalComic["innner-content"]}>
               <div className={generalComic.list}>
-                <div className={generalComic["user-name"]}><img className={generalComic["user-image"]} src={ comic.attributes.comicUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} />{ comic.attributes.comicUserName }</div>
+                <div className={generalComic["user-name"]}>
+                  <img className={generalComic["user-image"]} src={ comic.attributes.comicUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                  <UserInformationName userName={comic.attributes.comicUserName} />
+                  { comic.attributes.comicUserName }
+                </div>
                 <div className={generalComic["detail-area"]}>
                   <p className={generalComic.detail}><span className={generalComic["react-icon"]}><FcReading /></span>漫画名</p>
                   <div>{ comic.attributes.title }</div>
@@ -109,7 +115,7 @@ const GeneralComic = () => {
               <div className={generalComic["outer-image"]}>
                 <div className={generalComic["detail-area-image"]}>
                   <div className={generalComic["create-at"]}><span className={generalComic["detail-text"]}><span className={generalComic["react-icon"]}><FcCalendar /></span>{ moment(comic.attributes.createdAt).format('YYYY年MM月DD日HH:mm') }</span></div>
-                  <img className={generalComic.image} src={ comic.attributes.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                  <img className={generalComic.image} src={ comic.attributes.image.url } alt='画像' onError={(e) => e.target.src = scenery} />
                 </div>
               </div>
             </div>

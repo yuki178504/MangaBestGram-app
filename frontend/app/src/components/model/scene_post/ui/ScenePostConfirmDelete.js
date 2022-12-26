@@ -4,6 +4,7 @@ import ReactLoading from "react-loading";
 import confirm from "../../../../css/ui/Confirm.module.css";
 import { FcFilm, FcCalendar, FcPicture, FcUpLeft, FcContacts, FcNews } from "react-icons/fc";
 import { BsFillTrashFill } from "react-icons/bs";
+import scenery from "../../../../image/scenery.png";
 
 const ScenePostConfirmDelete = () => {
   const { scene_post_id, comic_id, comic_title } = useParams();
@@ -48,7 +49,7 @@ const ScenePostConfirmDelete = () => {
           </div>
           <div className={confirm["outer-image"]}>
           <p className={confirm.detail}><span className={confirm["react-icon"]}><FcPicture /></span>シーンの画像</p>
-            <img className={confirm.image} src={ scene_post.scene_image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+            <img className={confirm.image} src={ scene_post.scene_image.url } alt='画像' onError={(e) => e.target.src = scenery} />
           </div>
           <div className={confirm["detail-area-delete"]}>
             <button className={confirm['delete-button']} onClick={handleDeleteScenePost}><span className={confirm['delete-button-icon']}><BsFillTrashFill /></span>削除</button>

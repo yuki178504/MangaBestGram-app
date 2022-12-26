@@ -4,6 +4,7 @@ import noimage from "../../../../image/default.png";
 import { useGeneralUser } from '../../../../hooks/useGeneralUser';
 import { FcVoicePresentation, FcDocument, FcFilm, FcReading, FcPodiumWithSpeaker, FcMms } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { UserInformationIntroduction, UserInformationName, UserInformationWebLink } from "../../../ui/UserInformationDisplay";
 
 const GeneralUserCard = ({
   userId,
@@ -24,13 +25,18 @@ const GeneralUserCard = ({
     <div className={generalUser.content}>
       <div className={generalUser["innner-content"]}>
         <div className={generalUser.list}>
-          <div className={generalUser["user-name"]}><img className={generalUser["user-image"]} src={ userImage } alt='画像' onError={(e) => e.target.src = noimage} /><span className={generalUser["react-icon"]}><FcPodiumWithSpeaker /></span>ユーザー名&nbsp;<span className={generalUser["user-name-text"]}>{ userName }</span></div>
+          <div className={generalUser["user-name"]}>
+            <img className={generalUser["user-image"]} src={ userImage } alt='画像' onError={(e) => e.target.src = noimage} />
+            <span className={generalUser["react-icon"]}><FcPodiumWithSpeaker /></span>ユーザー名&nbsp;<span className={generalUser["user-name-text"]}><UserInformationName userName={userName} />{ userName }</span>
+          </div>
           <div className={generalUser['detail-area']}>
             <p className={generalUser.detail}><span className={generalUser["react-icon"]}><FcVoicePresentation /></span>自己紹介</p>
+            <UserInformationIntroduction userIntroduction={userIntroduction} />
             <div>{ userIntroduction }</div>
           </div>
           <div className={generalUser['detail-area']}>
             <p className={generalUser.detail}><span className={generalUser["react-icon"]}><FcDocument /></span>webサイトリンク</p>
+            <UserInformationWebLink userUrl={userUrl} />
             {reactStringReplace(userUrl, regExp, (match, i) => (
               <a className={generalUser.a} key={i} href={match}>{match}</a>
             ))}

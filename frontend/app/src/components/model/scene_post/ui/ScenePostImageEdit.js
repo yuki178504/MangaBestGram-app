@@ -7,7 +7,7 @@ import { AuthContext } from "../../../../providers/AuthGuard";
 import ReactLoading from "react-loading";
 import subMenu from "../../../../css/ui/subMenu.module.css";
 import form from "../../../../css/ui/form.module.css";
-import noimage from "../../../../image/default.png";
+import scenery from "../../../../image/scenery.png";
 import { FcPicture, FcFeedback, FcUpLeft, FcHighPriority } from "react-icons/fc";
 
 const ScenePostImageEdit = () => {
@@ -48,7 +48,7 @@ const ScenePostImageEdit = () => {
           <div className={form["form-text"]}>
             <div className={form["outer-image"]}>
               <p className={form.detail}><span className={form["react-icon"]}><FcPicture /></span>現在の画像</p>
-              <img className={form.image} src={ scene_post.scene_image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+              <img className={form.image} src={ scene_post.scene_image.url } alt='画像' onError={(e) => e.target.src = scenery} />
             </div>
             <div className={form["form-text-image"]}>
               { errors.scene_image &&

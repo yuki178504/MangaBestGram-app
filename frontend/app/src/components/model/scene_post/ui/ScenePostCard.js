@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import scenePost from '../../../../css/model/scene_post/scenePost.module.css';
 import moment from 'moment';
-import noimage from "../../../../image/default.png";
+import scenery from "../../../../image/scenery.png";
 import { useGeneralComment } from "../../../../hooks/useGeneralComment";
 import { FcCalendar, FcMms, FcFilm, FcContacts, FcSms, FcEditImage } from "react-icons/fc";
 
@@ -24,7 +24,7 @@ const ScenePostCard = ({
     <div className={scenePost.content}>
       <div className={scenePost["innner-content"]}>
         <div className={scenePost["outer-image"]}>
-          <img className={scenePost.image} src={ scenePostImage } alt='画像' onError={(e) => e.target.src = noimage} />
+          <img className={scenePost.image} src={ scenePostImage } alt='画像' onError={(e) => e.target.src = scenery} />
         </div>
         <div className={scenePost.list}>
           <div className={scenePost["detail-area"]}>

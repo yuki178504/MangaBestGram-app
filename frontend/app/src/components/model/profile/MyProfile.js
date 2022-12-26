@@ -11,7 +11,7 @@ import EmailChange from './EmailChange';
 
 const MyProfile = () => {
   const [tabIndex, setTabIndex] = useState(0);
-  const color = { background: '#ffc0cb' }
+  const color = { background: '#ffc0cb' };
 
   return (
     <div className={mypage.wrapper}>
@@ -21,9 +21,9 @@ const MyProfile = () => {
             <Link to='/' className={subMenu["home-link"]}><span className={subMenu["react-icons"]}><AiFillHome /></span>ホーム</Link>
           </span>
           <span>
-            <Link to='/mypage' className={subMenu["home-link"]}><span> / マイページ</span></Link>
+            <Link to='/mypage' className={subMenu["home-link"]}><span>&nbsp;/&nbsp;マイページ</span></Link>
           </span>
-          <span> / プロフィール編集</span>
+          <span>&nbsp;/&nbsp;プロフィール編集</span>
         </div>
       </div>
       <div className={mypage.menu}>

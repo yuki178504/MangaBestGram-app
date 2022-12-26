@@ -61,10 +61,10 @@ const ScenePostNew = () => {
             <Link to='/' className={subMenu["home-link"]}><span className={subMenu["react-icons"]}><AiFillHome /></span>ホーム</Link>
           </span>
           <span>
-            <Link to='/mypage' className={subMenu["home-link"]}><span>/ マイページ</span></Link>
+            <Link to='/mypage' className={subMenu["home-link"]}><span>/&nbsp;マイページ</span></Link>
           </span>
           <span className={subMenu["comic-title"]}>
-            / { comic_title }のシーン投稿画面
+          /&nbsp;{ comic_title }のシーン投稿画面
           </span>
         </div>
       </div>

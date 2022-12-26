@@ -13,7 +13,7 @@ const Footer = () => {
             <Link to="/privacy-policy" className={footer["container-list"]}>プライバシーポリシー</Link>
           </li>
         </ul>
-        <p className={footer["copylight"]}>Copyright © 2022. YUKI</p>
+        <p className={footer["copylight"]}>Copyright&nbsp;©&nbsp;2022.&nbsp;YUKI</p>
       </div>
     </footer>
   );

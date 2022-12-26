@@ -5,7 +5,7 @@ import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.cs
 import subMenu from '../../../css/ui/subMenu.module.css';
 import { AiFillHome } from "react-icons/ai";
 import { FcReading, FcFilm, FcKindle, FcSms, FcCalendar, FcContacts, FcNews, FcUpLeft } from "react-icons/fc";
-import noimage from "../../../image/default.png";
+import scenery from "../../../image/scenery.png";
 import Comment from "../comment/Comment";
 import { AuthContext } from "../../../providers/AuthGuard";
 import { useContext } from "react";
@@ -39,7 +39,7 @@ const GeneralScenePostShow = () => {
       <div className={scenePostShow.section}>
         <div className={scenePostShow.content}>
           <div className={scenePostShow["outer-image"]}>
-            <img className={scenePostShow.image} src={ scene_post.data.attributes.sceneImage.url } alt='画像' onError={(e) => e.target.src = noimage} />
+            <img className={scenePostShow.image} src={ scene_post.data.attributes.sceneImage.url } alt='画像' onError={(e) => e.target.src = scenery} />
           </div>
           <div className={scenePostShow.article}>
             <p className={scenePostShow["comic-title"]}><span className={scenePostShow["react-icon"]}><FcReading /></span>{ scene_post.data.attributes.scenePostComicTitle }</p>

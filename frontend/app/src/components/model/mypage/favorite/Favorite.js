@@ -26,7 +26,7 @@ const Favorite = () => {
 
   return (
     <div className={favorite.wrapper}>
-      <div className={favorite.count}>【お気に入り数】 {favorites.data.length}件</div>
+      <div className={favorite.count}>【お気に入り数】&nbsp;{favorites.data.length}件</div>
       <div className={favorite.search}>
       <span className={favorite["fc-search"]}><FcSearch /></span>
         <input
@@ -44,6 +44,7 @@ const Favorite = () => {
           <FavoriteCard 
             key={index}
             Id= {favorite.id}
+            favoriteComicTitle={favorite.attributes.scene_post_comic_title}
             favoriteUserImage={favorite.attributes.scene_post_user_image.url}
             favoriteUserName={favorite.attributes.scene_post_user_name}
             favoriteSubTitle={favorite.attributes.sub_title}

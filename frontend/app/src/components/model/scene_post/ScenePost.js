@@ -70,16 +70,16 @@ const ScenePost = () => {
             <Link to='/' className={scenePost["home-link"]}><span className={scenePost["react-icons"]}><AiFillHome /></span>ホーム</Link>
           </span>
           <span>
-            <Link to='/mypage' className={scenePost["home-link"]}><span>/ マイページ</span></Link>
+            <Link to='/mypage' className={scenePost["home-link"]}><span>/&nbsp;マイページ</span></Link>
           </span>
           <span className={scenePost["comic-title"]}>
-            / { comic_title }のシーン一覧
+          /&nbsp;{ comic_title }のシーン一覧
           </span>
         </div>
       </div>
-      <div className={scenePost.count}>【投稿数】 {scene_posts.length}件</div>
+      <div className={scenePost.count}>【投稿数】&nbsp;{scene_posts.length}件</div>
       <div className={scenePost.sort}>
-        <button className={sort.key === 'id' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('id')}>並び替え </button>
+        <button className={sort.key === 'id' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('id')}>並び替え</button>
       </div>
       <div className={scenePost.search}>
         <span className={scenePost["fc-search"]}><FcSearch /></span>

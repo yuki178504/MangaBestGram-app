@@ -3,7 +3,7 @@ import comicPost from '../../../css/model/comicPost.module.css';
 import { Link } from 'react-router-dom';
 import { useComic } from '../../../hooks/useComic';
 import ReactLoading from "react-loading";
-import noimage from "../../../image/default.png";
+import scenery from "../../../image/scenery.png";
 import { FcReading, FcFile, FcCalendar, FcMms, FcSearch, FcEditImage } from "react-icons/fc";
 import moment from 'moment';
 
@@ -62,8 +62,8 @@ const ComicPost = () => {
 
   return (
     <div className={comicPost.wrapper}>
-      <div className={comicPost.count}>【投稿数】 {comics.length}件</div>
-      <button className={sort.key === 'updated_at' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('updated_at')}>並び替え </button>
+      <div className={comicPost.count}>【投稿数】&nbsp;{comics.length}件</div>
+      <button className={sort.key === 'updated_at' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('updated_at')}>並び替え</button>
       <div className={comicPost.search}>
         <span className={comicPost["fc-search"]}><FcSearch /></span>
         <input
@@ -81,7 +81,7 @@ const ComicPost = () => {
           <div key={comic.id} className={comicPost.content}>
             <div className={comicPost["innner-content"]}>
               <div className={comicPost["outer-image"]}>
-                <img className={comicPost.image} src={ comic.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                <img className={comicPost.image} src={ comic.image.url } alt='画像' onError={(e) => e.target.src = scenery} />
               </div>
               <div className={comicPost.list}>
                 <div className={comicPost["detail-area"]}>

@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import form from "../../../../css/ui/form.module.css";
 import subMenu from "../../../../css/ui/subMenu.module.css";
 import { FcPicture, FcFeedback, FcUpLeft, FcHighPriority } from "react-icons/fc";
-import noimage from "../../../../image/default.png";
+import scenery from "../../../../image/scenery.png";
 import { useContext } from "react";
 import { AuthContext } from "../../../../providers/AuthGuard";
 
@@ -48,7 +48,7 @@ const ComicImageEdit = () => {
           <div className={form["form-text"]}>
             <div className={form["outer-image"]}>
               <p className={form.detail}><span className={form["react-icon"]}><FcPicture /></span>現在の画像</p>
-              <img className={form.image} src={ comic.image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+              <img className={form.image} src={ comic.image.url } alt='画像' onError={(e) => e.target.src = scenery} />
             </div>
             <div className={form["form-text-image"]}>
               { errors.image &&

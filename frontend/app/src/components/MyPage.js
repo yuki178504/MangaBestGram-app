@@ -8,12 +8,12 @@ import { ComicNew, ComicPost, Favorite, Profile } from "../route/Pages";
 
 const MyPage = () => {
   const [tabIndex, setTabIndex] = useState(2);
-  const color = { background: '#ffc0cb' }
+  const color = { background: '#ffc0cb' };
 
   return (
     <div className={mypage.wrapper}>
       <div className={mypage.content}>
-        <div className={mypage.title}><span className={mypage.home}><Link to='/' className={mypage["home-link"]}><span className={mypage["react-icons"]}><AiFillHome /></span>ホーム</Link></span> / マイページ</div>
+        <div className={mypage.title}><span className={mypage.home}><Link to='/' className={mypage["home-link"]}><span className={mypage["react-icons"]}><AiFillHome /></span>ホーム</Link></span>&nbsp;/&nbsp;マイページ</div>
       </div>
       <div className={mypage.menu}>
         <Tabs selectedIndex={tabIndex} onSelect={ (index) => setTabIndex(index) }>

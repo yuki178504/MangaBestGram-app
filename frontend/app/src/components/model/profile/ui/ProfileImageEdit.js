@@ -8,6 +8,7 @@ import ReactLoading from "react-loading";
 import subMenu from "../../../../css/ui/subMenu.module.css";
 import form from "../../../../css/ui/form.module.css";
 import { FcPicture, FcFeedback, FcUpLeft, FcHighPriority } from "react-icons/fc";
+import noimage from "../../../../image/default.png";
 
 const ProfileImageEdit = () => {
   const navigate = useNavigate();
