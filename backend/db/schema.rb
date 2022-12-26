@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_21_153704) do
+ActiveRecord::Schema.define(version: 2022_12_26_132703) do
 
   create_table "comics", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2022_12_21_153704) do
   end
 
   create_table "scene_posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "scene_title"
+    t.string "scene_title", null: false
     t.date "scene_date"
     t.text "scene_content"
     t.string "scene_image"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2022_12_21_153704) do
     t.bigint "user_id", null: false
     t.bigint "comic_id", null: false
     t.integer "scene_number"
-    t.string "sub_title"
+    t.string "sub_title", null: false
     t.index ["comic_id"], name: "index_scene_posts_on_comic_id"
     t.index ["user_id"], name: "index_scene_posts_on_user_id"
   end
