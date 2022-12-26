@@ -10,6 +10,7 @@ import { useGeneralComment } from "../../../../hooks/useGeneralComment";
 import ReactLoading from "react-loading";
 import moment from 'moment';
 import { useFavorite } from "../../../../hooks/useFavorite";
+import { UserInformationName } from "../../../ui/UserInformationDisplay";
 
 const GeneralScenePostCard = ({
   scenePostId,
@@ -37,7 +38,11 @@ const GeneralScenePostCard = ({
     <div className={generalScenePost.content}>
       <div className={generalScenePost["innner-content"]}>
         <div className={generalScenePost.list}>
-          <div className={generalScenePost["user-name"]}><img className={generalScenePost["user-image"]} src={ scenePostUserImage } alt='画像' onError={(e) => e.target.src = noimage} />{ scenePostUserName }</div>
+          <div className={generalScenePost["user-name"]}>
+            <img className={generalScenePost["user-image"]} src={ scenePostUserImage } alt='画像' onError={(e) => e.target.src = noimage} />
+            <UserInformationName userName={scenePostUserName} />
+            { scenePostUserName }
+          </div>
           <div className={generalScenePost["outer-favorite"]}>
             {isAuthenticated ? (
               <>

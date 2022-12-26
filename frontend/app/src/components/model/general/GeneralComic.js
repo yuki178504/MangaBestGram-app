@@ -8,6 +8,7 @@ import { AiFillHome } from "react-icons/ai";
 import { FcReading, FcFile, FcCalendar, FcMms, FcSearch } from "react-icons/fc";
 import { useMemo, useState } from "react";
 import moment from 'moment';
+import { UserInformationName } from "../../ui/UserInformationDisplay";
 
 const GeneralComic = () => {
   const { useGetGeneralComic } = useGeneralComic();
@@ -24,7 +25,7 @@ const GeneralComic = () => {
         (kw) => comic.attributes.title.indexOf(kw) !== -1
       )
     );
-  }
+  };
 
   const [ sort, setSort ] = useState({});
 
@@ -93,7 +94,11 @@ const GeneralComic = () => {
           <div key={comic.id} className={generalComic.content}>
             <div className={generalComic["innner-content"]}>
               <div className={generalComic.list}>
-                <div className={generalComic["user-name"]}><img className={generalComic["user-image"]} src={ comic.attributes.comicUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} />{ comic.attributes.comicUserName }</div>
+                <div className={generalComic["user-name"]}>
+                  <img className={generalComic["user-image"]} src={ comic.attributes.comicUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                  <UserInformationName userName={comic.attributes.comicUserName} />
+                  { comic.attributes.comicUserName }
+                </div>
                 <div className={generalComic["detail-area"]}>
                   <p className={generalComic.detail}><span className={generalComic["react-icon"]}><FcReading /></span>漫画名</p>
                   <div>{ comic.attributes.title }</div>

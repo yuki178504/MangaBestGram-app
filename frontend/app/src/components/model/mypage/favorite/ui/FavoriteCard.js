@@ -5,6 +5,7 @@ import { FcFilm, FcContacts, FcSms, FcMms, FcCalendar } from "react-icons/fc";
 import { useGeneralComment } from "../../../../../hooks/useGeneralComment";
 import ReactLoading from "react-loading";
 import moment from 'moment';
+import { UserInformationName } from "../../../../ui/UserInformationDisplay";
 
 const FavoriteCard = ({
   Id,
@@ -24,7 +25,11 @@ const FavoriteCard = ({
     <div className={generalScenePost.content}>
       <div className={generalScenePost["innner-content"]}>
         <div className={generalScenePost.list}>
-          <div className={generalScenePost["user-name"]}><img className={generalScenePost["user-image"]} src={ favoriteUserImage } alt='画像' onError={(e) => e.target.src = noimage} />{ favoriteUserName }</div>
+          <div className={generalScenePost["user-name"]}>
+            <img className={generalScenePost["user-image"]} src={ favoriteUserImage } alt='画像' onError={(e) => e.target.src = noimage} />
+            <UserInformationName userName={favoriteUserName} />
+            { favoriteUserName }
+          </div>
           <div className={generalScenePost["detail-area"]}>
             <p className={generalScenePost.detail}><span className={generalScenePost["react-icon"]}><FcFilm /></span>サブタイトル</p>
             <div>{ favoriteSubTitle }</div>
