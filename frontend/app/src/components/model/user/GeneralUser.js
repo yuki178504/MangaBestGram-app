@@ -19,7 +19,7 @@ const GeneralUser = () => {
           <span className={subMenu.home}>
             <Link to='/' className={subMenu["home-link"]}><span className={subMenu["react-icons"]}><AiFillHome /></span>ホーム</Link>
           </span>
-          <span>/ ユーザー一覧</span>
+          <span>/&nbsp;ユーザー一覧</span>
         </div>
       </div>
       <div className={generalUser["main-content"]}>

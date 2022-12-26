@@ -26,10 +26,10 @@ const ScenePostShow = () => {
             <Link to='/' className={subMenu["home-link"]}><span className={subMenu["react-icons"]}><AiFillHome /></span>ホーム</Link>
           </span>
           <span>
-            <Link to='/mypage' className={subMenu["home-link"]}><span>/ マイページ</span></Link>
+            <Link to='/mypage' className={subMenu["home-link"]}><span>/&nbsp;マイページ</span></Link>
           </span>
           <span className={subMenu["scene-title"]}>
-            / { scene_post.sub_title }の詳細画面
+          /&nbsp;{ scene_post.sub_title }の詳細画面
           </span>
         </div>
       </div>

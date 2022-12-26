@@ -41,10 +41,10 @@ const ComicEdit = () => {
             <Link to='/' className={subMenu["home-link"]}><span className={subMenu["react-icons"]}><AiFillHome /></span>ホーム</Link>
           </span>
           <span>
-            <Link to='/mypage' className={subMenu["home-link"]}><span>/ マイページ</span></Link>
+            <Link to='/mypage' className={subMenu["home-link"]}><span>/&nbsp;マイページ</span></Link>
           </span>
           <span className={subMenu["comic-title"]}>
-            / { comic_title }を編集中です
+          /&nbsp;{ comic_title }を編集中です
           </span>
         </div>
       </div>

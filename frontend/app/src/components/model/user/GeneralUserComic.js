@@ -30,7 +30,7 @@ const GeneralUserComic = () => {
           <span>/&nbsp;{user.name}の漫画一覧</span>
         </div>
       </div>
-      <div className={generalComic.count}>【投稿数】 {comics.length}件</div>
+      <div className={generalComic.count}>【投稿数】&nbsp;{comics.length}件</div>
       <div className={generalComic["main-content"]}>
         {comics.map((comic) => (
           <div key={comic.id} className={generalComic.content}>

@@ -23,11 +23,10 @@ const Favorite = () => {
   }
 
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
-  console.log(favorites)
 
   return (
     <div className={favorite.wrapper}>
-      <div className={favorite.count}>【お気に入り数】 {favorites.data.length}件</div>
+      <div className={favorite.count}>【お気に入り数】&nbsp;{favorites.data.length}件</div>
       <div className={favorite.search}>
       <span className={favorite["fc-search"]}><FcSearch /></span>
         <input

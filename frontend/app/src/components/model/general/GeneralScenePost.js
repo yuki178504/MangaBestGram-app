@@ -119,15 +119,15 @@ const GeneralScenePost = () => {
             <Link to='/' className={subMenu["home-link"]}><span className={subMenu["react-icons"]}><AiFillHome /></span>ホーム</Link>
           </span>
           <span className={subMenu["comic-title"]}>
-            / { comic_title }のシーン一覧
+          /&nbsp;{ comic_title }のシーン一覧
           </span>
         </div>
       </div>
-      <div className={generalScenePost.count}>【投稿数】 {scene_posts.data.length}件</div>
+      <div className={generalScenePost.count}>【投稿数】&nbsp;{scene_posts.data.length}件</div>
       {isAuthenticated ? (
         <>
           <div className={generalScenePost.sort}>
-            <button className={sort.key === 'id' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('id')}>並び替え </button>
+            <button className={sort.key === 'id' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('id')}>並び替え</button>
           </div>
           <div className={generalScenePost.search}>
             <span className={generalScenePost["fc-search"]}><FcSearch /></span>

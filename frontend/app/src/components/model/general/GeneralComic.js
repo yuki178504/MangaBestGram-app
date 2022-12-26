@@ -73,7 +73,7 @@ const GeneralComic = () => {
           <span>/ 漫画一覧</span>
         </div>
       </div>
-      <div className={generalComic.count}>【投稿数】 {comics.data.length}件</div>
+      <div className={generalComic.count}>【投稿数】&nbsp;{comics.data.length}件</div>
       <div className={generalComic.sort}>
         <button className={sort.key === 'id' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('id')}>並び替え </button>
       </div>
