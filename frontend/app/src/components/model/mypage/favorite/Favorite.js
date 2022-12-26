@@ -23,6 +23,7 @@ const Favorite = () => {
   }
 
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
+  console.log(favorites)
 
   return (
     <div className={favorite.wrapper}>
@@ -44,6 +45,7 @@ const Favorite = () => {
           <FavoriteCard 
             key={index}
             Id= {favorite.id}
+            favoriteComicTitle={favorite.attributes.scene_post_comic_title}
             favoriteUserImage={favorite.attributes.scene_post_user_image.url}
             favoriteUserName={favorite.attributes.scene_post_user_name}
             favoriteSubTitle={favorite.attributes.sub_title}

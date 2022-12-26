@@ -9,6 +9,7 @@ import { UserInformationName } from "../../../../ui/UserInformationDisplay";
 
 const FavoriteCard = ({
   Id,
+  favoriteComicTitle,
   favoriteUserImage,
   favoriteUserName,
   favoriteSubTitle,
@@ -39,7 +40,7 @@ const FavoriteCard = ({
             <div>{ favoriteNumber }話</div>
           </div>
           <div className={generalScenePost["detail-area-link"]}>
-            <Link to={`/general_scene_post/general_scene_post_show/${Id}`} className={generalScenePost["link-show"]}><span className={generalScenePost["react-icon"]}><FcMms /></span>シーンを見る</Link>
+            <Link to={`/general_scene_post/${favoriteComicTitle}/general_scene_post_show/${Id}`} className={generalScenePost["link-show"]}><span className={generalScenePost["react-icon"]}><FcMms /></span>シーンを見る</Link>
           </div>
         </div>
         <div className={generalScenePost["favorite-outer-image"]}>
