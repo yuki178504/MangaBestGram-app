@@ -29,10 +29,10 @@ const GeneralScenePostShow = () => {
             <Link to='/' className={subMenu["home-link"]}><span className={subMenu["react-icons"]}><AiFillHome /></span>ホーム</Link>
           </span>
           <span className={subMenu.home}>
-            <Link to={`/general_scene_post/${scene_post.data.attributes.scenePostComicTitle}/${scene_post.data.attributes.comicId}`} className={subMenu["home-link"]}><span> / { scene_post.data.attributes.scenePostComicTitle }</span></Link>
+            <Link to={`/general_scene_post/${scene_post.data.attributes.scenePostComicTitle}/${scene_post.data.attributes.comicId}`} className={subMenu["home-link"]}><span>&nbsp;/&nbsp;{ scene_post.data.attributes.scenePostComicTitle }</span></Link>
           </span>
           <span className={subMenu["scene-title"]}>
-            / { scene_post.data.attributes.sceneTitle }の詳細画面
+          /&nbsp;{ scene_post.data.attributes.sceneTitle }の詳細画面
           </span>
         </div>
       </div>
@@ -57,10 +57,22 @@ const GeneralScenePostShow = () => {
             </div>
             <div className={scenePostShow["detail-area"]}>
               <p className={scenePostShow.detail}><span className={scenePostShow["react-icon"]}><FcCalendar /></span>そのシーンを見た日付</p>
+              { scene_post.data.attributes.sceneDate == "" && (
+                <span>シーンを見た日付がありません</span>
+              ) }
+              { scene_post.data.attributes.sceneDate == null && (
+                <span>シーンを見た日付がありません</span>
+              ) }
               <div>{ scene_post.data.attributes.sceneDate }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
               <p className={scenePostShow.detail}><span className={scenePostShow["react-icon"]}><FcKindle /></span>シーンの詳細・感想</p>
+              { scene_post.data.attributes.sceneContent == "" && (
+                <span>シーンの詳細・感想がありません</span>
+              ) }
+              { scene_post.data.attributes.sceneContent == null && (
+                <span>シーンの詳細・感想がありません</span>
+              ) }
               <div>{ scene_post.data.attributes.sceneContent }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>

@@ -54,10 +54,22 @@ const ScenePostShow = () => {
             </div>
             <div className={scenePostShow["detail-area"]}>
               <p className={scenePostShow.detail}><span className={scenePostShow["react-icon"]}><FcCalendar /></span>シーンを見た日付</p>
+              { scene_post.scene_date == "" && (
+                <span>シーンを見た日付がありません</span>
+              ) }
+              { scene_post.scene_date == null && (
+                <span>シーンを見た日付がありません</span>
+              ) }
               <div>{ scene_post.scene_date }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
               <p className={scenePostShow.detail}><span className={scenePostShow["react-icon"]}><FcKindle /></span>シーンの詳細・感想</p>
+              { scene_post.scene_content == "" && (
+                <span>シーンの詳細・感想がありません</span>
+              ) }
+              { scene_post.scene_content == null && (
+                <span>シーンの詳細・感想がありません</span>
+              ) }
               <div>{ scene_post.scene_content }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
