@@ -98,14 +98,9 @@ const ScenePostNew = () => {
           </div>
           <div className={form["form-text"]}>
             <div className={form["form-label"]}><span className={form["react-icon"]}><FcContacts /></span>漫画の話数</div>
-            { errors.scene_number &&
-              <div className={form.errors}><span className={form["react-icon"]}><FcHighPriority /></span>漫画の話数を選択してください</div> 
-            }
             <select
               className={form["form-input"]}
-              {...register('scene_number', {
-                required: true
-              })}
+              {...register('scene_number')}
             >
               <option></option>
               {number.map((numbers, index) =>

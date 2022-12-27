@@ -23,7 +23,6 @@ import {
   GeneralUserComic,
   ComicConfirmDelete,
   ScenePostConfirmDelete,
-  EmailChangeConfirm
 } from './Pages';
 
 const Routers = () => {
@@ -51,7 +50,6 @@ const Routers = () => {
       <Route path='/general_scene_post/:comic_title/:scene_post_id/comment' element={ <ProtectedRoute component={CommentNew}/> } />
       <Route path='/users' element={ <GeneralUser /> } />
       <Route path='/users/:user_id/comics' element={ <GeneralUserComic /> } />
-      <Route path='/email-change-confirm' element={ <ProtectedRoute component={EmailChangeConfirm}/> } />
     </Routes>
   );
 };

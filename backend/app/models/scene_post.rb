@@ -6,4 +6,7 @@ class ScenePost < ApplicationRecord
   has_many :comments, dependent: :destroy
   belongs_to :comic
   belongs_to :user
+
+  validates :sub_title, presence: true
+  validates :scene_title, presence: true
 end
