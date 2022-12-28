@@ -3,25 +3,22 @@ require 'rails_helper'
 
 RSpec.describe Comic, type: :model do
   describe "漫画新規作成" do
+    let(:comic) { Comic.new(title: "", genre: "") }
+    let(:user) { FactoryBot.create(:user) }
+    let(:comics) { user.comics.build( title: "ワンピース", genre: "アドベンチャー" ) }
+
     context "正常系" do
       it "タイトルとジャンルがあれば登録できる" do
-        user = FactoryBot.create(:user)
-        comics = user.comics.build(
-          title: "ワンピース",
-          genre: "アドベンチャー"
-        )
         expect(comics).to be_valid
       end
     end
     context "異常系" do
       it "タイトルがなければ登録できない" do
-        comic = Comic.new(title: "")
         comic.valid?
         expect(comic.errors[:title]).to include("can't be blank")
       end
 
       it "ジャンルがなければ登録できない" do
-        comic = Comic.new(genre: "")
         comic.valid?
         expect(comic.errors[:genre]).to include("can't be blank")
       end
