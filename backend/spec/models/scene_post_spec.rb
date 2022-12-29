@@ -17,4 +17,31 @@ RSpec.describe ScenePost, type: :model do
       end
     end
   end
+  describe "アソシエーションテスト" do
+    context "comicモデルとの関係" do
+      it "N:1となっている" do
+        expect(ScenePost.reflect_on_association(:comic).macro).to eq :belongs_to
+      end
+    end
+    context "userモデルとの関係" do
+      it "1:Nとなっている" do
+        expect(ScenePost.reflect_on_association(:user).macro).to eq :belongs_to
+      end
+    end
+    context "userモデルとの関係" do
+      it "N:Nとなっている" do
+        expect(ScenePost.reflect_on_association(:favorite_users).macro).to eq :has_many
+      end
+    end
+    context "favoriteモデルとの関係" do
+      it "1:Nとなっている" do
+        expect(ScenePost.reflect_on_association(:favorites).macro).to eq :has_many
+      end
+    end
+    context "commentモデルとの関係" do
+      it "1:Nとなっている" do
+        expect(ScenePost.reflect_on_association(:comments).macro).to eq :has_many
+      end
+    end
+  end
 end
