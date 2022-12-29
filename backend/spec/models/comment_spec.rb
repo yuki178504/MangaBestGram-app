@@ -4,7 +4,13 @@ require 'rails_helper'
 RSpec.describe Comment, type: :model do
   describe "コメント作成" do
     let(:comment) { Comment.new(body: "") }
+    let(:comments) { FactoryBot.create(:comment) }
 
+    context "正常系" do
+      it "コメントがあれば登録できる" do
+        expect(comments).to be_valid
+      end
+    end
     context "異常系" do
       it "コメントがなければ登録できない" do
         comment.valid?

@@ -1,8 +1,8 @@
 # encoding: utf-8
 FactoryBot.define do
   factory :comment do
-    user_id {1}
-    scene_post_id {1}
+    association :user
+    association :scene_post
     body {"コメントしました"}
   end
 end
