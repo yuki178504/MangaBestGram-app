@@ -4,8 +4,7 @@ require 'rails_helper'
 RSpec.describe Comic, type: :model do
   describe "漫画新規作成" do
     let(:comic) { Comic.new(title: "", genre: "") }
-    let(:user) { FactoryBot.create(:user) }
-    let(:comics) { user.comics.build( title: "ワンピース", genre: "アドベンチャー" ) }
+    let(:comics) { FactoryBot.create(:comic) }
 
     context "正常系" do
       it "タイトルとジャンルがあれば登録できる" do
