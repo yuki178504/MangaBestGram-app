@@ -2,6 +2,24 @@
 require 'rails_helper'
 
 RSpec.describe Favorite, type: :model do
+  describe "お気に入り登録" do
+    subject { favorite.valid? }
+    let(:favorite) { FactoryBot.build(:favorite) }
+    let!(:related_favorite) { FactoryBot.create(:favorite) }
+
+    context "正常系" do
+      it "投稿にお気に入り登録できる" do
+        expect(favorite).to be_valid
+      end
+    end
+    context "異常系" do
+      it "2つ以上の投稿にお気に入り登録できないこと" do
+        favorite.user = related_favorite.user
+        favorite.scene_post = related_favorite.scene_post
+        is_expected.to eq false
+      end
+    end
+  end
   describe "アソシエーションテスト" do
     context "userモデルとの関係" do
       it "N:1となっている" do
