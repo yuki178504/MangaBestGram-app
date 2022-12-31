@@ -4,7 +4,7 @@ require 'rails_helper'
 RSpec.describe ScenePost, type: :model do
   describe "シーン新規作成" do
     let(:scene_post) { ScenePost.new(sub_title: "", scene_title: "") }
-    let(:scene_posts) { FactoryBot.create(:scene_post) }
+    let(:scene_posts) { create(:scene_post) }
 
     context "正常系" do
       it "サブタイトルとシーンのタイトルがあれば登録できる" do

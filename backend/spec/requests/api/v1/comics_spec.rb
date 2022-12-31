@@ -12,6 +12,12 @@ RSpec.describe "Api::V1::Comics", type: :request do
         expect(response).to have_http_status(200)
       end
 
+      it "全ての漫画のデータを取得できること" do
+        get "/api/v1/comics"
+        json = JSON.parse(response.body)
+        expect(json['data'].length).to eq(5)
+      end
+
       it "bodyに漫画のタイトルが含まれていること" do
         get "/api/v1/comics"
         expect(response.body).to include comic.title
@@ -36,6 +42,12 @@ RSpec.describe "Api::V1::Comics", type: :request do
       it "bodyに漫画のジャンルが含まれていること" do
         get "/api/v1/comics/latest"
         expect(response.body).to include comic.genre
+      end
+
+      it "表示される漫画のデータが2つであること" do
+        get "/api/v1/comics/latest"
+        json = JSON.parse(response.body)
+        expect(json['data'].length).to eq(2)
       end
     end
   end

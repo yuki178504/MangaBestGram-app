@@ -4,8 +4,8 @@ require 'rails_helper'
 RSpec.describe Favorite, type: :model do
   describe "お気に入り登録" do
     subject { favorite.valid? }
-    let(:favorite) { FactoryBot.build(:favorite) }
-    let!(:related_favorite) { FactoryBot.create(:favorite) }
+    let(:favorite) { build(:favorite) }
+    let!(:related_favorite) { create(:favorite) }
 
     context "正常系" do
       it "投稿にお気に入り登録できる" do

@@ -4,7 +4,7 @@ require 'rails_helper'
 RSpec.describe Comment, type: :model do
   describe "コメント作成" do
     let(:comment) { Comment.new(body: "") }
-    let(:comments) { FactoryBot.create(:comment) }
+    let(:comments) { create(:comment) }
 
     context "正常系" do
       it "コメントがあれば登録できる" do
