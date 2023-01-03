@@ -2,7 +2,7 @@
 require 'rails_helper'
 
 RSpec.describe "Api::V1::ScenePosts", type: :request do
-  describe "ユーザーの情報一覧閲覧機能" do
+  describe "ユーザーそれぞれの漫画一覧閲覧機能" do
     let!(:comic) { create(:comic, user_id: user.id) }
     let(:user) { create(:user) }
 

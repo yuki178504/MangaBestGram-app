@@ -9,4 +9,6 @@ class SecuredController < ApplicationController
   rescue JWT::VerificationError, JWT::DecodeError
     render json: { errors: ['Not Authenticated'] }, status: :unauthorized
   end
+
+  attr_reader :current_user
 end
