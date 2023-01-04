@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'rails_helper'
 
-RSpec.describe "Api::V1::ScenePosts", type: :request do
+RSpec.describe "Api::V1::UserComics", type: :request do
   describe "ユーザーそれぞれの漫画一覧閲覧機能" do
     let!(:comic) { create(:comic, user_id: user.id) }
     let(:user) { create(:user) }

@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'rails_helper'
 
-RSpec.describe "Api::V1::ScenePosts", type: :request do
+RSpec.describe "Api::V1::Users", type: :request do
   describe "ユーザーの情報一覧閲覧機能" do
     let!(:user) { create(:user) }
 

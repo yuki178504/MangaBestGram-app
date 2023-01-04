@@ -1,15 +1,15 @@
 class Api::V1::User::UsersController < SecuredController
   def index
-    users = @current_user
+    users = current_user
     render json: users
   end
 
   def show
-    render json: @current_user
+    render json: current_user
   end
 
   def update
-    @current_user.update!(user_params)
+    current_user.update!(user_params)
   end
 
   private

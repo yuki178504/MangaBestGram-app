@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'rails_helper'
 
-RSpec.describe "Api::V1::User::Comment", type: :request do
+RSpec.describe "Api::V1::User::Comments", type: :request do
   let!(:current_user) { create(:user) }
   let(:headers) { { CONTENT_TYPE: 'application/json', ACCEPT: 'application/json', Authorization: 'jwt_test_token' } }
   let!(:comic) { create(:comic, user: current_user) }
