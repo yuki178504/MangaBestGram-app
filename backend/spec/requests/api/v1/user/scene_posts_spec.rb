@@ -4,7 +4,7 @@ require 'rails_helper'
 RSpec.describe "Api::V1::User::ScenePosts", type: :request do
   let!(:current_user) { create(:user) }
   let(:headers) { { CONTENT_TYPE: 'application/json', ACCEPT: 'application/json', Authorization: 'jwt_test_token' } }
-  let!(:comic) { create(:comic, user: current_user) }
+  let(:comic) { create(:comic, user: current_user) }
   let!(:scene_post) { create(:scene_post, comic_id: comic.id, user: current_user) }
 
   before do
