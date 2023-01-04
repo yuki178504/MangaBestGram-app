@@ -2,7 +2,7 @@ class Api::V1::User::ComicsController < SecuredController
   before_action :set_comic, only: %i(update destroy show)
 
   def index
-    comics = @current_user.comics.all.order(id: :desc)
+    comics = current_user.comics.all.order(id: :desc)
     render json: comics
   end
 
@@ -11,7 +11,7 @@ class Api::V1::User::ComicsController < SecuredController
   end
 
   def create
-    comic = @current_user.comics.build(comic_params)
+    comic = current_user.comics.build(comic_params)
     if comic.save
       render json: comic
     else
@@ -28,7 +28,7 @@ class Api::V1::User::ComicsController < SecuredController
   end
 
   def scene_post_count
-    scene_posts = @current_user.scene_posts.all
+    scene_posts = current_user.scene_posts.all
     render json: scene_posts
   end
 
@@ -39,6 +39,6 @@ class Api::V1::User::ComicsController < SecuredController
   end
 
   def set_comic
-    @comic = @current_user.comics.find_by!(id: params[:id])
+    @comic = current_user.comics.find_by!(id: params[:id])
   end
 end

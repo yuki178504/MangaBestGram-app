@@ -9,7 +9,7 @@ class Api::V1::User::CommentsController < SecuredController
 
   def create
     comment = ScenePost.find_by!(id: params[:scene_post_id]).comments.build(comment_params)
-    if comment.save!
+    if comment.save
       render json: comment
     else
       render json: comment.errors, status: :unprocessable_entity
@@ -23,10 +23,10 @@ class Api::V1::User::CommentsController < SecuredController
   private
 
   def set_comment
-    @comment = @current_user.comments.find_by!(id: params[:id])
+    @comment = current_user.comments.find_by!(id: params[:id])
   end
 
   def comment_params
-    params.permit(:body).merge(user_id: @current_user.id)
+    params.permit(:body).merge(user_id: current_user.id)
   end
 end
