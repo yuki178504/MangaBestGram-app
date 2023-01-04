@@ -4,13 +4,13 @@ require 'rails_helper'
 RSpec.describe "Api::V1::User::Comics", type: :request do
   let!(:current_user) { create(:user) }
   let(:headers) { { CONTENT_TYPE: 'application/json', ACCEPT: 'application/json', Authorization: 'jwt_test_token' } }
+  let!(:comic) { create(:comic, user: current_user) }
 
   before do
     authorization_stub
   end
 
   describe "ログインユーザーの漫画閲覧機能" do
-    let!(:comic) { create(:comic, user: current_user) }
     let(:http_request) { get api_v1_user_comics_path, headers: headers }
 
     before do
@@ -55,7 +55,6 @@ RSpec.describe "Api::V1::User::Comics", type: :request do
   end
 
   describe 'ログインユーザーの漫画編集機能' do
-    let!(:comic) { create(:comic, user: current_user) }
     let!(:request_hash) { { headers: headers, params: { title: 'チェンジ' }.to_json } }
     let(:http_request) { put api_v1_user_comic_path(comic.id), request_hash }
 
@@ -69,7 +68,6 @@ RSpec.describe "Api::V1::User::Comics", type: :request do
   end
 
   describe 'ログインユーザーの漫画削除機能' do
-    let!(:comic) { create(:comic, user: current_user) }
     let!(:request_hash) { { headers: headers} }
     let(:http_request) { delete api_v1_user_comic_path(comic.id), request_hash }
 
