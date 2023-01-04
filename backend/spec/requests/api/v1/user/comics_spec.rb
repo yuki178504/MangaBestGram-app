@@ -79,4 +79,19 @@ RSpec.describe "Api::V1::User::Comics", type: :request do
       end
     end
   end
+
+  describe 'ログインユーザーのシーンカウント機能' do
+    let!(:request_hash) { { headers: headers} }
+    let(:http_request) { get scene_post_count_api_v1_user_user_comics_path(current_user.id), request_hash }
+
+    before do
+      http_request
+    end
+
+    context 'scene_post_count_api_v1_user_user_comics_pathにアクセス時に' do
+      it "正常にレスポンスを返すこと" do
+        expect(response).to have_http_status(200)
+      end
+    end
+  end
 end
