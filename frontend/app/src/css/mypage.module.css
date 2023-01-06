@@ -1,0 +1,82 @@
+.title {
+  vertical-align: middle;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.home {
+  align-items: center;
+}
+
+.home-link {
+  vertical-align: middle;
+  color: rgba(92,102,111,0.6);
+}
+
+.home-link:hover {
+  opacity: 0.5;
+}
+
+.react-icons {
+  vertical-align: -1px;
+  margin-right: 3px;
+}
+
+.menu {
+  padding: 40px 120px;
+}
+
+.menu-list {
+  display: flex;
+  justify-content: space-evenly;
+  border: 2px solid #a9a9a9;
+  border-radius: 8px;
+  background-color: aliceblue;
+}
+
+.menu-list-in {
+  padding: 5px 0px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-list-in:active {
+  background-color: pink;
+  transition: 0.5s;
+}
+
+.menu-icon {
+  font-size: 40px;
+}
+
+@media screen and (min-width: 541px) and (max-width: 1024px) {
+  .react-icons {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .menu {
+    padding: 30px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .react-icons {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .menu {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .menu-icon {
+    font-size: 25px;
+  }
+
+  .content {
+    font-size: 13px;
+  }
+}

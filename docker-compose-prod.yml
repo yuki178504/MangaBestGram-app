@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  api:
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    command: bundle exec puma -C config/puma.rb -e production
+    volumes:
+      - ./backend:/myapp
+      - public-data:/myapp/public
+      - tmp-data:/myapp/tmp
+      - log-data:/myapp/log
+    networks:
+      - mbg-network
+
+  front:
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/usr/src/app
+    ports:
+      - "80:80"
+    volumes_from:
+      - api
+    networks:
+      - mbg-network
+    depends_on:
+      - api
+
+volumes:
+  public-data:
+  tmp-data:
+  log-data:
+
+networks:
+  mbg-network:
+    external: true

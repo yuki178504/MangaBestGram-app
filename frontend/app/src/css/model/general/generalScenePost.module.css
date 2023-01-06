@@ -1,0 +1,297 @@
+.main-content {
+  padding: 30px;
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.count {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.sort {
+  margin-left: 20px;
+}
+
+.search {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-text {
+  height: 40px;
+  background-color: #f0f8ff;
+  border: 2px solid #a9a9a9;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.fc-search {
+  margin-right: 4px;
+  font-size: 32px;
+  vertical-align: -7px;
+}
+
+.react-icon {
+  font-size: 24px;
+  vertical-align: -6px;
+  margin-right: 1px;
+}
+
+.detail-result {
+  text-align: center;
+  margin-top: 80px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.content {
+  width: 49%;
+  margin-top: 20px;
+}
+
+.innner-content {
+  display: flex;
+  border: 2px solid #a9a9a9;
+  background-color: #f0f8ff;
+  margin-bottom: 10px;
+}
+
+.react-icon {
+  font-size: 24px;
+  vertical-align: -6px;
+  margin-right: 1px;
+}
+
+.user-name {
+  margin-bottom: 10px;
+}
+
+.user-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 100px;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+.detail-area {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.detail {
+  font-weight: bold;
+  color: #ff8c00;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.detail-text {
+  width: fit-content;
+  border-bottom: 2px solid #a9a9a9;
+}
+
+.detail-area-link {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.link-show {
+  border: 2px solid #a9a9a9;
+  border-radius: 5px;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 20px 20px;
+  padding: 14px 24px;
+  background-color: #4682b4;
+  color: white;
+}
+
+.link-show:hover {
+  opacity: 0.5;
+}
+
+.outer-image {
+  height: 250px;
+  width: 100%;
+}
+
+.favorite-outer-image {
+  height: 220px;
+  width: 100%;
+}
+
+.favorite-image {
+  height: 220px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.create-at {
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.image {
+  height: 250px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.list {
+  padding: 15px;
+  width: 100%;
+}
+
+.detail-area-favorite {
+  display: inline;
+}
+
+.favorite-count {
+  margin-left: 8px;
+}
+
+.favorite {
+  border: none;
+  background-color: #f0f8ff;
+  vertical-align: -3px;
+  margin-right: 3px;
+  font-size: 27px;
+}
+
+.detail-area-count {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-area-list {
+  width: 100%;
+  margin-right: 10px;
+  text-align: center;
+}
+
+@media screen and (min-width: 541px) and (max-width: 1024px) {
+  .main-content {
+    padding: 10px;
+  }
+
+  .content {
+    width: 49%;
+  }
+
+  .detail-area {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .detail-area-link {
+    margin-top: 25px;
+  }
+
+  .link-show {
+    border-radius: 5px;
+    box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+    font-size: 15px;
+    margin: 5px;
+    padding: 8px 10px;
+  }
+
+  .outer-image {
+    height: 200px;
+  }
+
+  .image {
+    height: 200px;
+  }
+
+  .list {
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .title {
+    font-size: 13px;
+  }
+
+  .react-icons {
+    vertical-align: -1px;
+    margin-right: 3px;
+  }
+
+  .main-content {
+    font-size: 13px;
+    padding: 10px;
+    display: block;
+  }
+
+  .content {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .user-name {
+    margin-bottom: 8px;
+  }
+
+  .user-image {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+  }
+
+  .detail-area {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .detail {
+    margin-bottom: 4px;
+  }
+
+  .detail-area-link {
+    margin-top: 20px;
+  }
+
+  .link-show {
+    margin: 9px;
+    padding: 8px 3px;
+    font-size: 13px;
+  }
+
+  .react-icon {
+    font-size: 17px;
+    vertical-align: -4px;
+  }
+
+  .outer-image {
+    height: 150px;
+  }
+
+  .image {
+    height: 150px;
+  }
+
+  .favorite-outer-image {
+    height: 120px;
+    width: 100%;
+  }
+  
+  .favorite-image {
+    height: 120px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .list {
+    padding: 10px;
+  }
+}

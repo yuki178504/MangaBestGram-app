@@ -1,0 +1,116 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #4b0082;
+}
+
+.logo {
+  color: white;
+  font-size: 30px;
+  font-family: 'Henny Penny', cursive;
+  letter-spacing: 0.05em;
+}
+
+.ul {
+  display: flex;
+  padding-top: 8px;
+}
+
+.li {
+  margin-right: 10px;
+}
+
+.side {
+  display: none;
+}
+
+.nav-li-text {
+  text-decoration: none;
+  background-color: #87cefa;
+  border: none;
+  border-radius: 24px;
+  padding: 7px 10px;
+  font-size: 15px;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+  font-weight: bold;
+}
+
+.nav-li-text:hover {
+  opacity: 0.5;
+}
+
+.react-icon {
+  font-size: 24px;
+  vertical-align: -6px;
+  margin-right: 1px;
+}
+
+.nav-comic {
+  background-color: #ffc0cb;
+  text-decoration: none;
+  border: none;
+  border-radius: 24px;
+  padding: 7px 10px;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+}
+
+.nav-comic:hover {
+  opacity: 0.5;
+}
+
+.nav-sign-in {
+  text-decoration: none;
+  border: none;
+  border-radius: 24px;
+  padding: 7px 10px;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+}
+
+.nav-sign-in:hover {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 540px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #4b0082;
+  }
+  
+  .logo {
+    color: white;
+    font-size: 15px;
+    font-family: 'Henny Penny', cursive;
+    letter-spacing: 0.05em;
+  }
+  
+  .ul {
+    display: flex;
+    padding-top: 8px;
+  }
+  
+  .li {
+    display: none;
+    margin-right: 7px;
+  }
+
+  .side {
+    display: inline-block;
+  }
+  
+  .nav-li-text {
+    text-decoration: none;
+    background-color: aqua;
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    font-size: 10px;
+    box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+  }
+}

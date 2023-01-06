@@ -49,7 +49,11 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
+  <<: *default
   database: <%= ENV["DATABASE_NAME"] %>
+  adapter: mysql2
+  encoding: utf8mb4
+  charset: utf8mb4
   username: <%= ENV["DATABASE_USERNAME"] %>
   password: <%= ENV["DATABASE_PASSWORD"] %>
   host: <%= ENV["DATABASE_HOST"] %>
