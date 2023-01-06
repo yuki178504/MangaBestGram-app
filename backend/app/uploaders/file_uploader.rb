@@ -20,7 +20,7 @@ class FileUploader < CarrierWave::Uploader::Base
   end
 
   def extension_allowlist
-    %w(jpg jpeg png)
+    %w(jpg jpeg png webp)
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
