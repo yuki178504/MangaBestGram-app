@@ -32,7 +32,7 @@ const GeneralScenePostShow = () => {
             <Link to={`/general_scene_post/${scene_post.data.attributes.scenePostComicTitle}/${scene_post.data.attributes.comicId}`} className={subMenu["home-link"]}><span>&nbsp;/&nbsp;{ scene_post.data.attributes.scenePostComicTitle }</span></Link>
           </span>
           <span className={subMenu["scene-title"]}>
-          /&nbsp;{ scene_post.data.attributes.sceneTitle }の詳細画面
+          /&nbsp;{ scene_post.data.attributes.subTitle }の詳細画面
           </span>
         </div>
       </div>
