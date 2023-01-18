@@ -8,7 +8,7 @@ import { FcReading, FcFilm, FcKindle, FcSms, FcCalendar, FcContacts, FcNews, FcU
 import scenery from "../../../image/scenery.png";
 import Comment from "../comment/Comment";
 import { AuthContext } from "../../../providers/AuthGuard";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import moment from 'moment';
 
 const GeneralScenePostShow = () => {
@@ -20,6 +20,15 @@ const GeneralScenePostShow = () => {
   const { data: scene_post, isLoading} = useShowGeneralScenePost(scene_post_id);
 
   if(isLoading) return <ReactLoading type="spin" color="blue" className='loading' />
+
+  const newLines = scene_post.data.attributes.sceneContent.split('\n').map((newLine, index) => {
+    return (
+      <React.Fragment key={index}>
+        { newLine }
+        <br />
+      </React.Fragment>
+    );
+  });
 
   return (
     <div className={subMenu.wrapper}>
@@ -73,7 +82,7 @@ const GeneralScenePostShow = () => {
               { scene_post.data.attributes.sceneContent == null && (
                 <span>シーンの詳細・感想がありません</span>
               ) }
-              <div>{ scene_post.data.attributes.sceneContent }</div>
+              <div>{newLines}</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
               <button onClick={() => navigate(`/general_scene_post/${scene_post.data.attributes.scenePostComicTitle}/${scene_post.data.attributes.comicId}`)} className={scenePostShow.back}><span className={scenePostShow["react-icon"]}><FcUpLeft /></span>シーン一覧へ戻る</button>

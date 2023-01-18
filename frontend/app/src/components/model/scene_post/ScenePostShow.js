@@ -8,6 +8,7 @@ import { FcReading, FcFilm, FcKindle, FcSms, FcCalendar, FcContacts, FcNews, FcU
 import scenery from "../../../image/scenery.png";
 import moment from 'moment';
 import Comment from "../comment/Comment";
+import React from "react";
 
 const ScenePostShow = () => {
   const navigate = useNavigate();
@@ -17,6 +18,15 @@ const ScenePostShow = () => {
   const { data: scene_post, isLoading } = useShowScenePost(scene_post_id);
 
   if(isLoading) return <ReactLoading type="spin" color="blue" className='loading' />
+
+  const newLines = scene_post.scene_content.split('\n').map((newLine, index) => {
+    return (
+      <React.Fragment key={index}>
+        { newLine }
+        <br />
+      </React.Fragment>
+    );
+  });
 
   return (
     <div className={subMenu.wrapper}>
@@ -70,7 +80,7 @@ const ScenePostShow = () => {
               { scene_post.scene_content == null && (
                 <span>シーンの詳細・感想がありません</span>
               ) }
-              <div>{ scene_post.scene_content }</div>
+              <div>{ newLines }</div>
             </div>
             <div className={scenePostShow["detail-area"]}>
               <button onClick={() => navigate(-1)} className={scenePostShow.back}><span className={scenePostShow["react-icon"]}><FcUpLeft /></span>シーン一覧へ戻る</button>
