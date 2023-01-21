@@ -40,11 +40,11 @@ const GeneralComic = () => {
         if (a === b) {
           return 0;
         }
-        if (a > b) {
-          return 1 * sort.order;
+        if (a > b ? -1 : 1) {
+          return 1 ? -1 : 1 * sort.order;
         }
-        if (a < b) {
-          return -1 * sort.order;
+        if (a < b ? -1 : 1) {
+          return -1 ? -1 : 1 * sort.order;
         }
       });
     }

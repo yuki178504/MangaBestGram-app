@@ -36,11 +36,11 @@ const ComicPost = () => {
         if (a === b) {
           return 0;
         }
-        if (a > b) {
-          return 1 * sort.order;
+        if (a > b ? -1 : 1) {
+          return 1 ? -1 : 1 * sort.order;
         }
-        if (a < b) {
-          return -1 * sort.order;
+        if (a < b ? -1 : 1) {
+          return -1 ? -1 : 1 * sort.order;
         }
       });
     }
@@ -63,7 +63,7 @@ const ComicPost = () => {
   return (
     <div className={comicPost.wrapper}>
       <div className={comicPost.count}>【投稿数】&nbsp;{comics.length}件</div>
-      <button className={sort.key === 'updated_at' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('updated_at')}>並び替え</button>
+      <button className={sort.key === 'id' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('id')}>並び替え</button>
       <div className={comicPost.search}>
         <span className={comicPost["fc-search"]}><FcSearch /></span>
         <input

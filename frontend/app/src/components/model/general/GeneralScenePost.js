@@ -54,11 +54,11 @@ const GeneralScenePost = () => {
         if (a === b) {
           return 0;
         }
-        if (a > b) {
-          return 1 * sort.order;
+        if (a > b ? -1 : 1) {
+          return 1 ? -1 : 1 * sort.order;
         }
         if (a < b) {
-          return -1 * sort.order;
+          return -1 ? -1 : 1 * sort.order;
         }
       });
     }
@@ -86,11 +86,11 @@ const GeneralScenePost = () => {
         if (a === b) {
           return 0;
         }
-        if (a > b) {
-          return 1 * generalSort.order;
+        if (a > b ? -1 : 1) {
+          return 1 ? -1 : 1 * generalSort.order;
         }
-        if (a < b) {
-          return -1 * generalSort.order;
+        if (a < b ? -1 : 1) {
+          return -1 ? -1 : 1 * generalSort.order;
         }
       });
     }
