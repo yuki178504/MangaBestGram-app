@@ -38,11 +38,11 @@ const ScenePost = () => {
         if (a === b) {
           return 0;
         }
-        if (a > b) {
-          return 1 * sort.order;
+        if (a > b ? -1 : 1) {
+          return 1 ? -1 : 1 * sort.order;
         }
-        if (a < b) {
-          return -1 * sort.order;
+        if (a < b ? -1 : 1) {
+          return -1 ? -1 : 1 * sort.order;
         }
       });
     }
@@ -93,7 +93,7 @@ const ScenePost = () => {
       <button className={scenePost.link}>
         <Link to={`/comic/${comic_id}/${comic_title}/scene_post_new`}><span className={scenePost["react-icon"]}><FcAddImage /></span>新規のシーンを投稿する</Link>
       </button>
-      { data.length === 0 && (
+      { sortedData.length === 0 && (
         <div className={scenePost["detail-result"]}>検索結果がありません</div>
       ) }
       <div className={scenePost["main-content"]}>
