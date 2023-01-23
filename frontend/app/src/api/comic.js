@@ -21,7 +21,7 @@ export const comic = {
     .post(`${process.env.REACT_APP_DEV_API_URL}/user/comics`, params, {
       headers: {
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
+        'Content-Type': 'multipart/form-data',
       },
     })
     .catch((error) => {

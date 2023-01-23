@@ -10,8 +10,8 @@ export const useComic = () => {
     return useQuery({
       queryKey: 'comic',
       queryFn: () => comic.getComic(token),
-      staleTime: 300000,
-      cacheTime: 0,
+      staleTime: 30000000,
+      cacheTime: 30000000,
     });
   };
 

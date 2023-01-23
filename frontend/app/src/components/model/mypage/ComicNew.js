@@ -2,14 +2,13 @@ import { useNavigate } from "react-router-dom";
 import form from "../../../css/ui/form.module.css";
 import { useForm } from 'react-hook-form';
 import comicNewGenreJson from "../../../json/comicNewGenre.json";
-import { useContext } from "react";
-import axios from "axios";
-import { AuthContext } from "../../../providers/AuthGuard";
 import { FcFeedback, FcReading, FcFile, FcHighPriority, FcPicture } from "react-icons/fc";
+import { useComic } from "../../../hooks/useComic";
 
 const ComicNew = () => {
   const navigate = useNavigate();
-  const { token } = useContext(AuthContext);
+  const { useCreateComic } = useComic();
+  const createComic = useCreateComic();
 
   const { handleSubmit, register, formState: { errors } } = useForm({
     criteriaMode: "all"
@@ -21,15 +20,11 @@ const ComicNew = () => {
     formData.append("title", data.title);
     formData.append("genre", data.genre);
 
-    await axios.post(`${process.env.REACT_APP_DEV_API_URL}/user/comics`, formData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'multipart/form-data',
-      },
-    })
-    .catch((error) => {
+    try {
+      createComic.mutate(formData);
+    } catch (error) {
       console.error(error.response.data);
-    });
+    }
     alert("新規登録が完了しました！");
     navigate("/");
   };
