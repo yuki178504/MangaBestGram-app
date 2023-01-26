@@ -79,7 +79,7 @@ export const useComic = () => {
       ),
       enabled: !!comicId,
       staleTime: 30000000,
-      cacheTime: 0,
+      cacheTime: 30000000,
     });
   };
 
@@ -111,8 +111,8 @@ export const useComic = () => {
     return useQuery({
       queryKey: 'scene_post_count',
       queryFn: () => comic.getScenePostCount(token),
-      staleTime: 300000,
-      cacheTime: 0,
+      staleTime: 30000000,
+      cacheTime: 30000000,
     });
   };
 
