@@ -4,15 +4,15 @@ import form from '../../../css/ui/form.module.css';
 import subMenu from "../../../css/ui/subMenu.module.css";
 import scenePostShow from "../../../css/model/scene_post/scenePostShow.module.css";
 import { AiFillHome } from "react-icons/ai";
-import { AuthContext } from "../../../providers/AuthGuard";
-import { useContext } from "react";
-import axios from "axios";
 import { FcFilm, FcHighPriority, FcContacts, FcCalendar, FcKindle, FcPicture, FcFeedback, FcUpLeft, FcNews } from "react-icons/fc";
+import { useScenePost } from "../../../hooks/useScenePost";
 
 const ScenePostNew = () => {
   const { comic_id, comic_title } = useParams();
   const navigate = useNavigate();
-  const { token } = useContext(AuthContext);
+
+  const { useCreateScenePost } = useScenePost();
+  const createScenePost = useCreateScenePost(comic_id);
 
   const { handleSubmit, register, formState: { errors } } = useForm({
     criteriaMode: "all"
@@ -28,18 +28,13 @@ const ScenePostNew = () => {
     formData.append("scene_image", data.scene_image[0]);
     formData.append("sub_title", data.sub_title);
 
-    await axios.post(`${process.env.REACT_APP_DEV_API_URL}/user/comics/${comic_id}/scene_posts`, formData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'multipart/form-data',
-      },
-    })
-    .catch((error) => {
-      console.error(error.res.data);
-    });
+    try {
+      createScenePost.mutate(formData);
+    } catch (error) {
+      console.error(error.response.data);
+    }
     alert("新規登録が完了しました！");
     navigate("/mypage");
-    console.log(data)
   };
 
   //プルダウンリスト

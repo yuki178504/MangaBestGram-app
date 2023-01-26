@@ -79,7 +79,7 @@ export const useComic = () => {
       ),
       enabled: !!comicId,
       staleTime: 30000000,
-      cacheTime: 30000000,
+      cacheTime: 0,
     });
   };
 

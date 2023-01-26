@@ -19,7 +19,7 @@ export const useScenePost = () => {
           token || ''
         ),
       staleTime: 30000000,
-      cacheTime: 0,
+      cacheTime: 30000000,
     });
   };
 
@@ -40,16 +40,6 @@ export const useScenePost = () => {
         );
       },
       {
-        onSuccess: async (params) => {
-          const previousData = await queryClient.getQueryData(queryKey);
-
-          if (previousData) {
-            queryClient.setQueryData(queryKey, [
-              ...previousData,
-              params.data,
-            ])
-          }
-        },
         onError: (err, _, context) => {
           queryClient.setQueryData(queryKey, context);
 
