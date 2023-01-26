@@ -11,7 +11,7 @@ export const useUser = () => {
       queryKey: 'user',
       queryFn: () => user.getUser(token),
       staleTime: 30000000,
-      cacheTime: 0,
+      cacheTime: 30000000,
       retry: false,
     });
   };

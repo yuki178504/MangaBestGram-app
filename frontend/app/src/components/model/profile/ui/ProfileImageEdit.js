@@ -1,9 +1,6 @@
-import axios from "axios";
-import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../../../../hooks/useUser";
-import { AuthContext } from "../../../../providers/AuthGuard";
 import ReactLoading from "react-loading";
 import subMenu from "../../../../css/ui/subMenu.module.css";
 import form from "../../../../css/ui/form.module.css";
@@ -13,24 +10,20 @@ import noimage from "../../../../image/default.png";
 const ProfileImageEdit = () => {
   const navigate = useNavigate();
   const { user_id } = useParams();
-  const { token } = useContext(AuthContext);
 
-  const { useGetUser } = useUser();
+  const { useGetUser, usePutUser } = useUser();
   const { data: user, isLoading } = useGetUser(user_id);
+  const putUser = usePutUser(user_id);
 
   const onSubmit = async (data) => {
     const formData = new FormData();
     formData.append("image", data.image[0]);
 
-    await axios.put(`${process.env.REACT_APP_DEV_API_URL}/user/users/${user_id}`, formData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'multipart/form-data',
-      },
-    })
-    .catch((error) => {
+    try {
+      putUser.mutate(formData);
+    } catch (error) {
       console.error(error.response.data);
-    });
+    }
     alert(`画像が変更されました！`);
     navigate("/mypage");
   };
