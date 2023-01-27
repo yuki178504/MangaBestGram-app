@@ -3,7 +3,6 @@ WORKDIR /usr/src/app
 COPY ./app /usr/src/app
 RUN npm update -g npm
 RUN npm install --force
-RUN npm audit fix --force
 RUN npm run build
 
 FROM nginx:1.15.8

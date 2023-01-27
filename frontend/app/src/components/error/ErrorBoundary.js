@@ -10,9 +10,9 @@ const ErrorFallback = () => {
     window.location.reload()
   }
 
-  setTimeout(() => {
-    window.location.href = '/';
-  }, 5000)
+  // setTimeout(() => {
+  //   window.location.href = '/';
+  // }, 5000)
 
   return (
     <div className={error['wrapper-boundary']}>
