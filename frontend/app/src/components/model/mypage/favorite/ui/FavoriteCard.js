@@ -4,7 +4,6 @@ import scenery from "../../../../../image/scenery.png";
 import generalScenePost from '../../../../../css/model/general/generalScenePost.module.css';
 import { FcFilm, FcContacts, FcSms, FcMms, FcCalendar } from "react-icons/fc";
 import { useGeneralComment } from "../../../../../hooks/useGeneralComment";
-import ReactLoading from "react-loading";
 import moment from 'moment';
 import { UserInformationName } from "../../../../ui/UserInformationDisplay";
 
@@ -21,7 +20,7 @@ const FavoriteCard = ({
   const { useGetGeneralComment } = useGeneralComment();
 
   const { data: generalComments, isLoading } = useGetGeneralComment(Id);
-  if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
+  if(isLoading) return <></>
 
   return (
     <div className={generalScenePost.content}>

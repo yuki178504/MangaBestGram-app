@@ -1,9 +1,6 @@
-import axios from "axios";
-import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { useScenePost } from "../../../../hooks/useScenePost";
-import { AuthContext } from "../../../../providers/AuthGuard";
 import ReactLoading from "react-loading";
 import subMenu from "../../../../css/ui/subMenu.module.css";
 import form from "../../../../css/ui/form.module.css";
@@ -13,24 +10,20 @@ import { FcPicture, FcFeedback, FcUpLeft, FcHighPriority } from "react-icons/fc"
 const ScenePostImageEdit = () => {
   const navigate = useNavigate();
   const { scene_post_id, comic_id, comic_title  } = useParams();
-  const { token } = useContext(AuthContext);
 
-  const { useShowScenePost } = useScenePost();
+  const { useShowScenePost, usePutScenePost } = useScenePost();
   const { data: scene_post, isLoading } = useShowScenePost(scene_post_id);
+  const putScenePost = usePutScenePost(comic_id, scene_post_id);
 
   const onSubmit = async (data) => {
     const formData = new FormData();
     formData.append("scene_image", data.scene_image[0]);
 
-    await axios.put(`${process.env.REACT_APP_DEV_API_URL}/user/scene_posts/${scene_post_id}`, formData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'multipart/form-data',
-      },
-    })
-    .catch((error) => {
-      console.error(error.res.data);
-    });
+    try {
+      putScenePost.mutate(formData);
+    } catch (error) {
+      console.error(error.response.data);
+    }
     alert(`画像が変更されました！`);
     navigate(`/comic/${comic_id}/${comic_title}`);
   };

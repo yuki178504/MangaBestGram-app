@@ -77,7 +77,7 @@ const ScenePost = () => {
           </span>
         </div>
       </div>
-      <div className={scenePost.count}>【投稿数】&nbsp;{scene_posts.length}件</div>
+      <div className={scenePost.count}>【投稿数】&nbsp;{data.length}件</div>
       <div className={scenePost.sort}>
         <button className={sort.key === 'id' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('id')}>並び替え</button>
       </div>

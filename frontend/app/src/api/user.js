@@ -21,7 +21,7 @@ export const user = {
     .put(`${process.env.REACT_APP_DEV_API_URL}/user/users/${UserId}`, params, {
       headers: {
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
+        'Content-Type': 'multipart/form-data',
       },
     })
     .catch((error) => {

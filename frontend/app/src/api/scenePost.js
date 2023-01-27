@@ -22,7 +22,7 @@ export const scenePost = {
     .post(`${process.env.REACT_APP_DEV_API_URL}/user/comics/${comicId}/scene_posts`, params, {
       headers: {
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
+        'Content-Type': 'multipart/form-data',
       },
     })
     .catch((error) => {
@@ -51,7 +51,7 @@ export const scenePost = {
     .put(`${process.env.REACT_APP_DEV_API_URL}/user/scene_posts/${scenePostId}`, params, {
       headers: {
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
+        'Content-Type': 'multipart/form-data',
       },
     })
     .catch((error) => {

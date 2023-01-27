@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useComic } from "../../../../hooks/useComic";
 import ReactLoading from "react-loading";
@@ -7,30 +6,24 @@ import form from "../../../../css/ui/form.module.css";
 import subMenu from "../../../../css/ui/subMenu.module.css";
 import { FcPicture, FcFeedback, FcUpLeft, FcHighPriority } from "react-icons/fc";
 import scenery from "../../../../image/scenery.png";
-import { useContext } from "react";
-import { AuthContext } from "../../../../providers/AuthGuard";
 
 const ComicImageEdit = () => {
   const navigate = useNavigate();
   const { comic_id, comic_title } = useParams();
-  const { token } = useContext(AuthContext);
 
-  const { useShowComic } = useComic();
+  const { useShowComic, usePutComic } = useComic();
   const { data: comic, isLoading } = useShowComic(comic_id);
+  const putComic = usePutComic(comic_id);
 
   const onSubmit = async (data) => {
     const formData = new FormData();
     formData.append("image", data.image[0]);
 
-    await axios.put(`${process.env.REACT_APP_DEV_API_URL}/user/comics/${comic_id}`, formData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'multipart/form-data',
-      },
-    })
-    .catch((error) => {
-      console.error(error.res.data);
-    });
+    try {
+      putComic.mutate(formData);
+    } catch (error) {
+      console.error(error.response.data);
+    }
     alert(`画像が変更されました！`);
     navigate("/mypage");
   };
