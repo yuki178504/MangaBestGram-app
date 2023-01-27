@@ -1,0 +1,54 @@
+.wrapper {
+  text-align: center;
+  margin-top: 180px;
+  font-size: 50px;
+  color: #32cd32 ;
+}
+
+.title {
+  margin-bottom: 50px;
+}
+
+.react-icon {
+  vertical-align: -6px;
+  margin-right: 8px;
+}
+
+.mypage {
+  border: 2px solid #a9a9a9;
+  border-radius: 5px;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+  font-size: 50px;
+  font-weight: 700;
+  padding: 14px 70px;
+  background-color: #a9a9a9;
+  color: white;
+}
+
+.mypage:hover {
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 541px) and (max-width: 1024px) {
+  .wrapper {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .wrapper {
+    margin-top: 80px;
+    font-size: 19px;
+  }
+
+  .mypage {
+    border: 2px solid #a9a9a9;
+    border-radius: 5px;
+    box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px 20px;
+    background-color: #a9a9a9;
+    color: white;
+  }
+}
