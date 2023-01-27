@@ -25,8 +25,7 @@ const ComicNew = () => {
     } catch (error) {
       console.error(error.response.data);
     }
-    alert("新規登録が完了しました！");
-    navigate("/mypage");
+    navigate("/comic-completion");
   };
 
   return (

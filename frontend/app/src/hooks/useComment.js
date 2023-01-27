@@ -39,16 +39,6 @@ export const useComment = () => {
         );
       },
       {
-        onSuccess: async (params) => {
-          const previousData = await queryClient.getQueryData(queryKey);
-
-          if (previousData) {
-            queryClient.setQueriesData(queryKey, [
-              ...previousData,
-              params.data,
-            ])
-          }
-        },
         onError: (err, _, context) => {
           queryClient.setQueryData(queryKey, context);
 

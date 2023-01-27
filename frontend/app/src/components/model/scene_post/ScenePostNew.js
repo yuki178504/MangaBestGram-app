@@ -34,7 +34,7 @@ const ScenePostNew = () => {
       console.error(error.response.data);
     }
     alert("新規登録が完了しました！");
-    navigate("/mypage");
+    navigate(`/comic/${comic_id}/${comic_title}`);
   };
 
   //プルダウンリスト

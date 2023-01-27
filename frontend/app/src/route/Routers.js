@@ -23,6 +23,7 @@ import {
   GeneralUserComic,
   ComicConfirmDelete,
   ScenePostConfirmDelete,
+  ComicCompletion
 } from './Pages';
 
 const Routers = () => {
@@ -41,6 +42,7 @@ const Routers = () => {
       <Route path='/comic/:comic_id/:comic_title/comic_edit' element={ <ProtectedRoute component={ComicEdit}/> } />
       <Route path='/comic/:comic_id/:comic_title/comic_edit/comic-image-edit' element={ <ProtectedRoute component={ComicImageEdit}/> } />
       <Route path='/comic/:comic_id/:comic_title/comic_confirm_delete' element={ <ProtectedRoute component={ComicConfirmDelete}/> } />
+      <Route path='/comic-completion' element={ <ProtectedRoute component={ComicCompletion}/> } />
       <Route path='/general_scene_post/:comic_title/:comic_id' element={ <GeneralScenePost /> } />
       <Route path='/general_scene_post/:comic_title/general_scene_post_show/:scene_post_id' element={ <GeneralScenePostShow /> } />
       <Route path='/comic' element={ <GeneralComic /> } />

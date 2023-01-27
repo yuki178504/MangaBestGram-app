@@ -3,7 +3,6 @@ name: Rails-Rspec-Rubocop-Deploy
 on:
   push:
     branches:
-      - develop
       - master
 
 jobs:
