@@ -23,7 +23,8 @@ import {
   GeneralUserComic,
   ComicConfirmDelete,
   ScenePostConfirmDelete,
-  ComicCompletion
+  ComicCompletion,
+  FavoriteRanking
 } from './Pages';
 
 const Routers = () => {
@@ -46,6 +47,7 @@ const Routers = () => {
       <Route path='/general_scene_post/:comic_title/:comic_id' element={ <GeneralScenePost /> } />
       <Route path='/general_scene_post/:comic_title/general_scene_post_show/:scene_post_id' element={ <GeneralScenePostShow /> } />
       <Route path='/comic' element={ <GeneralComic /> } />
+      <Route path='/favorite_ranking' element={ <FavoriteRanking /> } />
       <Route path='*' element={ <Page404 /> } />
       <Route path='/my-profile/:user_id' element={ <ProtectedRoute component={MyProfile}/> } />
       <Route path='/my-profile/:user_id/profile-image-edit' element={ <ProtectedRoute component={ProfileImageEdit}/> } />
