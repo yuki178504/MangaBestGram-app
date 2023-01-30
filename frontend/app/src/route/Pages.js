@@ -3,7 +3,7 @@ export { default as TermsOfService } from '../components/TermsOfService';
 export { default as PrivacyPolicy } from '../components/PrivacyPolicy';
 export { default as MyPage } from '../components/MyPage';
 export { default as ProfileEdit } from '../components/model/profile/ProfileEdit';
-export { default as FavoriteRanking } from '../components/FavoriteRanking';
+export { default as FavoriteRanking } from '../components/model/favoriteRanking/FavoriteRanking'
 //scenePost群
 export { default as ScenePost } from '../components/model/scene_post/ScenePost';
 export { default as ScenePostNew } from '../components/model/scene_post/ScenePostNew';
