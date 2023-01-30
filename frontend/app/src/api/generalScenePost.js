@@ -38,5 +38,18 @@ export const generalScenePost = {
       console.error(error.res.data);
     });
     return res.data
+  },
+  getLoginFavoriteRanking: async () => {
+    const response = await axios
+    .get(`${process.env.REACT_APP_DEV_API_URL}/general/favorites_ranking`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    })
+    .catch((error) => {
+      console.error(error.response.data);
+    });
+    return response.data
   }
 };
