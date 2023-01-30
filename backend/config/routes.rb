@@ -25,6 +25,7 @@ Rails.application.routes.draw do
           end
         end
       end
+      get 'favorites_ranking', to: 'favorites_ranking#favorites_ranking'
       resources :comics, only: [:index, :show], shallow: true do
         resources :scene_posts, only: [:index, :show], shallow: true do
           resources :comments, only: [:index] do
