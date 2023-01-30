@@ -8,7 +8,6 @@ import FavoriteButton from "../../../ui/FavoriteButton";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../providers/AuthGuard";
 import { useGeneralComment } from "../../../../hooks/useGeneralComment";
-import ReactLoading from "react-loading";
 import moment from 'moment';
 import { useFavorite } from "../../../../hooks/useFavorite";
 import { UserInformationName } from "../../../ui/UserInformationDisplay";
@@ -32,7 +31,7 @@ const GeneralScenePostCard = ({
 
   const { data: generalComments, isLoading } = useGetGeneralComment(scenePostId);
   const { data: favorites, favoritesLoading } = useGetFavorites_count(scenePostId);
-  if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
+  if(isLoading) return <></>
   if(favoritesLoading) return <></>
 
   return (
