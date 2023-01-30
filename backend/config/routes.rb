@@ -14,6 +14,7 @@ Rails.application.routes.draw do
         resources :favorites, only: [:index, :create, :destroy]
       end
       namespace :general do
+        get 'favorites_ranking', to: 'favorites_ranking#favorites_ranking'
         resources :comics, only: [:index], shallow: true do
           resources :scene_posts, only: [:index, :show]
         end

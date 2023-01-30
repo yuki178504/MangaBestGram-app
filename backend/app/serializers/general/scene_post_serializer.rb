@@ -18,6 +18,10 @@ class General::ScenePostSerializer
     object.user.image
   end
 
+  attribute :scene_post_comic_title do |object|
+    object.comic.title.to_s
+  end
+
   attribute :favorite do |scene_post|
     if @@current_user.nil?
       'Not Login'
