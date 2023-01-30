@@ -30,5 +30,13 @@ export const generalScenePost = {
       console.error(error.response.data);
     });
     return res.data
+  },
+  getFavoritesRanking: async () => {
+    const res = await instance
+    .get(`favorites_ranking`)
+    .catch((error) => {
+      console.error(error.res.data);
+    });
+    return res.data
   }
 };

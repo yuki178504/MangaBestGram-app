@@ -54,5 +54,14 @@ export const useGeneralScenePost = () => {
     });
   };
 
-  return { useGetGeneralScenePost, useShowGeneralScenePost, useGetLoginGeneralScenePost }
+  const useGetFavoritesRanking = () => {
+    return useQuery({
+      queryKey: 'favorites_ranking',
+      queryFn: () => generalScenePost.getFavoritesRanking(),
+      staleTime: 30000000,
+      cacheTime: 0,
+    });
+  };
+
+  return { useGetGeneralScenePost, useShowGeneralScenePost, useGetLoginGeneralScenePost, useGetFavoritesRanking }
 }
