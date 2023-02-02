@@ -1,0 +1,83 @@
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title-text {
+  display: inline-block;
+  background-color: #ee4257;
+  border: 2px solid #a9a9a9;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.content {
+  margin-left: 360px;
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.ranking {
+  text-align: center;
+}
+
+.ranking-number {
+  padding: 0.4em 0.5em;
+  color: #494949;
+  background: #f4f4f4;
+  border-left: solid 5px #7db4e6;
+  border-bottom: solid 3px #d7d7d7;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.comic-title {
+  padding: 0.5em;
+  color: #010101;
+  background: #eaf3ff;
+  border-bottom: solid 3px #516ab6;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 541px) and (max-width: 1024px) {
+  .main-content {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .content {
+    margin-left: 0px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .main-content {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .title-text {
+    font-size: 20px;
+  }
+
+  .content {
+    margin-left: 0px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .ranking-number {
+    font-size: 20px;
+  }
+  
+  .comic-title {
+    font-size: 20px;
+  }
+}
