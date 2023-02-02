@@ -25,6 +25,21 @@
   display: none;
 }
 
+.nav-ranking {
+  text-decoration: none;
+  background-color: #ffa500;
+  border: none;
+  border-radius: 24px;
+  padding: 7px 10px;
+  font-size: 15px;
+  box-shadow: 2.7px 3.2px 2px 0.3px #938d90;
+  font-weight: bold;
+}
+
+.nav-ranking:hover {
+  opacity: 0.5;
+}
+
 .nav-li-text {
   text-decoration: none;
   background-color: #87cefa;
@@ -73,6 +88,17 @@
 
 .nav-sign-in:hover {
   opacity: 0.5;
+}
+
+@media screen and (min-width: 541px) and (max-width: 1024px) {
+  .side {
+    display: inline-block;
+  }
+
+  .li {
+    display: none;
+    margin-right: 7px;
+  }
 }
 
 @media screen and (max-width: 540px) {

@@ -4,7 +4,7 @@ import '../../css/BurgerMenu.css';
 import sideBar from '../../css/ui/sideBar.module.css';
 import { AuthContext } from '../../providers/AuthGuard';
 import { useContext, useState } from 'react';
-import { FcPortraitMode, FcViewDetails, FcImport, FcHome, FcRight, FcVoicePresentation, FcReading, FcNook } from "react-icons/fc";
+import { FcPortraitMode, FcViewDetails, FcImport, FcHome, FcRight, FcVoicePresentation, FcReading, FcNook, FcFilm } from "react-icons/fc";
 
 const BurgerMenu = () => {
   const { isAuthenticated, loginWithRedirect, logout } = useContext(AuthContext);
@@ -12,17 +12,22 @@ const BurgerMenu = () => {
 
   const handleStateChange = state => {
     setOpen(state.isOpen)
-  }
+  };
 
   const closeMenu = () => {
     setOpen(false)
-  }
+  };
 
   return (
     <Menu isOpen={open} onStateChange={state => handleStateChange(state)} right customBurgerIcon={
       <div className={sideBar["menu-icon"]}><FcViewDetails /></div>
     }>
       <Link to="/" onClick={() => closeMenu()}><span className={sideBar["react-icon"]}><FcHome /></span>ホーム</Link>
+      { isAuthenticated ?
+        <Link to='/favorite_ranking' onClick={() => closeMenu()}><span className={sideBar["react-icon"]}><FcFilm /></span>人気ランキング</Link>
+        :
+        <Link to='/general_favorites_ranking' onClick={() => closeMenu()}><span className={sideBar["react-icon"]}><FcFilm /></span>人気ランキング</Link>
+      }
       <Link to="/users" onClick={() => closeMenu()}><span className={sideBar["react-icon"]}><FcPortraitMode /></span>ユーザー一覧</Link>
       <Link to="/comic" onClick={() => closeMenu()}><span className={sideBar["react-icon"]}><FcReading /></span>漫画一覧</Link>
       { isAuthenticated ?

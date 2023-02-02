@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import header from '../css/header.module.css';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthGuard';
-import { FcVoicePresentation, FcClapperboard, FcImport, FcHome } from "react-icons/fc";
+import { FcVoicePresentation, FcClapperboard, FcImport, FcHome, FcFilm } from "react-icons/fc";
 import BurgerMenu from './ui/BurgerMenu';
 
 const Header = () => {
@@ -16,6 +16,15 @@ const Header = () => {
           <li className={header.side}>
             <BurgerMenu />
           </li>
+          { isAuthenticated ?
+            <li className={header.li}>
+              <Link to='/favorite_ranking'><button className={header["nav-ranking"]}><span className={header["react-icon"]}><FcFilm /></span>人気ランキング</button></Link>
+            </li>
+            :
+            <li className={header.li}>
+              <Link to='/general_favorites_ranking'><button className={header["nav-ranking"]}><span className={header["react-icon"]}><FcFilm /></span>人気ランキング</button></Link>
+            </li>
+          }
           <li className={header.li}>
             <Link to='/users'><button className={header["nav-li-text"]}><span className={header["react-icon"]}><FcVoicePresentation /></span>ユーザー一覧</button></Link>
           </li>
