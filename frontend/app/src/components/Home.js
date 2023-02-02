@@ -81,6 +81,15 @@ const Home = () => {
             </div>
           ))}
         </div>
+        { isAuthenticated ?
+        <div className={home["outer-ranking"]}>
+          <Link to='/favorite_ranking' className={home.ranking}>人気のあるシーンを見てみる！</Link>
+        </div>
+        :
+        <div className={home["outer-ranking"]}>
+          <Link to='/general_favorites_ranking' className={home.ranking}>人気のあるシーンを見てみる！</Link>
+        </div>
+        }
       </div>
     </div>
   );

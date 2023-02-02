@@ -99,6 +99,25 @@
   flex-wrap: wrap;
 }
 
+.outer-ranking {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.outer-ranking:hover {
+  opacity: 0.8;
+}
+
+.ranking {
+  display: inline;
+  font-weight: bold;
+  background-color: #ffb6c1;
+  padding: 16px 40px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+}
+
 @media screen and (min-width: 541px) and (max-width: 1024px) {
   .content {
     background-image: url("../../public/image/home-back.jpg");
@@ -119,6 +138,12 @@
   }
 
   .section-title {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+
+  .ranking {
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 12px;
@@ -170,5 +195,11 @@
   .main-content {
     font-size: 13px;
     display: block;
+  }
+
+  .ranking {
+    padding: 13px 20px;
+    border-radius: 5px;
+    font-size: 12px;
   }
 }
