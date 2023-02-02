@@ -30,9 +30,9 @@ RSpec.describe "Api::V1::Comics", type: :request do
     end
   end
 
-  describe "非ログインユーザーの漫画閲覧一覧を2つに限定した機能" do
+  describe "非ログインユーザーの漫画閲覧一覧を10つに限定した機能" do
     let!(:comic) { create(:comic) }
-    let!(:related_comics) { create_list(:comic, 4) }
+    let!(:related_comics) { create_list(:comic, 10) }
 
     before do
       get latest_api_v1_comics_path
@@ -51,9 +51,9 @@ RSpec.describe "Api::V1::Comics", type: :request do
         expect(response.body).to include comic.genre
       end
 
-      it "表示される漫画のデータが2つであること" do
+      it "表示される漫画のデータが10つであること" do
         json = JSON.parse(response.body)
-        expect(json['data'].length).to eq(2)
+        expect(json['data'].length).to eq(10)
       end
     end
   end
