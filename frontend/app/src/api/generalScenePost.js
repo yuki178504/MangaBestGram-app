@@ -39,7 +39,7 @@ export const generalScenePost = {
     });
     return res.data
   },
-  getLoginFavoriteRanking: async () => {
+  getLoginFavoriteRanking: async (token) => {
     const response = await axios
     .get(`${process.env.REACT_APP_DEV_API_URL}/general/favorites_ranking`, {
       headers: {

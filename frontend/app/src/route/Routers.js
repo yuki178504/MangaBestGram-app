@@ -47,7 +47,7 @@ const Routers = () => {
       <Route path='/comic-completion' element={ <ProtectedRoute component={ComicCompletion}/> } />
       <Route path='/general_scene_post/:comic_title/:comic_id' element={ <GeneralScenePost /> } />
       <Route path='/general_favorites_ranking' element={ <GeneralFavoritesRanking /> } />
-      <Route path='/favorite_ranking' element={ <FavoriteRanking /> } />
+      <Route path='/favorite_ranking' element={ <ProtectedRoute component={FavoriteRanking}/> } />
       <Route path='/general_scene_post/:comic_title/general_scene_post_show/:scene_post_id' element={ <GeneralScenePostShow /> } />
       <Route path='/comic' element={ <GeneralComic /> } />
       <Route path='*' element={ <Page404 /> } />

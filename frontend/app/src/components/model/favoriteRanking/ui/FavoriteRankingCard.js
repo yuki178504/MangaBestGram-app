@@ -1,20 +1,21 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useFavorite } from "../../../../hooks/useFavorite";
 import { useGeneralComment } from "../../../../hooks/useGeneralComment";
-import { AuthContext } from "../../../../providers/AuthGuard";
 import ReactLoading from "react-loading";
 import { Link } from "react-router-dom";
 import UnFavoriteButton from "../../../ui/UnFavoriteButton";
 import FavoriteButton from "../../../ui/FavoriteButton";
 import { UserInformationName } from "../../../ui/UserInformationDisplay";
-import { FcFilm, FcContacts, FcCalendar, FcMms, FcSms, FcLikePlaceholder } from "react-icons/fc";
+import { FcFilm, FcContacts, FcCalendar, FcMms, FcSms } from "react-icons/fc";
 import generalScenePost from '../../../../css/model/general/generalScenePost.module.css';
+import FavoriteRanking from '../../../../css/favoriteRanking.module.css';
 import moment from 'moment';
 import noimage from "../../../../image/default.png";
 import scenery from "../../../../image/scenery.png";
 
 
 const FavoriteRankingCard = ({
+  index,
   scenePostId,
   scenePostSubTitle,
   scenePostUserImage,
@@ -26,7 +27,6 @@ const FavoriteRankingCard = ({
   comicTitle
 }) => {
   const [ favoriteState, setFavoriteState ] = useState(favorite);
-  const { isAuthenticated, loginWithRedirect } = useContext(AuthContext);
   const { useGetGeneralComment } = useGeneralComment();
   const { useGetFavorites_count } = useFavorite();
 
@@ -36,7 +36,11 @@ const FavoriteRankingCard = ({
   if(favoritesLoading) return <></>
 
   return (
-    <div className={generalScenePost.content}>
+    <div className={FavoriteRanking.content}>
+      <div className={FavoriteRanking.ranking}>
+        <div className={FavoriteRanking["ranking-number"]}>{index}位</div>
+        <div className={FavoriteRanking["comic-title"]}>{ comicTitle }</div>
+      </div>
       <div className={generalScenePost["innner-content"]}>
         <div className={generalScenePost.list}>
           <div className={generalScenePost["user-name"]}>
@@ -45,28 +49,16 @@ const FavoriteRankingCard = ({
             { scenePostUserName }
           </div>
           <div className={generalScenePost["outer-favorite"]}>
-            {isAuthenticated ? (
-              <>
-                {favoriteState ? (
-                  <UnFavoriteButton
-                    id={scenePostId}
-                    changeFavorite={setFavoriteState}
-                  />
-                ) : (
-                  <FavoriteButton
-                    id={scenePostId}
-                    changeFavorite={setFavoriteState}
-                  />
-                )}
-              </>
+            {favoriteState ? (
+              <UnFavoriteButton
+                id={scenePostId}
+                changeFavorite={setFavoriteState}
+              />
             ) : (
-              <button
-                className={generalScenePost.favorite}
-                type='submit'
-                onClick={() => {
-                  loginWithRedirect();
-                }}
-              ><FcLikePlaceholder /></button>
+              <FavoriteButton
+                id={scenePostId}
+                changeFavorite={setFavoriteState}
+              />
             )}
             <div className={generalScenePost["favorite-count"]}>{ favorites?.length }</div>
           </div>

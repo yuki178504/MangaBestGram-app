@@ -66,7 +66,10 @@ export const useGeneralScenePost = () => {
   const useGetLoginFavoritesRanking = () => {
     return useQuery({
       queryKey: 'login_general_favorites_ranking',
-      queryFn: () => generalScenePost.getLoginFavoriteRanking(),
+      queryFn: () =>
+        generalScenePost.getLoginFavoriteRanking(
+          token || ''
+        ),
       staleTime: 30000000,
       cacheTime: 0,
     });
