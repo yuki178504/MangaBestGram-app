@@ -13,7 +13,6 @@ const FavoriteRanking = () => {
   const { data: favorites_ranking, isLoading } = useGetLoginFavoritesRanking();
 
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
-  console.log(favorites_ranking)
 
   return (
     <div className={subMenu.wrapper}>

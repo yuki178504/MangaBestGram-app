@@ -6,7 +6,7 @@ class Api::V1::ComicsController < ApplicationController
   end
 
   def latest
-    comics = Comic.order(updated_at: :desc).limit(2)
+    comics = Comic.order(updated_at: :desc).limit(10)
     render_json = ComicSerializer.new(comics).serializable_hash.to_json
     render json: render_json
   end
