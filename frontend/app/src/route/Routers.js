@@ -13,6 +13,7 @@ import {
   ScenePostEdit,
   ScenePostImageEdit,
   GeneralScenePost,
+  GeneralLoginScenePost,
   GeneralComic,
   GeneralScenePostShow,
   Page404,
@@ -46,6 +47,7 @@ const Routers = () => {
       <Route path='/comic/:comic_id/:comic_title/comic_confirm_delete' element={ <ProtectedRoute component={ComicConfirmDelete}/> } />
       <Route path='/comic-completion' element={ <ProtectedRoute component={ComicCompletion}/> } />
       <Route path='/general_scene_post/:comic_title/:comic_id' element={ <GeneralScenePost /> } />
+      <Route path='/general_login_scene_post/:comic_title/:comic_id' element={ <ProtectedRoute component={GeneralLoginScenePost}/> } />
       <Route path='/general_favorites_ranking' element={ <GeneralFavoritesRanking /> } />
       <Route path='/favorite_ranking' element={ <ProtectedRoute component={FavoriteRanking}/> } />
       <Route path='/general_scene_post/:comic_title/general_scene_post_show/:scene_post_id' element={ <GeneralScenePostShow /> } />

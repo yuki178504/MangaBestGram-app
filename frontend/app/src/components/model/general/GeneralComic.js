@@ -7,14 +7,16 @@ import generalComic from "../../../css/model/general/generalComic.module.css";
 import subMenu from '../../../css/ui/subMenu.module.css';
 import { AiFillHome } from "react-icons/ai";
 import { FcReading, FcFile, FcCalendar, FcMms, FcSearch } from "react-icons/fc";
-import { useMemo, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import moment from 'moment';
 import { UserInformationName } from "../../ui/UserInformationDisplay";
 import ScenePostCount from "../../ui/ScenePostCount";
+import { AuthContext } from "../../../providers/AuthGuard";
 
 const GeneralComic = () => {
   const { useGetGeneralComic } = useGeneralComic();
   const { data: comics, isLoading } = useGetGeneralComic();
+  const { isAuthenticated } = useContext(AuthContext);
 
   let data = comics === undefined ? [{ length: 0 }] : comics.data;
 
@@ -111,9 +113,15 @@ const GeneralComic = () => {
                   <p className={generalComic.detail}><span className={generalComic["react-icon"]}><FcFile /></span>ジャンル</p>
                   <div>{ comic.attributes.genre }</div>
                 </div>
-                <div className={generalComic["detail-area-link"]}>
-                  <Link to={`/general_scene_post/${comic.attributes.title}/${comic.id}`} className={generalComic["link-show"]} ><span className={generalComic["react-icon"]}><FcMms /></span>シーンを見る</Link>
-                </div>
+                { isAuthenticated ?
+                  <div className={generalComic["detail-area-link"]}>
+                    <Link to={`/general_login_scene_post/${comic.attributes.title}/${comic.id}`} className={generalComic["link-show"]} ><span className={generalComic["react-icon"]}><FcMms /></span>シーンを見る</Link>
+                  </div>
+                :
+                  <div className={generalComic["detail-area-link"]}>
+                    <Link to={`/general_scene_post/${comic.attributes.title}/${comic.id}`} className={generalComic["link-show"]} ><span className={generalComic["react-icon"]}><FcMms /></span>シーンを見る</Link>
+                  </div>
+                }
               </div>
               <div className={generalComic["outer-image"]}>
                 <div className={generalComic["detail-area-image"]}>

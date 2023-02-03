@@ -1,36 +1,34 @@
-import { useParams, Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { AiFillHome } from "react-icons/ai";
 import { useGeneralScenePost } from "../../../hooks/useGeneralScenePost";
 import ReactLoading from "react-loading";
-import generalScenePost from '../../../css/model/general/generalScenePost.module.css';
-import subMenu from '../../../css/ui/subMenu.module.css';
-import { AiFillHome } from "react-icons/ai";
-import GeneralScenePostCard from "./ui/GeneralScenePostCard";
 import { useMemo, useState } from "react";
 import { FcSearch } from "react-icons/fc";
+import GeneralLoginScenePostCard from "./ui/GeneralLoginScenePostCard";
+import generalScenePost from '../../../css/model/general/generalScenePost.module.css';
+import subMenu from '../../../css/ui/subMenu.module.css';
 
-const GeneralScenePost = () => {
+const GeneralLoginScenePost = () => {
   const { comic_id, comic_title } = useParams();
-  const { useGetGeneralScenePost } = useGeneralScenePost();
+  const { useGetLoginGeneralScenePost } = useGeneralScenePost();
 
-  const { data: scene_posts, isLoading } = useGetGeneralScenePost(comic_id);
+  const { data: scene_posts, isLoading } = useGetLoginGeneralScenePost(comic_id);
 
   let data = scene_posts === undefined ? [{ length: 0 }] : scene_posts.data;
 
   const [searchText, setSearchText] = useState('');
 
-  // 検索用関数
   const searchKeywords = searchText.trim().match(/[^\s]+/g);
   if (searchKeywords !== null) {
     data = scene_posts.data.filter((scene_post) =>
       searchKeywords.every(
-        (kw) => scene_post.attributes.subTitle.indexOf(kw) !== -1
+        (kw) => scene_post.attributes.sub_title.indexOf(kw) !== -1
       )
     );
   };
 
   const [ sort, setSort ] = useState({});
 
-  // 並び替え用関数
   const sortedData = useMemo(() => {
     let _sortedData = data;
     if (sort.key) {
@@ -79,7 +77,7 @@ const GeneralScenePost = () => {
       </div>
       <div className={generalScenePost.count}>【投稿数】&nbsp;{scene_posts.data.length}件</div>
       <div className={generalScenePost.sort}>
-        <button className={sort.key === 'id' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('id')}>並び替え </button>
+        <button className={sort.key === 'id' ? sort.order === 1 ? 'button active asc' : 'button active desc' : 'button'} onClick={() => handleSort('id')}>並び替え</button>
       </div>
       <div className={generalScenePost.search}>
         <span className={generalScenePost["fc-search"]}><FcSearch /></span>
@@ -95,18 +93,19 @@ const GeneralScenePost = () => {
       ) }
       <div className={generalScenePost["main-content"]}>
         {sortedData.map((scene_post, index) => (
-          <GeneralScenePostCard
+          <GeneralLoginScenePostCard
             key={index}
             scenePostId={scene_post.id}
-            scenePostSubTitle={scene_post.attributes.subTitle}
-            scenePostUserImage={scene_post.attributes.scenePostUserImage.url}
-            scenePostUserName={scene_post.attributes.scenePostUserName}
-            scenePostNumber={scene_post.attributes.sceneNumber}
-            scenePostImage={scene_post.attributes.sceneImage.url}
-            scenePostCreatedAt={scene_post.attributes.createdAt}
+            scenePostSubTitle={scene_post.attributes.sub_title}
+            scenePostUserImage={scene_post.attributes.scene_post_user_image.url}
+            scenePostUserName={scene_post.attributes.scene_post_user_name}
+            scenePostNumber={scene_post.attributes.scene_number}
+            scenePostImage={scene_post.attributes.scene_image.url}
+            scenePostCreatedAt={scene_post.attributes.created_at}
             favorite={scene_post.attributes.favorite}
             comicTitle={comic_title}
-            userId={scene_post.attributes.userId}
+            comicId={scene_post.attributes.comicId}
+            userId={scene_post.attributes.user_id}
           />
         ))}
       </div>
@@ -114,4 +113,4 @@ const GeneralScenePost = () => {
   );
 };
 
-export default GeneralScenePost;
+export default GeneralLoginScenePost;
