@@ -110,6 +110,7 @@ const GeneralScenePost = () => {
 
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
   if(general_loading) return <ReactLoading type="spin" color='blue' className='loading' />
+  console.log(sortedGeneralData)
 
   return (
     <div className={subMenu.wrapper}>
@@ -154,6 +155,7 @@ const GeneralScenePost = () => {
                 scenePostCreatedAt={scene_post.attributes.created_at}
                 favorite={scene_post.attributes.favorite}
                 comicTitle={comic_title}
+                comicId={scene_post.attributes.comicId}
               />
             ))}
           </div>
@@ -188,6 +190,7 @@ const GeneralScenePost = () => {
                 scenePostCreatedAt={scene_post.attributes.createdAt}
                 favorite={scene_post.attributes.favorite}
                 comicTitle={comic_title}
+                userId={scene_post.attributes.userId}
               />
             ))}
           </div>
