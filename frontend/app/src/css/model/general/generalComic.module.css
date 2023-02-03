@@ -132,6 +132,7 @@
 }
 
 .image {
+  padding-bottom: 20px;
   height: 250px;
   width: 100%;
   object-fit: contain;
@@ -140,6 +141,18 @@
 .list {
   padding: 15px;
   width: 100%;
+}
+
+.detail-area-count {
+  margin-top: -10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-area-list {
+  width: 100%;
+  margin-right: 10px;
+  text-align: center;
 }
 
 @media screen and (min-width: 541px) and (max-width: 1024px) {

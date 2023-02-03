@@ -12,6 +12,7 @@ import { BsChevronDoubleDown } from "react-icons/bs";
 import { FcReading, FcFile, FcCalendar, FcMms, FcHome } from "react-icons/fc";
 import moment from 'moment';
 import { UserInformationName } from './ui/UserInformationDisplay';
+import ScenePostCount from './ui/ScenePostCount';
 
 const Home = () => {
   const { useGetGeneralLatestComic } = useGeneralComic();
@@ -81,6 +82,11 @@ const Home = () => {
                   <div className={generalComic["detail-area-image"]}>
                     <div className={generalComic["create-at"]}><span className={generalComic["detail-text"]}><span className={generalComic["react-icon"]}><FcCalendar /></span>{ moment(comic.attributes.createdAt).format('YYYY年MM月DD日HH:mm') }</span></div>
                     <img className={generalComic.image} src={ comic.attributes.image.url } alt='画像' onError={(e) => e.target.src = scenery} />
+                    <div className={generalComic['detail-area-count']}>
+                      <div className={generalComic['detail-area-list']}>
+                        <ScenePostCount comicId={comic.id} />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
