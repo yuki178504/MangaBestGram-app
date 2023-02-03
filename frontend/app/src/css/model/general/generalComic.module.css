@@ -77,6 +77,10 @@
   margin-right: 20px;
 }
 
+.user-image:hover {
+  opacity: 0.8;
+}
+
 .detail-area {
   margin-top: 20px;
   margin-bottom: 20px;

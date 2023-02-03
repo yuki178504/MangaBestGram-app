@@ -20,6 +20,7 @@ const Home = () => {
 
   if(comicLoading) return <></>
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
+  console.log(comics)
 
   return (
     <div className={home.wrapper}>
@@ -58,7 +59,12 @@ const Home = () => {
             <div key={comic.id} className={generalComic.content}>
               <div className={generalComic["innner-content"]}>
                 <div className={generalComic.list}>
-                  <div className={generalComic["user-name"]}><img className={generalComic["user-image"]} src={ comic.attributes.comicUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} /><UserInformationName userName={comic.attributes.comicUserName} />{ comic.attributes.comicUserName }</div>
+                  <div className={generalComic["user-name"]}>
+                    <Link to={`/users/${comic.attributes.userId}/comics`} >
+                      <img className={generalComic["user-image"]} src={ comic.attributes.comicUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                    </Link>
+                    <UserInformationName userName={comic.attributes.comicUserName} />{ comic.attributes.comicUserName }
+                  </div>
                   <div className={generalComic["detail-area"]}>
                     <p className={generalComic.detail}><span className={generalComic["react-icon"]}><FcReading /></span>漫画名</p>
                     <div>{ comic.attributes.title }</div>
