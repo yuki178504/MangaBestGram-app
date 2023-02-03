@@ -1,8 +1,6 @@
 FROM node:16.17.0-alpine as build
 WORKDIR /usr/src/app
 COPY ./app /usr/src/app
-RUN npm cache clean --force
-RUN rm -rf node_modules
 RUN npm update -g npm
 RUN npm install --force
 RUN npm run build
