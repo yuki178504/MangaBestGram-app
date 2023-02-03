@@ -10,6 +10,7 @@ import { FcReading, FcFile, FcCalendar, FcMms, FcSearch } from "react-icons/fc";
 import { useMemo, useState } from "react";
 import moment from 'moment';
 import { UserInformationName } from "../../ui/UserInformationDisplay";
+import ScenePostCount from "../../ui/ScenePostCount";
 
 const GeneralComic = () => {
   const { useGetGeneralComic } = useGeneralComic();
@@ -71,7 +72,7 @@ const GeneralComic = () => {
           <span className={subMenu.home}>
             <Link to='/' className={subMenu["home-link"]}><span className={subMenu["react-icons"]}><AiFillHome /></span>ホーム</Link>
           </span>
-          <span>/ 漫画一覧</span>
+          <span>/&nbsp;漫画一覧</span>
         </div>
       </div>
       <div className={generalComic.count}>【投稿数】&nbsp;{comics.data.length}件</div>
@@ -96,7 +97,9 @@ const GeneralComic = () => {
             <div className={generalComic["innner-content"]}>
               <div className={generalComic.list}>
                 <div className={generalComic["user-name"]}>
-                  <img className={generalComic["user-image"]} src={ comic.attributes.comicUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                  <Link to={`/users/${comic.attributes.userId}/comics`} >
+                    <img className={generalComic["user-image"]} src={ comic.attributes.comicUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                  </Link>
                   <UserInformationName userName={comic.attributes.comicUserName} />
                   { comic.attributes.comicUserName }
                 </div>
@@ -116,6 +119,11 @@ const GeneralComic = () => {
                 <div className={generalComic["detail-area-image"]}>
                   <div className={generalComic["create-at"]}><span className={generalComic["detail-text"]}><span className={generalComic["react-icon"]}><FcCalendar /></span>{ moment(comic.attributes.createdAt).format('YYYY年MM月DD日HH:mm') }</span></div>
                   <img className={generalComic.image} src={ comic.attributes.image.url } alt='画像' onError={(e) => e.target.src = scenery} />
+                  <div className={generalComic['detail-area-count']}>
+                    <div className={generalComic['detail-area-list']}>
+                      <ScenePostCount comicId={comic.id} />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

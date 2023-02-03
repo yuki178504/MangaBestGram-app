@@ -21,7 +21,6 @@ const Home = () => {
 
   if(comicLoading) return <></>
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
-  console.log(comics)
 
   return (
     <div className={home.wrapper}>
