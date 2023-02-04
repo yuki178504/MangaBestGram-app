@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { useGeneralComment } from "../../../hooks/useGeneralComment";
 import moment from 'moment';
 import { FcCalendar } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const Comment = ({scene_post_id}) => {
   const { useGetComment } = useComment();
@@ -30,7 +31,11 @@ const Comment = ({scene_post_id}) => {
           {comments.data?.map((comment) => (
             <div key={comment.id} className={commentCss["innner-content"]}>
               <div className={commentCss.list}>
-                <div className={commentCss["user-name"]}><img className={commentCss["user-image"]} src={ comment.attributes.comment_user_image.url } alt='画像' onError={(e) => e.target.src = noimage} />{ comment.attributes.comment_user_name }</div>
+                <div className={commentCss["user-name"]}>
+                <Link to={`/users/${comment.attributes.user_id}/comics`} >
+                  <img className={commentCss["user-image"]} src={ comment.attributes.comment_user_image.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                </Link>
+                  { comment.attributes.comment_user_name }</div>
                 <div className={commentCss["detail-area"]}>
                   <div>{ comment.attributes.body }</div>
                 </div>

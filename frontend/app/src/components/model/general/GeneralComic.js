@@ -7,13 +7,16 @@ import generalComic from "../../../css/model/general/generalComic.module.css";
 import subMenu from '../../../css/ui/subMenu.module.css';
 import { AiFillHome } from "react-icons/ai";
 import { FcReading, FcFile, FcCalendar, FcMms, FcSearch } from "react-icons/fc";
-import { useMemo, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import moment from 'moment';
 import { UserInformationName } from "../../ui/UserInformationDisplay";
+import ScenePostCount from "../../ui/ScenePostCount";
+import { AuthContext } from "../../../providers/AuthGuard";
 
 const GeneralComic = () => {
   const { useGetGeneralComic } = useGeneralComic();
   const { data: comics, isLoading } = useGetGeneralComic();
+  const { isAuthenticated } = useContext(AuthContext);
 
   let data = comics === undefined ? [{ length: 0 }] : comics.data;
 
@@ -71,7 +74,7 @@ const GeneralComic = () => {
           <span className={subMenu.home}>
             <Link to='/' className={subMenu["home-link"]}><span className={subMenu["react-icons"]}><AiFillHome /></span>ホーム</Link>
           </span>
-          <span>/ 漫画一覧</span>
+          <span>/&nbsp;漫画一覧</span>
         </div>
       </div>
       <div className={generalComic.count}>【投稿数】&nbsp;{comics.data.length}件</div>
@@ -96,7 +99,9 @@ const GeneralComic = () => {
             <div className={generalComic["innner-content"]}>
               <div className={generalComic.list}>
                 <div className={generalComic["user-name"]}>
-                  <img className={generalComic["user-image"]} src={ comic.attributes.comicUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                  <Link to={`/users/${comic.attributes.userId}/comics`} >
+                    <img className={generalComic["user-image"]} src={ comic.attributes.comicUserImage.url } alt='画像' onError={(e) => e.target.src = noimage} />
+                  </Link>
                   <UserInformationName userName={comic.attributes.comicUserName} />
                   { comic.attributes.comicUserName }
                 </div>
@@ -108,14 +113,25 @@ const GeneralComic = () => {
                   <p className={generalComic.detail}><span className={generalComic["react-icon"]}><FcFile /></span>ジャンル</p>
                   <div>{ comic.attributes.genre }</div>
                 </div>
-                <div className={generalComic["detail-area-link"]}>
-                  <Link to={`/general_scene_post/${comic.attributes.title}/${comic.id}`} className={generalComic["link-show"]} ><span className={generalComic["react-icon"]}><FcMms /></span>シーンを見る</Link>
-                </div>
+                { isAuthenticated ?
+                  <div className={generalComic["detail-area-link"]}>
+                    <Link to={`/general_login_scene_post/${comic.attributes.title}/${comic.id}`} className={generalComic["link-show"]} ><span className={generalComic["react-icon"]}><FcMms /></span>シーンを見る</Link>
+                  </div>
+                :
+                  <div className={generalComic["detail-area-link"]}>
+                    <Link to={`/general_scene_post/${comic.attributes.title}/${comic.id}`} className={generalComic["link-show"]} ><span className={generalComic["react-icon"]}><FcMms /></span>シーンを見る</Link>
+                  </div>
+                }
               </div>
               <div className={generalComic["outer-image"]}>
                 <div className={generalComic["detail-area-image"]}>
                   <div className={generalComic["create-at"]}><span className={generalComic["detail-text"]}><span className={generalComic["react-icon"]}><FcCalendar /></span>{ moment(comic.attributes.createdAt).format('YYYY年MM月DD日HH:mm') }</span></div>
                   <img className={generalComic.image} src={ comic.attributes.image.url } alt='画像' onError={(e) => e.target.src = scenery} />
+                  <div className={generalComic['detail-area-count']}>
+                    <div className={generalComic['detail-area-list']}>
+                      <ScenePostCount comicId={comic.id} />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
