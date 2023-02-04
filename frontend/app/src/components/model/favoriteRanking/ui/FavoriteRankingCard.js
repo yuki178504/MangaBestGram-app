@@ -24,7 +24,8 @@ const FavoriteRankingCard = ({
   scenePostNumber,
   scenePostImage,
   favorite,
-  comicTitle
+  comicTitle,
+  userId
 }) => {
   const [ favoriteState, setFavoriteState ] = useState(favorite);
   const { useGetGeneralComment } = useGeneralComment();
@@ -44,9 +45,11 @@ const FavoriteRankingCard = ({
       <div className={generalScenePost["innner-content"]}>
         <div className={generalScenePost.list}>
           <div className={generalScenePost["user-name"]}>
-            <img className={generalScenePost["user-image"]} src={ scenePostUserImage } alt='画像' onError={(e) => e.target.src = noimage} />
-            <UserInformationName userName={scenePostUserName} />
-            { scenePostUserName }
+            <Link to={`/users/${userId}/comics`} >
+              <img className={generalScenePost["user-image"]} src={ scenePostUserImage } alt='画像' onError={(e) => e.target.src = noimage} />
+              <UserInformationName userName={scenePostUserName} />
+              { scenePostUserName }
+            </Link>
           </div>
           <div className={generalScenePost["outer-favorite"]}>
             {favoriteState ? (
