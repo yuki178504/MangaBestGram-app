@@ -26,7 +26,9 @@ const GeneralUserCard = ({
       <div className={generalUser["innner-content"]}>
         <div className={generalUser.list}>
           <div className={generalUser["user-name"]}>
-            <img className={generalUser["user-image"]} src={ userImage } alt='画像' onError={(e) => e.target.src = noimage} />
+            <Link to={`/users/${userId}/comics`} >
+              <img className={generalUser["user-image"]} src={ userImage } alt='画像' onError={(e) => e.target.src = noimage} />
+            </Link>
             <span className={generalUser["react-icon"]}><FcPodiumWithSpeaker /></span>ユーザー名&nbsp;<span className={generalUser["user-name-text"]}><UserInformationName userName={userName} />{ userName }</span>
           </div>
           <div className={generalUser['detail-area']}>

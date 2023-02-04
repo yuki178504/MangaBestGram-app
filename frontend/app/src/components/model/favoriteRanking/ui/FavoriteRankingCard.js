@@ -13,7 +13,6 @@ import moment from 'moment';
 import noimage from "../../../../image/default.png";
 import scenery from "../../../../image/scenery.png";
 
-
 const FavoriteRankingCard = ({
   index,
   scenePostId,
