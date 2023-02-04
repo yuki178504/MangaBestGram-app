@@ -41,6 +41,7 @@ const FavoriteRanking = () => {
           scenePostCreatedAt={scene_post.attributes.created_at}
           favorite={scene_post.attributes.favorite}
           comicTitle={scene_post.attributes.scene_post_comic_title}
+          userId={scene_post.attributes.user_id}
           />
         ))}
       </div>

@@ -13,6 +13,7 @@ export { default as ScenePostShow } from '../components/model/scene_post/ScenePo
 export { default as ScenePostEdit } from '../components/model/scene_post/ScenePostEdit';
 export { default as ScenePostConfirmDelete } from '../components/model/scene_post/ui/ScenePostConfirmDelete';
 export { default as GeneralScenePost } from '../components/model/general/GeneralScenePost';
+export { default as GeneralLoginScenePost } from '../components/model/general/GeneralLoginScenePost';
 export { default as GeneralScenePostShow } from '../components/model/general/GeneralScenePostShow';
 //comic群
 export { default as ComicEdit } from '../components/model/mypage/ComicEdit';

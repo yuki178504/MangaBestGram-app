@@ -1,18 +1,17 @@
-import { useContext, useState } from "react";
-import generalScenePost from '../../../../css/model/general/generalScenePost.module.css';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useFavorite } from "../../../../hooks/useFavorite";
+import { useGeneralComment } from "../../../../hooks/useGeneralComment";
+import FavoriteButton from "../../../ui/FavoriteButton";
+import UnFavoriteButton from "../../../ui/UnFavoriteButton";
+import { UserInformationName } from "../../../ui/UserInformationDisplay";
+import { FcFilm, FcContacts, FcCalendar, FcMms, FcSms } from "react-icons/fc";
+import moment from 'moment';
 import noimage from "../../../../image/default.png";
 import scenery from "../../../../image/scenery.png";
-import { FcFilm, FcContacts, FcCalendar, FcMms, FcSms, FcLikePlaceholder } from "react-icons/fc";
-import UnFavoriteButton from "../../../ui/UnFavoriteButton";
-import FavoriteButton from "../../../ui/FavoriteButton";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../../../providers/AuthGuard";
-import { useGeneralComment } from "../../../../hooks/useGeneralComment";
-import moment from 'moment';
-import { useFavorite } from "../../../../hooks/useFavorite";
-import { UserInformationName } from "../../../ui/UserInformationDisplay";
+import generalScenePost from '../../../../css/model/general/generalScenePost.module.css';
 
-const GeneralScenePostCard = ({
+const GeneralLoginScenePostCard = ({
   scenePostId,
   scenePostSubTitle,
   scenePostUserImage,
@@ -25,13 +24,13 @@ const GeneralScenePostCard = ({
   userId
 }) => {
   const [ favoriteState, setFavoriteState ] = useState(favorite);
-  const { isAuthenticated, loginWithRedirect } = useContext(AuthContext);
 
   const { useGetGeneralComment } = useGeneralComment();
   const { useGetFavorites_count } = useFavorite();
 
   const { data: generalComments, isLoading } = useGetGeneralComment(scenePostId);
   const { data: favorites, favoritesLoading } = useGetFavorites_count(scenePostId);
+
   if(isLoading) return <></>
   if(favoritesLoading) return <></>
 
@@ -47,28 +46,16 @@ const GeneralScenePostCard = ({
             </Link>
           </div>
           <div className={generalScenePost["outer-favorite"]}>
-            {isAuthenticated ? (
-              <>
-                {favoriteState ? (
-                  <UnFavoriteButton
-                    id={scenePostId}
-                    changeFavorite={setFavoriteState}
-                  />
-                ) : (
-                  <FavoriteButton
-                    id={scenePostId}
-                    changeFavorite={setFavoriteState}
-                  />
-                )}
-              </>
+            {favoriteState ? (
+              <UnFavoriteButton
+                id={scenePostId}
+                changeFavorite={setFavoriteState}
+              />
             ) : (
-              <button
-                className={generalScenePost.favorite}
-                type='submit'
-                onClick={() => {
-                  loginWithRedirect();
-                }}
-              ><FcLikePlaceholder /></button>
+              <FavoriteButton
+                id={scenePostId}
+                changeFavorite={setFavoriteState}
+              />
             )}
             <div className={generalScenePost["favorite-count"]}>{ favorites?.length }</div>
           </div>
@@ -100,4 +87,4 @@ const GeneralScenePostCard = ({
   );
 };
 
-export default GeneralScenePostCard;
+export default GeneralLoginScenePostCard;
