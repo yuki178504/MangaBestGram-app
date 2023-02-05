@@ -6,10 +6,19 @@ import ReactLoading from "react-loading";
 import scenery from "../../../image/scenery.png";
 import { FcReading, FcFile, FcCalendar, FcMms, FcSearch, FcEditImage } from "react-icons/fc";
 import moment from 'moment';
+import Pagination from '@mui/material/Pagination';
+import PaginationItem from '@mui/material/PaginationItem';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { usePagination } from '../../../hooks/usePagination';
 
 const ComicPost = () => {
   const { useGetComic } = useComic();
   const { data: comics, isLoading } = useGetComic();
+
+  // ページネーション用
+  let [page, setPage] = useState(1);
+  const PER_PAGE = 6;
 
   let data = comics === undefined ? [{ length: 0 }] : comics;
 
@@ -58,6 +67,14 @@ const ComicPost = () => {
     } 
   };
 
+  // ページネーション
+  const count = Math.ceil(sortedData.length / PER_PAGE);
+  const _DATA = usePagination(sortedData, PER_PAGE);
+  const handleChange = (_e, p) => {
+    setPage(p);
+    _DATA.jump(p);
+  };
+
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
@@ -73,11 +90,11 @@ const ComicPost = () => {
           placeholder={'漫画のタイトルを検索'}
         />
       </div>
-      { data.length === 0 && (
+      { _DATA.currentData().length === 0 && (
         <div className={comicPost["detail-result"]}>検索結果がありません</div>
       ) }
       <div className={comicPost["main-content"]}>
-        {sortedData.map((comic) => (
+        {_DATA.currentData().map((comic) => (
           <div key={comic.id} className={comicPost.content}>
             <div className={comicPost["innner-content"]}>
               <div className={comicPost["outer-image"]}>
@@ -101,6 +118,23 @@ const ComicPost = () => {
             </div>
           </div>
         ))}
+      </div>
+      <div style={{textAlign: "center"}}>
+        <Pagination
+        className={comicPost.pagination}
+        count={count}
+        page={page}
+        renderItem={(item) => (
+          <PaginationItem
+            components={{
+              previous: ArrowBackIcon,
+              next: ArrowForwardIcon,
+            }}
+            {...item}
+          />
+        )}
+          onChange={handleChange}
+        />
       </div>
     </div>
   );

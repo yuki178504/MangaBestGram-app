@@ -134,6 +134,10 @@
   border-bottom: 2px solid #a9a9a9;
 }
 
+.pagination {
+  display: inline-block;
+}
+
 @media screen and (min-width: 541px) and (max-width: 1024px) {
   .content {
     width: 48%;

@@ -114,6 +114,10 @@
   opacity: 0.5;
 }
 
+.pagination {
+  display: inline-block;
+}
+
 @media screen and (max-width: 540px) {
   .main-content {
     font-size: 13px;
