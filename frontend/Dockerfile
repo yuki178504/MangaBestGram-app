@@ -1,11 +1,11 @@
 FROM node:16.17.0-alpine as build
 WORKDIR /usr/src/app
 COPY ./app /usr/src/app
-RUN export NODE_OPTIONS="--max-old-space-size=2000"
 RUN npm cache clean --force
 RUN rm -rf node_modules
 RUN npm update -g npm
 RUN npm install --force
+RUN export NODE_OPTIONS="--max-old-space-size=3072"
 RUN npm run build
 
 FROM nginx:1.15.8
