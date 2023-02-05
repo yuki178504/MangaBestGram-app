@@ -1,0 +1,18 @@
+.main-user-image {
+  text-align: center;
+}
+
+.content {
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.innner-content {
+  margin-bottom: 10px;
+}
+
+.user-image {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+}
