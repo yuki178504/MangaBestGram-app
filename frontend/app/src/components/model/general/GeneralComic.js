@@ -12,14 +12,24 @@ import moment from 'moment';
 import { UserInformationName } from "../../ui/UserInformationDisplay";
 import ScenePostCount from "../../ui/ScenePostCount";
 import { AuthContext } from "../../../providers/AuthGuard";
+import { usePagination } from "../../../hooks/usePagination";
+import Pagination from '@mui/material/Pagination';
+import PaginationItem from '@mui/material/PaginationItem';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const GeneralComic = () => {
   const { useGetGeneralComic } = useGeneralComic();
   const { data: comics, isLoading } = useGetGeneralComic();
   const { isAuthenticated } = useContext(AuthContext);
 
+  // ページネーション用
+  let [page, setPage] = useState(1);
+  const PER_PAGE = 6;
+
   let data = comics === undefined ? [{ length: 0 }] : comics.data;
 
+  // 検索用
   const [searchText, setSearchText] = useState('');
 
   const searchKeywords = searchText.trim().match(/[^\s]+/g);
@@ -31,6 +41,7 @@ const GeneralComic = () => {
     );
   };
 
+  // 並び替え用
   const [ sort, setSort ] = useState({});
 
   const sortedData = useMemo(() => {
@@ -65,6 +76,14 @@ const GeneralComic = () => {
     } 
   };
 
+  // ページネーション
+  const count = Math.ceil(sortedData.length / PER_PAGE);
+  const _DATA = usePagination(sortedData, PER_PAGE);
+  const handleChange = (_e, p) => {
+    setPage(p);
+    _DATA.jump(p);
+  };
+
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
@@ -90,11 +109,11 @@ const GeneralComic = () => {
           placeholder={'漫画のタイトルを検索'}
         />
       </div>
-      { data.length === 0 && (
+      { _DATA.currentData().length === 0 && (
         <div className={generalComic["detail-result"]}>検索結果がありません</div>
       ) }
       <div className={generalComic["main-content"]}>
-        {sortedData.map((comic) => (
+        {_DATA.currentData().map((comic) => (
           <div key={comic.id} className={generalComic.content}>
             <div className={generalComic["innner-content"]}>
               <div className={generalComic.list}>
@@ -137,6 +156,23 @@ const GeneralComic = () => {
             </div>
           </div>
         ))}
+      </div>
+      <div style={{textAlign: "center"}}>
+        <Pagination
+        className={generalComic.pagination}
+        count={count}
+        page={page}
+        renderItem={(item) => (
+          <PaginationItem
+            components={{
+              previous: ArrowBackIcon,
+              next: ArrowForwardIcon,
+            }}
+            {...item}
+          />
+        )}
+          onChange={handleChange}
+        />
       </div>
     </div>
   );

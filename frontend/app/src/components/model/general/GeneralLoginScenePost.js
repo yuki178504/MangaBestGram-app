@@ -7,12 +7,21 @@ import { FcSearch } from "react-icons/fc";
 import GeneralLoginScenePostCard from "./ui/GeneralLoginScenePostCard";
 import generalScenePost from '../../../css/model/general/generalScenePost.module.css';
 import subMenu from '../../../css/ui/subMenu.module.css';
+import Pagination from '@mui/material/Pagination';
+import PaginationItem from '@mui/material/PaginationItem';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { usePagination } from "../../../hooks/usePagination";
 
 const GeneralLoginScenePost = () => {
   const { comic_id, comic_title } = useParams();
   const { useGetLoginGeneralScenePost } = useGeneralScenePost();
 
   const { data: scene_posts, isLoading } = useGetLoginGeneralScenePost(comic_id);
+
+  // ページネーション用
+  let [page, setPage] = useState(1);
+  const PER_PAGE = 6;
 
   let data = scene_posts === undefined ? [{ length: 0 }] : scene_posts.data;
 
@@ -61,6 +70,14 @@ const GeneralLoginScenePost = () => {
     } 
   };
 
+  // ページネーション
+  const count = Math.ceil(sortedData.length / PER_PAGE);
+  const _DATA = usePagination(sortedData, PER_PAGE);
+  const handleChange = (_e, p) => {
+    setPage(p);
+    _DATA.jump(p);
+  };
+
   if(isLoading) return <ReactLoading type="spin" color='blue' className='loading' />
 
   return (
@@ -88,11 +105,11 @@ const GeneralLoginScenePost = () => {
           placeholder={'サブタイトルを検索'}
         />
       </div>
-      { data.length === 0 && (
+      { _DATA.currentData().length === 0 && (
         <div className={generalScenePost["detail-result"]}>検索結果がありません</div>
       ) }
       <div className={generalScenePost["main-content"]}>
-        {sortedData.map((scene_post, index) => (
+        {_DATA.currentData().map((scene_post, index) => (
           <GeneralLoginScenePostCard
             key={index}
             scenePostId={scene_post.id}
@@ -108,6 +125,23 @@ const GeneralLoginScenePost = () => {
             userId={scene_post.attributes.user_id}
           />
         ))}
+      </div>
+      <div style={{textAlign: "center"}}>
+        <Pagination
+        className={generalScenePost.pagination}
+        count={count}
+        page={page}
+        renderItem={(item) => (
+          <PaginationItem
+            components={{
+              previous: ArrowBackIcon,
+              next: ArrowForwardIcon,
+            }}
+            {...item}
+          />
+        )}
+          onChange={handleChange}
+        />
       </div>
     </div>
   );
